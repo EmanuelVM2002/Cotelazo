@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>El Coctelazo</title>
-<meta name="description" content="Carta de El Coctelazo by Perritos Gourmet de la Uva: granizados, cócteles, chupitos, micheladas, licores, malteadas y comida gourmet. Medellín desde 2017.">
+<meta name="description" content="Carta de El Coctelazo: granizados, micheladas, bombas, litrones, nevecones, adiciones, cervezas y licores. Domicilios desde Belén La Nubia. Medellín desde 2017.">
 <meta name="theme-color" content="#08080c">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -52,9 +52,9 @@ img{-webkit-user-drag:none}
 /* ---------- FONDO VIVO ---------- */
 .bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .aurora{position:absolute;border-radius:50%;will-change:transform;opacity:.9}
-.aurora.a1{width:70vmax;height:70vmax;left:-25vmax;top:-30vmax;background:radial-gradient(circle,rgba(255,47,126,.22),transparent 62%);animation:drift1 26s ease-in-out infinite alternate}
-.aurora.a2{width:62vmax;height:62vmax;right:-24vmax;top:-18vmax;background:radial-gradient(circle,rgba(41,216,255,.16),transparent 62%);animation:drift2 32s ease-in-out infinite alternate}
-.aurora.a3{width:60vmax;height:60vmax;left:20vmax;bottom:-36vmax;background:radial-gradient(circle,rgba(255,178,56,.10),transparent 62%);animation:drift1 38s ease-in-out infinite alternate-reverse}
+.aurora.a1{width:70vmax;height:70vmax;left:-25vmax;top:-30vmax;background:radial-gradient(circle,rgba(255,47,126,.22),transparent 62%);animation:drift1 70s ease-in-out infinite alternate}
+.aurora.a2{width:62vmax;height:62vmax;right:-24vmax;top:-18vmax;background:radial-gradient(circle,rgba(41,216,255,.16),transparent 62%);animation:drift2 85s ease-in-out infinite alternate}
+.aurora.a3{width:60vmax;height:60vmax;left:20vmax;bottom:-36vmax;background:radial-gradient(circle,rgba(255,178,56,.10),transparent 62%);animation:drift1 100s ease-in-out infinite alternate-reverse}
 @keyframes drift1{to{transform:translate3d(8vmax,6vmax,0) scale(1.08)}}
 @keyframes drift2{to{transform:translate3d(-9vmax,8vmax,0) scale(1.1)}}
 #fx{position:absolute;inset:0;width:100%;height:100%}
@@ -327,45 +327,6 @@ body.has-mouse .spot{opacity:1}
 .pb:disabled{border-color:transparent;background:none;color:#4d4a58;cursor:default}
 @media(max-width:480px){.liq{gap:5px}.pb{padding:7px 3px;font-size:11.5px}.liq .nm{font-size:13px}}
 
-/* ---------- GRANIZADO A TU MEDIDA ---------- */
-.builder{
-  position:relative;display:grid;gap:26px;grid-template-columns:1fr;margin-top:46px;padding:0 22px 24px;border-radius:26px;
-  background:linear-gradient(150deg,rgba(255,47,126,.12),rgba(41,216,255,.07) 60%,rgba(255,255,255,.02));
-  border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 60px -36px rgba(255,47,126,.5);
-}
-@media(min-width:760px){.builder{grid-template-columns:.9fr 1.1fr;align-items:center;padding:0 34px 30px}}
-.builder .stage{height:290px;margin:-46px 0 0;perspective:900px;transform-style:preserve-3d;--c1:var(--pink);--g:var(--g-pink);
-  transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .55s var(--ease)}
-.builder .stage.is-tilting{transition:transform .09s linear}
-.builder .pic{inset:0 0 18px}
-.builder .pic img{transition:filter .6s,transform .6s var(--ease)}
-.builder[data-type="1"] .stage{--c1:var(--cyan);--g:var(--g-cyan)}
-.builder[data-type="2"] .stage{--c1:var(--gold);--g:var(--g-gold)}
-.builder[data-type="1"] .pic img{filter:hue-rotate(-25deg) saturate(1.5) contrast(1.08) brightness(1.06) drop-shadow(0 16px 12px rgba(0,0,0,.55)) drop-shadow(0 0 22px var(--g))}
-.builder[data-type="2"] .pic img{filter:hue-rotate(28deg) saturate(1.35) contrast(1.08) brightness(1.1) drop-shadow(0 16px 12px rgba(0,0,0,.55)) drop-shadow(0 0 22px var(--g))}
-.builder h3{margin:0;font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:34px;letter-spacing:.05em;color:#fff;text-shadow:0 0 18px rgba(255,47,126,.5)}
-.builder .lede{margin:2px 0 16px;font-size:13px;color:var(--muted)}
-.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:4px;border-radius:14px;background:rgba(0,0,0,.35);border:1px solid var(--line)}
-.seg button{padding:10px 4px;border:0;border-radius:11px;background:none;color:var(--muted);font-size:12.5px;font-weight:700;transition:color .2s,background .25s,box-shadow .25s}
-.seg button:hover{color:#fff}
-.seg button[aria-checked="true"]{color:#fff;background:linear-gradient(120deg,rgba(255,47,126,.9),rgba(255,47,126,.55));box-shadow:0 0 18px -4px var(--pink)}
-.sizes{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 18px}
-.size{padding:12px 4px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.035);text-align:center;transition:border-color .2s,transform .2s var(--ease),box-shadow .25s,background .2s}
-.size:hover{transform:translateY(-3px);border-color:rgba(41,216,255,.5)}
-.size[aria-checked="true"]{border-color:var(--cyan);background:rgba(41,216,255,.1);box-shadow:0 0 22px -6px var(--cyan),inset 0 0 14px rgba(41,216,255,.1)}
-.size b{display:block;font-size:13px;color:#fff}
-.size span{display:block;margin-top:2px;font-size:11.5px;color:var(--gold);font-weight:700}
-.flv{margin:-4px 0 18px}
-.flv .lbl{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px}
-.flv .chips{display:flex;flex-wrap:wrap;gap:7px}
-.bprice{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.bprice .big{font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:1;color:var(--gold);text-shadow:0 0 22px rgba(255,178,56,.55)}
-.bprice .btn{padding:13px 24px}
-.builder .tip{margin:12px 0 0;font-size:12.5px;color:var(--gold);font-style:italic}
-.sizesimg{margin:40px auto 0;max-width:600px;perspective:900px}
-.sizesimg img{display:block;width:100%;height:auto;filter:saturate(1.25) drop-shadow(0 20px 20px rgba(0,0,0,.5)) drop-shadow(0 0 24px var(--g-pink));transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .55s var(--ease)}
-.sizesimg.is-tilting img{transition:transform .09s linear}
-
 /* ---------- RESULTADOS ---------- */
 .empty{margin:60px auto;text-align:center;max-width:380px;color:var(--muted)}
 .empty .big{font-family:'Bebas Neue',sans-serif;font-size:34px;color:#fff;text-shadow:0 0 18px var(--g-pink)}
@@ -580,9 +541,88 @@ body.cart-open .top,body.modal-open .top{display:none}
   .cell{opacity:1;transform:none}
 }
 noscript{display:block;padding:40px;text-align:center}
+
+/* ---------- DOS CARTAS: PUNTOS Y DOMICILIOS ---------- */
+.cartbtn{display:none}
+body[data-view="domis"] .cartbtn{display:inline-flex}
+.hero-stage{width:min(100%,330px)}
+/* Al bajar, el logo del inicio se encoge y viaja hasta el logo de la barra (ver logoFly en el script). */
+.tb-brand{display:block;height:30px}
+.tb-brand img{opacity:0}
+/* El hueco (slot) reserva el espacio en la página; el logo va fijo en pantalla y solo se mueve con transform, sin pelear con el scroll. */
+.hero-slot{position:relative;width:min(100%,330px);margin:0 auto;aspect-ratio:955/818}
+.hero-slot .hero-stage{width:100%;height:100%}
+.hero-slot.on .hero-stage{position:fixed;margin:0;z-index:60;will-change:transform;transform-origin:50% 50%}
+.hero-slot.on .hero-stage.fly{pointer-events:none}
+/* Foto de las personas (portada de la carta), muy suave y apagada hacia el centro para no tapar el logo. */
+.hero::before{content:"";position:absolute;inset:0 -18px;z-index:-1;pointer-events:none;
+  background:url(img/fondo-personas.webp) center 18%/cover no-repeat;opacity:1;filter:brightness(1.35) saturate(1.1);
+  -webkit-mask-image:linear-gradient(180deg,#000 50%,transparent 100%);mask-image:linear-gradient(180deg,#000 50%,transparent 100%)}
+@media(max-width:700px){.hero::before{background-position:0 18%}}
+/* Destacados: lo primero que se ve después del logo, con botón de pedir */
+.feat{margin:6px 0 0}
+.feat .sec-head{margin-top:8px}
+.feat .fsub{margin:2px 0 0;font-size:13.5px;color:var(--muted)}
+.feat .grid{padding-top:44px}
+.feat .acts{display:flex;justify-content:center;margin-top:30px}
+/* Acceso directo a WhatsApp */
+.wafab{position:fixed;left:18px;bottom:18px;z-index:45;display:inline-flex;align-items:center;gap:9px;height:54px;min-width:54px;padding:0 15px;border-radius:999px;
+  background:#25d366;color:#fff;text-decoration:none;font-weight:800;font-size:13px;box-shadow:0 10px 30px -8px #25d366,0 0 0 1px rgba(255,255,255,.25) inset;
+  transition:transform .2s var(--ease),box-shadow .25s}
+.wafab:hover{transform:translateY(-3px);box-shadow:0 14px 36px -6px #1fd68f}
+.wafab svg{width:30px;height:30px;flex:none}
+.wafab .lbl{text-shadow:0 1px 2px rgba(0,60,20,.45)}
+.wafab .lbl{display:none}
+@media(min-width:640px){.wafab .lbl{display:inline}}
+@media(max-width:639px){.wafab{padding:0;width:54px;justify-content:center}}
+body.cart-open .wafab,body.modal-open .wafab{display:none}
+.hero-glow{filter:opacity(var(--f,1))}
+.hero-orbs{opacity:var(--f,1)}
+@media(max-width:480px){
+  .tb{gap:4px;padding:0 8px}.tb-brand{height:28px}
+  .mtab{padding:0 6px;font-size:17px}.mtabs{gap:0;min-width:0}
+  .lang button,.lang i{width:28px}.lang[data-lang="en"] i{transform:translateX(28px)}
+  .cartbtn{padding:0 9px;gap:5px;height:36px}
+}
+.banner{margin:22px 0 0;border-radius:24px;padding:20px 22px 18px;border:1px solid rgba(41,216,255,.4);
+  background:linear-gradient(155deg,rgba(41,216,255,.10),rgba(255,47,126,.07) 60%,rgba(255,255,255,.02));box-shadow:0 0 40px -18px var(--cyan)}
+.banner.dom{border-color:rgba(255,47,126,.5);background:linear-gradient(155deg,rgba(255,47,126,.13),rgba(41,216,255,.06) 60%,rgba(255,255,255,.02));box-shadow:0 0 40px -18px var(--pink)}
+.banner[hidden]{display:none}
+.banner .btop{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.banner .eyebrow{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);text-shadow:0 0 12px rgba(41,216,255,.5)}
+.banner.dom .eyebrow{color:var(--pink);text-shadow:0 0 12px rgba(255,47,126,.5)}
+.banner h3{margin:2px 0 0;font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:34px;letter-spacing:.05em;line-height:1.05;color:#fff;text-shadow:0 0 16px rgba(255,47,126,.35)}
+.banner p{margin:8px 0 0;font-size:13.5px;color:var(--muted)}
+.facts{display:grid;gap:12px 22px;grid-template-columns:repeat(2,minmax(0,1fr));margin:16px 0 0;padding:0}
+@media(min-width:760px){.facts{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.facts.one{grid-template-columns:1fr}
+.facts dt{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.facts dd{margin:3px 0 0;font-size:14px}
+.banner .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.banner .acts .btn{padding:10px 16px;font-size:11.5px}
+.banner .fine{margin:12px 0 0;font-size:12px;color:var(--muted);font-style:italic}
+.cover{margin-top:14px;padding:11px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:13.5px;line-height:1.5}
+.cover.ok{border-color:rgba(31,214,143,.5)}
+.cover.bad{border-color:rgba(255,178,56,.6)}
+.cover b{color:var(--gold)}
+.rname small{margin-left:8px;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan)}
+.price .fromlbl{font-size:10.5px;font-weight:600;color:var(--muted);margin-right:5px;text-shadow:none;letter-spacing:.04em}
+.price .pend,.mhead .price.pend{font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--muted);text-shadow:none;white-space:normal;line-height:1.25;display:inline-block;max-width:120px}
+.mhead .price.pend{max-width:150px;text-align:right}
+.pv{justify-self:center;text-align:center;color:var(--gold);font-weight:700;font-size:13px}
+.liq.c2{grid-template-columns:minmax(0,1.6fr) repeat(2,minmax(0,.9fr))}
+.mopts .chip{font-size:12.5px;padding:8px 14px}
+.mopts .chip b{margin-left:6px;color:var(--gold);font-weight:800}
+.mopts .chip.on b{color:#fff}
+.dmin.bad{border-color:rgba(255,178,56,.6)}
+.dmin.bad b{color:var(--gold)}
+.dmin .z{margin-top:6px;color:var(--gold)}
+.mnote{margin:14px 0 0;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:12.5px;color:var(--muted)}
+.mnote a{color:var(--cyan);font-weight:700;text-decoration:none;cursor:pointer}
+.sede .snote{display:inline-block;margin-left:8px;font-family:'Inter',sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);vertical-align:middle;text-shadow:none}
 </style>
 </head>
-<body>
+<body data-view="puntos">
 
 <div class="bg" aria-hidden="true">
   <div class="aurora a1"></div><div class="aurora a2"></div><div class="aurora a3"></div>
@@ -596,8 +636,9 @@ noscript{display:block;padding:40px;text-align:center}
     <div class="tb">
       <a class="tb-brand" href="#" id="brandLink" aria-label="El Coctelazo"><img src="img/logo-el-coctelazo.webp" alt="El Coctelazo"></a>
       <div class="mtabs" role="tablist" id="mtabs">
-        <button class="mtab" role="tab" id="mtab-menu" data-view="menu" aria-selected="true" data-i18n="tabMenu">Menú</button>
-        <button class="mtab" role="tab" id="mtab-info" data-view="info" aria-selected="false" tabindex="-1" data-i18n="tabInfo">Información</button>
+        <button class="mtab" role="tab" id="mtab-puntos" data-view="puntos" aria-selected="true" data-i18n="tabPuntos">Carta</button>
+        <button class="mtab" role="tab" id="mtab-domis" data-view="domis" aria-selected="false" tabindex="-1" data-i18n="tabDomis">Domicilios</button>
+        <button class="mtab" role="tab" id="mtab-info" data-view="info" aria-selected="false" tabindex="-1" data-i18n="tabInfo">Sedes</button>
       </div>
       <div class="lang" id="lang" data-lang="es" role="group" aria-label="Idioma">
         <i></i>
@@ -612,30 +653,34 @@ noscript{display:block;padding:40px;text-align:center}
   </header>
 
   <section class="hero">
+    <div class="hero-slot" id="heroSlot">
     <div class="hero-stage" id="heroStage">
       <div class="hero-glow"></div>
       <div class="hero-orbs" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-      <img class="hero-logo" id="heroLogo" data-tilt="7" src="img/logo-el-coctelazo.webp" width="468" height="281" alt="El Coctelazo by Perritos Gourmet de la Uva" fetchpriority="high" decoding="async">
+      <img class="hero-logo" id="heroLogo" data-tilt="7" src="img/logo-el-coctelazo.webp" width="955" height="818" alt="El Coctelazo" fetchpriority="high" decoding="async">
+    </div>
     </div>
     <div class="hero-meta">
       <span><b>Since 2017</b> · #SomosCultura</span>
       <span class="status" id="heroStatus" role="status"></span>
     </div>
     <div class="hero-cta">
-      <a class="btn primary" href="#granizados" id="ctaMenu" data-i18n="ctaMenu">Ver la carta</a>
+      <a class="btn primary" href="#puntos" id="ctaMenu" data-i18n="ctaMenu">Ver la carta</a>
+      <a class="btn primary" href="#domicilios" id="ctaDomis" data-i18n="ctaDomis">Pedir domicilio</a>
       <a class="btn ghost" href="#informacion" id="ctaSedes" data-i18n="ctaSedes">Nuestras sedes</a>
     </div>
   </section>
 
-  <!-- ====== MENÚ ====== -->
+  <!-- ====== CARTAS (PUNTOS Y DOMICILIOS) ====== -->
   <main>
-  <div class="view active" id="view-menu" role="tabpanel" aria-labelledby="mtab-menu">
+  <div class="view active" id="view-menu" role="tabpanel" aria-labelledby="mtab-puntos">
     <div class="wrap">
+      <div id="menuBanner"></div>
       <div class="tools">
         <label class="search" id="searchBox">
           <span class="sr" data-i18n="searchLabel">Buscar en la carta</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
-          <input id="q" type="search" autocomplete="off" spellcheck="false" data-i18n-ph="searchPh" placeholder="Busca un trago, un sushi, un sabor…">
+          <input id="q" type="search" autocomplete="off" spellcheck="false" data-i18n-ph="searchPh" placeholder="Busca un granizado, una bomba, un nevecón…">
           <span class="kbd">Esc</span>
           <button class="clear" id="qClear" type="button" aria-label="Limpiar búsqueda">×</button>
         </label>
@@ -649,7 +694,7 @@ noscript{display:block;padding:40px;text-align:center}
     </div>
   </div>
 
-  <!-- ====== INFORMACIÓN ====== -->
+  <!-- ====== SEDES ====== -->
   <div class="view" id="view-info" role="tabpanel" aria-labelledby="mtab-info">
     <div class="wrap">
       <div class="section">
@@ -670,7 +715,7 @@ noscript{display:block;padding:40px;text-align:center}
   <div class="wrap">
     <footer>
       <div class="tag">#SomosCultura</div>
-      <div style="margin-top:6px">El Coctelazo — by Perritos Gourmet de la Uva</div>
+      <div style="margin-top:6px" data-i18n="footLine">El Coctelazo — Medellín</div>
       <div class="credit" role="contentinfo">
         <div class="credit-row"><a id="creditL" href="https://sonetix.emanuelvillada10.workers.dev/" target="_blank" rel="noopener">© 2026 Sonetix. Páginas web a la medida.</a></div>
       </div>
@@ -693,21 +738,22 @@ noscript{display:block;padding:40px;text-align:center}
       <div class="mhead"><h3 id="mTitle"></h3><div class="price" id="mPrice"></div></div>
       <p class="mdesc" id="mDesc"></p>
       <div class="mopts" id="mOpts" hidden></div>
-      <div class="mfoot">
+      <div class="mfoot" id="mFoot">
         <div class="qty"><button type="button" id="qMinus" aria-label="−">−</button><output id="qVal">1</output><button type="button" id="qPlus" aria-label="+">+</button></div>
         <button class="btn primary" id="mAdd" type="button"></button>
       </div>
+      <p class="mnote" id="mNote" hidden></p>
     </div>
   </div>
 </div>
 
-<!-- CARRITO -->
+<!-- CARRITO (SOLO DOMICILIOS) -->
 <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle" aria-hidden="true">
   <div class="dhead"><h3 id="dTitle" data-i18n="myOrder">Mi pedido</h3><button class="dclose" id="dClose" type="button" aria-label="Cerrar">×</button></div>
   <div class="dlist" id="dList"></div>
   <div class="dfoot" id="dFoot">
     <div class="total"><span data-i18n="total">Total</span><b id="dTotal">$0</b></div>
-    <div class="dmin" id="dMin" aria-live="polite"><div class="t" id="dMinT"></div><div class="t" id="dMinS"></div><div class="bar"><i id="dMinBar"></i></div></div>
+    <div class="dmin" id="dMin" aria-live="polite"><div class="t" id="dMinT"></div><div class="t" id="dMinS"></div><div class="z" id="dMinZ"></div><div class="bar"><i id="dMinBar"></i></div></div>
     <div class="fld">
       <input id="fName" class="wide" type="text" maxlength="40" autocomplete="name" data-i18n-ph="namePhD" placeholder="Tu nombre">
       <input id="fAddr" class="wide" type="text" maxlength="120" autocomplete="street-address" data-i18n-ph="addrPh" placeholder="Dirección de entrega (barrio, torre, apto)">
@@ -717,11 +763,12 @@ noscript{display:block;padding:40px;text-align:center}
       <button class="btn ghost" id="bCopy" type="button" data-i18n="copy">Copiar</button>
       <button class="btn ghost" id="bClear" type="button" data-i18n="clear">Vaciar</button>
     </div>
-    <p class="dfine" data-i18n="fine">Muestra este pedido en la mesa o envíalo. El equipo lo confirma contigo.</p>
+    <p class="dfine" data-i18n="fine">Envía tu pedido por WhatsApp. El equipo lo confirma contigo.</p>
   </div>
 </aside>
 
 <div class="toast" id="toast" role="status" aria-live="polite"><span id="toastMsg"></span><button type="button" id="toastBtn"></button></div>
+<a class="wafab" id="waFab" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="lbl" data-i18n="waFab">Escríbenos</span></a>
 <button class="top" id="topBtn" type="button" aria-label="Volver arriba">↑</button>
 
 <noscript>Esta carta necesita JavaScript para mostrarse. / This menu needs JavaScript.</noscript>
@@ -731,207 +778,225 @@ noscript{display:block;padding:40px;text-align:center}
 'use strict';
 
 /* =========================================================
-   CONFIGURACIÓN
+   CONFIGURACIÓN — lo que se edita aquí sin tocar el resto
    ========================================================= */
-// Si pones aquí el número de WhatsApp del local (solo dígitos, con indicativo: 573001234567),
-// el botón "Enviar por WhatsApp" abrirá directo ese chat. Vacío = el cliente elige el contacto.
+// WhatsApp de domicilios (solo dígitos, con indicativo del país). Fuente: carta de domicilios, abr 2026.
+// Hoy: número de pruebas. El de la carta de domicilios es 304 660 9548 (573046609548).
 const WHATSAPP_NUMBER = '573002456331';
+const WHATSAPP_SHOW   = '300 245 6331';
 
-const DELIVERY_MIN = 20000;   // pedido mínimo para domicilio (COP)
-const DELIVERY_SEDE = 'Belén La Nubia';   // los domicilios salen únicamente de esta sede (nombre igual al de SEDES)
-const HOURS ={open: 14*60+30, close: 24*60};   // 2:30 PM – 12:00 AM, todos los días
+const DELIVERY_MIN  = 20000;            // pedido mínimo para domicilio (COP)
+const DELIVERY_SEDE = 'Belén La Nubia'; // los domicilios salen únicamente de esta sede (igual al nombre en SEDES)
 const TZ = 'America/Bogota';
+
+// Horarios en minutos desde las 00:00. Un cierre mayor a 1440 es la madrugada del día siguiente.
+// Sedes: todos los días 2:30 PM – 12:00 AM; "fines de semana" hasta las 2:00 AM (aquí: viernes y sábado, 0 = domingo).
+const HOURS          = {open:14*60+30, close:24*60, closeWeekend:26*60, weekendDays:[5,6]};
+// Domicilios: todos los días 4:30 PM – 12:30 AM.
+const DELIVERY_HOURS = {open:16*60+30, close:24*60+30};
+
+// Cobertura de domicilios. Sin datos todavía: se activa al llenarlos.
+const NO_COVERAGE = [];   // barrios o zonas sin servicio, p. ej. ['Santo Domingo','La Sierra']
+const MAX_KM = null;      // radio máximo (km en línea recta) desde la sede de domicilios; null = sin límite
+
+// Destacados de la pantalla de inicio de cada carta (p = puntos, d = domicilios).
+const SEASONAL   = {p:null, d:null};  // producto de temporada: id de un producto, p. ej. 'bomba-boom'. null = no se muestra
+const RECO_FIXED = {p:null, d:null};  // recomendación fija; null = rota sola cada día entre los productos con foto
+
+// Promociones: se muestran solo entre "from" y "until" (AAAA-MM-DD, ambas opcionales) y salen solas al vencer.
+// {id:'promo-1', m:'pd', es:'', en:'', dEs:'', dEn:'', price:0, img:null, from:'2026-11-01', until:'2026-11-30'}
+const PROMOS = [];
 
 /* =========================================================
    DATOS
    ========================================================= */
 const CATS = [
-  {id:'granizados', es:'Granizados', en:'Slushies'},
-  {id:'casa',       es:'De la casa', en:'House specials'},
-  {id:'chupitos',   es:'Chupitos',   en:'Shots'},
-  {id:'micheladas', es:'Micheladas', en:'Micheladas'},
-  {id:'licores',    es:'Licores',    en:'Spirits'},
-  {id:'malteadas',  es:'Malteadas',  en:'Milkshakes'},
-  {id:'comidas',    es:'Comidas',    en:'Food'}
+  {id:'granizados', es:'Granizados',        en:'Slushies'},
+  {id:'micheladas', es:'Micheladas',        en:'Micheladas'},
+  {id:'bombas',     es:'Bombas y cocktails',en:'Bombas & cocktails'},
+  {id:'litrones',   es:'Litrones',          en:'Litrones'},
+  {id:'nevecones',  es:'Nevecones',         en:'Nevecones'},
+  {id:'adiciones',  es:'Adiciones',         en:'Add-ons'},
+  {id:'cervezas',   es:'Cervezas',          en:'Beers'},
+  {id:'licores',    es:'Licores y bebidas', en:'Spirits & drinks'}
 ];
+const PROMO_CAT = {id:'promos', es:'Promociones', en:'Promotions'};
 
 const S = (id,cat,es,en,layout,x={}) => ({id,cat,es,en,layout,...x});
 const SUBS = [
-  S('g-adl','granizados','Adiciones de licores','Liquor add-ons','rows'),
-  S('g-add','granizados','Adiciones de dulces','Candy add-ons','rows'),
-  S('c-casa','casa','Cócteles de la casa','House cocktails','cards'),
-  S('c-share','casa','Para compartir','To share','cards'),
-  S('c-clas','casa','Cócteles clásicos','Classic cocktails','rows'),
-  S('ch-1','chupitos','Chupitos','Shots','cards',{isNew:true}),
-  S('ch-2','chupitos','Chupitos temáticos','Themed shots','cards',{isNew:true}),
-  S('mi-1','micheladas','Micheladas','Micheladas','rows'),
-  S('mi-2','micheladas','Cervezas','Beers','rows'),
-  S('l-agu','licores','Aguardientes','Aguardiente','liq'),
-  S('l-ron','licores','Ron','Rum','liq'),
-  S('l-teq','licores','Tequila / mezcal','Tequila / mezcal','liq'),
-  S('l-vod','licores','Vodka','Vodka','liq'),
-  S('l-gin','licores','Ginebra','Gin','liq'),
-  S('l-whi','licores','Whisky','Whisky','liq'),
-  S('l-otr','licores','Bebidas preparadas / otros','Prepared drinks / other','liq'),
-  S('l-beb','licores','Bebidas','Soft drinks','rows'),
-  S('ml','malteadas','Malteadas','Milkshakes','cards'),
-  S('f-combo','comidas','Combo Ceviche','Ceviche combo','cards',{anchor:'combo-ceviche',noteEs:'Combo especial',noteEn:'Special combo',chipEs:'Combo Ceviche',chipEn:'Ceviche combo'}),
-  S('f-rap','comidas','Comidas gourmet','Gourmet food','cards',{anchor:'comida-rapida',noteEs:'Elige 1 proteína',noteEn:'Choose 1 protein',chipEs:'Rápidas',chipEn:'Quick bites'}),
-  S('f-ent','comidas','Entradas','Starters','cards',{anchor:'entradas',noteEs:'Para compartir',noteEn:'To share',chipEs:'Entradas',chipEn:'Starters'}),
-  S('f-bao','comidas','Baos x2','Baos x2','cards',{anchor:'baos',noteEs:'2 unidades · $27.000',noteEn:'2 pieces · $27,000',chipEs:'Baos',chipEn:'Baos'}),
-  S('f-cev','comidas','Ceviches','Ceviches','cards',{anchor:'ceviches',noteEs:'Frescos y cítricos',noteEn:'Fresh & citrusy',chipEs:'Ceviches',chipEn:'Ceviches'}),
-  S('f-sus','comidas','Sushi','Sushi','cards',{anchor:'sushis',noteEs:'x10 bocados',noteEn:'10 pieces',chipEs:'Sushis',chipEn:'Sushi'})
+  S('promo','promos','Promociones vigentes','Current promotions','cards'),
+  S('g-esp','granizados','Granizados especiales','Special slushies','cards'),
+  S('g-tra','granizados','Granizados','Slushies','cards'),
+  S('g-cre','granizados','Cremosos','Creamy slushies','cards',{noteEs:'Alpinito · Baileys',noteEn:'Alpinito · Baileys'}),
+  S('g-22','granizados','Granizados de 22 oz','22 oz slushies','cards'),
+  S('mi','micheladas','Micheladas','Micheladas','rows',{noteEs:'Elige con qué cerveza',noteEn:'Choose your beer'}),
+  S('bo','bombas','Bombas','Bombas','cards'),
+  S('co','bombas','Cocktails','Cocktails','cards'),
+  S('li','litrones','Litrones','Litrones','cards',{noteEs:'Con soda o con Coronita',noteEn:'With soda or Coronita'}),
+  S('ne','nevecones','Nevecones','Nevecones','cards'),
+  S('ad','adiciones','Adiciones','Add-ons','rows'),
+  S('ce','cervezas','Cervezas','Beers','rows'),
+  S('lq','licores','Licores','Spirits','liq',{cols:[['Litro','Liter'],['Media','Half']]}),
+  S('be','licores','Bebidas','Soft drinks','rows')
 ];
 const SUB = Object.fromEntries(SUBS.map(s => [s.id, s]));
 
+// m: 'p' solo puntos · 'd' solo domicilios · 'pd' ambas. pd: precio distinto en domicilios. imgD: foto distinta (o null) en domicilios.
 const ITEMS = [];
-const X = (sub,id,name,desc,price,img,extra={}) => ITEMS.push({id,sub,cat:SUB[sub].cat,es:name[0],en:name[1],dEs:desc?desc[0]:'',dEn:desc?desc[1]:'',price,img:img?'img/'+img+'.webp':null,...extra});
-const L = (sub,id,name,prices) => ITEMS.push({id,sub,cat:'licores',es:name,en:name,dEs:'',dEn:'',prices,img:null});
+const X = (sub,id,name,desc,price,img,x={}) => {
+  const it = {id,sub,cat:SUB[sub].cat,es:name[0],en:name[1],dEs:desc?desc[0]:'',dEn:desc?desc[1]:'',price,img:img?'img/'+img+'.webp':null,m:'pd',...x};
+  if ('imgD' in x) it.imgD = x.imgD ? 'img/'+x.imgD+'.webp' : null;
+  ITEMS.push(it);
+};
+const L = (sub,id,name,prices,pricesD) => ITEMS.push({id,sub,cat:'licores',es:name[0],en:name[1],dEs:'',dEn:'',prices,pricesD,img:null,m:'pd'});
+const V = (es,en,price) => ({es,en,price});
+
+// Granizados
+X('g-esp','alpinito',['Alpinito Crunch','Alpinito Crunch'],null,25000,null);
+X('g-esp','chamoy',['Granizado chamoy y tajín','Chamoy & Tajín slush'],null,19800,null);
+X('g-tra','gs8',['Granizado sin licor','Alcohol-free slush'],['8 oz','8 oz'],9500,'gran-sin-8');
+X('g-tra','ge8',['Granizado envenenado','“Envenenado” slush'],['8 oz · con licor','8 oz · with liquor'],12500,'gran-env-8');
+X('g-tra','gs16',['Granizado sin licor','Alcohol-free slush'],['16 oz','16 oz'],12500,'gran-sin-16');
+X('g-tra','ge16',['Granizado envenenado','“Envenenado” slush'],['16 oz · con licor','16 oz · with liquor'],17500,'gran-env-16');
+X('g-tra','glt',['Granizado tradicional litro','Traditional slush liter'],['1 litro','1 liter'],27500,'gran-lt');
+X('g-cre','cr10',['Cremoso tradicional','Traditional creamy'],['10 oz · Alpinito o Baileys','10 oz · Alpinito or Baileys'],14500,'cremoso-10');
+X('g-cre','cr16',['Cremoso tradicional','Traditional creamy'],['16 oz · Alpinito o Baileys','16 oz · Alpinito or Baileys'],19000,'cremoso-16');
+X('g-cre','crlt',['Litrón cremoso','Creamy litrón'],['Alpinito o Baileys','Alpinito or Baileys'],42000,'cremoso-lt');
+X('g-22','g22cafe',['Granizado de café','Coffee slush'],['22 oz','22 oz'],18000,null);
+X('g-22','g22choco',['Granizado de Chocoramo','Chocoramo slush'],['22 oz','22 oz'],22000,null);
+X('g-22','g22milo',['Granizado de Milo','Milo slush'],['22 oz','22 oz'],18000,null);
+X('g-22','g22oreo',['Granizado de Oreo','Oreo slush'],['22 oz','22 oz'],18000,null);
+
+// Micheladas (precio base + con cerveza)
+const MSAB = [V('Base','Base',17000),V('Con cerveza nacional','With national beer',19000),V('Con Corona o Like','With Corona or Like',23500)];
+X('mi','mi-sen',['Michelada sencilla','Classic michelada'],null,12000,null,{vars:[V('Base','Base',12000),V('Con cerveza nacional','With national beer',17000),V('Con Corona o Like','With Corona or Like',20000),V('Con Smirnoff','With Smirnoff',29000)]});
+X('mi','mi-cer',['Michelada de cereza','Cherry michelada'],['Saborizada','Flavored'],17000,null,{vars:MSAB});
+X('mi','mi-mmg',['Michelada de maracumango','Maracumango michelada'],['Saborizada','Flavored'],17000,null,{vars:MSAB});
+X('mi','mi-man',['Michelada de mango','Mango michelada'],['Saborizada','Flavored'],17000,null,{vars:MSAB});
+X('mi','mi-mar',['Michelada de maracuyá','Passion fruit michelada'],['Saborizada','Flavored'],17000,null,{vars:MSAB});
+
+// Bombas y cocktails (en domicilios las dos primeras no tienen foto en vaso todavía)
+X('bo','b2c',['Bomba 2 Coronas','Bomba 2 Coronas'],null,61000,'bomba-2-coronas',{imgD:null});
+X('bo','bsm',['Bomba Smirnoff','Bomba Smirnoff'],null,61000,'bomba-smirnoff',{imgD:null});
+X('bo','bboom',['Bomba BOOM','Bomba BOOM'],null,38000,'bomba-boom',{imgD:'bomba-boom-d'});
+// Con foto pero sin precio en las cartas: se muestran "por confirmar" (sin botón de pedir) hasta tener el valor.
+X('bo','bloka',['Bomba Loka','Bomba Loka'],null,null,'bomba-loka',{imgD:'bomba-loka-d'});
+X('bo','brose',['Bomba Rose','Bomba Rose'],null,null,'bomba-rose',{imgD:null});
+X('co','ccor',['Cocktail Coronita','Cocktail Coronita'],null,25000,'cocktail-coronita',{imgD:'cocktail-coronita-d'});
+X('co','csmi',['Cocktail Smirnoff','Cocktail Smirnoff'],null,32000,'cocktail-smirnoff',{imgD:'cocktail-smirnoff-d'});
+
+// Litrones
+const LV = [V('Con soda','With soda',28000),V('Con Coronita','With Coronita',36000)];
+X('li','li-mar',['Litrón maracuyá','Passion fruit litrón'],null,28000,'litron-maracuya',{vars:LV});
+X('li','li-mmg',['Litrón maracumango','Maracumango litrón'],null,28000,null,{vars:LV});
+X('li','li-che',['Litrón cherry','Cherry litrón'],null,28000,'litron-cherry',{vars:LV});
+X('li','li-man',['Litrón mango','Mango litrón'],null,28000,'litron-mango',{vars:LV});
+X('li','li-kid',['Litrón Kids','Litrón Kids'],['Sin licor','Alcohol-free'],26000,null);
+
+// Nevecones
+X('ne','nv-sen',['Nevecón sencillo','Nevecón Sencillo'],null,85000,'nevecon-sencillo');
+X('ne','nv-boom',['Nevecón BOOM','Nevecón BOOM'],null,110000,'nevecon-boom');
+X('ne','nv-rose',['Nevecón Rosé','Nevecón Rosé'],null,135000,'nevecon-rose');
+X('ne','nv-loko',['Nevecón Loko','Nevecón Loko'],null,120000,null);
+X('ne','nv-bai',['Nevecón Baileys','Nevecón Baileys'],null,110000,null);
+X('ne','nv-sin',['Nevecón sin licor','Alcohol-free Nevecón'],['Sin licor','Alcohol-free'],60000,null);
+X('ne','nv-blue',['Nevecón Blue','Nevecón Blue'],null,null,'nevecon-blue');
+X('ne','nv-bbb',['Nevecón BonBonBum','Nevecón BonBonBum'],['Sin licor','Alcohol-free'],62000,null);
 
 // Adiciones
-[['piba-absolut','Piba de vodka Absolut','Absolut vodka piba',19900],['piba-jack','Piba de whisky Jack Daniel\'s','Jack Daniel\'s whisky piba',19900],['piba-caldas','Piba de ron Caldas','Ron Caldas piba',12000],
- ['jer-wh20','Jeringa de whisky 20 ml','Whisky syringe 20 ml',9000],['jer-vo20','Jeringa de vodka 20 ml','Vodka syringe 20 ml',9000],['jer-te20','Jeringa de tequila 20 ml','Tequila syringe 20 ml',9000],
- ['jer-ly5','Jeringa de licor de lychee 5 ml','Lychee liqueur syringe 5 ml',5000],['jer-wh5','Jeringa de whisky 5 ml','Whisky syringe 5 ml',5000],['jer-vo5','Jeringa de vodka 5 ml','Vodka syringe 5 ml',5000],['jer-te5','Jeringa de tequila 5 ml','Tequila syringe 5 ml',5000]
-].forEach(([id,es,en,p]) => X('g-adl',id,[es,en],null,p,null));
-[['chupeta','Chupeta','Lollipop',1500],['mix3','Mix de dulces x3','Candy mix x3',4500],['barquillo','Barquillo de chocolate','Chocolate wafer',3500],['perlas','Perlas explosivas','Popping pearls',4900],['chupeta-chamoy','Chupeta chamoy','Chamoy lollipop',1900]
-].forEach(([id,es,en,p]) => X('g-add',id,[es,en],null,p,null));
+[['ad-barq','Barquillo','Wafer roll',3500],['ad-dul','Dulces','Candy',3500],['ad-per','Perlas explosivas','Popping pearls',4000],['ad-cer','Cerezas','Cherries',3000],
+ ['ad-cha','Chantilly','Whipped cream',4000],['ad-cru','Crunch de chocolate','Chocolate crunch',5700],['ad-chi','Chilipop','Chilipop',9000,'Gomitas ahogadas','Drowned gummies'],['ad-mec','Mechas Lokas','Mechas Lokas',8000],
+ ['ad-psm','Piba Smirnoff','Smirnoff piba',11000],['ad-pab','Piba Absolut','Absolut piba',21300],['ad-pch','Piba Chivas','Chivas piba',22000],['ad-pja','Piba Jack Daniel\'s','Jack Daniel\'s piba',22000],
+ ['ad-jen','Jeringa endulzante','Sweetener syringe',3500],['ad-jja','Jeringa Jack Daniel\'s','Jack Daniel\'s syringe',5000],['ad-jsm','Jeringa Smirnoff','Smirnoff syringe',4500],['ad-jte','Jeringa tequila','Tequila syringe',4000]
+].forEach(([id,es,en,p,de,dn]) => X('ad',id,[es,en],de?[de,dn]:null,p,null));
 
-// De la casa
-X('c-casa','mst',['Margarita spicy tamarindo','Spicy tamarind margarita'],['Granizado de margarita spicy tamarindo con chamoy y tajín','Spicy tamarind margarita slush with chamoy and Tajín'],29000,'margarita-spicy-tamarindo');
-X('c-casa','mar',['Margarita','Margarita'],['Granizado de margarita con tajín','Margarita slush with Tajín'],29000,'margarita');
-X('c-casa','gem',['Las Gemelas del Perreo','The Perreo Twins'],['2 margaritas granizadas: clásica o tamarindo','2 frozen margaritas: classic or tamarind'],35900,'gemelas-del-perreo');
-X('c-casa','blue',['Blue Island','Blue Island'],['Granizado de mora azul, coronita, Jack Daniel\'s Honey y licor de lychee','Blue raspberry slush, Coronita, Jack Daniel\'s Honey and lychee liqueur'],35000,'blue-island');
-X('c-casa','smir',['Smirnoff Ice','Smirnoff Ice'],['Granizado de fresa, Smirnoff Ice vodka y licor de lychee','Strawberry slush, Smirnoff Ice vodka and lychee liqueur'],35000,'smirnoff-ice');
-X('c-share','cant',['Cantarito','Cantarito'],['Media botella de tequila, toronja, limón, gasificante de toronja, chamoy y tajín','Half a bottle of tequila, grapefruit, lime, grapefruit soda, chamoy and Tajín'],149000,'cantarito');
-X('c-share','best',['La Bestia Blanca','The White Beast'],['2 litros de granizado de todos los sabores, chamoy y tajín','2 liters of slush in every flavor, chamoy and Tajín'],69900,'bestia-blanca');
-X('c-share','bomb',['Bombastik Salvaje','Wild Bombastik'],['Granizado de maracuyá, picante, chamoy, tajín y gomitas enchiladas','Passion fruit slush with chili, chamoy, Tajín and spicy gummies'],69900,'bombastik-salvaje');
-X('c-share','marl',['Margarita litro','Margarita liter'],['Granizado de margarita','Margarita slush'],65000,'margarita-litro');
-X('c-share','mstl',['Margarita spicy tamarindo litro','Spicy tamarind margarita liter'],['Granizado de margarita spicy tamarindo','Spicy tamarind margarita slush'],65000,'margarita-spicy-tamarindo-litro');
-X('c-share','nev-ron',['Nevecón media de ron Caldas','Nevecón — half bottle Ron Caldas'],null,150000,'nevecon-ron-caldas');
-X('c-share','nev-agu',['Nevecón media de aguardiente','Nevecón — half bottle aguardiente'],null,150000,'nevecon-aguardiente');
-X('c-share','nev-sin',['Nevecón sin licor','Nevecón — alcohol-free'],null,65000,'nevecon-sin-licor');
-X('c-clas','mule',['Moscow Mule','Moscow Mule'],['Vodka, sirope de jengibre, limón y ginger beer','Vodka, ginger syrup, lime and ginger beer'],39900,null);
-X('c-clas','moj',['Mojito','Mojito'],['Ron blanco, hierbabuena, limón, sirope y soda','White rum, mint, lime, syrup and soda'],39900,null);
-X('c-clas','marc',['Margarita','Margarita'],['Tequila Olmeca reposado, triple sec, limón y tajín','Olmeca Reposado tequila, triple sec, lime and Tajín'],39900,null);
-X('c-clas','gin',['Gin Tonic','Gin & Tonic'],['Gin Beefeater, tónica y pepino','Beefeater gin, tonic and cucumber'],41000,null);
-X('c-clas','jager',['Jagerbomb','Jägerbomb'],['Jägermeister y energizante','Jägermeister and energy drink'],30000,null);
+// Cervezas (precio en puntos · precio en domicilios · menús donde se vende)
+[['ce-four','Four Loko','Four Loko',32000,18000,'pd'],['ce-like','Like','Like',9000,null,'p'],['ce-pil','Pilsen','Pilsen',8000,6000,'pd'],['ce-cor','Corona','Corona',12000,9000,'pd'],
+ ['ce-agu','Águila','Águila',8000,4500,'pd'],['ce-agl','Águila Light','Águila Light',8000,5000,'pd'],['ce-clu','Club Colombia','Club Colombia',9000,5000,'pd'],['ce-smi','Smirnoff Ice','Smirnoff Ice',19800,14500,'pd'],
+ ['ce-cna','Coronita','Coronita',9500,null,'p'],['ce-jpc','JP Chenet Fizzy Rosé','JP Chenet Fizzy Rosé',21000,16000,'pd']
+].forEach(([id,es,en,p,pd,m]) => X('ce',id,[es,en],null,p,null,{pd,m}));
+X('ce','ce-bal',['Balde de Corona x5','Corona bucket x5'],['5 Coronas en balde','5 Coronas in a bucket'],50000,null,{m:'p'});
 
-// Chupitos
-X('ch-1','yog',['Yogurcito','Yogurcito'],['Crema de whisky, licor de café, chantilly y cereza','Whisky cream, coffee liqueur, whipped cream and cherry'],13000,'yogurcito');
-X('ch-1','fer',['Ferxo','Ferxo'],['Vodka, tequila, mango y limón','Vodka, tequila, mango and lime'],13000,'ferxo');
-X('ch-1','hey',['Hey Mor','Hey Mor'],['Ginebra, vodka, sandía y lychee','Gin, vodka, watermelon and lychee'],13000,'hey-mor');
-X('ch-1','ghe',['El del Ghetto','El del Ghetto'],['Ginebra, vodka, maracuyá, manzana verde, limón y picante','Gin, vodka, passion fruit, green apple, lime and chili'],13000,'el-del-ghetto');
-X('ch-1','chi',['Que Chimba','Que Chimba'],['Tequila, vodka, mango, limón y picante','Tequila, vodka, mango, lime and chili'],13000,'que-chimba');
-X('ch-2','sem',['El Semáforo','The Traffic Light'],['x3 chupitos','3 shots'],29000,'semaforo');
-X('ch-2','ana',['Anaconda','Anaconda'],['x5 chupitos','5 shots'],29000,'anaconda');
-X('ch-2','mang',['Manguerazo','Manguerazo'],['x3 chupitos','3 shots'],29000,'manguerazo');
-X('ch-2','tab',['El Tablazo','El Tablazo'],['x3 chupitos','3 shots'],29000,'el-tablazo');
+// Licores [litro, media] — puntos / domicilios
+L('lq','lq-azu',['Aguardiente azul','Blue aguardiente'],[120000,55000],[64000,29000]);
+L('lq','lq-roj',['Aguardiente rojo','Red aguardiente'],[120000,55000],[59000,25000]);
+L('lq','lq-ver',['Aguardiente verde','Green aguardiente'],[120000,55000],[85000,25000]);
+L('lq','lq-rcal',['Ron Caldas','Ron Caldas'],[140000,65000],[72000,35000]);
+L('lq','lq-rmed',['Ron Medellín','Ron Medellín'],[120000,60000],[63000,32000]);
 
-// Micheladas y cervezas
-[['m-limon','Zumo de limón','Lime juice',3000],['m-sal','Michelado de sal','Salt michelada',4000],['m-chamoy','Michelado de chamoy y tajín','Chamoy & Tajín michelada',6000],['m-tajin','Michelado de tajín','Tajín michelada',5000],
- ['m-cereza','Michelado de cereza','Cherry michelada',9000],['m-maracuya','Michelado de maracuyá','Passion fruit michelada',9000],['m-mango','Michelado de mango','Mango michelada',9000],['m-maracumango','Michelado de maracumango','Maracumango michelada',9000]
-].forEach(([id,es,en,p]) => X('mi-1',id,[es,en],null,p,null));
-[['b-dorada','Club Dorada','Club Dorada',15000],['b-aguila','Águila','Águila',15000],['b-light','Águila Light','Águila Light',15000],['b-pilsen','Pilsen','Pilsen',15000],['b-corona','Corona','Corona',16500],['b-smir','Smirnoff Ice','Smirnoff Ice',19900]
-].forEach(([id,es,en,p]) => X('mi-2',id,[es,en],null,p,null));
+// Bebidas
+X('be','be-agu',['Agua','Water'],null,2500,null,{m:'p'});
+X('be','be-coc',['Coca-Cola','Coca-Cola'],null,4000,null,{m:'p'});
+X('be','be-sod',['Soda','Soda'],null,5000,null,{pd:4000});
+X('be','be-gat',['Gatorade','Gatorade'],null,9000,null,{m:'p'});
 
-// Licores (trago / media / botella)
-L('l-agu','manz','Aguardiente Manzanares',[10900,85000,149000]);
-L('l-agu','tapaz','Aguardiente Tapa Azul',[10900,85000,149000]);
-L('l-ron','roble','Ron Viejo de Caldas Roble Blanco',[12000,null,149000]);
-L('l-ron','carta','Ron Viejo de Caldas Carta de Oro',[18000,109000,215000]);
-L('l-teq','olmeca','Olmeca Reposado',[19000,105000,199000]);
-L('l-teq','donj','Don Julio Blanco',[32000,null,429000]);
-L('l-teq','ojo','Ojo de Tigre',[25000,null,335000]);
-L('l-vod','abso','Absolut',[19000,125000,205000]);
-L('l-gin','beef','Beefeater',[19000,null,305000]);
-L('l-whi','buch','Buchanan\'s 12 años',[24000,195000,335000]);
-L('l-whi','jack','Jack Daniel\'s',[18000,null,299000]);
-L('l-whi','jackh','Jack Daniel\'s Honey',[18000,null,null]);
-L('l-otr','jag','Jägermeister',[19000,139000,199000]);
-[['agua','Agua','Water',7000],['coca','Coca-Cola / Coca-Cola Zero','Coca-Cola / Coca-Cola Zero',7000],['ginger','Ginger Ale','Ginger Ale',7000],['soda','Soda','Soda',7000],['tonica','Tónica','Tonic',7000],['gatorade','Gatorade','Gatorade',13000],['redbull','Red Bull','Red Bull',15000]
-].forEach(([id,es,en,p]) => X('l-beb',id,[es,en],null,p,null));
-
-// Malteadas
-X('ml','milo',['Milo','Milo'],null,18000,'malteada-milo');
-X('ml','cafe',['Café','Coffee'],null,18000,'malteada-cafe');
-X('ml','choco',['Chocoramo','Chocoramo'],null,22000,'malteada-chocoramo');
-X('ml','oreo',['Oreo','Oreo'],null,18000,'malteada-oreo');
-
-// Comidas
-const PROT = [['Camarón apanado','Breaded shrimp'],['Camarón cevichado','Ceviche shrimp'],['Pollo crocante','Crispy chicken'],['Palmito apanado','Breaded palmito'],['Chicharrón acevichado','Ceviche-style pork'],['Tocino ahumado','Smoked bacon']];
-const PROT_DESC = ['Elige 1 proteína: camarón apanado, camarón cevichado, pollo crocante, palmito apanado, chicharrón acevichado o tocino ahumado.','Choose 1 protein: breaded shrimp, ceviche shrimp, crispy chicken, breaded palmito, ceviche-style pork or smoked bacon.'];
-X('f-combo','combo',['Combo Ceviche','Ceviche combo'],['Ceviche Fukuoka + granizado tradicional + margarita.','Fukuoka ceviche + traditional slush + margarita.'],79000,'ceviche-fukuoka',{deal:['ceviche-fukuoka','granizado-tradicional','margarita']});
-X('f-rap','perr',['Perritos','Hot dogs'],PROT_DESC,11000,'perritos',{opts:PROT});
-X('f-rap','ham',['Hamburguesas','Burgers'],PROT_DESC,13000,'hamburguesas',{opts:PROT});
-X('f-ent','palm',['Palmito apanado','Breaded palmito'],['Palmito apanado en queso parmesano, relleno de queso crema, bañado en salsa teriyaki y blanca de la casa, coronado con cebolla puerro crocante caramelizada.','Parmesan-breaded palmito filled with cream cheese, covered in teriyaki and house white sauce, topped with caramelized crispy leek.'],25000,'palmito');
-X('f-ent','cal',['Calamar apanado','Breaded calamari'],['Calamar apanado en queso parmesano, bañado en salsa teriyaki, chile y blanca de la casa, acompañado con pasta japonesa crocante y cebolla puerro crocante caramelizada.','Parmesan-breaded calamari with teriyaki, chili and house white sauce, served with crispy Japanese noodles and caramelized crispy leek.'],25000,'calamar-apanado');
-const BAO = ['Queso crema, cebolla dulce, salsa pique y teriyaki de la casa. Terminado con coco crocante caramelizado y brotes.','Cream cheese, sweet onion, house chili sauce and teriyaki. Finished with caramelized crispy coconut and sprouts.'];
-X('f-bao','bao1',['Chicharrón crocante','Crispy pork'],BAO,27000,'baos',{unit:'x2'});
-X('f-bao','bao2',['Salmón salteado','Sautéed salmon'],BAO,27000,'baos',{unit:'x2'});
-X('f-bao','bao3',['Camarón apanado','Breaded shrimp'],BAO,27000,'baos',{unit:'x2'});
-X('f-cev','fuku',['Ceviche Fukuoka','Fukuoka ceviche'],['Chicharrón crocante con cebolla morada, mango, aguacate, maíz tierno, cilantro y tomate cherry. Bañado en salsa pique y acevichada, con ajonjolí negro y crocante japonés.','Crispy pork with red onion, mango, avocado, sweet corn, cilantro and cherry tomato. Covered in chili and ceviche sauce, with black sesame and Japanese crunch.'],39000,'ceviche-fukuoka');
-X('f-cev','kans',['Ceviche Kansai','Kansai ceviche'],['Calamar, tilapia, salmón y camarón tempura. Con cebolla morada, mango, limón y aceite de ajonjolí. Bañado en salsas de la casa y toque de soya.','Calamari, tilapia, salmon and tempura shrimp with red onion, mango, lime and sesame oil. Covered in house sauces with a touch of soy.'],39000,'ceviche-kansai');
-X('f-sus','dina',['Dinamita','Dynamite'],['Camarón apanado y queso crema. Coronado con aguacate y palmito, con pasta crocante y miel rocoto.','Breaded shrimp and cream cheese. Topped with avocado and palmito, with crispy noodles and rocoto honey.'],40900,'dinamita');
-X('f-sus','apan',['Apanado','Breaded'],['Salmón, aguacate, queso crema y palmito. Bañado en salsa pique, teriyaki y blanca de la casa. Coronado con palmito aderezado y puerro crocante.','Salmon, avocado, cream cheese and palmito. Covered in chili, teriyaki and house white sauce. Topped with seasoned palmito and crispy leek.'],33000,'apanado');
-X('f-sus','fila',['Filadelfia','Philadelphia'],['Salmón, aguacate y queso crema. Cubierto en ajonjolí negro, con caviar y masago.','Salmon, avocado and cream cheese. Coated in black sesame, with caviar and masago.'],40900,'filadelfia');
-X('f-sus','pren',['Prendido','Prendido'],['Camarón apanado, aguacate y queso crema. Con coco crocante caramelizado, masago y salsas de la casa.','Breaded shrimp, avocado and cream cheese. With caramelized crispy coconut, masago and house sauces.'],40900,'prendido');
-X('f-sus','coco',['Coco Roll','Coco Roll'],['Langostino apanado en parmesano, queso crema y aguacate. Salsa pique y chile spicy. Terminado con coco crocante caramelizado.','Parmesan-breaded prawn, cream cheese and avocado. Chili sauce and spicy chili. Finished with caramelized crispy coconut.'],40900,null,{glyph:'roll'});
-X('f-sus','drag',['Dragon Roll','Dragon Roll'],['Langostino apanado, queso crema y aguacate. Cubierto con aguacate, bañado en teriyaki y chile spicy, terminado con anguila flameada.','Breaded prawn, cream cheese and avocado. Covered with avocado, teriyaki and spicy chili, finished with flamed eel.'],40900,null,{glyph:'roll'});
-X('f-sus','pulp',['Pulpo Crunch','Octopus Crunch'],['Pulpo apanado, salmón, queso crema y aguacate. Cubierto en quinua crocante, con miel rocoto.','Breaded octopus, salmon, cream cheese and avocado. Coated in crispy quinoa, with rocoto honey.'],40900,null,{glyph:'roll'});
-X('f-sus','tata',['Tataki de Atún','Tuna Tataki'],['Atún, salmón, aguacate y queso crema. Con quinua crocante, salsa teriyaki, caviar y toque flameado de miel rocoto.','Tuna, salmon, avocado and cream cheese. With crispy quinoa, teriyaki sauce, caviar and a flamed touch of rocoto honey.'],40900,null,{glyph:'roll'});
-X('f-sus','spac',['Camarón Spacy','Spicy Shrimp'],['Por dentro queso crema, aguacate, salmón y palmito aderezado, bañado en salsa chile-spacy de la casa, coronado con camarón apanado.','Inside: cream cheese, avocado, salmon and seasoned palmito, covered in house chili-spicy sauce, topped with breaded shrimp.'],40900,null,{glyph:'roll'});
+// Promociones (activas según fecha)
+PROMOS.forEach(p => ITEMS.push({sub:'promo',cat:'promos',dEs:'',dEn:'',m:'pd',...p,img:p.img?'img/'+p.img+'.webp':null,promo:true}));
 
 const BY_ID = Object.fromEntries(ITEMS.map(i => [i.id,i]));
-
-// Granizado a tu medida
-const GTYPES = [{es:'Sin licor',en:'Alcohol-free',p:[12000,15000,17000,29000]},{es:'Con licor',en:'With liquor',p:[15900,22900,25900,32900]},{es:'Cremoso',en:'Creamy',p:[18000,25900,28900,35900]}];
-const GSIZES = [{es:'10 oz',en:'10 oz'},{es:'16 oz',en:'16 oz'},{es:'Yarda',en:'Yard'},{es:'1 litro',en:'1 liter'}];
-// Sabores del granizado a tu medida. Provisionales: reemplazar/agregar aquí los definitivos.
-const GFLAVORS = [{es:'Mango',en:'Mango'},{es:'Maracuyá',en:'Passion fruit'},{es:'Fresa',en:'Strawberry'},{es:'Lulo',en:'Lulo'},{es:'Mora',en:'Blackberry'}];
 
 // lat/lng aproximados (precisión de barrio) solo para ordenar las sedes por cercanía.
 // La ruta real la calcula Google Maps con la dirección exacta.
 const SEDES = [
-  {n:'Provenza',a:'Cra. 35 #8a 11',lat:6.2092,lng:-75.5678},{n:'Campo Valdés',a:'Cra 48a #76-59',lat:6.2776,lng:-75.5557},
-  {n:'Belén La Nubia',a:'Carrera 83 #15a-21',lat:6.2218,lng:-75.6048},{n:'Belén Rincón',a:'Carrera 79 #1a-42',lat:6.2102,lng:-75.6035},
-  {n:'Manrique',a:'Carrera 47 #69-5',lat:6.2719,lng:-75.5561},{n:'San Javier',a:'Calle 39b #108-76',lat:6.2518,lng:-75.6226},
-  {n:'Castilla',a:'Carrera 68 #93-83',lat:6.2960,lng:-75.5690}
+  {n:'San Javier',a:'Calle 39b #108-76',lat:6.2518,lng:-75.6226},
+  {n:'Manrique',a:'Carrera 47 #69-5',lat:6.2719,lng:-75.5561},
+  {n:'Belén La Nubia',a:'Carrera 83 #15a-21',lat:6.2218,lng:-75.6048},
+  {n:'Castilla',a:'Carrera 68 #93-83',lat:6.2960,lng:-75.5690},
+  {n:'Belén Rincón',a:'Carrera 79 #1a-44',lat:6.2102,lng:-75.6035,note:['Punto de venta','Sales point']},
+  {n:'Campo Valdés',a:'Carrera 48a #76-59',lat:6.2776,lng:-75.5557}
 ];
+const DELI = SEDES.findIndex(s => s.n===DELIVERY_SEDE);
 
 /* =========================================================
    TEXTOS DE LA INTERFAZ
    ========================================================= */
 const UI = {
-  es:{tabMenu:'Menú',tabInfo:'Información',ctaMenu:'Ver la carta',ctaSedes:'Nuestras sedes',searchLabel:'Buscar en la carta',searchPh:'Busca un trago, un sushi, un sabor…',surprise:'Sorpréndeme',
-    sedesTitle:'Nuestras sedes',address:'Dirección',hours:'Horario',hoursV:'Lunes a domingo: 2:30 PM – 12:00 AM',how:'Cómo llegar',map:'Ver mapa',hideMap:'Ocultar mapa',creditL:'© 2026 Sonetix. Páginas web a la medida.',locTitle:'Encuentra tu sede más cercana',locSub:'Te mostramos la más cerca de ti y cómo llegar',locAgain:'Actualizar mi ubicación',locAgainSub:'Volver a buscar la sede más cercana',locBusy:'Buscando tu ubicación…',
+  es:{tabPuntos:'Carta',tabDomis:'Domicilios',tabInfo:'Sedes',ctaMenu:'Ver la carta',ctaDomis:'Pedir domicilio',ctaSedes:'Nuestras sedes',
+    searchLabel:'Buscar en la carta',searchPh:'Busca un granizado, una bomba, un nevecón…',surprise:'Sorpréndeme',footLine:'El Coctelazo — Medellín',
+    sedesTitle:'Nuestras sedes',address:'Dirección',hours:'Horario',hoursV:'Lunes a domingo: 2:30 PM – 12:00 AM · Fines de semana hasta las 2:00 AM',hoursD:'Domicilios',hoursDV:'Todos los días: 4:30 PM – 12:30 AM',
+    how:'Cómo llegar',map:'Ver mapa',hideMap:'Ocultar mapa',creditL:'© 2026 Sonetix. Páginas web a la medida.',locTitle:'Encuentra tu sede más cercana',locSub:'Te mostramos la más cerca de ti y cómo llegar',locAgain:'Actualizar mi ubicación',locAgainSub:'Volver a buscar la sede más cercana',locBusy:'Buscando tu ubicación…',
     nearEyebrow:'Tu sede más cercana',nearOthers:'Otras sedes cerca de ti',straight:'en línea recta',nearFlag:'Más cercana',goThere:'Cómo llegar',seeMap:'Ver en el mapa',
     locDenied:'No pudimos acceder a tu ubicación. Activa el permiso de ubicación en tu navegador e inténtalo de nuevo, o elige una sede aquí abajo.',locFail:'No logramos obtener tu ubicación. Revisa tu conexión o el GPS e inténtalo otra vez.',locNo:'Tu navegador no permite compartir la ubicación. Elige una sede aquí abajo.',
     locPriv:'Tu ubicación solo se usa para calcular la distancia en tu dispositivo; no la guardamos.',locFar:km=>`Estás a unos ${km} km de la más cercana.`,
+    bnPEye:'Carta de nuestras sedes',bnPTitle:'Precios en punto de venta',bnPText:'Estos precios aplican al comprar en nuestras sedes. Si lo quieres en casa, mira la carta de Domicilios: sus precios son distintos.',bnPCta:'Ver domicilios',
+    bnDEye:'Domicilios',bnDTitle:'Pídelo sin salir de casa',fHours:'Horario',fFrom:'Sale de',fMin:'Pedido mínimo',fWa:'WhatsApp',delOnlyPrices:'*Precios únicamente para domicilios',
+    delOpen:c=>`Domicilios abiertos · hasta ${c}`,delClosed:o=>`Domicilios desde las ${o}`,
+    coverBtn:'¿Llegamos a mi ubicación?',coverBusy:'Buscando tu ubicación…',coverDist:(km,s)=>`Estás a unos <b>${km}</b> en línea recta de ${s}.`,coverIn:'Estás dentro de nuestra zona de domicilios.',coverOut:'Estás fuera de nuestra zona de domicilios.',coverUnk:'Confirma tu dirección por WhatsApp antes de pedir.',coverErr:'No pudimos obtener tu ubicación. Activa el permiso de ubicación e inténtalo de nuevo.',
+    zoneBlocked:'Por ahora no llegamos a esa zona.',
+    featSubD:'Los favoritos de hoy: toca + y pídelos en un momento.',featSubP:'Los favoritos de hoy. Toca uno para ver el detalle.',featAll:'Ver toda la carta',waFab:'Escríbenos',waHello:'Hola El Coctelazo 👋 Quiero información',
+    featTitle:'Destacados',tagReco:'Recomendado hoy',tagSeason:'De temporada',promoUntil:d=>`Válida hasta ${d}`,
     myOrder:'Mi pedido',orderHere:'Pedir a domicilio',total:'Total',sendWa:'Enviar por WhatsApp',copy:'Copiar',clear:'Vaciar',fine:'Envía tu pedido por WhatsApp. El equipo lo confirma contigo.',
     emptyCart:'Tu pedido está vacío',emptyCartSub:'Toca el + de cualquier producto para armarlo aquí.',remove:'Quitar',add:'Agregar',addTo:'Agregar al pedido',added:'añadido',viewOrder:'Ver pedido',copied:'Pedido copiado',
-    flavor:'Sabor',deliveryM:'Domicilio',addrPh:'Dirección de entrega (barrio, torre, apto)',namePhD:'Tu nombre',
+    deliveryM:'Domicilio',addrPh:'Dirección de entrega (barrio, torre, apto)',namePhD:'Tu nombre',
     minNeed:(n,m)=>`Pedido mínimo para domicilio: <b>${m}</b>. Te faltan <b>${n}</b>.`,minOk:m=>`Domicilio disponible · mínimo ${m} ✓`,minToast:m=>`El domicilio requiere un pedido mínimo de ${m}`,needAddr:'Escribe la dirección de entrega',onlyFrom:s=>`Los domicilios salen únicamente de la sede ${s}.`,whoD:'Nombre',type:'Tipo',addr:'Dirección',
-    chooseProt:'Elige tu proteína',surpriseToast:'Hoy te toca',greet:'Hola El Coctelazo 👋 Quiero hacer este pedido',sede:'Sede',noteApprox:'Valores en pesos colombianos.',shareTitle:'Mi pedido en El Coctelazo',
-    openNow:'Abierto ahora · cierra 12:00 AM',opensAt:'Abrimos hoy a las 2:30 PM',openB:'Abierto',closedB:'Cerrado · abre 2:30 PM',
-    results:(n,q)=>`${n} resultado${n===1?'':'s'} para «${q}»`,noRes:'Nada por aquí',noResSub:'Prueba con otra palabra: margarita, mango, ceviche…',
-    sizesAlt:'Tamaños de granizados',build:'Granizado a tu medida',buildLede:'Elige el estilo y el tamaño. El precio se calcula solo.',tip:'Elige 3 toppings a tu gusto',
-    close:'Cerrar',top:'Volver arriba',newb:'NUEVO',comboTag:'Combo especial',unit:'c/u',from:'desde',trago:'Trago',media:'Media',botella:'Botella',
-    comboTagline:'Ahorra combinando'},
-  en:{tabMenu:'Menu',tabInfo:'Information',ctaMenu:'See the menu',ctaSedes:'Our locations',searchLabel:'Search the menu',searchPh:'Search a drink, a sushi, a flavor…',surprise:'Surprise me',
-    sedesTitle:'Our locations',address:'Address',hours:'Hours',hoursV:'Monday to Sunday: 2:30 PM – 12:00 AM',how:'Get directions',map:'Show map',hideMap:'Hide map',creditL:'© 2026 Sonetix. Websites made to measure.',locTitle:'Find your nearest location',locSub:'We’ll show the closest one to you and how to get there',locAgain:'Update my location',locAgainSub:'Search for the nearest location again',locBusy:'Finding your location…',
+    chooseVar:'Elige una opción',surpriseToast:'Hoy te toca',greet:'Hola El Coctelazo 👋 Quiero hacer este pedido a domicilio',sede:'Sede',noteApprox:'Valores en pesos colombianos.',
+    openNow:c=>`Abierto ahora · cierra ${c}`,opensAt:o=>`Abrimos hoy a las ${o}`,openB:'Abierto',closedB:o=>`Cerrado · abre ${o}`,
+    results:(n,q)=>`${n} resultado${n===1?'':'s'} para «${q}»`,noRes:'Nada por aquí',noResSub:'Prueba con otra palabra: granizado, bomba, nevecón…',
+    close:'Cerrar',top:'Volver arriba',unit:'c/u',from:'desde',pending:'Precio por confirmar',
+    mNoteP:'Precio en nuestras sedes. ',mNoteGo:'Pídelo a domicilio →',liter:'Litro',half:'Media'},
+  en:{tabPuntos:'Menu',tabDomis:'Delivery',tabInfo:'Locations',ctaMenu:'See the menu',ctaDomis:'Order delivery',ctaSedes:'Our locations',
+    searchLabel:'Search the menu',searchPh:'Search a slush, a bomba, a nevecón…',surprise:'Surprise me',footLine:'El Coctelazo — Medellín',
+    sedesTitle:'Our locations',address:'Address',hours:'Hours',hoursV:'Monday to Sunday: 2:30 PM – 12:00 AM · Weekends until 2:00 AM',hoursD:'Delivery',hoursDV:'Every day: 4:30 PM – 12:30 AM',
+    how:'Get directions',map:'Show map',hideMap:'Hide map',creditL:'© 2026 Sonetix. Websites made to measure.',locTitle:'Find your nearest location',locSub:'We’ll show the closest one to you and how to get there',locAgain:'Update my location',locAgainSub:'Search for the nearest location again',locBusy:'Finding your location…',
     nearEyebrow:'Your nearest location',nearOthers:'Other locations near you',straight:'straight line',nearFlag:'Nearest',goThere:'Get directions',seeMap:'See on map',
     locDenied:'We couldn’t access your location. Allow location access in your browser and try again, or pick a location below.',locFail:'We couldn’t get your location. Check your connection or GPS and try again.',locNo:'Your browser can’t share your location. Pick a location below.',
     locPriv:'Your location is only used to calculate distance on your device; we don’t store it.',locFar:km=>`You’re about ${km} km from the nearest one.`,
+    bnPEye:'Our locations’ menu',bnPTitle:'In-store prices',bnPText:'These prices apply when you buy at our locations. If you want it at home, see the Delivery menu: its prices are different.',bnPCta:'See delivery',
+    bnDEye:'Delivery',bnDTitle:'Order without leaving home',fHours:'Hours',fFrom:'Ships from',fMin:'Minimum order',fWa:'WhatsApp',delOnlyPrices:'*Prices for delivery only',
+    delOpen:c=>`Delivery open · until ${c}`,delClosed:o=>`Delivery from ${o}`,
+    coverBtn:'Do you deliver to me?',coverBusy:'Finding your location…',coverDist:(km,s)=>`You’re about <b>${km}</b> in a straight line from ${s}.`,coverIn:'You’re inside our delivery area.',coverOut:'You’re outside our delivery area.',coverUnk:'Confirm your address on WhatsApp before ordering.',coverErr:'We couldn’t get your location. Allow location access and try again.',
+    zoneBlocked:'We don’t deliver to that area for now.',
+    featSubD:'Today’s favorites: tap + and order in a moment.',featSubP:'Today’s favorites. Tap one to see the details.',featAll:'See the full menu',waFab:'Chat with us',waHello:'Hi El Coctelazo 👋 I’d like some information',
+    featTitle:'Highlights',tagReco:'Today’s pick',tagSeason:'Seasonal',promoUntil:d=>`Valid until ${d}`,
     myOrder:'My order',orderHere:'Order delivery',total:'Total',sendWa:'Send via WhatsApp',copy:'Copy',clear:'Clear',fine:'Send your order via WhatsApp. The team will confirm it with you.',
     emptyCart:'Your order is empty',emptyCartSub:'Tap the + on any product to build it here.',remove:'Remove',add:'Add',addTo:'Add to order',added:'added',viewOrder:'View order',copied:'Order copied',
-    flavor:'Flavor',deliveryM:'Delivery',addrPh:'Delivery address (area, building, apt)',namePhD:'Your name',
+    deliveryM:'Delivery',addrPh:'Delivery address (area, building, apt)',namePhD:'Your name',
     minNeed:(n,m)=>`Minimum order for delivery: <b>${m}</b>. You need <b>${n}</b> more.`,minOk:m=>`Delivery available · minimum ${m} ✓`,minToast:m=>`Delivery requires a minimum order of ${m}`,needAddr:'Enter the delivery address',onlyFrom:s=>`Deliveries leave only from the ${s} location.`,whoD:'Name',type:'Type',addr:'Address',
-    chooseProt:'Choose your protein',surpriseToast:'Tonight it’s',greet:'Hi El Coctelazo 👋 I’d like to order this',sede:'Location',noteApprox:'Prices in Colombian pesos.',shareTitle:'My order at El Coctelazo',
-    openNow:'Open now · closes 12:00 AM',opensAt:'We open today at 2:30 PM',openB:'Open',closedB:'Closed · opens 2:30 PM',
-    results:(n,q)=>`${n} result${n===1?'':'s'} for “${q}”`,noRes:'Nothing here',noResSub:'Try another word: margarita, mango, ceviche…',
-    sizesAlt:'Slush sizes',build:'Build your slush',buildLede:'Pick the style and the size. The price updates by itself.',tip:'Choose 3 toppings of your liking',
-    close:'Close',top:'Back to top',newb:'NEW',comboTag:'Special combo',unit:'each',from:'from',trago:'Shot',media:'Half',botella:'Bottle',
-    comboTagline:'Save by combining'}
+    chooseVar:'Choose an option',surpriseToast:'Tonight it’s',greet:'Hi El Coctelazo 👋 I’d like to place this delivery order',sede:'Location',noteApprox:'Prices in Colombian pesos.',
+    openNow:c=>`Open now · closes ${c}`,opensAt:o=>`We open today at ${o}`,openB:'Open',closedB:o=>`Closed · opens ${o}`,
+    results:(n,q)=>`${n} result${n===1?'':'s'} for “${q}”`,noRes:'Nothing here',noResSub:'Try another word: slush, bomba, nevecón…',
+    close:'Close',top:'Back to top',unit:'each',from:'from',pending:'Price to be confirmed',
+    mNoteP:'In-store price. ',mNoteGo:'Order it for delivery →',liter:'Liter',half:'Half'}
 };
 
 /* =========================================================
@@ -948,109 +1013,134 @@ const store = {
   set(k,v){try{localStorage.setItem(k,v)}catch(e){}}
 };
 
-const state = {lang: store.get('coctelazo-language')==='en'?'en':'es', view:'menu', cat:'granizados', q:'', cart:[], gb:{type:0,size:1,flavor:0}, modal:null};
-try{ state.cart = JSON.parse(store.get('coctelazo-cart-v2')||'[]').filter(l=>l&&(BY_ID[l.id]||String(l.id).startsWith('gran-'))); }catch(e){ state.cart=[]; }
+const state = {lang: store.get('coctelazo-language')==='en'?'en':'es', view:'puntos', menu:'puntos', cat:'granizados', q:'', cart:[], modal:null, near:null, cover:null};
+try{ state.cart = JSON.parse(store.get('coctelazo-orig-cart-v1')||'[]').filter(l=>l&&BY_ID[l.id]&&BY_ID[l.id].m.includes('d')); }catch(e){ state.cart=[]; }
 
 const t = k => UI[state.lang][k];
 const nm = i => i[state.lang];
-const ds = i => state.lang==='en'?i.dEn:i.dEs;
 const pick = o => o[state.lang];
+
+/* ---- qué se ve en cada carta ---- */
+const isD = () => state.menu==='domis';
+const todayStr = () => new Date().toLocaleDateString('en-CA',{timeZone:TZ});
+const promoOn = p => (!p.from || p.from<=todayStr()) && (!p.until || p.until>=todayStr());
+const inMenu = it => it.m.includes(isD()?'d':'p') && (!it.promo || promoOn(it));
+const menuItems = () => ITEMS.filter(inMenu);
+const priceOf = it => isD() && it.pd!=null ? it.pd : it.price;
+const imgOf = it => isD() && 'imgD' in it ? it.imgD : it.img;
+const pricesOf = it => isD() && it.pricesD ? it.pricesD : it.prices;
+const minPrice = it => it.vars ? Math.min(...it.vars.map(v=>v.price)) : priceOf(it);
+const catList = () => (menuItems().some(i=>i.promo) ? [PROMO_CAT] : []).concat(CATS);
+const ds = i => {
+  let d = state.lang==='en'?i.dEn:i.dEs;
+  if (i.promo && i.until){ const [y,m,dd]=i.until.split('-'); d = [d,t('promoUntil')(`${dd}/${m}/${y}`)].filter(Boolean).join(' · '); }
+  return d;
+};
 
 /* =========================================================
    RENDER — TARJETAS Y FILAS
    ========================================================= */
 const ICON = {
   plus:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>',
-  roll:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="32" cy="24" rx="20" ry="9"/><path d="M12 24v14c0 5 9 9 20 9s20-4 20-9V24"/><ellipse cx="32" cy="24" rx="9" ry="4"/><path d="M6 52c8 4 44 4 52 0"/></svg>',
   glass:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12h44L34 34v16h10M30 50H20M34 50h10"/><path d="M42 6l8 10"/><circle cx="46" cy="20" r="3"/></svg>'
 };
 const VAR = ['', ' alt1', ' alt2'];
 
-function cardHTML(it, idx){
+const noPrice = it => !it.vars && priceOf(it)==null;   // producto en la carta sin precio confirmado
+function priceHTML(it){
+  if (noPrice(it)) return `<span class="pend">${t('pending')}</span>`;
+  return it.vars
+    ? `<span class="fromlbl">${t('from')}</span>${money(minPrice(it))}`
+    : money(priceOf(it)) + (it.unit?` <small>${it.unit}</small>`:'');
+}
+function addBtnHTML(it){
+  if (!isD() || noPrice(it)) return '';
+  return `<button class="add" type="button" data-act="${it.vars?'open':'add'}" data-id="${it.id}" aria-label="${esc(it.vars?t('chooseVar'):t('add')+' '+nm(it))}">${ICON.plus}</button>`;
+}
+
+function cardHTML(it, idx, o={}){
   const v = VAR[idx%3];
-  const hasImg = !!it.img;
-  const glyph = it.glyph==='roll'?ICON.roll:ICON.glass;
+  const img = imgOf(it), hasImg = !!img;
   const delay = ((idx*0.7)%5).toFixed(1);
-  const sub = SUB[it.sub];
-  let stage;
-  if (it.deal){
-    stage = `<div class="stage"><div class="disc"></div><div class="ring"></div><div class="floor"></div><div class="pic">${it.deal.map(d=>`<img src="img/${d}.webp" alt="" loading="lazy" decoding="async">`).join('')}</div></div>`;
-  } else if (hasImg){
-    stage = `<div class="stage"><div class="disc"></div><div class="ring"></div><div class="floor"></div><div class="pic" style="--d:-${delay}s"><img src="${it.img}" alt="${esc(nm(it))}" loading="lazy" decoding="async"></div></div>`;
-  } else {
-    stage = `<div class="stage"><div class="disc"></div><div class="ring"></div><div class="floor"></div><div class="glyph">${glyph}</div></div>`;
-  }
-  const badge = sub.isNew ? `<span class="chiptag">${t('newb')}</span>` : '';
-  const price = money(it.price) + (it.unit?` <small>${it.unit}</small>`:'');
-  const addBtn = it.opts
-    ? `<button class="add" type="button" data-act="open" data-id="${it.id}" aria-label="${esc(t('chooseProt'))}">${ICON.plus}</button>`
-    : `<button class="add" type="button" data-act="add" data-id="${it.id}" aria-label="${esc(t('add'))} ${esc(nm(it))}">${ICON.plus}</button>`;
-  const tagline = it.deal ? `<span class="tagline">${t('comboTag')}</span>` : '';
-  const body = `<div class="cbody">${tagline}<h3>${esc(nm(it))}</h3><p>${esc(ds(it))}</p><div class="cfoot"><span class="price">${price}</span>${addBtn}</div></div>`;
-  return `<div class="cell${it.deal?' deal':''}"><article class="card${v}${hasImg||it.deal?'':' noimg'}" data-tilt="${it.deal?5:11}" data-act="open" data-id="${it.id}" tabindex="0" role="button" aria-label="${esc(nm(it))}">${badge}<div class="glare"></div>${stage}${body}</article></div>`;
+  const stage = hasImg
+    ? `<div class="stage"><div class="disc"></div><div class="ring"></div><div class="floor"></div><div class="pic" style="--d:-${delay}s"><img src="${img}" alt="${esc(nm(it))}" loading="lazy" decoding="async"></div></div>`
+    : `<div class="stage"><div class="disc"></div><div class="ring"></div><div class="floor"></div><div class="glyph">${ICON.glass}</div></div>`;
+  const badge = o.tag ? `<span class="chiptag">${esc(o.tag)}</span>` : '';
+  const body = `<div class="cbody"><h3>${esc(nm(it))}</h3><p>${esc(ds(it))}</p><div class="cfoot"><span class="price">${priceHTML(it)}</span>${addBtnHTML(it)}</div></div>`;
+  return `<div class="cell${o.in?' in':''}"><article class="card${v}${hasImg?'':' noimg'}" data-tilt="11" data-act="open" data-id="${it.id}" tabindex="0" role="button" aria-label="${esc(nm(it))}">${badge}<div class="glare"></div>${stage}${body}</article></div>`;
 }
 
 function rowHTML(it){
-  const price = money(it.price);
-  const plus = it.opts ? 'open' : 'add';
   return `<div class="row" data-act="open" data-id="${it.id}" tabindex="0" role="button">
     <div><div class="rname">${esc(nm(it))}</div>${ds(it)?`<div class="rdesc">${esc(ds(it))}</div>`:''}</div>
-    <div class="rright"><span class="price">${price}</span><button class="add" type="button" data-act="${plus}" data-id="${it.id}" aria-label="${esc(t('add'))} ${esc(nm(it))}">${ICON.plus}</button></div></div>`;
+    <div class="rright"><span class="price">${priceHTML(it)}</span>${addBtnHTML(it)}</div></div>`;
 }
 
-function liqHTML(it){
-  const labs = ['trago','media','botella'];
-  const btns = it.prices.map((p,i)=> p==null
-    ? `<button class="pb" type="button" disabled aria-label="${t(labs[i])}: —">—</button>`
-    : `<button class="pb" type="button" data-act="addv" data-id="${it.id}" data-v="${i}" aria-label="${esc(nm(it))} · ${t(labs[i])} ${money(p)}">${money(p)}</button>`).join('');
-  return `<div class="liq"><div class="nm">${esc(nm(it))}</div>${btns}</div>`;
+function liqHTML(it, sub){
+  const labs = sub.cols.map(c=>pick({es:c[0],en:c[1]}));
+  const cells = pricesOf(it).map((p,i)=> p==null
+    ? `<span class="pv">—</span>`
+    : isD()
+      ? `<button class="pb" type="button" data-act="addv" data-id="${it.id}" data-v="${i}" aria-label="${esc(nm(it))} · ${labs[i]} ${money(p)}">${money(p)}</button>`
+      : `<span class="pv">${money(p)}</span>`).join('');
+  return `<div class="liq c2"><div class="nm">${esc(nm(it))}</div>${cells}</div>`;
 }
-const liqHead = () => `<div class="liq head"><span></span><span>${t('trago')}</span><span>${t('media')}</span><span>${t('botella')}</span></div>`;
+const liqHead = sub => `<div class="liq c2 head"><span></span>${sub.cols.map(c=>`<span>${esc(pick({es:c[0],en:c[1]}))}</span>`).join('')}</div>`;
 
-function subBlock(sub, items, withAnchor){
+function subBlock(sub, items){
   if (!items.length) return '';
-  let head = `<div class="sub"${withAnchor&&sub.anchor?` id="${sub.anchor}"`:''}>${esc(pick(sub))}${sub.noteEs?` <em>· ${esc(state.lang==='en'?sub.noteEn:sub.noteEs)}</em>`:''}${sub.isNew?`<span class="new">${t('newb')}</span>`:''}</div>`;
+  const head = `<div class="sub">${esc(pick(sub))}${sub.noteEs?` <em>· ${esc(state.lang==='en'?sub.noteEn:sub.noteEs)}</em>`:''}</div>`;
   let body;
   if (sub.layout==='cards') body = `<div class="grid">${items.map((it,i)=>cardHTML(it,i)).join('')}</div>`;
-  else if (sub.layout==='liq') body = `<div class="rows">${liqHead()}${items.map(liqHTML).join('')}</div>`;
+  else if (sub.layout==='liq') body = `<div class="rows">${liqHead(sub)}${items.map(it=>liqHTML(it,sub)).join('')}</div>`;
   else body = `<div class="rows cols2">${items.map(rowHTML).join('')}</div>`;
   return head + body;
 }
 
-/* constructor de granizados */
-function builderHTML(){
-  const g = state.gb, ty = GTYPES[g.type];
-  return `<div class="builder" id="builder" data-type="${g.type}">
-    <div class="stage" data-tilt="12" id="bStage"><div class="disc"></div><div class="ring"></div><div class="floor"></div><div class="pic"><img src="img/granizado-tradicional.webp" alt="${esc(t('build'))}" decoding="async"></div></div>
-    <div>
-      <h3>${t('build')}</h3><p class="lede">${t('buildLede')}</p>
-      <div class="seg" role="radiogroup" aria-label="${esc(t('build'))}">${GTYPES.map((x,i)=>`<button type="button" role="radio" aria-checked="${i===g.type}" data-act="gtype" data-i="${i}">${pick(x)}</button>`).join('')}</div>
-      <div class="sizes" role="radiogroup">${GSIZES.map((s,i)=>`<button class="size" type="button" role="radio" aria-checked="${i===g.size}" data-act="gsize" data-i="${i}"><b>${pick(s)}</b><span>${money(ty.p[i])}</span></button>`).join('')}</div>
-      <div class="flv"><div class="lbl">${t('flavor')}</div><div class="chips" role="radiogroup" aria-label="${esc(t('flavor'))}">${GFLAVORS.map((f,i)=>`<button class="chip${i===g.flavor?' on':''}" type="button" role="radio" aria-checked="${i===g.flavor}" data-act="gflv" data-i="${i}">${pick(f)}</button>`).join('')}</div></div>
-      <div class="bprice"><div class="big" id="bBig" data-v="${ty.p[g.size]}">${money(ty.p[g.size])}</div><button class="btn primary" type="button" data-act="gadd">${ICON.plus.replace('<svg','<svg width="16" height="16"')} ${t('addTo')}</button></div>
-      <p class="tip">${t('tip')}</p>
-    </div></div>
-    <div class="sizesimg" data-tilt="8"><img src="img/tamanos-granizado.webp" alt="${esc(t('sizesAlt'))}" loading="lazy" decoding="async"></div>`;
-}
-
 function sectionHTML(cat){
-  const subs = SUBS.filter(s=>s.cat===cat.id);
   let html = `<div class="section" id="sec-${cat.id}"><div class="sec-head"><h2>${esc(pick(cat))}</h2></div>`;
-  if (cat.id==='granizados') html += builderHTML();
-  if (cat.id==='comidas'){
-    html += `<div class="foodnav">${subs.map(s=>`<a class="chip" href="#${s.anchor}" data-act="food" data-a="${s.anchor}">${esc(state.lang==='en'?s.chipEn:s.chipEs)}</a>`).join('')}</div>`;
-  }
-  subs.forEach(s=>{ html += subBlock(s, ITEMS.filter(i=>i.sub===s.id), cat.id==='comidas'); });
+  const all = menuItems();
+  SUBS.filter(s=>s.cat===cat.id).forEach(s=>{ html += subBlock(s, all.filter(i=>i.sub===s.id)); });
   return html + '</div>';
 }
 
 function searchHTML(q){
   const nq = norm(q);
-  const found = ITEMS.filter(i => norm(i.es+' '+i.en+' '+i.dEs+' '+i.dEn+' '+pick(SUB[i.sub])+' '+SUB[i.sub].en+' '+pick(CATS.find(c=>c.id===i.cat))).includes(nq));
+  const found = menuItems().filter(i => norm(i.es+' '+i.en+' '+i.dEs+' '+i.dEn+' '+pick(SUB[i.sub])+' '+SUB[i.sub].en+' '+pick(i.promo?PROMO_CAT:CATS.find(c=>c.id===i.cat))).includes(nq));
   if (!found.length) return `<div class="empty"><div class="big">${t('noRes')}</div><p>${t('noResSub')}</p></div>`;
   let html = `<p class="results-head"><b>${esc(t('results')(found.length,q))}</b></p>`;
-  SUBS.forEach(s=>{ const its = found.filter(i=>i.sub===s.id); if (its.length) html += subBlock(s, its, false); });
+  SUBS.forEach(s=>{ const its = found.filter(i=>i.sub===s.id); if (its.length) html += subBlock(s, its); });
   return html;
+}
+
+/* =========================================================
+   HORARIOS (hora de Bogotá)
+   ========================================================= */
+function nowParts(){
+  try{
+    const p = new Intl.DateTimeFormat('en-GB',{timeZone:TZ,weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+    const dow = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(p.find(x=>x.type==='weekday').value);
+    return {dow, mins:(+p.find(x=>x.type==='hour').value % 24)*60 + +p.find(x=>x.type==='minute').value};
+  }catch(e){ const d=new Date(); return {dow:d.getDay(), mins:d.getHours()*60+d.getMinutes()}; }
+}
+function statusOf(h){
+  const {dow,mins} = nowParts();
+  const closeOf = d => (h.weekendDays && h.weekendDays.includes(d) && h.closeWeekend) || h.close;
+  if (mins>=h.open && mins<closeOf(dow)) return {open:true, close:closeOf(dow)%1440};
+  const c = closeOf((dow+6)%7);                     // el turno de ayer puede seguir abierto de madrugada
+  if (c>1440 && mins<c-1440) return {open:true, close:c-1440};
+  return {open:false};
+}
+function clock(m){
+  const h = Math.floor(m/60)%24, mm = m%60;
+  return `${h%12||12}:${String(mm).padStart(2,'0')} ${h>=12?'PM':'AM'}`;
+}
+const openStatus = () => statusOf(HOURS);
+const deliveryStatus = () => statusOf(DELIVERY_HOURS);
+function renderStatus(){
+  const st = openStatus(), el = $('#heroStatus');
+  el.className = 'status '+(st.open?'open':'closed');
+  el.textContent = st.open ? t('openNow')(clock(st.close)) : t('opensAt')(clock(HOURS.open));
 }
 
 /* =========================================================
@@ -1061,7 +1151,7 @@ let io;
 
 function renderCatNav(){
   const nav = $('#catnav');
-  nav.innerHTML = CATS.map(c=>`<a class="chip${!state.q&&c.id===state.cat?' on':''}" role="tab" href="#${c.id}" data-cat="${c.id}" aria-selected="${!state.q&&c.id===state.cat}">${esc(pick(c).toUpperCase())}</a>`).join('');
+  nav.innerHTML = catList().map(c=>`<a class="chip${!state.q&&c.id===state.cat?' on':''}" role="tab" href="#${isD()?'domicilios':'puntos'}/${c.id}" data-cat="${c.id}" aria-selected="${!state.q&&c.id===state.cat}">${esc(pick(c).toUpperCase())}</a>`).join('');
   centerChip();
 }
 function centerChip(){
@@ -1070,8 +1160,10 @@ function centerChip(){
 }
 
 function renderMenu(){
+  const cats = catList();
   if (state.q.trim()){ menuRoot.innerHTML = searchHTML(state.q.trim()); }
-  else { menuRoot.innerHTML = sectionHTML(CATS.find(c=>c.id===state.cat)); }
+  else { menuRoot.innerHTML = sectionHTML(cats.find(c=>c.id===state.cat) || cats[0]); }
+  $('#menuBanner').hidden = !!state.q.trim();
   observe();
 }
 
@@ -1085,6 +1177,62 @@ function observe(){
   cells.forEach((c,i)=>{ c.style.setProperty('--i', String(i%4)); io.observe(c); });
 }
 
+/* ---- destacados: temporada y recomendación del día ---- */
+function recoOfDay(){
+  const pool = menuItems().filter(i=>!i.promo && imgOf(i) && !noPrice(i));
+  if (!pool.length) return null;
+  const n = Math.floor(Date.parse(todayStr()+'T00:00:00Z')/86400000);
+  return pool[n % pool.length].id;
+}
+function featuredHTML(){
+  const k = isD()?'d':'p', out = [], seen = new Set();
+  const push = (it,tag) => { if (it && inMenu(it) && !noPrice(it) && !seen.has(it.id)){ seen.add(it.id); out.push([it,tag]); } };
+  const sid = SEASONAL[k];
+  if (sid) push(BY_ID[sid], t('tagSeason'));
+  push(BY_ID[RECO_FIXED[k] || recoOfDay()], t('tagReco'));
+  // se completan hasta 4 con los siguientes productos con foto, que rotan cada día junto con la recomendación
+  const pool = menuItems().filter(i=>!i.promo && imgOf(i) && !noPrice(i));
+  const n = Math.floor(Date.parse(todayStr()+'T00:00:00Z')/86400000);
+  for (let j=1; j<=pool.length && out.length<4; j++) push(pool[(n+j) % pool.length], '');
+  if (!out.length) return '';
+  return `<div class="feat"><div class="sec-head"><h2>${t('featTitle')}</h2></div><p class="fsub">${isD()?t('featSubD'):t('featSubP')}</p>
+    <div class="grid">${out.map(([it,tag],i)=>cardHTML(it,i,{tag,in:true})).join('')}</div>
+    <div class="acts"><button class="btn ghost" type="button" data-act="toMenu">${t('featAll')} ↓</button></div></div>`;
+}
+
+/* ---- banner de cada carta ---- */
+function bannerHTML(){
+  if (!isD()){
+    return `<div class="banner"><div class="btop"><div><div class="eyebrow">${t('bnPEye')}</div><h3>${t('bnPTitle')}</h3></div></div>
+      <p>${t('bnPText')}</p>
+      <dl class="facts one"><div><dt>${t('hours')}</dt><dd>${t('hoursV')}</dd></div></dl>
+      <div class="acts"><button class="btn primary" type="button" data-act="goDomis">${t('bnPCta')} →</button></div></div>`;
+  }
+  const st = deliveryStatus(), s = SEDES[DELI], c = state.cover;
+  let cover = '';
+  if (c){
+    if (c.busy) cover = `<div class="cover">${t('coverBusy')}</div>`;
+    else if (c.err) cover = `<div class="cover bad">${t('coverErr')}</div>`;
+    else {
+      const verdict = MAX_KM==null ? t('coverUnk') : c.km>MAX_KM ? t('coverOut') : t('coverIn');
+      cover = `<div class="cover ${MAX_KM!=null?(c.km>MAX_KM?'bad':'ok'):''}">${t('coverDist')(fmtKm(c.km),esc(s.n))} ${verdict}</div>`;
+    }
+  }
+  return `<div class="banner dom"><div class="btop"><div><div class="eyebrow">${t('bnDEye')}</div><h3>${t('bnDTitle')}</h3></div>
+      <span class="status ${st.open?'open':'closed'}">${st.open?t('delOpen')(clock(st.close)):t('delClosed')(clock(DELIVERY_HOURS.open))}</span></div>
+    <dl class="facts">
+      <div><dt>${t('fHours')}</dt><dd>${t('hoursDV')}</dd></div>
+      <div><dt>${t('fFrom')}</dt><dd>${esc(s.n)} · ${esc(s.a)}</dd></div>
+      <div><dt>${t('fMin')}</dt><dd>${money(DELIVERY_MIN)}</dd></div>
+      <div><dt>${t('fWa')}</dt><dd>${WHATSAPP_SHOW}</dd></div>
+    </dl>
+    <div class="acts"><button class="btn ghost" type="button" data-act="cover">${t('coverBtn')}</button></div>
+    ${cover}
+    <p class="fine">${t('delOnlyPrices')}</p></div>`;
+}
+function renderBanner(){ $('#menuBanner').innerHTML = featuredHTML() + bannerHTML(); }
+
+/* ---- sedes y ubicación ---- */
 const geo = {busy:false, err:null};
 const dirsUrl = i => {
   const q = encodeURIComponent(`${SEDES[i].a}, Medellín, Antioquia, Colombia`);
@@ -1108,15 +1256,15 @@ function renderSedes(){
   const first = state.near ? state.near.list[0].i : -1;
   $('#sedes').innerHTML = SEDES.map((s,i)=>{
     const q = encodeURIComponent(`${s.a}, Medellín, Antioquia, Colombia`);
-    const isNear = i===first, d = distOf(i);
+    const isNear = i===first, d = distOf(i), isDel = s.n===DELIVERY_SEDE;
     return `<article class="sede${isNear?' near':''}" id="sede-${i}">
       ${isNear?`<div class="nearflag">★ ${t('nearFlag')}</div>`:''}
-      <div class="sede-top"><div><h3>${esc(s.n)}</h3>${d!=null?`<span class="dist">≈ ${fmtKm(d)}</span>`:''}</div><span class="status ${st.open?'open':'closed'}">${st.open?t('openB'):t('closedB')}</span></div>
-      <dl><dt>${t('address')}</dt><dd>${esc(s.a)}</dd><dt>${t('hours')}</dt><dd class="mut">${t('hoursV')}</dd></dl>
+      <div class="sede-top"><div><h3>${esc(s.n)}${s.note?`<span class="snote">${esc(pick({es:s.note[0],en:s.note[1]}))}</span>`:''}</h3>${d!=null?`<span class="dist">≈ ${fmtKm(d)}</span>`:''}</div><span class="status ${st.open?'open':'closed'}">${st.open?t('openB'):t('closedB')(clock(HOURS.open))}</span></div>
+      <dl><dt>${t('address')}</dt><dd>${esc(s.a)}</dd><dt>${t('hours')}</dt><dd class="mut">${t('hoursV')}</dd>${isDel?`<dt>${t('hoursD')}</dt><dd class="mut">${t('hoursDV')}</dd>`:''}</dl>
       <div class="sede-actions">
         <a class="btn ${isNear?'primary':'ghost'}" target="_blank" rel="noopener" href="${dirsUrl(i)}">${t('how')} →</a>
         <button class="btn ghost" type="button" data-act="map" data-i="${i}">${t('map')}</button>
-        ${s.n===DELIVERY_SEDE?`<button class="btn primary" type="button" data-act="sede" data-i="${i}">${t('orderHere')}</button>`:''}
+        ${isDel?`<button class="btn primary" type="button" data-act="goDomis">${t('orderHere')}</button>`:''}
       </div>
       <div class="mapbox" id="map-${i}" data-q="${q}"></div></article>`;
   }).join('');
@@ -1139,7 +1287,7 @@ function renderLocate(){
   const others = rest.slice(0,2).map(o=>`<button type="button" data-act="gosede" data-i="${o.i}"><span>${esc(SEDES[o.i].n)}</span><span>≈ ${fmtKm(o.d)}</span></button>`).join('');
   box.hidden=false; box.className='nearest';
   box.innerHTML = `<div class="eyebrow">${t('nearEyebrow')}</div><h3>${esc(s.n)}</h3>
-    <div class="meta"><span class="km">≈ ${fmtKm(a.d)}</span><span>${t('straight')}</span><span class="status ${status.open?'open':'closed'}">${status.open?t('openB'):t('closedB')}</span></div>
+    <div class="meta"><span class="km">≈ ${fmtKm(a.d)}</span><span>${t('straight')}</span><span class="status ${status.open?'open':'closed'}">${status.open?t('openB'):t('closedB')(clock(HOURS.open))}</span></div>
     <div class="meta">${esc(s.a)}</div>
     ${a.d>50?`<p class="note">${t('locFar')(Math.round(a.d))}</p>`:''}
     <div class="acts"><a class="btn primary" target="_blank" rel="noopener" href="${dirsUrl(a.i)}">${t('goThere')} →</a><button class="btn ghost" type="button" data-act="gosede" data-i="${a.i}" data-map="1">${t('seeMap')}</button></div>
@@ -1168,20 +1316,15 @@ function goSede(i, withMap){
   card.classList.remove('flash'); void card.offsetWidth; card.classList.add('flash');
 }
 
-/* estado abierto / cerrado (hora de Bogotá) */
-function openStatus(){
-  let h=0,m=0;
-  try{
-    const p = new Intl.DateTimeFormat('en-GB',{timeZone:TZ,hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
-    h = +p.find(x=>x.type==='hour').value % 24; m = +p.find(x=>x.type==='minute').value;
-  }catch(e){ const d=new Date(); h=d.getHours(); m=d.getMinutes(); }
-  const mins = h*60+m;
-  return {open: mins>=HOURS.open && mins<HOURS.close};
-}
-function renderStatus(){
-  const st = openStatus(), el = $('#heroStatus');
-  el.className = 'status '+(st.open?'open':'closed');
-  el.textContent = st.open ? t('openNow') : t('opensAt');
+/* cobertura de domicilios: distancia a la sede que despacha */
+function checkCover(){
+  if (state.cover && state.cover.busy) return;
+  if (!('geolocation' in navigator)){ state.cover={err:true}; renderBanner(); return; }
+  state.cover = {busy:true}; renderBanner();
+  navigator.geolocation.getCurrentPosition(pos=>{
+    const km = haversine({lat:pos.coords.latitude,lng:pos.coords.longitude}, SEDES[DELI]);
+    state.cover = {km}; renderBanner();
+  }, ()=>{ state.cover={err:true}; renderBanner(); }, {enableHighAccuracy:true, timeout:12000, maximumAge:60000});
 }
 
 function applyI18n(){
@@ -1197,21 +1340,34 @@ function applyI18n(){
   $('#toastBtn').textContent = t('viewOrder');
   $('#qClear').setAttribute('aria-label', state.lang==='en'?'Clear search':'Limpiar búsqueda');
   $('#cartBtn').setAttribute('aria-label', t('myOrder'));
+  $('#waFab').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t('waHello'))}`;
+  $('#waFab').setAttribute('aria-label','WhatsApp · '+t('waFab'));
 }
 
 function renderAll(){
-  applyI18n(); renderStatus(); renderCatNav(); renderMenu(); renderSedes(); renderLocate(); renderCart();
+  applyI18n(); renderStatus(); renderCatNav(); renderBanner(); renderMenu(); renderSedes(); renderLocate(); renderCart();
   if (state.modal) openModal(state.modal.id, {keep:true});
 }
 
 /* =========================================================
    VISTAS Y RUTAS
    ========================================================= */
-function setView(name, {scroll=true}={}){
+const HASH = {puntos:'puntos', domis:'domicilios'};
+function setView(name, {scroll=true,hash=true}={}){
+  const prevMenu = state.menu;
   state.view = name;
-  $('#view-menu').classList.toggle('active', name==='menu');
+  if (name!=='info') state.menu = name;
+  document.body.dataset.view = name;
+  $('#view-menu').classList.toggle('active', name!=='info');
   $('#view-info').classList.toggle('active', name==='info');
   $$('.mtab').forEach(b=>{ const on=b.dataset.view===name; b.setAttribute('aria-selected',String(on)); b.tabIndex=on?0:-1; });
+  $('#view-menu').setAttribute('aria-labelledby','mtab-'+state.menu);
+  if (name!=='info'){
+    if (state.menu!==prevMenu && state.q){ state.q=''; $('#q').value=''; $('#searchBox').classList.remove('has'); }
+    if (!catList().some(c=>c.id===state.cat)) state.cat = catList()[0].id;
+    renderCatNav(); renderBanner(); renderMenu();
+  }
+  if (hash) history.replaceState(null,'', name==='info'?'#informacion':'#'+HASH[name]+'/'+state.cat);
   if (scroll) scrollToContent();
 }
 function scrollToContent(){
@@ -1219,27 +1375,28 @@ function scrollToContent(){
   if (window.scrollY > y) window.scrollTo({top:y,behavior:'instant'});
 }
 function setCat(id, {scroll=true,hash=true}={}){
-  if (!CATS.some(c=>c.id===id)) id='granizados';
+  if (!catList().some(c=>c.id===id)) id = catList()[0].id;
   state.cat = id;
   if (state.q){ state.q=''; $('#q').value=''; $('#searchBox').classList.remove('has'); }
   renderCatNav(); renderMenu();
-  if (hash) history.replaceState(null,'','#'+id);
+  if (hash) history.replaceState(null,'','#'+HASH[state.menu]+'/'+id);
   if (scroll) scrollToContent();
 }
 function route(){
-  const h = location.hash.slice(1);
-  if (h==='informacion'){ setView('info',{scroll:false}); return; }
-  const food = SUBS.find(s=>s.anchor===h);
-  if (food){ setView('menu',{scroll:false}); setCat('comidas',{scroll:false,hash:false}); requestAnimationFrame(()=>$('#'+h)?.scrollIntoView({behavior:'smooth',block:'start'})); return; }
-  setView('menu',{scroll:false});
-  if (CATS.some(c=>c.id===h)) setCat(h,{scroll:false,hash:false});
+  const [a,b] = location.hash.slice(1).split('/');
+  if (a==='informacion'){ setView('info',{scroll:false,hash:false}); return; }
+  const v = a==='domicilios' ? 'domis' : 'puntos';
+  state.menu = v;
+  if (b && catList().some(c=>c.id===b)) state.cat = b;
+  else if (CATS.some(c=>c.id===a)) state.cat = a;   // enlaces anteriores: #granizados
+  setView(v,{scroll:false,hash:false});
 }
 
 /* =========================================================
-   PEDIDO
+   PEDIDO (solo domicilios)
    ========================================================= */
 const lineKey = (id,v) => id+'|'+(v??'');
-function saveCart(){ store.set('coctelazo-cart-v2', JSON.stringify(state.cart)); }
+function saveCart(){ store.set('coctelazo-orig-cart-v1', JSON.stringify(state.cart)); }
 function cartCount(){ return state.cart.reduce((n,l)=>n+l.qty,0); }
 function cartTotal(){ return state.cart.reduce((n,l)=>n+l.qty*l.price,0); }
 
@@ -1251,15 +1408,15 @@ function addLine({id,name,variant=null,price,qty=1}){
   const b = $('#cartBtn'); b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump');
   toast(`${name[state.lang]}${variant?' · '+variant[state.lang]:''} — ${t('added')}`);
 }
-function addItem(id, qty=1, optIdx=null){
-  const it = BY_ID[id]; if (!it) return;
-  let variant = null;
-  if (it.opts && optIdx!=null) variant = {es:it.opts[optIdx][0],en:it.opts[optIdx][1]};
-  addLine({id, name:{es:it.es,en:it.en}, variant, price:it.price, qty});
+function addItem(id, qty=1, varIdx=null){
+  const it = BY_ID[id]; if (!it || noPrice(it)) return;
+  let variant = null, price = it.pd!=null ? it.pd : it.price;
+  if (it.vars && varIdx!=null){ const v = it.vars[varIdx]; variant = {es:v.es,en:v.en}; price = v.price; }
+  addLine({id, name:{es:it.es,en:it.en}, variant, price, qty});
 }
 function addLiq(id, vi){
-  const it = BY_ID[id]; const labs=[['Trago','Shot'],['Media','Half'],['Botella','Bottle']][vi];
-  addLine({id, name:{es:it.es,en:it.en}, variant:{es:labs[0],en:labs[1]}, price:it.prices[vi]});
+  const it = BY_ID[id]; const labs=[['Litro','Liter'],['Media','Half']][vi];
+  addLine({id, name:{es:it.es,en:it.en}, variant:{es:labs[0],en:labs[1]}, price:(it.pricesD||it.prices)[vi]});
 }
 
 function renderCart(){
@@ -1279,14 +1436,17 @@ function renderCart(){
 
 /* domicilio: único tipo de pedido, solo desde DELIVERY_SEDE */
 const deliveryShort = () => Math.max(0, DELIVERY_MIN - cartTotal());
+const blockedZone = () => { const a = norm($('#fAddr').value); return NO_COVERAGE.some(z=>a.includes(norm(z))); };
 function renderDelivery(){
-  const tot = cartTotal(), short = deliveryShort();
-  $('#dMin').classList.toggle('ok', short===0);
+  const tot = cartTotal(), short = deliveryShort(), bz = blockedZone();
+  $('#dMin').classList.toggle('ok', short===0 && !bz);
+  $('#dMin').classList.toggle('bad', bz);
   $('#dMinS').textContent = t('onlyFrom')(DELIVERY_SEDE);
   $('#dMinT').innerHTML = short ? t('minNeed')(money(short), money(DELIVERY_MIN)) : t('minOk')(money(DELIVERY_MIN));
+  $('#dMinZ').textContent = bz ? t('zoneBlocked') : '';
   $('#dMinBar').style.width = Math.min(100, tot/DELIVERY_MIN*100)+'%';
-  $('#bWa').disabled = short>0;
-  $('#bCopy').disabled = short>0;
+  $('#bWa').disabled = short>0 || bz;
+  $('#bCopy').disabled = short>0 || bz;
 }
 
 function orderText(){
@@ -1299,27 +1459,30 @@ function orderText(){
 /* =========================================================
    MODAL DE PRODUCTO
    ========================================================= */
-let lastFocus=null, mOpt=0, mQty=1;
+let lastFocus=null, mVar=0, mQty=1;
+function modalPrice(it){ return it.vars ? it.vars[mVar].price : priceOf(it); }
 function openModal(id, {keep=false}={}){
   const it = BY_ID[id]; if (!it) return;
   state.modal = it;
-  if (!keep){ mOpt=0; mQty=1; lastFocus=document.activeElement; }
+  if (!keep){ mVar=0; mQty=1; lastFocus=document.activeElement; }
   $('#mTitle').textContent = nm(it);
-  const pr = it.prices ? null : it.price;
-  $('#mPrice').textContent = pr!=null ? money(pr)+(it.unit?' '+it.unit:'') : '';
+  $('#mPrice').textContent = noPrice(it) ? t('pending') : money(modalPrice(it)) + (it.unit?' '+it.unit:'');
+  $('#mPrice').classList.toggle('pend', noPrice(it));
   $('#mDesc').textContent = ds(it) || '';
   $('#mDesc').style.display = ds(it) ? '' : 'none';
-  const pic = $('#mPic');
-  if (it.deal) pic.innerHTML = it.deal.map(d=>`<img src="img/${d}.webp" alt="" style="position:absolute;bottom:10%;width:46%;${d===it.deal[0]?'left:0;transform:rotate(-8deg)':d===it.deal[1]?'left:27%;z-index:2;bottom:20%':'right:0;transform:rotate(7deg)'}">`).join('');
-  else if (it.img) pic.innerHTML = `<img src="${it.img}" alt="${esc(nm(it))}">`;
-  else pic.innerHTML = `<div class="glyph" style="position:static;transform:none"><div style="width:120px;color:var(--pink);filter:drop-shadow(0 0 14px var(--g-pink))">${it.glyph==='roll'?ICON.roll:ICON.glass}</div></div>`;
+  const pic = $('#mPic'), img = imgOf(it);
+  if (img) pic.innerHTML = `<img src="${img}" alt="${esc(nm(it))}">`;
+  else pic.innerHTML = `<div class="glyph" style="position:static;transform:none"><div style="width:120px;color:var(--pink);filter:drop-shadow(0 0 14px var(--g-pink))">${ICON.glass}</div></div>`;
   const opts = $('#mOpts');
-  if (it.opts){
+  if (it.vars){
     opts.hidden=false;
-    opts.innerHTML = `<div class="lbl">${t('chooseProt')}</div><div class="chips" role="radiogroup">${it.opts.map((o,i)=>`<button class="chip${i===mOpt?' on':''}" type="button" role="radio" aria-checked="${i===mOpt}" data-act="opt" data-i="${i}">${esc(o[state.lang==='en'?1:0])}</button>`).join('')}</div>`;
+    opts.innerHTML = `<div class="lbl">${t('chooseVar')}</div><div class="chips" role="radiogroup">${it.vars.map((v,i)=>`<button class="chip${i===mVar?' on':''}" type="button" role="radio" aria-checked="${i===mVar}" data-act="var" data-i="${i}">${esc(v[state.lang])}<b>${money(v.price)}</b></button>`).join('')}</div>`;
   } else { opts.hidden=true; opts.innerHTML=''; }
   $('#qVal').textContent = mQty;
-  $('#mAdd').style.display = it.prices ? 'none' : '';
+  $('#mFoot').style.display = isD() && !noPrice(it) ? '' : 'none';
+  const note = $('#mNote');
+  if (!isD() && it.m.includes('d')){ note.hidden=false; note.innerHTML = `${esc(t('mNoteP'))}<a data-act="goDomis">${esc(t('mNoteGo'))}</a>`; }
+  else { note.hidden=true; note.innerHTML=''; }
   $('#modal').classList.add('show'); $('#scrim').classList.add('show');
   $('#modal').setAttribute('aria-hidden','false');
   document.body.classList.add('locked','modal-open');
@@ -1357,45 +1520,24 @@ function toast(msg){
 /* =========================================================
    EVENTOS
    ========================================================= */
+function goDomis(){ closeModal(); setView('domis',{scroll:false}); const y=$('#view-menu').getBoundingClientRect().top+scrollY-10; scrollTo({top:y,behavior:REDUCED?'auto':'smooth'}); }
 document.addEventListener('click', e=>{
   const el = e.target.closest('[data-act]'); if (!el) return;
   const act = el.dataset.act, id = el.dataset.id, i = +el.dataset.i;
   if (act==='add'){ e.stopPropagation(); addItem(id); flash(el); return; }
   if (act==='open'){ if (e.target.closest('.add') && el.classList.contains('card')) return; openModal(id); return; }
   if (act==='addv'){ addLiq(id,+el.dataset.v); return; }
-  if (act==='gtype'){ state.gb.type=i; updateBuilder(); return; }
-  if (act==='gsize'){ state.gb.size=i; updateBuilder(); return; }
-  if (act==='gadd'){
-    const ty=GTYPES[state.gb.type], sz=GSIZES[state.gb.size], fl=GFLAVORS[state.gb.flavor];
-    addLine({id:'gran-'+state.gb.type+'-'+state.gb.size, name:{es:'Granizado tradicional',en:'Traditional slush'}, variant:{es:`${ty.es} · ${sz.es} · ${fl.es}`,en:`${ty.en} · ${sz.en} · ${fl.en}`}, price:ty.p[state.gb.size]}); return;
-  }
-  if (act==='gflv'){ state.gb.flavor=i; updateBuilder(); return; }
-  if (act==='food'){ e.preventDefault(); history.replaceState(null,'','#'+el.dataset.a); $('#'+el.dataset.a)?.scrollIntoView({behavior:'smooth',block:'start'}); return; }
-  if (act==='opt'){ mOpt=i; $$('#mOpts .chip').forEach((c,k)=>{c.classList.toggle('on',k===i);c.setAttribute('aria-checked',String(k===i));}); return; }
+  if (act==='var'){ mVar=i; $$('#mOpts .chip').forEach((c,k)=>{c.classList.toggle('on',k===i);c.setAttribute('aria-checked',String(k===i));}); $('#mPrice').textContent=money(modalPrice(state.modal)); return; }
   if (act==='inc'){ state.cart[i].qty++; saveCart(); renderCart(); return; }
   if (act==='dec'){ state.cart[i].qty--; if (state.cart[i].qty<=0) state.cart.splice(i,1); saveCart(); renderCart(); return; }
   if (act==='rm'){ state.cart.splice(i,1); saveCart(); renderCart(); return; }
   if (act==='map'){ toggleMap(i,el); return; }
-  if (act==='sede'){ openDrawer(); return; }
+  if (act==='goDomis'){ goDomis(); return; }
+  if (act==='toMenu'){ $('.tools').scrollIntoView({behavior:REDUCED?'auto':'smooth',block:'start'}); return; }
+  if (act==='cover'){ checkCover(); return; }
   if (act==='gosede'){ goSede(i, !!el.dataset.map); return; }
 });
 function flash(btn){ btn.classList.add('done'); setTimeout(()=>btn.classList.remove('done'),700); }
-function updateBuilder(){
-  const b=$('#builder'); if(!b) return;
-  const ty=GTYPES[state.gb.type]; b.dataset.type=state.gb.type;
-  $$('[data-act=gtype]',b).forEach((x,k)=>x.setAttribute('aria-checked',String(k===state.gb.type)));
-  $$('[data-act=gflv]',b).forEach((x,k)=>{x.classList.toggle('on',k===state.gb.flavor); x.setAttribute('aria-checked',String(k===state.gb.flavor));});
-  $$('[data-act=gsize]',b).forEach((x,k)=>{x.setAttribute('aria-checked',String(k===state.gb.size)); $('span',x).textContent=money(ty.p[k]);});
-  countTo($('#bBig'), ty.p[state.gb.size]);
-}
-let countRaf;
-function countTo(el,to){
-  const from = +(el.dataset.v||0)||to; el.dataset.v=to;
-  if (REDUCED){ el.textContent=money(to); return; }
-  cancelAnimationFrame(countRaf); const t0=performance.now(), d=380;
-  const step=n=>{ const k=Math.min(1,(n-t0)/d), e=1-Math.pow(1-k,3); el.textContent=money(from+(to-from)*e); if(k<1) countRaf=requestAnimationFrame(step); else el.textContent=money(to); };
-  countRaf=requestAnimationFrame(step);
-}
 function toggleMap(i,btn){
   const box = $('#map-'+i);
   if (!box.firstChild){
@@ -1412,7 +1554,7 @@ document.addEventListener('keydown', e=>{
 
 /* pestañas principales */
 $$('.mtab').forEach((b,i,all)=>{
-  b.addEventListener('click',()=>{ setView(b.dataset.view); history.replaceState(null,'', b.dataset.view==='info'?'#informacion':'#'+state.cat); });
+  b.addEventListener('click',()=>setView(b.dataset.view));
   b.addEventListener('keydown',e=>{ const s=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0; if(!s) return; e.preventDefault(); const n=all[(i+s+all.length)%all.length]; n.focus(); n.click(); });
 });
 $('#catnav').addEventListener('click', e=>{ const a=e.target.closest('[data-cat]'); if(!a) return; e.preventDefault(); setCat(a.dataset.cat); });
@@ -1420,8 +1562,10 @@ $('#catnav').addEventListener('keydown', e=>{
   const s=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0; if(!s) return;
   const all=$$('#catnav .chip'); const k=all.indexOf(document.activeElement); if(k<0) return; e.preventDefault(); const n=all[(k+s+all.length)%all.length]; n.focus(); n.click(); n.focus();
 });
-$('#ctaMenu').addEventListener('click',e=>{ e.preventDefault(); setView('menu',{scroll:false}); const y=$('#view-menu').getBoundingClientRect().top+scrollY-10; scrollTo({top:y,behavior:'smooth'}); });
-$('#ctaSedes').addEventListener('click',e=>{ e.preventDefault(); setView('info',{scroll:false}); history.replaceState(null,'','#informacion'); const y=$('#view-info').getBoundingClientRect().top+scrollY-10; scrollTo({top:y,behavior:'smooth'}); });
+const toContent = () => { const y=$('#view-menu').getBoundingClientRect().top+scrollY-10; scrollTo({top:y,behavior:REDUCED?'auto':'smooth'}); };
+$('#ctaMenu').addEventListener('click',e=>{ e.preventDefault(); setView('puntos',{scroll:false}); toContent(); });
+$('#ctaDomis').addEventListener('click',e=>{ e.preventDefault(); setView('domis',{scroll:false}); toContent(); });
+$('#ctaSedes').addEventListener('click',e=>{ e.preventDefault(); setView('info',{scroll:false}); const y=$('#view-info').getBoundingClientRect().top+scrollY-10; scrollTo({top:y,behavior:REDUCED?'auto':'smooth'}); });
 $('#brandLink').addEventListener('click',e=>{ e.preventDefault(); scrollTo({top:0,behavior:'smooth'}); });
 window.addEventListener('hashchange', route);
 
@@ -1437,7 +1581,7 @@ qIn.addEventListener('input',()=>{
 });
 $('#qClear').addEventListener('click',()=>{ qIn.value=''; state.q=''; $('#searchBox').classList.remove('has'); renderCatNav(); renderMenu(); qIn.focus(); });
 document.addEventListener('keydown',e=>{
-  if (e.key==='/' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)){ e.preventDefault(); setView('menu',{scroll:false}); qIn.focus(); }
+  if (e.key==='/' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)){ e.preventDefault(); if (state.view==='info') setView(state.menu,{scroll:false}); qIn.focus(); }
   if (e.key==='Escape'){
     if (state.modal) closeModal(); else if ($('#drawer').classList.contains('show')) closeDrawer();
     else if (document.activeElement===qIn && qIn.value){ $('#qClear').click(); }
@@ -1454,7 +1598,7 @@ function trap(e){
 
 /* sorpréndeme */
 $('#surprise').addEventListener('click',()=>{
-  const pool = ITEMS.filter(i=>i.img && ['casa','chupitos','malteadas','comidas','granizados'].includes(i.cat) && !i.deal);
+  const pool = menuItems().filter(i=>imgOf(i) && !i.promo && !noPrice(i));
   const it = pool[Math.floor(Math.random()*pool.length)];
   toast(`${t('surpriseToast')}: ${nm(it)} ✨`);
   openModal(it.id);
@@ -1466,7 +1610,7 @@ $('#scrim').addEventListener('click',()=>{ if(state.modal) closeModal(); else cl
 $('#modal').addEventListener('click',e=>{ if(e.target.id==='modal') closeModal(); });
 $('#qMinus').addEventListener('click',()=>{ mQty=Math.max(1,mQty-1); $('#qVal').textContent=mQty; });
 $('#qPlus').addEventListener('click',()=>{ mQty=Math.min(20,mQty+1); $('#qVal').textContent=mQty; });
-$('#mAdd').addEventListener('click',()=>{ const it=state.modal; if(!it) return; addItem(it.id,mQty,it.opts?mOpt:null); closeModal(); });
+$('#mAdd').addEventListener('click',()=>{ const it=state.modal; if(!it) return; addItem(it.id,mQty,it.vars?mVar:null); closeModal(); });
 
 /* carrito */
 $('#cartBtn').addEventListener('click',openDrawer);
@@ -1480,9 +1624,10 @@ $('#bCopy').addEventListener('click',async()=>{
   toast(t('copied'));
 });
 $('#fAddr').value = store.get('coctelazo-addr') || '';
-$('#fAddr').addEventListener('input',e=>store.set('coctelazo-addr',e.target.value));
+$('#fAddr').addEventListener('input',e=>{ store.set('coctelazo-addr',e.target.value); renderDelivery(); });
 $('#bWa').addEventListener('click',()=>{
   if (deliveryShort()>0){ toast(t('minToast')(money(DELIVERY_MIN))); return; }
+  if (blockedZone()){ toast(t('zoneBlocked')); return; }
   if (!$('#fAddr').value.trim()){ toast(t('needAddr')); $('#fAddr').focus(); return; }
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(orderText())}`;
   window.open(url,'_blank','noopener');
@@ -1554,11 +1699,14 @@ if (!REDUCED && window.DeviceOrientationEvent && typeof DeviceOrientationEvent.r
     return {x:Math.random()*W,y:init?Math.random()*H:H+20,r:Math.random()*2.6+.8,vy:-(Math.random()*.22+.06),sw:Math.random()*Math.PI*2,sp:Math.random()*.01+.004,
       c:COLORS[Math.floor(Math.random()*3)],a:Math.random()*.5+.25,tw:Math.random()*Math.PI*2};
   }
-  function tick(){
+  // Movimiento por tiempo (no por fotograma): igual de lento en pantallas de 60, 120 o 144 Hz. SLOW baja o sube todo a la vez.
+  const SLOW=.4; let last=0;
+  function tick(ts){
     if(!run) return;
+    const k=(last?Math.min(50,ts-last):16.7)/16.7*SLOW; last=ts;
     ctx.clearRect(0,0,W,H);
     for(const p of ps){
-      p.y+=p.vy; p.sw+=p.sp; p.tw+=.02; p.x+=Math.sin(p.sw)*.25;
+      p.y+=p.vy*k; p.sw+=p.sp*k; p.tw+=.02*k; p.x+=Math.sin(p.sw)*.25*k;
       if(p.y<-20){ Object.assign(p,spawn(false)); p.x=Math.random()*W; }
       const al=p.a*(.6+.4*Math.sin(p.tw));
       const g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*6);
@@ -1568,16 +1716,56 @@ if (!REDUCED && window.DeviceOrientationEvent && typeof DeviceOrientationEvent.r
     requestAnimationFrame(tick);
   }
   size(); addEventListener('resize',()=>{ clearTimeout(size.t); size.t=setTimeout(size,200); });
-  document.addEventListener('visibilitychange',()=>{ run=!document.hidden; if(run) requestAnimationFrame(tick); });
-  tick();
+  document.addEventListener('visibilitychange',()=>{ run=!document.hidden; last=0; if(run) requestAnimationFrame(tick); });
+  requestAnimationFrame(tick);
 })();
 
 /* =========================================================
    ARRANQUE
    ========================================================= */
+/* Logo del inicio: al bajar se encoge y viaja hasta quedar sobre el logo de la barra de arriba. */
+(function logoFly(){
+  const slot=$('#heroSlot'), stage=$('#heroStage'), brand=$('.tb-brand img');
+  let nat=null, tgt=null;
+  const ease = x => x*x*(3-2*x);
+  function measure(){
+    const a=slot.getBoundingClientRect(), b=brand.getBoundingClientRect();
+    if (!a.width || !b.width) return;
+    const top0 = a.top + scrollY;                                          // dónde queda el hueco con la página arriba del todo
+    nat={cx:a.left+a.width/2, cy:top0+a.height/2, h:a.height};
+    tgt={cx:b.left+b.width/2, cy:b.top+b.height/2, h:b.height};           // logo de la barra (fija en pantalla)
+    Object.assign(stage.style,{left:a.left+'px',top:top0+'px',width:a.width+'px',height:a.height+'px'});
+    slot.classList.add('on');
+    update();
+  }
+  function update(){
+    if(!nat) return;
+    const p = Math.min(1, Math.max(0, scrollY / 300)), e = ease(p);
+    const sc = 1 + (tgt.h/nat.h - 1)*e;
+    stage.style.transform = p===0 ? '' : `translate3d(${((tgt.cx-nat.cx)*e).toFixed(1)}px,${((tgt.cy-nat.cy)*e).toFixed(1)}px,0) scale(${sc.toFixed(4)})`;
+    stage.classList.toggle('fly', p>0);
+    stage.style.setProperty('--f', Math.max(0, 1-p*2.2).toFixed(2));
+  }
+  addEventListener('scroll',update,{passive:true});   // directo (no por rAF): el navegador ya limita el scroll a un evento por fotograma
+  addEventListener('resize',()=>{ clearTimeout(measure.t); measure.t=setTimeout(measure,150); });
+  addEventListener('load',measure);
+  addEventListener('pageshow',measure);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+  if ('ResizeObserver' in window){ const ro=new ResizeObserver(()=>{ clearTimeout(measure.t); measure.t=setTimeout(measure,100); }); ro.observe($('.hero')); ro.observe($('.topbar')); }
+  [300,1200,3000].forEach(ms=>setTimeout(measure,ms));   // por si algo se acomoda tarde (fuentes, restauración del scroll)
+  measure();
+})();
+
+function refreshStatuses(){
+  renderStatus();
+  const st = openStatus();
+  $$('.sede .status, .nearest .status').forEach(el=>{ el.className='status '+(st.open?'open':'closed'); el.textContent = st.open?t('openB'):t('closedB')(clock(HOURS.open)); });
+  const chip = $('#menuBanner .banner.dom .status');
+  if (chip){ const d=deliveryStatus(); chip.className='status '+(d.open?'open':'closed'); chip.textContent = d.open?t('delOpen')(clock(d.close)):t('delClosed')(clock(DELIVERY_HOURS.open)); }
+}
 renderAll();
 route();
-setInterval(()=>{ renderStatus(); },60000);
+setInterval(refreshStatuses,60000);
 })();
 </script>
 </body>
