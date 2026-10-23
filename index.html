@@ -67,7 +67,7 @@ img{-webkit-user-drag:none}
   background:radial-gradient(520px circle at var(--sx,50%) var(--sy,30%),rgba(255,47,126,.07),rgba(41,216,255,.035) 40%,transparent 70%);
   opacity:0;transition:opacity .4s}
 body.has-mouse .spot{opacity:1}
-.page{position:relative;z-index:2}
+.page{position:relative;z-index:2;overflow-x:clip}
 
 /* ---------- TOPBAR ---------- */
 .topbar{
@@ -559,7 +559,7 @@ body[data-menu="domis"] .cartbtn{display:inline-flex}
 .hero-slot.on .hero-stage{position:fixed;margin:0;z-index:60;will-change:transform;transform-origin:50% 50%}
 .hero-slot.on .hero-stage.fly{pointer-events:none}
 /* Foto de las personas (portada de la carta), muy suave y apagada hacia el centro para no tapar el logo. */
-.hero::before{content:"";position:absolute;inset:0 -18px;z-index:-1;pointer-events:none;
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:url(img/fondo-personas.webp) center 18%/cover no-repeat;opacity:1;filter:brightness(1.35) saturate(1.1);
   -webkit-mask-image:linear-gradient(180deg,#000 50%,transparent 100%);mask-image:linear-gradient(180deg,#000 50%,transparent 100%)}
 @media(max-width:700px){.hero::before{background-position:0 18%}}
@@ -899,7 +899,6 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
       <a class="btn primary" href="#domicilios" id="ctaDomis" data-i18n="ctaDomis">Pedir domicilio</a>
       <a class="btn ghost" href="#informacion" id="ctaSedes" data-i18n="ctaSedes">Nuestras sedes</a>
     </div>
-    <button class="hwpill" id="hwPill" type="button" data-act="hw"><span aria-hidden="true">☢</span> <span data-i18n="hwPill">Vaso Halloween Radioactivo</span></button>
   </section>
 
   <!-- ====== CARTAS (PUNTOS Y DOMICILIOS) ====== -->
@@ -1617,7 +1616,7 @@ function eventsHTML(){
   return `<section class="hsec"><div class="sec-head"><h2>${t('evtTitle')}</h2></div>${list.map(eventCard).join('')}</section>`;
 }
 function renderHome(){
-  $('#homeRoot').innerHTML = modeSwHTML() + `<div id="homePromo">${promoHTML()}</div>` + seasonHTML() + featuredHTML() + recoHTML() + familyHTML() + eventsHTML();
+  $('#homeRoot').innerHTML = modeSwHTML() + `<div id="homePromo">${promoHTML()}</div>` + featuredHTML() + recoHTML() + seasonHTML() + familyHTML() + eventsHTML();
 }
 
 /* ---- sedes y ubicación ---- */
@@ -1734,7 +1733,6 @@ function applyI18n(){
   $('#hwX').setAttribute('aria-label',t('close'));
   $('#dkGo').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t('dkWa'))}`;
   $('#hwCup').alt = `${t('hwT1')} ${t('hwT2')}`; $('#dkCup').alt = `${t('dkT1')} ${t('dkT2')}`;
-  $('#hwPill').hidden = !HALLOWEEN.on;
   [['#hwPrice',HALLOWEEN.price],['#dkPrice',HALLOWEEN.dkPrice]].forEach(([id,v])=>{ const el=$(id); el.hidden = v==null; el.textContent = v==null ? '' : money(v); });
 }
 
