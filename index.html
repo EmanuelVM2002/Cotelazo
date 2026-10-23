@@ -549,7 +549,7 @@ noscript{display:block;padding:40px;text-align:center}
 
 /* ---------- DOS CARTAS: PUNTOS Y DOMICILIOS ---------- */
 .cartbtn{display:none}
-body[data-view="domis"] .cartbtn{display:inline-flex}
+body[data-menu="domis"] .cartbtn{display:inline-flex}
 .hero-stage{width:min(100%,330px)}
 /* Al bajar, el logo del inicio se encoge y viaja hasta el logo de la barra (ver logoFly en el script). */
 .tb-brand{display:block;height:30px}
@@ -687,6 +687,53 @@ body.hw-open .wafab,body.hw-open .top{display:none}
 .lite .hw.show .hw-cup{animation:hwin 1.1s var(--ease) both}
 .lite .hw.show .dk .hw-cup{animation:hwin2 1.1s var(--ease) .15s both}
 .lite .btn.hw-go::after{display:none}
+
+/* ---------- HOME, SELECTOR DE CARTA Y PROMO DEL MARTES ---------- */
+.modesw{display:flex;width:min(100%,460px);margin:22px auto 0;padding:4px;gap:4px;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.35)}
+.modesw button{flex:1;padding:11px 8px;border:0;border-radius:999px;background:none;color:var(--muted);font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;transition:color .2s,background .25s,box-shadow .25s}
+.modesw button:hover{color:#fff}
+.modesw button.on{color:#fff;background:linear-gradient(120deg,rgba(255,47,126,.95),rgba(255,47,126,.6));box-shadow:0 0 20px -4px var(--pink)}
+.hsec{margin-top:40px}
+.hsec .fsub{margin:2px 0 0;font-size:13.5px;color:var(--muted)}
+.hsec .acts{display:flex;justify-content:center;margin-top:26px}
+.promo{position:relative;margin-top:24px;padding:22px 22px 20px;border-radius:26px;overflow:hidden;text-align:center;isolation:isolate;
+  border:1px solid rgba(255,178,56,.6);background:linear-gradient(135deg,rgba(255,47,126,.28),rgba(255,178,56,.18) 55%,rgba(41,216,255,.14));box-shadow:0 0 46px -14px var(--pink),0 0 0 1px rgba(255,255,255,.05) inset}
+.promo::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.55;background:radial-gradient(circle,rgba(255,255,255,.55) 0 1.5px,transparent 2px) 0 0/34px 34px,radial-gradient(circle,rgba(255,178,56,.7) 0 2px,transparent 2.5px) 17px 17px/34px 34px;animation:promoDots 14s linear infinite}
+@keyframes promoDots{to{background-position:34px 34px,51px 51px}}
+.promo.info{border-color:rgba(41,216,255,.4);background:linear-gradient(135deg,rgba(41,216,255,.12),rgba(255,47,126,.1) 60%,rgba(255,255,255,.02));box-shadow:0 0 34px -16px var(--cyan)}
+.promo.info::before{opacity:.2;animation:none}
+.promo-eye{display:inline-block;padding:5px 13px;border-radius:999px;background:var(--pink);color:#fff;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;box-shadow:0 0 18px var(--pink)}
+.promo.info .promo-eye{background:rgba(41,216,255,.15);color:var(--cyan);box-shadow:none;border:1px solid rgba(41,216,255,.5)}
+.promo h2{margin:12px 0 2px;font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(40px,9vw,60px);line-height:.95;letter-spacing:.04em;color:#fff;text-shadow:0 0 10px rgba(255,47,126,.7),0 0 34px rgba(255,178,56,.45)}
+.promo p{margin:0;font-size:14px;color:#f3e6df}
+.promo-prices{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:16px 0 12px}
+.promo-prices>div{flex:1 1 150px;max-width:230px;padding:12px 16px;border-radius:18px;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.18)}
+.promo-prices b{display:block;font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:46px;line-height:1;color:var(--gold);text-shadow:0 0 18px rgba(255,178,56,.7)}
+.promo.tue .promo-prices b{animation:promoPulse 1.8s ease-in-out infinite}
+@keyframes promoPulse{50%{transform:scale(1.12)}}
+.promo-prices span{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff}
+.promo-prices em{display:block;margin-top:2px;font-style:normal;font-weight:800;font-size:18px;color:#fff}
+.promo small{display:block;font-size:12px;color:#e8dcd6}
+.promo-days{margin-top:10px;font-weight:700;font-size:13px;color:var(--cyan)}
+.seas-grid{display:grid;gap:16px;margin-top:20px}
+@media(min-width:640px){.seas-grid{grid-template-columns:1fr 1fr}}
+.seas{position:relative;display:flex;align-items:center;gap:14px;padding:14px 16px 14px 8px;border-radius:24px;overflow:hidden;cursor:pointer;text-align:left;--c:124,255,58;
+  border:1px solid rgba(var(--c),.55);background:radial-gradient(120% 120% at 20% 20%,rgba(var(--c),.22),rgba(8,10,12,.92) 70%);box-shadow:0 0 40px -16px rgba(var(--c),.8);transition:transform .3s var(--ease),box-shadow .3s}
+.seas:hover{transform:translateY(-3px);box-shadow:0 0 52px -10px rgba(var(--c),.9)}
+.seas.dk{--c:255,40,70}
+.seas img{flex:none;width:34%;max-height:210px;object-fit:contain;filter:drop-shadow(0 0 16px rgba(var(--c),.6)) drop-shadow(0 10px 10px rgba(0,0,0,.6))}
+.seas .tag{display:inline-block;padding:3px 10px;border-radius:999px;border:1px solid rgba(var(--c),.7);color:rgb(var(--c));font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.seas h3{margin:8px 0 2px;font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:32px;line-height:1;letter-spacing:.04em;color:#fff;text-shadow:0 0 14px rgba(var(--c),.55)}
+.seas .price{font-size:22px}
+.seas .btn{margin-top:10px;padding:9px 16px;font-size:11.5px}
+.recochips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.recochips .chip{padding:9px 18px;font-size:13px}
+.recotxt{margin:12px 0 0;font-size:14px;color:var(--gold);font-style:italic}
+.evts{display:grid;gap:14px;margin-top:18px}
+.evt{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;border-radius:20px;border:1px solid rgba(255,255,255,.14);background:linear-gradient(120deg,rgba(124,255,58,.1),rgba(255,40,70,.1));flex-wrap:wrap}
+.evt h3{margin:0;font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:28px;letter-spacing:.04em;color:#fff}
+.evt p{margin:2px 0 0;font-size:13.5px;color:var(--muted);max-width:52ch}
+.evt .btn{padding:10px 18px;font-size:11.5px}
 /* Acceso directo a WhatsApp */
 .wafab{position:fixed;left:18px;bottom:18px;z-index:45;display:inline-flex;align-items:center;gap:9px;height:54px;min-width:54px;padding:0 15px;border-radius:999px;
   background:#25d366;color:#fff;text-decoration:none;font-weight:800;font-size:13px;box-shadow:0 10px 30px -8px #25d366,0 0 0 1px rgba(255,255,255,.25) inset;
@@ -744,7 +791,7 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
 .sede .snote{display:inline-block;margin-left:8px;font-family:'Inter',sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);vertical-align:middle;text-shadow:none}
 </style>
 </head>
-<body data-view="puntos">
+<body data-view="home" data-menu="puntos">
 
 <div class="bg" aria-hidden="true">
   <div class="aurora a1"></div><div class="aurora a2"></div><div class="aurora a3"></div>
@@ -758,8 +805,8 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
     <div class="tb">
       <a class="tb-brand" href="#" id="brandLink" aria-label="El Coctelazo"><img src="img/logo-el-coctelazo.webp" alt="El Coctelazo"></a>
       <div class="mtabs" role="tablist" id="mtabs">
-        <button class="mtab" role="tab" id="mtab-puntos" data-view="puntos" aria-selected="true" data-i18n="tabPuntos">Carta</button>
-        <button class="mtab" role="tab" id="mtab-domis" data-view="domis" aria-selected="false" tabindex="-1" data-i18n="tabDomis">Domicilios</button>
+        <button class="mtab" role="tab" id="mtab-home" data-view="home" aria-selected="true" data-i18n="tabHome">Home</button>
+        <button class="mtab" role="tab" id="mtab-carta" data-view="carta" aria-selected="false" tabindex="-1" data-i18n="tabPuntos">Carta</button>
         <button class="mtab" role="tab" id="mtab-info" data-view="info" aria-selected="false" tabindex="-1" data-i18n="tabInfo">Sedes</button>
       </div>
       <div class="lang" id="lang" data-lang="es" role="group" aria-label="Idioma">
@@ -796,8 +843,13 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
 
   <!-- ====== CARTAS (PUNTOS Y DOMICILIOS) ====== -->
   <main>
-  <div class="view active" id="view-menu" role="tabpanel" aria-labelledby="mtab-puntos">
+  <div class="view active" id="view-home" role="tabpanel" aria-labelledby="mtab-home">
+    <div class="wrap"><div id="homeRoot"></div></div>
+  </div>
+
+  <div class="view" id="view-menu" role="tabpanel" aria-labelledby="mtab-carta">
     <div class="wrap">
+      <div id="modeSwMenu"></div>
       <div id="menuBanner"></div>
       <div class="tools">
         <label class="search" id="searchBox">
@@ -991,7 +1043,20 @@ const PROMOS = [];
 
 // Ventana de temporada que se abre al entrar a la página (Vaso Halloween Radioactivo + Malteada Drakula).
 // on:false la apaga (también el botón del inicio). price: valor en COP; null = no muestra precio.
-const HALLOWEEN = {on:true, price:17500, dkPrice:18000};   // price: Vaso Radioactivo · dkPrice: Malteada Drakula
+const HALLOWEEN = {on:true, price:17500, dkPrice:18000};
+
+// Home: recomendados por tipo de persona (ids de productos; se muestran los que haya en la carta elegida)
+const RECOS = {
+  parejas:['ccor','csmi','bboom'],   // los baos de la casa son de Provenza: aquí entra la Bomba BOOM para compartir
+  amigos:['nv-boom','b2c','li-che'],
+  familia:['li-kid','nv-sin','g22oreo']
+};
+// Home: eventos (es/en título y texto; act:'hw' abre la ventana de Halloween). Agrega aquí los eventos con fecha cuando los tengas.
+const EVENTS = [
+  {es:'Halloween en El Coctelazo',en:'Halloween at El Coctelazo',dEs:'Especiales de temporada: el Vaso Halloween Radioactivo y la Malteada Drakula.',dEn:'Seasonal specials: the Halloween Radioactive Cup and the Drakula Milkshake.',act:'hw'}
+];
+// Promo del martes (solo se muestra de martes; los demás días sale el aviso informativo)
+const MARTES = {trad:17500, crem:19000};   // price: Vaso Radioactivo · dkPrice: Malteada Drakula
 
 /* =========================================================
    DATOS
@@ -1011,11 +1076,12 @@ const PROMO_CAT = {id:'promos', es:'Promociones', en:'Promotions'};
 const S = (id,cat,es,en,layout,x={}) => ({id,cat,es,en,layout,...x});
 const SUBS = [
   S('promo','promos','Promociones vigentes','Current promotions','cards'),
+  S('g-fam','granizados','Nueva familia','New family','cards',{isNew:true,noteEs:'Granizados en vaso nuevo',noteEn:'Slushies in the new cup'}),
   S('g-esp','granizados','Granizados especiales','Special slushies','cards'),
-  S('g-tra','granizados','Granizados','Slushies','cards'),
+  S('g-tra','granizados','Granizados tradicionales','Traditional slushies','cards',{noteEs:'Vasos de icopor: 10 oz, 16 oz y 1 litro',noteEn:'Foam cups: 10 oz, 16 oz and 1 liter'}),
   S('g-cre','granizados','Cremosos','Creamy slushies','cards',{noteEs:'Alpinito · Baileys',noteEn:'Alpinito · Baileys'}),
   S('g-22','granizados','Granizados de 22 oz','22 oz slushies','cards'),
-  S('mi','micheladas','Micheladas','Micheladas','rows',{noteEs:'Elige con qué cerveza',noteEn:'Choose your beer'}),
+  S('mi','micheladas','Micheladas','Micheladas','cards',{noteEs:'Elige con qué cerveza',noteEn:'Choose your beer'}),
   S('bo','bombas','Bombas','Bombas','cards'),
   S('co','bombas','Cocktails','Cocktails','cards'),
   S('li','litrones','Litrones','Litrones','cards',{noteEs:'Con soda o con Coronita',noteEn:'With soda or Coronita'}),
@@ -1038,31 +1104,32 @@ const L = (sub,id,name,prices,pricesD) => ITEMS.push({id,sub,cat:'licores',es:na
 const V = (es,en,price) => ({es,en,price});
 
 // Granizados
-X('g-esp','alpinito',['Alpinito Crunch','Alpinito Crunch'],null,25000,null);
-X('g-esp','chamoy',['Granizado chamoy y tajín','Chamoy & Tajín slush'],null,19800,null);
-X('g-tra','gs8',['Granizado sin licor','Alcohol-free slush'],['10 oz','10 oz'],9500,'gran-sin-8');
-X('g-tra','ge8',['Granizado envenenado','“Envenenado” slush'],['10 oz · con licor','10 oz · with liquor'],12500,'gran-env-8');
-X('g-tra','gs16',['Granizado sin licor','Alcohol-free slush'],['16 oz','16 oz'],12500,'gran-sin-16');
-X('g-tra','ge16',['Granizado envenenado','“Envenenado” slush'],['16 oz · con licor','16 oz · with liquor'],17500,'gran-env-16');
-X('g-tra','glt',['Granizado tradicional litro','Traditional slush liter'],['1 litro','1 liter'],27500,'gran-lt');
-X('g-cre','cr10',['Cremoso tradicional','Traditional creamy'],['10 oz · Alpinito o Baileys','10 oz · Alpinito or Baileys'],14500,'cremoso-10');
-X('g-cre','cr16',['Cremoso tradicional','Traditional creamy'],['16 oz · Alpinito o Baileys','16 oz · Alpinito or Baileys'],19000,'cremoso-16');
-X('g-cre','crlt',['Litrón cremoso','Creamy litrón'],['Alpinito o Baileys','Alpinito or Baileys'],42000,'cremoso-lt');
-X('g-22','g22cafe',['Granizado de café','Coffee slush'],['22 oz','22 oz'],18000,null);
-X('g-22','g22choco',['Granizado de Chocoramo','Chocoramo slush'],['22 oz','22 oz'],22000,null);
-X('g-22','g22milo',['Granizado de Milo','Milo slush'],['22 oz','22 oz'],18000,null);
-X('g-22','g22oreo',['Granizado de Oreo','Oreo slush'],['22 oz','22 oz'],18000,null);
+X('g-fam','fam16',['Granizado 16 oz','Granizado 16 oz'],['Vaso Sin Límites · 16 oz','Sin Límites cup · 16 oz'],12500,'fam16',{vars:[V('Sin licor','Alcohol-free',12500),V('Envenenado · con licor','Envenenado · with liquor',17500)]});
+X('g-fam','fambai',['Granizado Baileys 16 oz','Baileys slush 16 oz'],['16 oz','16 oz'],null,'fambai');
+X('g-fam','famtam',['Granizado de Tamarindo Spicy','Spicy Tamarind slush'],['16 oz','16 oz'],null,'famtam');
+X('g-fam','fammang',['Manguito Spicy','Manguito Spicy'],['16 oz','16 oz'],null,'fammang');
+X('g-esp','chamoy',['Granizado chamoy y tajín','Chamoy & Tajín slush'],null,19800,'chamoy');
+X('g-tra','gr10',['Granizado 10 oz','Slush 10 oz'],['Vaso de icopor · sin licor o envenenado (con licor)','Foam cup · alcohol-free or “envenenado” (with liquor)'],9500,'gran10',{vars:[V('Sin licor','Alcohol-free',9500),V('Envenenado · con licor','Envenenado · with liquor',12500)]});
+X('g-tra','gr16',['Granizado 16 oz','Slush 16 oz'],['Vaso de icopor · sin licor o envenenado (con licor)','Foam cup · alcohol-free or “envenenado” (with liquor)'],12500,'gran16',{vars:[V('Sin licor','Alcohol-free',12500),V('Envenenado · con licor','Envenenado · with liquor',17500)]});
+X('g-tra','grlt',['Granizado 1 litro','Slush 1 liter'],['Vaso de icopor · tradicional','Foam cup · traditional'],27500,'gran1l');
+X('g-cre','cr10',['Cremoso tradicional','Traditional creamy'],['10 oz · Alpinito o Baileys','10 oz · Alpinito or Baileys'],14500,'cr10');
+X('g-cre','cr16',['Cremoso tradicional','Traditional creamy'],['16 oz · Alpinito o Baileys','16 oz · Alpinito or Baileys'],19000,'cr16');
+X('g-cre','crlt',['Litrón cremoso','Creamy litrón'],['Alpinito o Baileys','Alpinito or Baileys'],42000,'crlt');
+X('g-22','g22cafe',['Granizado de café','Coffee slush'],['22 oz','22 oz'],18000,'g22cafe');
+X('g-22','g22choco',['Granizado de Chocoramo','Chocoramo slush'],['22 oz','22 oz'],22000,'g22choco');
+X('g-22','g22milo',['Granizado de Milo','Milo slush'],['22 oz','22 oz'],18000,'g22milo');
+X('g-22','g22oreo',['Granizado de Oreo','Oreo slush'],['22 oz','22 oz'],18000,'g22oreo');
 
 // Micheladas (precio base + con cerveza)
 const MSAB = [V('Base','Base',17000),V('Con cerveza nacional','With national beer',19000),V('Con Corona o Like','With Corona or Like',23500)];
-X('mi','mi-sen',['Michelada sencilla','Classic michelada'],null,12000,null,{vars:[V('Base','Base',12000),V('Con cerveza nacional','With national beer',17000),V('Con Corona o Like','With Corona or Like',20000),V('Con Smirnoff','With Smirnoff',29000)]});
-X('mi','mi-cer',['Michelada de cereza','Cherry michelada'],['Saborizada','Flavored'],17000,null,{vars:MSAB});
-X('mi','mi-mmg',['Michelada de maracumango','Maracumango michelada'],['Saborizada','Flavored'],17000,null,{vars:MSAB});
-X('mi','mi-man',['Michelada de mango','Mango michelada'],['Saborizada','Flavored'],17000,null,{vars:MSAB});
-X('mi','mi-mar',['Michelada de maracuyá','Passion fruit michelada'],['Saborizada','Flavored'],17000,null,{vars:MSAB});
+X('mi','mi-sen',['Michelada sencilla','Classic michelada'],null,12000,'mi-sen',{imgD:'mi-sen-d',vars:[V('Base','Base',12000),V('Con cerveza nacional','With national beer',17000),V('Con Corona o Like','With Corona or Like',20000),V('Con Smirnoff','With Smirnoff',29000)]});
+X('mi','mi-cer',['Michelada de cereza','Cherry michelada'],['Saborizada','Flavored'],17000,'mi-cer',{imgD:'mi-cer-d',vars:MSAB});
+X('mi','mi-mmg',['Michelada de maracumango','Maracumango michelada'],['Saborizada','Flavored'],17000,'mi-mmg',{imgD:'mi-mmg-d',vars:MSAB});
+X('mi','mi-man',['Michelada de mango','Mango michelada'],['Saborizada','Flavored'],17000,'mi-man',{imgD:'mi-man-d',vars:MSAB});
+X('mi','mi-mar',['Michelada de maracuyá','Passion fruit michelada'],['Saborizada','Flavored'],17000,'mi-mar',{imgD:'mi-mar-d',vars:MSAB});
 
-// Bombas y cocktails (en domicilios las dos primeras no tienen foto en vaso todavía)
-X('bo','b2c',['Bomba 2 Coronas','Bomba 2 Coronas'],null,61000,'bomba-2-coronas',{imgD:null});
+// Bombas y cocktails (en domicilios la Bomba 2 Coronas y la Smirnoff no tienen foto en vaso todavía)
+X('bo','b2c',['Bomba 2 Coronas','Bomba 2 Coronas'],null,61000,'bomba-2c',{imgD:null});
 X('bo','bsm',['Bomba Smirnoff','Bomba Smirnoff'],null,61000,'bomba-smirnoff',{imgD:null});
 X('bo','bboom',['Bomba BOOM','Bomba BOOM'],null,38000,'bomba-boom',{imgD:'bomba-boom-d'});
 X('co','ccor',['Cocktail Coronita','Cocktail Coronita'],null,25000,'cocktail-coronita',{imgD:'cocktail-coronita-d'});
@@ -1070,20 +1137,18 @@ X('co','csmi',['Cocktail Smirnoff','Cocktail Smirnoff'],null,32000,'cocktail-smi
 
 // Litrones
 const LV = [V('Con soda','With soda',28000),V('Con Coronita','With Coronita',36000)];
-X('li','li-mar',['Litrón maracuyá','Passion fruit litrón'],null,28000,'litron-maracuya',{vars:LV});
+X('li','li-mar',['Litrón maracuyá','Passion fruit litrón'],null,28000,'li-mar',{vars:LV});
 X('li','li-mmg',['Litrón maracumango','Maracumango litrón'],null,28000,null,{vars:LV});
-X('li','li-che',['Litrón cherry','Cherry litrón'],null,28000,'litron-cherry',{vars:LV});
-X('li','li-man',['Litrón mango','Mango litrón'],null,28000,'litron-mango',{vars:LV});
-X('li','li-kid',['Litrón Kids','Litrón Kids'],['Sin licor','Alcohol-free'],26000,null);
+X('li','li-che',['Litrón cherry','Cherry litrón'],null,28000,'li-che',{vars:LV});
+X('li','li-man',['Litrón mango','Mango litrón'],null,28000,'li-man',{vars:LV});
+X('li','li-kid',['Litrón Kids','Litrón Kids'],['Sin licor','Alcohol-free'],26000,'li-kid');
 
 // Nevecones
-X('ne','nv-sen',['Nevecón sencillo','Nevecón Sencillo'],null,85000,'nevecon-sencillo');
-X('ne','nv-boom',['Nevecón BOOM','Nevecón BOOM'],null,110000,'nevecon-boom');
-X('ne','nv-rose',['Nevecón Rosé','Nevecón Rosé'],null,135000,'nevecon-rose');
-X('ne','nv-loko',['Nevecón Loko','Nevecón Loko'],null,120000,null);
-X('ne','nv-bai',['Nevecón Baileys','Nevecón Baileys'],null,110000,null);
-X('ne','nv-sin',['Nevecón sin licor','Alcohol-free Nevecón'],['Sin licor','Alcohol-free'],60000,null);
-X('ne','nv-bbb',['Nevecón BonBonBum','Nevecón BonBonBum'],['Sin licor','Alcohol-free'],62000,null);
+X('ne','nv-sen',['Nevecón sencillo','Nevecón Sencillo'],null,85000,'nv-sen');
+X('ne','nv-boom',['Nevecón BOOM','Nevecón BOOM'],null,110000,'nv-boom');
+X('ne','nv-rose',['Nevecón Rosé','Nevecón Rosé'],null,135000,'nv-rose');
+X('ne','nv-bai',['Nevecón Baileys','Nevecón Baileys'],null,110000,'nv-bai');
+X('ne','nv-sin',['Nevecón sin licor','Alcohol-free Nevecón'],['Sin licor','Alcohol-free'],60000,'nv-sin');
 
 // Adiciones
 [['ad-barq','Barquillo','Wafer roll',3500],['ad-dul','Dulces','Candy',3500],['ad-per','Perlas explosivas','Popping pearls',4000],['ad-cer','Cerezas','Cherries',3000],
@@ -1133,7 +1198,7 @@ const DELI = SEDES.findIndex(s => s.n===DELIVERY_SEDE);
    TEXTOS DE LA INTERFAZ
    ========================================================= */
 const UI = {
-  es:{tabPuntos:'Carta',tabDomis:'Domicilios',tabInfo:'Sedes',ctaMenu:'Ver la carta',ctaDomis:'Pedir domicilio',ctaSedes:'Nuestras sedes',
+  es:{tabHome:'Home',modeP:'Punto de venta',modeD:'Domicilios',modeAria:'Elige la carta',newb:'NUEVO',seasonTitle:'De temporada',seasonSub:'Especiales de temporada. Toca uno para verlo.',seasonView:'Verlo',recoTitle:'Recomendados para ti',recoSub:'Elige con quién vas y te decimos qué pedir.',recoP:'Parejas',recoA:'Amigos',recoF:'Familia',recoPt:'Para una noche de dos',recoAt:'Para compartir con los amigos',recoFt:'Para toda la familia, con opciones sin licor',famTitle:'Nueva familia de granizados',famSub:'Vasos nuevos, sabores nuevos.',famAll:'Ver en la carta',evtTitle:'Eventos',evtBtn:'Ver especiales',tueEye:'¡Hoy es martes!',tueInfoEye:'Todos los martes',tueTitle:'Martes de granizado',tueSub:'Granizado tradicional y cremoso',tueTrad:'Tradicional 16 oz',tueCrem:'Cremoso 16 oz',tueNote:'Todas las sedes de Medellín, menos Provenza',tueToday:'Solo hoy',tueDays:n=>n===1?'Mañana es martes: ¡no te lo pierdas!':`Faltan ${n} días para el próximo martes`,tabPuntos:'Carta',tabDomis:'Domicilios',tabInfo:'Sedes',ctaMenu:'Ver la carta',ctaDomis:'Pedir domicilio',ctaSedes:'Nuestras sedes',
     searchLabel:'Buscar en la carta',searchPh:'Busca un granizado, una bomba, un nevecón…',surprise:'Sorpréndeme',footLine:'El Coctelazo — Medellín',
     sedesTitle:'Nuestras sedes',address:'Dirección',hours:'Horario',hoursV:'Lunes a domingo: 2:30 PM – 12:00 AM · Fines de semana hasta las 2:00 AM',hoursD:'Domicilios',hoursDV:'Todos los días: 4:30 PM – 12:30 AM',
     how:'Cómo llegar',map:'Ver mapa',hideMap:'Ocultar mapa',creditL:'© 2026 Sonetix. Páginas web a la medida.',locTitle:'Encuentra tu sede más cercana',locSub:'Te mostramos la más cerca de ti y cómo llegar',locAgain:'Actualizar mi ubicación',locAgainSub:'Volver a buscar la sede más cercana',locBusy:'Buscando tu ubicación…',
@@ -1158,7 +1223,7 @@ const UI = {
     results:(n,q)=>`${n} resultado${n===1?'':'s'} para «${q}»`,noRes:'Nada por aquí',noResSub:'Prueba con otra palabra: granizado, bomba, nevecón…',
     close:'Cerrar',top:'Volver arriba',unit:'c/u',from:'desde',pending:'Precio por confirmar',
     mNoteP:'Precio en nuestras sedes. ',mNoteGo:'Pídelo a domicilio →',liter:'Litro',half:'Media'},
-  en:{tabPuntos:'Menu',tabDomis:'Delivery',tabInfo:'Locations',ctaMenu:'See the menu',ctaDomis:'Order delivery',ctaSedes:'Our locations',
+  en:{tabHome:'Home',modeP:'In-store',modeD:'Delivery',modeAria:'Choose the menu',newb:'NEW',seasonTitle:'Seasonal',seasonSub:'Seasonal specials. Tap one to see it.',seasonView:'See it',recoTitle:'Picked for you',recoSub:'Tell us who you’re with and we’ll tell you what to order.',recoP:'Couples',recoA:'Friends',recoF:'Family',recoPt:'For a night for two',recoAt:'To share with friends',recoFt:'For the whole family, with alcohol-free options',famTitle:'New slush family',famSub:'New cups, new flavors.',famAll:'See in the menu',evtTitle:'Events',evtBtn:'See specials',tueEye:'It’s Tuesday!',tueInfoEye:'Every Tuesday',tueTitle:'Slush Tuesday',tueSub:'Traditional and creamy slushes',tueTrad:'Traditional 16 oz',tueCrem:'Creamy 16 oz',tueNote:'All Medellín locations, except Provenza',tueToday:'Today only',tueDays:n=>n===1?'Tomorrow is Tuesday: don’t miss it!':`${n} days until next Tuesday`,tabPuntos:'Menu',tabDomis:'Delivery',tabInfo:'Locations',ctaMenu:'See the menu',ctaDomis:'Order delivery',ctaSedes:'Our locations',
     searchLabel:'Search the menu',searchPh:'Search a slush, a bomba, a nevecón…',surprise:'Surprise me',footLine:'El Coctelazo — Medellín',
     sedesTitle:'Our locations',address:'Address',hours:'Hours',hoursV:'Monday to Sunday: 2:30 PM – 12:00 AM · Weekends until 2:00 AM',hoursD:'Delivery',hoursDV:'Every day: 4:30 PM – 12:30 AM',
     how:'Get directions',map:'Show map',hideMap:'Hide map',creditL:'© 2026 Sonetix. Websites made to measure.',locTitle:'Find your nearest location',locSub:'We’ll show the closest one to you and how to get there',locAgain:'Update my location',locAgainSub:'Search for the nearest location again',locBusy:'Finding your location…',
@@ -1199,7 +1264,7 @@ const store = {
   set(k,v){try{localStorage.setItem(k,v)}catch(e){}}
 };
 
-const state = {lang: store.get('coctelazo-language')==='en'?'en':'es', view:'puntos', menu:'puntos', cat:'granizados', q:'', cart:[], modal:null, near:null, cover:null};
+const state = {lang: store.get('coctelazo-language')==='en'?'en':'es', view:'home', menu:'puntos', cat:'granizados', q:'', cart:[], modal:null, near:null, cover:null};
 try{ state.cart = JSON.parse(store.get('coctelazo-orig-cart-v1')||'[]').filter(l=>l&&BY_ID[l.id]&&BY_ID[l.id].m.includes('d')); }catch(e){ state.cart=[]; }
 
 const t = k => UI[state.lang][k];
@@ -1251,7 +1316,7 @@ function cardHTML(it, idx, o={}){
   const stage = hasImg
     ? `<div class="stage"><div class="disc"></div><div class="ring"></div><div class="floor"></div><div class="pic" style="--d:-${delay}s"><img src="${img}" alt="${esc(nm(it))}" loading="lazy" decoding="async"></div></div>`
     : `<div class="stage"><div class="disc"></div><div class="ring"></div><div class="floor"></div><div class="glyph">${ICON.glass}</div></div>`;
-  const badge = o.tag ? `<span class="chiptag">${esc(o.tag)}</span>` : '';
+  const badge = o.tag ? `<span class="chiptag">${esc(o.tag)}</span>` : SUB[it.sub].isNew ? `<span class="chiptag">${t('newb')}</span>` : '';
   const body = `<div class="cbody"><h3>${esc(nm(it))}</h3><p>${esc(ds(it))}</p><div class="cfoot"><span class="price">${priceHTML(it)}</span>${addBtnHTML(it)}</div></div>`;
   return `<div class="cell${o.in?' in':''}"><article class="card${v}${hasImg?'':' noimg'}" data-tilt="11" data-act="open" data-id="${it.id}" tabindex="0" role="button" aria-label="${esc(nm(it))}">${badge}<div class="glare"></div>${stage}${body}</article></div>`;
 }
@@ -1275,7 +1340,7 @@ const liqHead = sub => `<div class="liq c2 head"><span></span>${sub.cols.map(c=>
 
 function subBlock(sub, items){
   if (!items.length) return '';
-  const head = `<div class="sub">${esc(pick(sub))}${sub.noteEs?` <em>· ${esc(state.lang==='en'?sub.noteEn:sub.noteEs)}</em>`:''}</div>`;
+  const head = `<div class="sub">${esc(pick(sub))}${sub.noteEs?` <em>· ${esc(state.lang==='en'?sub.noteEn:sub.noteEs)}</em>`:''}${sub.isNew?`<span class="new">${t('newb')}</span>`:''}</div>`;
   let body;
   if (sub.layout==='cards') body = `<div class="grid">${items.map((it,i)=>cardHTML(it,i)).join('')}</div>`;
   else if (sub.layout==='liq') body = `<div class="rows">${liqHead(sub)}${items.map(it=>liqHTML(it,sub)).join('')}</div>`;
@@ -1381,19 +1446,14 @@ function featuredHTML(){
   const n = Math.floor(Date.parse(todayStr()+'T00:00:00Z')/86400000);
   for (let j=1; j<=pool.length && out.length<4; j++) push(pool[(n+j) % pool.length], '');
   if (!out.length) return '';
-  return `<div class="feat"><div class="sec-head"><h2>${t('featTitle')}</h2></div><p class="fsub">${isD()?t('featSubD'):t('featSubP')}</p>
+  return `<section class="hsec"><div class="sec-head"><h2>${t('featTitle')}</h2></div><p class="fsub">${isD()?t('featSubD'):t('featSubP')}</p>
     <div class="grid">${out.map(([it,tag],i)=>cardHTML(it,i,{tag,in:true})).join('')}</div>
-    <div class="acts"><button class="btn ghost" type="button" data-act="toMenu">${t('featAll')} ↓</button></div></div>`;
+    <div class="acts"><button class="btn ghost" type="button" data-act="toMenu">${t('featAll')} →</button></div></section>`;
 }
 
 /* ---- banner de cada carta ---- */
 function bannerHTML(){
-  if (!isD()){
-    return `<div class="banner"><div class="btop"><div><div class="eyebrow">${t('bnPEye')}</div><h3>${t('bnPTitle')}</h3></div></div>
-      <p>${t('bnPText')}</p>
-      <dl class="facts one"><div><dt>${t('hours')}</dt><dd>${t('hoursV')}</dd></div></dl>
-      <div class="acts"><button class="btn primary" type="button" data-act="goDomis">${t('bnPCta')} →</button></div></div>`;
-  }
+  if (!isD()) return '';
   const st = deliveryStatus(), s = SEDES[DELI], c = state.cover;
   let cover = '';
   if (c){
@@ -1416,7 +1476,57 @@ function bannerHTML(){
     ${cover}
     <p class="fine">${t('delOnlyPrices')}</p></div>`;
 }
-function renderBanner(){ $('#menuBanner').innerHTML = featuredHTML() + bannerHTML(); }
+function renderBanner(){ $('#menuBanner').innerHTML = bannerHTML(); }
+
+/* ---- selector de carta (punto de venta / domicilios) ---- */
+const modeSwHTML = () => `<div class="modesw" role="tablist" aria-label="${esc(t('modeAria'))}"><button type="button" role="tab" class="${!isD()?'on':''}" aria-selected="${!isD()}" data-act="mode" data-m="puntos">${t('modeP')}</button><button type="button" role="tab" class="${isD()?'on':''}" aria-selected="${isD()}" data-act="mode" data-m="domis">${t('modeD')}</button></div>`;
+function renderModeSw(){ $('#modeSwMenu').innerHTML = modeSwHTML(); }
+function setMenu(m){
+  if (state.menu===m) return;
+  if (state.view==='home'){ state.menu=m; document.body.dataset.menu=m; renderHome(); }
+  else { setView(m,{scroll:false}); }
+}
+
+/* ---- Home ---- */
+const isTuesday = () => { const q=location.search; return q.includes('martes=1') ? true : q.includes('martes=0') ? false : nowParts().dow===2; };
+const daysToTuesday = () => ((2-nowParts().dow+7)%7) || 7;
+function promoHTML(){
+  const tue = isTuesday();
+  return `<section class="promo ${tue?'tue':'info'}" aria-label="${esc(t('tueTitle'))}">
+    <span class="promo-eye">${tue?t('tueEye'):t('tueInfoEye')}</span>
+    <h2>${t('tueTitle')}</h2><p>${t('tueSub')}</p>
+    <div class="promo-prices"><div><b>2x1</b><span>${t('tueTrad')}</span><em>${money(MARTES.trad)}</em></div><div><b>2x1</b><span>${t('tueCrem')}</span><em>${money(MARTES.crem)}</em></div></div>
+    <small>${t('tueNote')}</small>${tue?'':`<div class="promo-days">${t('tueDays')(daysToTuesday())}</div>`}</section>`;
+}
+function seasonHTML(){
+  if (!HALLOWEEN.on) return '';
+  const cards = [['hw','img/halloween-radioactivo.webp',`${t('hwT1')} ${t('hwT2')}`,HALLOWEEN.price,'rad',0],['dk','img/malteada-drakula.webp',`${t('dkT1')} ${t('dkT2')}`,HALLOWEEN.dkPrice,'dk',1]];
+  return `<section class="hsec"><div class="sec-head"><h2>${t('seasonTitle')}</h2></div><p class="fsub">${t('seasonSub')}</p>
+    <div class="seas-grid">${cards.map(([,img,name,price,cls,i])=>`<article class="seas ${cls==='dk'?'dk':''}" data-act="hw" data-i="${i}" tabindex="0" role="button" aria-label="${esc(name)}"><img src="${img}" alt="" loading="lazy" decoding="async"><div><span class="tag">${t('seasonTitle')}</span><h3>${esc(name)}</h3>${price!=null?`<div class="price">${money(price)}</div>`:''}<button class="btn primary" type="button">${t('seasonView')}</button></div></article>`).join('')}</div></section>`;
+}
+let recoKey = 'parejas';
+function recoHTML(){
+  const labels = {parejas:t('recoP'),amigos:t('recoA'),familia:t('recoF')}, texts = {parejas:t('recoPt'),amigos:t('recoAt'),familia:t('recoFt')};
+  const items = RECOS[recoKey].map(id=>BY_ID[id]).filter(it=>it && inMenu(it));
+  return `<section class="hsec"><div class="sec-head"><h2>${t('recoTitle')}</h2></div><p class="fsub">${t('recoSub')}</p>
+    <div class="recochips" role="tablist">${Object.keys(RECOS).map(k=>`<button class="chip${k===recoKey?' on':''}" type="button" role="tab" aria-selected="${k===recoKey}" data-act="reco" data-k="${k}">${labels[k]}</button>`).join('')}</div>
+    <p class="recotxt">${texts[recoKey]}</p>
+    <div class="grid" style="padding-top:44px">${items.map((it,i)=>cardHTML(it,i,{in:true})).join('')}</div></section>`;
+}
+function familyHTML(){
+  const items = menuItems().filter(i=>i.sub==='g-fam');
+  if (!items.length) return '';
+  return `<section class="hsec"><div class="sec-head"><h2>${t('famTitle')}<span class="new">${t('newb')}</span></h2></div><p class="fsub">${t('famSub')}</p>
+    <div class="grid" style="padding-top:44px">${items.map((it,i)=>cardHTML(it,i,{in:true})).join('')}</div>
+    <div class="acts"><button class="btn ghost" type="button" data-act="gofam">${t('famAll')} →</button></div></section>`;
+}
+function eventsHTML(){
+  if (!EVENTS.length) return '';
+  return `<section class="hsec"><div class="sec-head"><h2>${t('evtTitle')}</h2></div><div class="evts">${EVENTS.map(e=>`<div class="evt"><div><h3>${esc(pick({es:e.es,en:e.en}))}</h3><p>${esc(state.lang==='en'?e.dEn:e.dEs)}</p></div>${e.act?`<button class="btn primary" type="button" data-act="${e.act}" data-i="0">${t('evtBtn')}</button>`:''}</div>`).join('')}</div></section>`;
+}
+function renderHome(){
+  $('#homeRoot').innerHTML = modeSwHTML() + `<div id="homePromo">${promoHTML()}</div>` + seasonHTML() + featuredHTML() + recoHTML() + familyHTML() + eventsHTML();
+}
 
 /* ---- sedes y ubicación ---- */
 const geo = {busy:false, err:null};
@@ -1537,29 +1647,31 @@ function applyI18n(){
 }
 
 function renderAll(){
-  applyI18n(); renderStatus(); renderCatNav(); renderBanner(); renderMenu(); renderSedes(); renderLocate(); renderCart();
+  applyI18n(); renderStatus(); renderHome(); renderModeSw(); renderCatNav(); renderBanner(); renderMenu(); renderSedes(); renderLocate(); renderCart();
   if (state.modal) openModal(state.modal.id, {keep:true});
 }
 
 /* =========================================================
    VISTAS Y RUTAS
    ========================================================= */
-const HASH = {puntos:'puntos', domis:'domicilios'};
+const HASH = {home:'home', puntos:'puntos', domis:'domicilios'};
 function setView(name, {scroll=true,hash=true}={}){
-  const prevMenu = state.menu;
+  const prevMenu = state.menu, isMenuView = name==='puntos' || name==='domis';
   state.view = name;
-  if (name!=='info') state.menu = name;
-  document.body.dataset.view = name;
-  $('#view-menu').classList.toggle('active', name!=='info');
+  if (isMenuView) state.menu = name;
+  document.body.dataset.view = name; document.body.dataset.menu = state.menu;
+  $('#view-home').classList.toggle('active', name==='home');
+  $('#view-menu').classList.toggle('active', isMenuView);
   $('#view-info').classList.toggle('active', name==='info');
-  $$('.mtab').forEach(b=>{ const on=b.dataset.view===name; b.setAttribute('aria-selected',String(on)); b.tabIndex=on?0:-1; });
-  $('#view-menu').setAttribute('aria-labelledby','mtab-'+state.menu);
-  if (name!=='info'){
+  const tab = isMenuView ? 'carta' : name;
+  $$('.mtab').forEach(b=>{ const on=b.dataset.view===tab; b.setAttribute('aria-selected',String(on)); b.tabIndex=on?0:-1; });
+  if (name==='home') renderHome();
+  if (isMenuView){
     if (state.menu!==prevMenu && state.q){ state.q=''; $('#q').value=''; $('#searchBox').classList.remove('has'); }
     if (!catList().some(c=>c.id===state.cat)) state.cat = catList()[0].id;
-    renderCatNav(); renderBanner(); renderMenu();
+    renderModeSw(); renderCatNav(); renderBanner(); renderMenu();
   }
-  if (hash) history.replaceState(null,'', name==='info'?'#informacion':'#'+HASH[name]+'/'+state.cat);
+  if (hash) history.replaceState(null,'', name==='info'?'#informacion':name==='home'?'#home':'#'+HASH[name]+'/'+state.cat);
   if (scroll) scrollToContent();
 }
 function scrollToContent(){
@@ -1577,6 +1689,7 @@ function setCat(id, {scroll=true,hash=true}={}){
 function route(){
   const [a,b] = location.hash.slice(1).split('/');
   if (a==='informacion'){ setView('info',{scroll:false,hash:false}); return; }
+  if (!a || a==='home'){ setView('home',{scroll:false,hash:false}); return; }
   const v = a==='domicilios' ? 'domis' : 'puntos';
   state.menu = v;
   if (b && catList().some(c=>c.id===b)) state.cat = b;
@@ -1725,11 +1838,14 @@ document.addEventListener('click', e=>{
   if (act==='rm'){ state.cart.splice(i,1); saveCart(); renderCart(); return; }
   if (act==='map'){ toggleMap(i,el); return; }
   if (act==='goDomis'){ goDomis(); return; }
-  if (act==='hw'){ openHW(); return; }
+  if (act==='hw'){ openHW(+el.dataset.i||0); return; }
   if (act==='hwclose'){ closeHW(); return; }
   if (act==='hwslide'){ hwUser=true; clearInterval(hwAuto); hwGo(i); return; }
-  if (act==='hwmenu'){ closeHW(); setView('puntos',{scroll:false}); toContent(); return; }
-  if (act==='toMenu'){ $('.tools').scrollIntoView({behavior:REDUCED?'auto':'smooth',block:'start'}); return; }
+  if (act==='hwmenu'){ closeHW(); setView(state.menu,{scroll:false}); toContent(); return; }
+  if (act==='toMenu'){ setView(state.menu,{scroll:false}); toContent(); return; }
+  if (act==='mode'){ setMenu(el.dataset.m); return; }
+  if (act==='reco'){ recoKey=el.dataset.k; renderHome(); return; }
+  if (act==='gofam'){ state.cat='granizados'; setView(state.menu,{scroll:false}); toContent(); return; }
   if (act==='cover'){ checkCover(); return; }
   if (act==='gosede'){ goSede(i, !!el.dataset.map); return; }
 });
@@ -1750,7 +1866,7 @@ document.addEventListener('keydown', e=>{
 
 /* pestañas principales */
 $$('.mtab').forEach((b,i,all)=>{
-  b.addEventListener('click',()=>setView(b.dataset.view));
+  b.addEventListener('click',()=>setView(b.dataset.view==='carta' ? state.menu : b.dataset.view));
   b.addEventListener('keydown',e=>{ const s=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0; if(!s) return; e.preventDefault(); const n=all[(i+s+all.length)%all.length]; n.focus(); n.click(); });
 });
 $('#catnav').addEventListener('click', e=>{ const a=e.target.closest('[data-cat]'); if(!a) return; e.preventDefault(); setCat(a.dataset.cat); });
@@ -1758,7 +1874,7 @@ $('#catnav').addEventListener('keydown', e=>{
   const s=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0; if(!s) return;
   const all=$$('#catnav .chip'); const k=all.indexOf(document.activeElement); if(k<0) return; e.preventDefault(); const n=all[(k+s+all.length)%all.length]; n.focus(); n.click(); n.focus();
 });
-const toContent = () => { const y=$('#view-menu').getBoundingClientRect().top+scrollY-10; scrollTo({top:y,behavior:REDUCED?'auto':'smooth'}); };
+const toContent = () => { const y=$('.view.active').getBoundingClientRect().top+scrollY-10; scrollTo({top:y,behavior:REDUCED?'auto':'smooth'}); };
 $('#ctaMenu').addEventListener('click',e=>{ e.preventDefault(); setView('puntos',{scroll:false}); toContent(); });
 $('#ctaDomis').addEventListener('click',e=>{ e.preventDefault(); setView('domis',{scroll:false}); toContent(); });
 $('#ctaSedes').addEventListener('click',e=>{ e.preventDefault(); setView('info',{scroll:false}); const y=$('#view-info').getBoundingClientRect().top+scrollY-10; scrollTo({top:y,behavior:REDUCED?'auto':'smooth'}); });
@@ -1777,7 +1893,7 @@ qIn.addEventListener('input',()=>{
 });
 $('#qClear').addEventListener('click',()=>{ qIn.value=''; state.q=''; $('#searchBox').classList.remove('has'); renderCatNav(); renderMenu(); qIn.focus(); });
 document.addEventListener('keydown',e=>{
-  if (e.key==='/' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)){ e.preventDefault(); if (state.view==='info') setView(state.menu,{scroll:false}); qIn.focus(); }
+  if (e.key==='/' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)){ e.preventDefault(); if (state.view==='info'||state.view==='home') setView(state.menu,{scroll:false}); qIn.focus(); }
   if (e.key==='Escape'){
     if ($('#hw').classList.contains('show')) closeHW();
     else if (state.modal) closeModal(); else if ($('#drawer').classList.contains('show')) closeDrawer();
@@ -1957,6 +2073,7 @@ function refreshStatuses(){
   renderStatus();
   const st = openStatus();
   $$('.sede .status, .nearest .status').forEach(el=>{ el.className='status '+(st.open?'open':'closed'); el.textContent = st.open?t('openB'):t('closedB')(clock(HOURS.open)); });
+  const hp = $('#homePromo'); if (hp && state.view==='home') hp.innerHTML = promoHTML();
   const chip = $('#menuBanner .banner.dom .status');
   if (chip){ const d=deliveryStatus(); chip.className='status '+(d.open?'open':'closed'); chip.textContent = d.open?t('delOpen')(clock(d.close)):t('delClosed')(clock(DELIVERY_HOURS.open)); }
 }
@@ -1972,16 +2089,16 @@ const hwIndex = () => Math.round(hwSlides.scrollLeft / Math.max(1, hwSlides.clie
 function hwGo(i, smooth=true){ hwSlides.scrollTo({left:i*hwSlides.clientWidth, behavior:(smooth&&!REDUCED)?'smooth':'auto'}); }
 hwSlides.addEventListener('scroll',()=>{ const i=hwIndex(); hwDots.forEach((d,k)=>d.classList.toggle('on',k===i)); },{passive:true});
 ['pointerdown','wheel','touchstart'].forEach(ev=>hwSlides.addEventListener(ev,()=>{ hwUser=true; clearInterval(hwAuto); },{passive:true}));
-function openHW(){
+function openHW(slide=0){
   if (!HALLOWEEN.on) return;
   const hw = $('#hw');
   hw.classList.add('show'); hw.setAttribute('aria-hidden','false');
   document.body.classList.add('locked','hw-open');
   lastFocus = document.activeElement;
-  hwUser = false; hwGo(0,false); clearInterval(hwAuto);
+  hwUser = false; hwGo(slide,false); clearInterval(hwAuto);
   // en celular las dos mitades son un carrusel: pasa solo a la segunda hasta que la persona lo toque
-  if (matchMedia('(max-width:759px)').matches && !REDUCED) hwAuto = setInterval(()=>{ if(hwUser) return clearInterval(hwAuto); hwGo((hwIndex()+1)%2); }, 5500);
-  setTimeout(()=>$('#hwGo').focus({preventScroll:true}),700);
+  if (slide===0 && matchMedia('(max-width:759px)').matches && !REDUCED) hwAuto = setInterval(()=>{ if(hwUser) return clearInterval(hwAuto); hwGo((hwIndex()+1)%2); }, 5500);
+  setTimeout(()=>$(slide?'#dkGo':'#hwGo').focus({preventScroll:true}),700);
 }
 function closeHW(){
   const hw = $('#hw');
