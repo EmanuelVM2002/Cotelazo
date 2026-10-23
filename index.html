@@ -553,7 +553,6 @@ body[data-menu="domis"] .cartbtn{display:inline-flex}
 .hero-stage{width:min(100%,330px)}
 /* Al bajar, el logo del inicio se encoge y viaja hasta el logo de la barra (ver logoFly en el script). */
 .tb-brand{display:block;height:30px}
-.tb-brand img{opacity:0}
 /* El hueco (slot) reserva el espacio en la página; el logo va fijo en pantalla y solo se mueve con transform, sin pelear con el scroll. */
 .hero-slot{position:relative;width:min(100%,330px);margin:0 auto;aspect-ratio:955/818}
 .hero-slot .hero-stage{width:100%;height:100%}
@@ -753,6 +752,11 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
   .lang button,.lang i{width:28px}.lang[data-lang="en"] i{transform:translateX(28px)}
   .cartbtn{padding:0 9px;gap:5px;height:36px}
 }
+@media(max-width:350px){
+  .mtab{padding:0 4px;font-size:15px}
+  .lang button,.lang i{width:24px}.lang[data-lang="en"] i{transform:translateX(24px)}
+  .cartbtn{padding:0 7px}
+}
 .banner{margin:22px 0 0;border-radius:24px;padding:20px 22px 18px;border:1px solid rgba(41,216,255,.4);
   background:linear-gradient(155deg,rgba(41,216,255,.10),rgba(255,47,126,.07) 60%,rgba(255,255,255,.02));box-shadow:0 0 40px -18px var(--cyan)}
 .banner.dom{border-color:rgba(255,47,126,.5);background:linear-gradient(155deg,rgba(255,47,126,.13),rgba(41,216,255,.06) 60%,rgba(255,255,255,.02));box-shadow:0 0 40px -18px var(--pink)}
@@ -770,6 +774,10 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
 .banner .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
 .banner .acts .btn{padding:10px 16px;font-size:11.5px}
 .banner .fine{margin:12px 0 0;font-size:12px;color:var(--muted);font-style:italic}
+@media(max-width:480px){
+  .banner .btop{flex-direction:column;align-items:flex-start;gap:12px}
+  .banner h3{text-wrap:balance;font-size:30px}
+}
 .cover{margin-top:14px;padding:11px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:13.5px;line-height:1.5}
 .cover.ok{border-color:rgba(31,214,143,.5)}
 .cover.bad{border-color:rgba(255,178,56,.6)}
@@ -1684,7 +1692,10 @@ function setCat(id, {scroll=true,hash=true}={}){
   if (state.q){ state.q=''; $('#q').value=''; $('#searchBox').classList.remove('has'); }
   renderCatNav(); renderMenu();
   if (hash) history.replaceState(null,'','#'+HASH[state.menu]+'/'+id);
-  if (scroll) scrollToContent();
+  if (scroll){   // sin saltos: solo si el inicio de la sección quedó arriba de la barra de categorías, se baja a él (nunca hasta el banner)
+    const nav=$('#catnav').getBoundingClientRect(), top=$('#menuRoot').getBoundingClientRect().top;
+    if (top < nav.bottom) window.scrollTo({top:scrollY+top-nav.bottom-8,behavior:'instant'});
+  }
 }
 function route(){
   const [a,b] = location.hash.slice(1).split('/');
