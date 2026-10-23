@@ -565,70 +565,103 @@ body[data-view="domis"] .cartbtn{display:inline-flex}
 .feat .fsub{margin:2px 0 0;font-size:13.5px;color:var(--muted)}
 .feat .grid{padding-top:44px}
 .feat .acts{display:flex;justify-content:center;margin-top:30px}
-/* Ventana de temporada: Halloween Radioactivo */
-.hwpill{margin-top:16px;display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;border:1px solid rgba(124,255,58,.65);background:rgba(124,255,58,.1);color:#c9ff9a;
+/* Ventana de temporada: Halloween (Radioactivo + Drakula) */
+.hwpill{margin-top:16px;display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;border:1px solid rgba(124,255,58,.65);background:linear-gradient(100deg,rgba(124,255,58,.14),rgba(255,40,70,.14));color:#e4ffc9;
   font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;animation:hwpill 2.4s ease-in-out infinite}
-.hwpill:hover{background:rgba(124,255,58,.2)}
-@keyframes hwpill{50%{box-shadow:0 0 22px -2px rgba(124,255,58,.7)}}
+.hwpill:hover{background:linear-gradient(100deg,rgba(124,255,58,.28),rgba(255,40,70,.28))}
+@keyframes hwpill{0%,100%{box-shadow:0 0 18px -4px rgba(124,255,58,.6)}50%{box-shadow:0 0 22px -2px rgba(255,40,70,.7)}}
 .hw{position:fixed;inset:0;z-index:120;display:grid;place-items:center;padding:14px;visibility:hidden;pointer-events:none}
 .hw.show{visibility:visible;pointer-events:auto}
 .hw-scrim{position:absolute;inset:0;opacity:0;transition:opacity .5s;cursor:pointer;
-  background:radial-gradient(circle at 50% 45%,rgba(40,255,90,.18),rgba(5,9,7,.9) 62%);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  background:radial-gradient(circle at 30% 45%,rgba(40,255,90,.16),transparent 55%),radial-gradient(circle at 70% 45%,rgba(255,40,70,.18),transparent 55%),rgba(5,6,8,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .hw.show .hw-scrim{opacity:1}
-.hw-card{position:relative;width:min(100%,900px);max-height:calc(100dvh - 28px);overflow:auto;border-radius:30px;scrollbar-width:none;
-  background:radial-gradient(120% 90% at 28% 38%,#14391f 0%,#0a1710 46%,#06090a 100%);
-  border:1px solid rgba(124,255,58,.6);box-shadow:0 0 0 1px rgba(255,255,255,.05) inset,0 0 60px -8px rgba(124,255,58,.55),0 40px 100px -30px #000;
+.hw-card{position:relative;width:min(100%,940px);max-height:calc(100dvh - 28px);overflow:auto;border-radius:30px;scrollbar-width:none;background:#06080a;
+  border:1px solid rgba(255,255,255,.2);
+  box-shadow:-26px 0 70px -22px rgba(124,255,58,.6),26px 0 70px -22px rgba(255,40,70,.6),0 40px 100px -30px #000;
   opacity:0;transform:translateY(34px) scale(.9);transition:opacity .5s var(--ease),transform .8s var(--ease)}
 .hw-card::-webkit-scrollbar{display:none}
-.hw.show .hw-card{opacity:1;transform:none;animation:hwglow 3.4s ease-in-out .9s infinite}
-@keyframes hwglow{50%{box-shadow:0 0 0 1px rgba(255,255,255,.05) inset,0 0 95px -4px rgba(124,255,58,.8),0 40px 100px -30px #000}}
-.hw-inner{position:relative;display:grid;grid-template-columns:1fr;align-items:center;overflow:hidden}
-@media(min-width:760px){.hw-inner{grid-template-columns:.95fr 1.05fr}}
-.hw-x{position:absolute;top:14px;right:14px;z-index:6;width:40px;height:40px;border-radius:50%;border:1px solid rgba(124,255,58,.5);background:rgba(0,0,0,.45);color:#fff;font-size:22px;display:grid;place-items:center;transition:background .2s,box-shadow .2s}
-.hw-x:hover{background:rgba(124,255,58,.3);box-shadow:0 0 18px rgba(124,255,58,.7)}
-.hw-stage{position:relative;z-index:2;height:min(42vh,400px);display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr);place-items:center;margin-top:14px;padding:8px 0}
-@media(min-width:760px){.hw-stage{height:min(66vh,540px);margin:0}}
-.hw-cup{position:relative;z-index:3;max-height:100%;width:auto;max-width:92%;min-height:0;object-fit:contain;filter:drop-shadow(0 0 28px rgba(124,255,58,.6)) drop-shadow(0 18px 18px rgba(0,0,0,.65));transform-origin:50% 92%}
+.hw.show .hw-card{opacity:1;transform:none;animation:hwglow 3.6s ease-in-out .9s infinite}
+@keyframes hwglow{50%{box-shadow:-40px 0 90px -20px rgba(124,255,58,.85),40px 0 90px -20px rgba(255,40,70,.85),0 40px 100px -30px #000}}
+.hw-inner{position:relative}
+.hw-x{position:absolute;top:14px;right:14px;z-index:8;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.5);color:#fff;font-size:22px;display:grid;place-items:center;transition:background .2s,box-shadow .2s}
+.hw-x:hover{background:rgba(255,255,255,.2);box-shadow:0 0 18px rgba(255,255,255,.5)}
+.hw-head{position:absolute;top:16px;left:0;right:0;z-index:7;display:flex;justify-content:center;pointer-events:none}
+.hw-eye{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.55);color:#fff;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.hw-slides{display:grid;grid-template-columns:1fr 1fr}
+@media(max-width:759px){.hw-slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.hw-slides::-webkit-scrollbar{display:none}.hw-slide{flex:0 0 100%;scroll-snap-align:center}}
+.hw-slide{position:relative;overflow:hidden;isolation:isolate;display:grid;grid-template-rows:auto 1fr;padding-top:48px;text-align:center;--c:124,255,58}
+.hw-slide+.hw-slide{border-left:1px solid rgba(255,255,255,.14)}
+.hw-slide.rad{background:radial-gradient(120% 90% at 50% 28%,#14391f 0%,#0a1710 52%,#06090a 100%)}
+.hw-slide.dk{--c:255,40,70;background:radial-gradient(120% 90% at 50% 28%,#3d0b18 0%,#1a0710 54%,#08040a 100%)}
+/* retrato vampírico de fondo, suave */
+.hw-slide.dk::before{content:"";position:absolute;inset:0;z-index:0;background:url(img/drakula-fondo.webp) center 12%/cover no-repeat;opacity:.5;
+  -webkit-mask-image:linear-gradient(180deg,#000 0,#000 40%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 40%,transparent 100%);animation:hwportrait 9s ease-in-out infinite}
+@keyframes hwportrait{50%{opacity:.62;transform:scale(1.04)}}
+.hw-slide.dk::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(24,4,12,.05),rgba(14,3,9,.5) 55%,rgba(8,3,8,.9) 100%)}
+.hw-stage{position:relative;z-index:2;height:min(29vh,290px);display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr);place-items:center;padding:8px 0}
+.hw-cup{position:relative;z-index:3;max-height:100%;width:auto;max-width:90%;min-height:0;object-fit:contain;filter:drop-shadow(0 0 26px rgba(var(--c),.6)) drop-shadow(0 16px 16px rgba(0,0,0,.65));transform-origin:50% 92%}
 .hw.show .hw-cup{animation:hwin 1.1s var(--ease) both,hwcup 4.6s ease-in-out 1.1s infinite}
+.hw.show .dk .hw-cup{animation:hwin2 1.1s var(--ease) .15s both,hwcup 5.2s ease-in-out 1.25s infinite reverse}
 @keyframes hwin{from{opacity:0;transform:translateY(70px) scale(.55) rotate(-16deg)}}
-@keyframes hwcup{0%,100%{transform:translateY(0) rotate(-2.2deg)}50%{transform:translateY(-14px) rotate(2.6deg)}}
-.hw-rays{position:absolute;left:50%;top:50%;width:170%;aspect-ratio:1;z-index:0;pointer-events:none;
-  background:repeating-conic-gradient(from 0deg,rgba(124,255,58,.16) 0 7deg,transparent 7deg 24deg);
+@keyframes hwin2{from{opacity:0;transform:translateY(-60px) scale(.55) rotate(16deg)}}
+@keyframes hwcup{0%,100%{transform:translateY(0) rotate(-2.2deg)}50%{transform:translateY(-12px) rotate(2.6deg)}}
+.hw-rays{position:absolute;left:50%;top:50%;width:190%;aspect-ratio:1;z-index:0;pointer-events:none;
+  background:repeating-conic-gradient(from 0deg,rgba(var(--c),.17) 0 7deg,transparent 7deg 24deg);
   -webkit-mask-image:radial-gradient(circle,#000 0,transparent 60%);mask-image:radial-gradient(circle,#000 0,transparent 60%);
   transform:translate(-50%,-50%);animation:hwspin 46s linear infinite}
-.hw-rad{position:absolute;left:50%;top:50%;width:min(88%,420px);aspect-ratio:1;z-index:1;color:rgba(124,255,58,.17);transform:translate(-50%,-50%);animation:hwspin 26s linear infinite reverse}
+.dk .hw-rays{animation-direction:reverse}
+.hw-rad{position:absolute;left:50%;top:50%;width:min(88%,330px);aspect-ratio:1;z-index:1;color:rgba(var(--c),.18);transform:translate(-50%,-50%);animation:hwspin 26s linear infinite reverse}
 @keyframes hwspin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.hw-moon{position:absolute;left:50%;top:48%;width:72%;aspect-ratio:1;z-index:1;border-radius:50%;transform:translate(-50%,-50%);
+  background:radial-gradient(circle at 36% 34%,rgba(255,215,220,.42),rgba(255,40,70,.22) 52%,transparent 70%);animation:hwmoon 5s ease-in-out infinite}
+@keyframes hwmoon{50%{transform:translate(-50%,-50%) scale(1.1);opacity:.75}}
 .hw-ring{position:absolute;left:50%;top:54%;width:62%;aspect-ratio:1;z-index:1;border-radius:50%;pointer-events:none;
-  border:2px solid rgba(150,255,80,.85);box-shadow:0 0 26px rgba(124,255,58,.6),inset 0 0 26px rgba(124,255,58,.35);
+  border:2px solid rgba(var(--c),.85);box-shadow:0 0 24px rgba(var(--c),.6),inset 0 0 24px rgba(var(--c),.35);
   transform:translate(-50%,-50%) scale(.2);opacity:0;animation:hwring 4.8s ease-out infinite}
 .hw-ring:nth-of-type(2){animation-delay:1.2s}.hw-ring:nth-of-type(3){animation-delay:2.4s}.hw-ring:nth-of-type(4){animation-delay:3.6s}
+.dk .hw-ring{animation-name:hwring;animation-duration:5.6s}
 @keyframes hwring{0%{transform:translate(-50%,-50%) scale(.2);opacity:0}12%{opacity:.95}100%{transform:translate(-50%,-50%) scale(2.7);opacity:0}}
-.hw-bubs{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.hw-fall{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
 .hw-bub{position:absolute;bottom:-40px;border-radius:50%;opacity:0;border:1px solid rgba(200,255,160,.55);
   background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.75),rgba(124,255,58,.5) 40%,rgba(124,255,58,.1));
   animation:hwbub var(--d) linear var(--dl) infinite}
-@keyframes hwbub{0%{transform:translate(0,0) scale(.6);opacity:0}10%{opacity:.9}100%{transform:translate(var(--dx),-900px) scale(1);opacity:0}}
+@keyframes hwbub{0%{transform:translate(0,0) scale(.6);opacity:0}10%{opacity:.9}100%{transform:translate(var(--dx),-760px) scale(1);opacity:0}}
+.hw-drop{position:absolute;top:-24px;width:8px;height:13px;border-radius:50% 50% 50% 50%/62% 62% 38% 38%;opacity:0;
+  background:linear-gradient(180deg,#ff6b84,#c20f33);box-shadow:0 0 8px rgba(255,40,70,.7);animation:hwdrop var(--d) ease-in var(--dl) infinite}
+@keyframes hwdrop{0%{transform:translateY(0);opacity:0}8%{opacity:.95}100%{transform:translateY(680px);opacity:0}}
+.hw-bat{position:absolute;z-index:2;top:var(--y);left:-18%;width:var(--w);color:#07020a;filter:drop-shadow(0 0 6px rgba(255,40,70,.85));animation:hwfly var(--d) linear var(--dl) infinite;pointer-events:none}
+.hw-bat svg{display:block;width:100%;height:auto;animation:hwflap .32s ease-in-out infinite alternate;transform-origin:50% 60%}
+@keyframes hwfly{0%{left:-18%;transform:translateY(0)}25%{transform:translateY(14px)}50%{transform:translateY(-6px)}75%{transform:translateY(12px)}100%{left:112%;transform:translateY(0)}}
+@keyframes hwflap{from{transform:scaleY(1)}to{transform:scaleY(.45)}}
 .hw-waves{position:absolute;left:0;bottom:0;width:200%;height:96px;z-index:1;pointer-events:none}
-.hw-waves.w1{fill:rgba(124,255,58,.22);animation:hwwave 9s linear infinite}
-.hw-waves.w2{fill:rgba(60,220,120,.16);height:112px;animation:hwwave 14s linear infinite reverse}
+.rad .hw-waves.w1{fill:rgba(124,255,58,.22)}.rad .hw-waves.w2{fill:rgba(60,220,120,.16)}
+.dk .hw-waves.w1{fill:rgba(255,40,70,.26)}.dk .hw-waves.w2{fill:rgba(190,20,60,.2)}
+.hw-waves.w1{animation:hwwave 9s linear infinite}
+.hw-waves.w2{height:112px;animation:hwwave 14s linear infinite reverse}
 @keyframes hwwave{to{transform:translateX(-50%)}}
-.hw-copy{position:relative;z-index:3;padding:6px 26px 90px;text-align:center}
-@media(min-width:760px){.hw-copy{padding:44px 40px 90px 6px;text-align:left}}
-.hw-eye{display:inline-flex;align-items:center;gap:8px;padding:5px 13px;border-radius:999px;border:1px solid rgba(124,255,58,.65);background:rgba(124,255,58,.1);color:#b9ff80;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
-.hw-copy h2{margin:14px 0 4px;font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(44px,10vw,70px);line-height:.92;letter-spacing:.03em;color:#f0ffe0;
-  text-shadow:0 0 10px #7cff3a,0 0 34px rgba(124,255,58,.65);animation:hwflick 5.5s linear infinite}
-.hw-copy h2 b{display:block;font-weight:400;color:#7cff3a;text-shadow:0 0 12px #7cff3a,0 0 42px rgba(124,255,58,.8)}
+.hw-copy{position:relative;z-index:3;padding:2px 22px 76px}
+.hw-copy h2{margin:6px 0 2px;font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(40px,8.6vw,56px);line-height:.92;letter-spacing:.03em;color:#f0ffe0;
+  text-shadow:0 0 10px rgb(var(--c)),0 0 32px rgba(var(--c),.65);animation:hwflick 5.5s linear infinite}
+.dk .hw-copy h2{color:#ffeef1;animation-delay:-2s}
+.hw-copy h2 b{display:block;font-weight:400;color:rgb(var(--c));text-shadow:0 0 12px rgb(var(--c)),0 0 40px rgba(var(--c),.8)}
 @keyframes hwflick{0%,17%,19%,60%,62%,100%{opacity:1}18%{opacity:.7}61%{opacity:.8}}
-.hw-lim{display:inline-block;margin:10px 0 12px;padding:6px 14px;border:2px solid #fff;border-radius:6px;color:#fff;font-size:12px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;transform:rotate(-3deg);animation:hwpulse 1.9s ease-in-out infinite}
+.hw-lim{display:inline-block;margin:8px 0 8px;padding:5px 13px;border:2px solid #fff;border-radius:6px;color:#fff;font-size:11.5px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;transform:rotate(-3deg);animation:hwpulse 1.9s ease-in-out infinite}
+.dk .hw-lim{transform:rotate(3deg);animation-name:hwpulse2}
 @keyframes hwpulse{50%{transform:rotate(-3deg) scale(1.08);box-shadow:0 0 22px rgba(255,255,255,.55)}}
-.hw-price{margin:0 0 6px;font-family:'Bebas Neue',sans-serif;font-size:46px;line-height:1;color:var(--gold);text-shadow:0 0 22px rgba(255,178,56,.55)}
-.hw-copy p{margin:6px 0 18px;font-size:14.5px;line-height:1.55;color:#c8d8c0;max-width:46ch}
-@media(max-width:759px){.hw-copy p{margin-left:auto;margin-right:auto}}
-.hw-cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-@media(min-width:760px){.hw-cta{justify-content:flex-start}}
+@keyframes hwpulse2{50%{transform:rotate(3deg) scale(1.08);box-shadow:0 0 22px rgba(255,255,255,.55)}}
+.hw-price{margin:0 0 4px;font-family:'Bebas Neue',sans-serif;font-size:44px;line-height:1;color:var(--gold);text-shadow:0 0 22px rgba(255,178,56,.55)}
+.hw-copy p{margin:6px auto 16px;font-size:14px;line-height:1.5;color:#cfd9cb;max-width:38ch}
+.dk .hw-copy p{color:#e7cfd4}
+.hw-cta{display:flex;justify-content:center}
 .btn.hw-go{position:relative;overflow:hidden;background:linear-gradient(120deg,#8bff3d,#2fe06b);color:#05200f;box-shadow:0 10px 30px -8px #7cff3a}
+.btn.hw-go.red{background:linear-gradient(120deg,#ff5573,#d3123a);color:#fff;box-shadow:0 10px 30px -8px #ff2d55}
 .btn.hw-go::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent);transform:skewX(-20deg);animation:hwshine 3s ease-in-out infinite}
 @keyframes hwshine{0%,55%{left:-60%}100%{left:130%}}
+.hw-foot{position:relative;z-index:4;display:flex;flex-direction:column;align-items:center;gap:12px;padding:6px 18px 20px;background:linear-gradient(180deg,rgba(6,8,10,.6),#06080a 40%)}
+.hw-dots{display:none;gap:8px}
+@media(max-width:759px){.hw-dots{display:flex}}
+.hw-dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.3);transition:width .3s var(--ease),background .3s}
+.hw-dots button.on{width:26px;border-radius:99px;background:#fff}
 body.hw-open .wafab,body.hw-open .top{display:none}
 /* Acceso directo a WhatsApp */
 .wafab{position:fixed;left:18px;bottom:18px;z-index:45;display:inline-flex;align-items:center;gap:9px;height:54px;min-width:54px;padding:0 15px;border-radius:999px;
@@ -789,31 +822,60 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
   </div>
 </div>
 
-<!-- VENTANA DE TEMPORADA: HALLOWEEN RADIOACTIVO -->
+<!-- VENTANA DE TEMPORADA: HALLOWEEN (RADIOACTIVO + DRAKULA) -->
 <div class="hw" id="hw" role="dialog" aria-modal="true" aria-labelledby="hwTitle" aria-hidden="true">
   <div class="hw-scrim" data-act="hwclose"></div>
   <div class="hw-card">
     <div class="hw-inner">
       <button class="hw-x" type="button" data-act="hwclose" id="hwX" aria-label="Cerrar">×</button>
-      <div class="hw-bubs" id="hwBubs" aria-hidden="true"></div>
-      <svg class="hw-waves w2" viewBox="0 0 2400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60 q150 -52 300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 V120 H0Z"/></svg>
-      <svg class="hw-waves w1" viewBox="0 0 2400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70 q150 -46 300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 V120 H0Z"/></svg>
-      <div class="hw-stage">
-        <div class="hw-rays" aria-hidden="true"></div>
-        <svg class="hw-rad" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><circle cx="50" cy="50" r="7"/><path id="hwWedge" d="M72 11.9 A44 44 0 0 0 28 11.9 L42 36.1 A16 16 0 0 1 58 36.1 Z"/><path d="M72 11.9 A44 44 0 0 0 28 11.9 L42 36.1 A16 16 0 0 1 58 36.1 Z" transform="rotate(120 50 50)"/><path d="M72 11.9 A44 44 0 0 0 28 11.9 L42 36.1 A16 16 0 0 1 58 36.1 Z" transform="rotate(240 50 50)"/></svg>
-        <i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i>
-        <img class="hw-cup" src="img/halloween-radioactivo.webp" width="436" height="900" alt="Vaso Halloween Radioactivo" decoding="async">
+      <div class="hw-head"><span class="hw-eye"><span aria-hidden="true">☢</span> <span data-i18n="hwHead">Especiales de Halloween</span> <span aria-hidden="true">🦇</span></span></div>
+      <div class="hw-slides" id="hwSlides">
+
+        <section class="hw-slide rad" aria-labelledby="hwTitle">
+          <div class="hw-fall" id="hwBubs" aria-hidden="true"></div>
+          <svg class="hw-waves w2" viewBox="0 0 2400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60 q150 -52 300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 V120 H0Z"/></svg>
+          <svg class="hw-waves w1" viewBox="0 0 2400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70 q150 -46 300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 V120 H0Z"/></svg>
+          <div class="hw-stage">
+            <div class="hw-rays" aria-hidden="true"></div>
+            <svg class="hw-rad" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><circle cx="50" cy="50" r="7"/><path d="M72 11.9 A44 44 0 0 0 28 11.9 L42 36.1 A16 16 0 0 1 58 36.1 Z"/><path d="M72 11.9 A44 44 0 0 0 28 11.9 L42 36.1 A16 16 0 0 1 58 36.1 Z" transform="rotate(120 50 50)"/><path d="M72 11.9 A44 44 0 0 0 28 11.9 L42 36.1 A16 16 0 0 1 58 36.1 Z" transform="rotate(240 50 50)"/></svg>
+            <i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i>
+            <img class="hw-cup" id="hwCup" src="img/halloween-radioactivo.webp" width="436" height="900" alt="Vaso Halloween Radioactivo" decoding="async">
+          </div>
+          <div class="hw-copy">
+            <h2 id="hwTitle"><span data-i18n="hwT1">Vaso Halloween</span><b data-i18n="hwT2">Radioactivo</b></h2>
+            <span class="hw-lim" data-i18n="hwLim">Edición limitada</span>
+            <div class="hw-price" id="hwPrice" hidden></div>
+            <p data-i18n="hwText">Borde de perlas negras, un ojo de gomita que te vigila y mucho verde tóxico. Atrévete con lo más radiactivo de la temporada.</p>
+            <div class="hw-cta"><a class="btn hw-go" id="hwGo" href="#" target="_blank" rel="noopener"><span data-i18n="hwGo">Lo quiero por WhatsApp</span></a></div>
+          </div>
+        </section>
+
+        <section class="hw-slide dk" aria-labelledby="dkTitle">
+          <div class="hw-fall" id="dkDrops" aria-hidden="true"></div>
+          <span class="hw-bat" style="--y:9%;--w:46px;--d:9s;--dl:-2s" aria-hidden="true"><svg viewBox="0 0 40 20" fill="currentColor"><path d="M0 8C6 0 14 3 20 9c6-6 14-9 20-1-4-1-7 2-9 8-3-4-7-4-11 0-4-4-8-4-11 0C7 10 4 7 0 8Z"/></svg></span>
+          <span class="hw-bat" style="--y:24%;--w:30px;--d:12s;--dl:-7s" aria-hidden="true"><svg viewBox="0 0 40 20" fill="currentColor"><path d="M0 8C6 0 14 3 20 9c6-6 14-9 20-1-4-1-7 2-9 8-3-4-7-4-11 0-4-4-8-4-11 0C7 10 4 7 0 8Z"/></svg></span>
+          <span class="hw-bat" style="--y:38%;--w:38px;--d:10s;--dl:-5s" aria-hidden="true"><svg viewBox="0 0 40 20" fill="currentColor"><path d="M0 8C6 0 14 3 20 9c6-6 14-9 20-1-4-1-7 2-9 8-3-4-7-4-11 0-4-4-8-4-11 0C7 10 4 7 0 8Z"/></svg></span>
+          <svg class="hw-waves w2" viewBox="0 0 2400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60 q150 -52 300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 V120 H0Z"/></svg>
+          <svg class="hw-waves w1" viewBox="0 0 2400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70 q150 -46 300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 V120 H0Z"/></svg>
+          <div class="hw-stage">
+            <div class="hw-rays" aria-hidden="true"></div>
+            <div class="hw-moon" aria-hidden="true"></div>
+            <i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i>
+            <img class="hw-cup" id="dkCup" src="img/malteada-drakula.webp" width="433" height="900" alt="Malteada Drakula" decoding="async">
+          </div>
+          <div class="hw-copy">
+            <h2 id="dkTitle"><span data-i18n="dkT1">Malteada</span><b data-i18n="dkT2">Drakula</b></h2>
+            <span class="hw-lim" data-i18n="dkLim">Especial de Halloween</span>
+            <div class="hw-price" id="dkPrice" hidden></div>
+            <p data-i18n="dkText">Malteada cremosa con chocolate, salsa roja que gotea como sangre y mucha crema. Muérdela si te atreves.</p>
+            <div class="hw-cta"><a class="btn hw-go red" id="dkGo" href="#" target="_blank" rel="noopener"><span data-i18n="dkGo">La quiero por WhatsApp</span></a></div>
+          </div>
+        </section>
+
       </div>
-      <div class="hw-copy">
-        <span class="hw-eye"><span aria-hidden="true">☢</span> <span data-i18n="hwEye">De temporada · Halloween</span></span>
-        <h2 id="hwTitle"><span data-i18n="hwT1">Vaso Halloween</span><b data-i18n="hwT2">Radioactivo</b></h2>
-        <span class="hw-lim" data-i18n="hwLim">Edición limitada</span>
-        <div class="hw-price" id="hwPrice" hidden></div>
-        <p data-i18n="hwText">Borde de perlas negras, un ojo de gomita que te vigila y mucho verde tóxico. Atrévete con lo más radiactivo de la temporada.</p>
-        <div class="hw-cta">
-          <a class="btn hw-go" id="hwGo" href="#" target="_blank" rel="noopener"><span data-i18n="hwGo">Lo quiero por WhatsApp</span></a>
-          <button class="btn ghost" type="button" data-act="hwmenu" data-i18n="hwMenu">Ver la carta</button>
-        </div>
+      <div class="hw-foot">
+        <div class="hw-dots" id="hwDots" role="tablist"><button type="button" class="on" data-act="hwslide" data-i="0" aria-label="Vaso Halloween Radioactivo"></button><button type="button" data-act="hwslide" data-i="1" aria-label="Malteada Drakula"></button></div>
+        <button class="btn ghost" type="button" data-act="hwmenu" data-i18n="hwMenu">Ver la carta</button>
       </div>
     </div>
   </div>
@@ -903,9 +965,9 @@ const RECO_FIXED = {p:null, d:null};  // recomendación fija; null = rota sola c
 // {id:'promo-1', m:'pd', es:'', en:'', dEs:'', dEn:'', price:0, img:null, from:'2026-11-01', until:'2026-11-30'}
 const PROMOS = [];
 
-// Ventana de temporada que se abre al entrar a la página (Vaso Halloween Radioactivo).
+// Ventana de temporada que se abre al entrar a la página (Vaso Halloween Radioactivo + Malteada Drakula).
 // on:false la apaga (también el botón del inicio). price: valor en COP; null = no muestra precio.
-const HALLOWEEN = {on:true, price:17500};
+const HALLOWEEN = {on:true, price:17500, dkPrice:null};   // price: Vaso Radioactivo · dkPrice: Malteada Drakula
 
 /* =========================================================
    DATOS
@@ -1059,7 +1121,7 @@ const UI = {
     delOpen:c=>`Domicilios abiertos · hasta ${c}`,delClosed:o=>`Domicilios desde las ${o}`,
     coverBtn:'¿Llegamos a mi ubicación?',coverBusy:'Buscando tu ubicación…',coverDist:(km,s)=>`Estás a unos <b>${km}</b> en línea recta de ${s}.`,coverIn:'Estás dentro de nuestra zona de domicilios.',coverOut:'Estás fuera de nuestra zona de domicilios.',coverUnk:'Confirma tu dirección por WhatsApp antes de pedir.',coverErr:'No pudimos obtener tu ubicación. Activa el permiso de ubicación e inténtalo de nuevo.',
     zoneBlocked:'Por ahora no llegamos a esa zona.',
-    hwPill:'Vaso Halloween Radioactivo',hwEye:'De temporada · Halloween',hwT1:'Vaso Halloween',hwT2:'Radioactivo',hwLim:'Edición limitada',
+    hwPill:'Especiales de Halloween',hwHead:'Especiales de Halloween',dkT1:'Malteada',dkT2:'Drakula',dkLim:'Especial de Halloween',dkText:'Malteada cremosa con chocolate, salsa roja que gotea como sangre y mucha crema. Muérdela si te atreves.',dkGo:'La quiero por WhatsApp',dkWa:'Hola El Coctelazo 👋 Quiero la Malteada Drakula',hwT1:'Vaso Halloween',hwT2:'Radioactivo',hwLim:'Edición limitada',
     hwText:'Borde de perlas negras, un ojo de gomita que te vigila y mucho verde tóxico. Atrévete con lo más radiactivo de la temporada.',hwGo:'Lo quiero por WhatsApp',hwMenu:'Ver la carta',hwWa:'Hola El Coctelazo 👋 Quiero el Vaso Halloween Radioactivo',
     featSubD:'Los favoritos de hoy: toca + y pídelos en un momento.',featSubP:'Los favoritos de hoy. Toca uno para ver el detalle.',featAll:'Ver toda la carta',waFab:'Escríbenos',waHello:'Hola El Coctelazo 👋 Quiero información',
     featTitle:'Destacados',tagReco:'Recomendado hoy',tagSeason:'De temporada',promoUntil:d=>`Válida hasta ${d}`,
@@ -1084,7 +1146,7 @@ const UI = {
     delOpen:c=>`Delivery open · until ${c}`,delClosed:o=>`Delivery from ${o}`,
     coverBtn:'Do you deliver to me?',coverBusy:'Finding your location…',coverDist:(km,s)=>`You’re about <b>${km}</b> in a straight line from ${s}.`,coverIn:'You’re inside our delivery area.',coverOut:'You’re outside our delivery area.',coverUnk:'Confirm your address on WhatsApp before ordering.',coverErr:'We couldn’t get your location. Allow location access and try again.',
     zoneBlocked:'We don’t deliver to that area for now.',
-    hwPill:'Halloween Radioactive Cup',hwEye:'Seasonal · Halloween',hwT1:'Halloween',hwT2:'Radioactive Cup',hwLim:'Limited edition',
+    hwPill:'Halloween specials',hwHead:'Halloween specials',dkT1:'Drakula',dkT2:'Milkshake',dkLim:'Halloween special',dkText:'A creamy chocolate milkshake with red sauce dripping like blood and plenty of whipped cream. Bite it if you dare.',dkGo:'I want it on WhatsApp',dkWa:'Hi El Coctelazo 👋 I’d like the Drakula Milkshake',hwT1:'Halloween',hwT2:'Radioactive Cup',hwLim:'Limited edition',
     hwText:'A rim of black pearls, a gummy eyeball watching you and plenty of toxic green. Dare to try the most radioactive drink of the season.',hwGo:'I want it on WhatsApp',hwMenu:'See the menu',hwWa:'Hi El Coctelazo 👋 I’d like the Halloween Radioactive Cup',
     featSubD:'Today’s favorites: tap + and order in a moment.',featSubP:'Today’s favorites. Tap one to see the details.',featAll:'See the full menu',waFab:'Chat with us',waHello:'Hi El Coctelazo 👋 I’d like some information',
     featTitle:'Highlights',tagReco:'Today’s pick',tagSeason:'Seasonal',promoUntil:d=>`Valid until ${d}`,
@@ -1444,9 +1506,10 @@ function applyI18n(){
   $('#waFab').setAttribute('aria-label','WhatsApp · '+t('waFab'));
   $('#hwGo').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t('hwWa'))}`;
   $('#hwX').setAttribute('aria-label',t('close'));
-  $('.hw-cup').alt = `${t('hwT1')} ${t('hwT2')}`;
+  $('#dkGo').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t('dkWa'))}`;
+  $('#hwCup').alt = `${t('hwT1')} ${t('hwT2')}`; $('#dkCup').alt = `${t('dkT1')} ${t('dkT2')}`;
   $('#hwPill').hidden = !HALLOWEEN.on;
-  const hp = $('#hwPrice'); hp.hidden = HALLOWEEN.price==null; hp.textContent = HALLOWEEN.price==null ? '' : money(HALLOWEEN.price);
+  [['#hwPrice',HALLOWEEN.price],['#dkPrice',HALLOWEEN.dkPrice]].forEach(([id,v])=>{ const el=$(id); el.hidden = v==null; el.textContent = v==null ? '' : money(v); });
 }
 
 function renderAll(){
@@ -1640,6 +1703,7 @@ document.addEventListener('click', e=>{
   if (act==='goDomis'){ goDomis(); return; }
   if (act==='hw'){ openHW(); return; }
   if (act==='hwclose'){ closeHW(); return; }
+  if (act==='hwslide'){ hwUser=true; clearInterval(hwAuto); hwGo(i); return; }
   if (act==='hwmenu'){ closeHW(); setView('puntos',{scroll:false}); toContent(); return; }
   if (act==='toMenu'){ $('.tools').scrollIntoView({behavior:REDUCED?'auto':'smooth',block:'start'}); return; }
   if (act==='cover'){ checkCover(); return; }
@@ -1872,21 +1936,32 @@ function refreshStatuses(){
   const chip = $('#menuBanner .banner.dom .status');
   if (chip){ const d=deliveryStatus(); chip.className='status '+(d.open?'open':'closed'); chip.textContent = d.open?t('delOpen')(clock(d.close)):t('delClosed')(clock(DELIVERY_HOURS.open)); }
 }
-/* Ventana de temporada: burbujas al azar, abrir y cerrar */
-(function buildBubbles(){
-  const box = $('#hwBubs'), r = Math.random;
-  box.innerHTML = Array.from({length:18},()=>{ const s=6+r()*20|0; return `<span class="hw-bub" style="left:${(r()*96).toFixed(1)}%;width:${s}px;height:${s}px;--d:${(7+r()*8).toFixed(1)}s;--dl:${(-r()*12).toFixed(1)}s;--dx:${(r()*80-40)|0}px"></span>`; }).join('');
+/* Ventana de temporada: burbujas y gotas al azar, carrusel en celular, abrir y cerrar */
+(function buildFx(){
+  const r = Math.random;
+  $('#hwBubs').innerHTML = Array.from({length:18},()=>{ const s=6+r()*20|0; return `<span class="hw-bub" style="left:${(r()*96).toFixed(1)}%;width:${s}px;height:${s}px;--d:${(7+r()*8).toFixed(1)}s;--dl:${(-r()*12).toFixed(1)}s;--dx:${(r()*80-40)|0}px"></span>`; }).join('');
+  $('#dkDrops').innerHTML = Array.from({length:14},()=>`<span class="hw-drop" style="left:${(r()*96).toFixed(1)}%;--d:${(3.5+r()*4).toFixed(1)}s;--dl:${(-r()*8).toFixed(1)}s"></span>`).join('');
 })();
+const hwSlides = $('#hwSlides'), hwDots = $$('#hwDots button');
+let hwAuto = null, hwUser = false;
+const hwIndex = () => Math.round(hwSlides.scrollLeft / Math.max(1, hwSlides.clientWidth));
+function hwGo(i, smooth=true){ hwSlides.scrollTo({left:i*hwSlides.clientWidth, behavior:(smooth&&!REDUCED)?'smooth':'auto'}); }
+hwSlides.addEventListener('scroll',()=>{ const i=hwIndex(); hwDots.forEach((d,k)=>d.classList.toggle('on',k===i)); },{passive:true});
+['pointerdown','wheel','touchstart'].forEach(ev=>hwSlides.addEventListener(ev,()=>{ hwUser=true; clearInterval(hwAuto); },{passive:true}));
 function openHW(){
   if (!HALLOWEEN.on) return;
   const hw = $('#hw');
   hw.classList.add('show'); hw.setAttribute('aria-hidden','false');
   document.body.classList.add('locked','hw-open');
   lastFocus = document.activeElement;
+  hwUser = false; hwGo(0,false); clearInterval(hwAuto);
+  // en celular las dos mitades son un carrusel: pasa solo a la segunda hasta que la persona lo toque
+  if (matchMedia('(max-width:759px)').matches && !REDUCED) hwAuto = setInterval(()=>{ if(hwUser) return clearInterval(hwAuto); hwGo((hwIndex()+1)%2); }, 5500);
   setTimeout(()=>$('#hwGo').focus({preventScroll:true}),700);
 }
 function closeHW(){
   const hw = $('#hw');
+  clearInterval(hwAuto);
   hw.classList.remove('show'); hw.setAttribute('aria-hidden','true');
   document.body.classList.remove('hw-open');
   if (!state.modal && !$('#drawer').classList.contains('show')) document.body.classList.remove('locked');
