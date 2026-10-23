@@ -797,6 +797,38 @@ body.hw-open .wafab,body.hw-open .top{display:none}
 .evtx-combo small{display:block;margin-top:4px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#cfe3c4}
 .evtx-combo em{display:block;font-style:normal;font-family:'Bebas Neue',sans-serif;font-size:42px;line-height:1;color:var(--gold);text-shadow:0 0 18px rgba(255,178,56,.6);animation:promoPulse 2s ease-in-out infinite;transform-origin:left}
 .evtx-cta{position:relative;z-index:2;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+
+/* ---------- HOME COMPACTO: carruseles y promo delgada ---------- */
+.hsec{margin-top:26px}
+.sec-head::after{order:2}.seelink{order:3;flex:none;background:none;border:0;padding:6px 2px;color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.seelink:hover{color:#fff}
+.hsec .sec-head h2{font-size:30px}
+.hcat-row{display:flex;gap:8px;overflow-x:auto;padding:12px 18px 2px;margin:0 -18px;scrollbar-width:none}
+.hcat-row::-webkit-scrollbar{display:none}
+.hcat-row .chip{flex:none}
+@media(min-width:760px){.hcat-row{flex-wrap:wrap;justify-content:center;overflow:visible}}
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x proximity;padding:46px 18px 10px;margin:0 -18px;scrollbar-width:none;-webkit-overflow-scrolling:touch;--cw:150px}
+.rail::-webkit-scrollbar{display:none}
+.rail .cell{flex:0 0 var(--cw);scroll-snap-align:start}
+@media(min-width:760px){.rail{--cw:calc((100% - 48px)/5);flex-wrap:wrap;overflow:visible;padding-left:0;padding-right:0;margin:0;row-gap:56px}}
+.rail .stage{height:128px;margin:-34px -2px 4px}
+.rail .card{padding:0 10px 10px}
+.rail .card h3{font-size:19px}
+.rail .card p{display:none}
+.rail .price{font-size:14px}
+.rail .add{width:32px;height:32px}
+.recochips{margin-top:10px}.recotxt{margin:8px 0 0}
+.promo{margin-top:18px;padding:14px 16px 12px;border-radius:22px}
+.promo h2{margin:8px 0 0;font-size:clamp(32px,8vw,46px)}
+.promo p{font-size:13px}
+.promo-prices{margin:10px 0 8px;gap:10px;flex-wrap:nowrap}
+.promo-prices>div{flex:1 1 0;min-width:0;max-width:240px;padding:8px 10px;border-radius:16px}
+.promo-prices b{font-size:32px}
+.promo-prices span{font-size:11px}.promo-prices em{font-size:16px}
+.promo-days{margin-top:6px;font-size:12px}
+.seas-grid{margin-top:12px;gap:12px}
+.seas{padding:10px 12px 10px 4px}.seas img{max-height:150px}.seas h3{font-size:26px}
+@media(max-width:639px){.seas-grid{grid-template-columns:1fr 1fr}.seas{flex-direction:column;text-align:center;gap:6px;padding:12px 8px 12px}.seas img{width:58%;max-height:120px}.seas h3{font-size:21px}.seas .price{font-size:18px}.seas .btn{padding:8px 14px;margin-top:6px}.seas .tag{font-size:9px}}
 /* Acceso directo a WhatsApp */
 .wafab{position:fixed;left:18px;bottom:18px;z-index:45;display:inline-flex;align-items:center;gap:9px;height:54px;min-width:54px;padding:0 15px;border-radius:999px;
   background:#25d366;color:#fff;text-decoration:none;font-weight:800;font-size:13px;box-shadow:0 10px 30px -8px #25d366,0 0 0 1px rgba(255,255,255,.25) inset;
@@ -1282,7 +1314,7 @@ const DELI = SEDES.findIndex(s => s.n===DELIVERY_SEDE);
    TEXTOS DE LA INTERFAZ
    ========================================================= */
 const UI = {
-  es:{tabEventos:'Eventos',evEmpty:'Pronto anunciaremos nuevos eventos.',seasonB:'TEMPORADA',evEye:'Evento',evSmall:'Fiesta de disfraces',evPlace:'Provenza',evDj:'DJ en vivo',evPrizes:p=>`Más de <b>${p}</b> en premios`,evCombo:'Combo',evComboName:'Granizado Radioactivo + Perrito',evComboNote:'por solo',evGo:'Cómo llegar',evCup:'Ver el vaso',evToday:'¡Es hoy!',evTomorrow:'¡Es mañana!',evDays:n=>`Faltan ${n} días`,evDate:'Fecha',tabHome:'Home',modeP:'Punto de venta',modeD:'Domicilios',modeAria:'Elige la carta',newb:'NUEVO',seasonTitle:'De temporada',seasonSub:'Especiales de temporada. Toca uno para verlo.',seasonView:'Verlo',recoTitle:'Recomendados para ti',recoSub:'Elige con quién vas y te decimos qué pedir.',recoP:'Parejas',recoA:'Amigos',recoF:'Familia',recoPt:'Para una noche de dos',recoAt:'Para compartir con los amigos',recoFt:'Para toda la familia, con opciones sin licor',famTitle:'Nueva familia de granizados',famSub:'Vasos nuevos, sabores nuevos.',famAll:'Ver en la carta',evtTitle:'Eventos',evtBtn:'Ver especiales',tueEye:'¡Hoy es martes!',tueInfoEye:'Todos los martes',tueTitle:'Martes de granizado',tueSub:'Granizado tradicional y cremoso',tueTrad:'Tradicional 16 oz',tueCrem:'Cremoso 16 oz',tueNote:'Todas las sedes de Medellín, menos Provenza',tueToday:'Solo hoy',tueDays:n=>n===1?'Mañana es martes: ¡no te lo pierdas!':`Faltan ${n} días para el próximo martes`,tabPuntos:'Carta',tabDomis:'Domicilios',tabInfo:'Sedes',ctaMenu:'Ver la carta',ctaDomis:'Pedir domicilio',ctaSedes:'Nuestras sedes',
+  es:{seeAll:'Ver todo',homeCatsTitle:'Explora la carta',tabEventos:'Eventos',evEmpty:'Pronto anunciaremos nuevos eventos.',seasonB:'TEMPORADA',evEye:'Evento',evSmall:'Fiesta de disfraces',evPlace:'Provenza',evDj:'DJ en vivo',evPrizes:p=>`Más de <b>${p}</b> en premios`,evCombo:'Combo',evComboName:'Granizado Radioactivo + Perrito',evComboNote:'por solo',evGo:'Cómo llegar',evCup:'Ver el vaso',evToday:'¡Es hoy!',evTomorrow:'¡Es mañana!',evDays:n=>`Faltan ${n} días`,evDate:'Fecha',tabHome:'Home',modeP:'Punto de venta',modeD:'Domicilios',modeAria:'Elige la carta',newb:'NUEVO',seasonTitle:'De temporada',seasonSub:'Especiales de temporada. Toca uno para verlo.',seasonView:'Verlo',recoTitle:'Recomendados para ti',recoSub:'Elige con quién vas y te decimos qué pedir.',recoP:'Parejas',recoA:'Amigos',recoF:'Familia',recoPt:'Para una noche de dos',recoAt:'Para compartir con los amigos',recoFt:'Para toda la familia, con opciones sin licor',famTitle:'Nueva familia de granizados',famSub:'Vasos nuevos, sabores nuevos.',famAll:'Ver en la carta',evtTitle:'Eventos',evtBtn:'Ver especiales',tueEye:'¡Hoy es martes!',tueInfoEye:'Todos los martes',tueTitle:'Martes de granizado',tueSub:'Granizado tradicional y cremoso',tueTrad:'Tradicional 16 oz',tueCrem:'Cremoso 16 oz',tueNote:'Todas las sedes de Medellín, menos Provenza',tueToday:'Solo hoy',tueDays:n=>n===1?'Mañana es martes: ¡no te lo pierdas!':`Faltan ${n} días para el próximo martes`,tabPuntos:'Carta',tabDomis:'Domicilios',tabInfo:'Sedes',ctaMenu:'Ver la carta',ctaDomis:'Pedir domicilio',ctaSedes:'Nuestras sedes',
     searchLabel:'Buscar en la carta',searchPh:'Busca un granizado, una bomba, un nevecón…',surprise:'Sorpréndeme',footLine:'El Coctelazo — Medellín',
     sedesTitle:'Nuestras sedes',address:'Dirección',hours:'Horario',hoursV:'Lunes a domingo: 2:30 PM – 12:00 AM · Fines de semana hasta las 2:00 AM',hoursD:'Domicilios',hoursDV:'Todos los días: 4:30 PM – 12:30 AM',
     how:'Cómo llegar',map:'Ver mapa',hideMap:'Ocultar mapa',creditL:'© 2026 Sonetix. Páginas web a la medida.',locTitle:'Encuentra tu sede más cercana',locSub:'Te mostramos la más cerca de ti y cómo llegar',locAgain:'Actualizar mi ubicación',locAgainSub:'Volver a buscar la sede más cercana',locBusy:'Buscando tu ubicación…',
@@ -1307,7 +1339,7 @@ const UI = {
     results:(n,q)=>`${n} resultado${n===1?'':'s'} para «${q}»`,noRes:'Nada por aquí',noResSub:'Prueba con otra palabra: granizado, bomba, nevecón…',
     close:'Cerrar',top:'Volver arriba',unit:'c/u',from:'desde',pending:'Precio por confirmar',
     mNoteP:'Precio en nuestras sedes. ',mNoteGo:'Pídelo a domicilio →',liter:'Litro',half:'Media'},
-  en:{tabEventos:'Events',evEmpty:'New events coming soon.',seasonB:'SEASONAL',evEye:'Event',evSmall:'Costume party',evPlace:'Provenza',evDj:'Live DJ',evPrizes:p=>`Over <b>${p}</b> in prizes`,evCombo:'Combo',evComboName:'Radioactive slush + Hot dog',evComboNote:'for only',evGo:'Get directions',evCup:'See the cup',evToday:'It’s today!',evTomorrow:'It’s tomorrow!',evDays:n=>`${n} days to go`,evDate:'Date',tabHome:'Home',modeP:'In-store',modeD:'Delivery',modeAria:'Choose the menu',newb:'NEW',seasonTitle:'Seasonal',seasonSub:'Seasonal specials. Tap one to see it.',seasonView:'See it',recoTitle:'Picked for you',recoSub:'Tell us who you’re with and we’ll tell you what to order.',recoP:'Couples',recoA:'Friends',recoF:'Family',recoPt:'For a night for two',recoAt:'To share with friends',recoFt:'For the whole family, with alcohol-free options',famTitle:'New slush family',famSub:'New cups, new flavors.',famAll:'See in the menu',evtTitle:'Events',evtBtn:'See specials',tueEye:'It’s Tuesday!',tueInfoEye:'Every Tuesday',tueTitle:'Slush Tuesday',tueSub:'Traditional and creamy slushes',tueTrad:'Traditional 16 oz',tueCrem:'Creamy 16 oz',tueNote:'All Medellín locations, except Provenza',tueToday:'Today only',tueDays:n=>n===1?'Tomorrow is Tuesday: don’t miss it!':`${n} days until next Tuesday`,tabPuntos:'Menu',tabDomis:'Delivery',tabInfo:'Locations',ctaMenu:'See the menu',ctaDomis:'Order delivery',ctaSedes:'Our locations',
+  en:{seeAll:'See all',homeCatsTitle:'Explore the menu',tabEventos:'Events',evEmpty:'New events coming soon.',seasonB:'SEASONAL',evEye:'Event',evSmall:'Costume party',evPlace:'Provenza',evDj:'Live DJ',evPrizes:p=>`Over <b>${p}</b> in prizes`,evCombo:'Combo',evComboName:'Radioactive slush + Hot dog',evComboNote:'for only',evGo:'Get directions',evCup:'See the cup',evToday:'It’s today!',evTomorrow:'It’s tomorrow!',evDays:n=>`${n} days to go`,evDate:'Date',tabHome:'Home',modeP:'In-store',modeD:'Delivery',modeAria:'Choose the menu',newb:'NEW',seasonTitle:'Seasonal',seasonSub:'Seasonal specials. Tap one to see it.',seasonView:'See it',recoTitle:'Picked for you',recoSub:'Tell us who you’re with and we’ll tell you what to order.',recoP:'Couples',recoA:'Friends',recoF:'Family',recoPt:'For a night for two',recoAt:'To share with friends',recoFt:'For the whole family, with alcohol-free options',famTitle:'New slush family',famSub:'New cups, new flavors.',famAll:'See in the menu',evtTitle:'Events',evtBtn:'See specials',tueEye:'It’s Tuesday!',tueInfoEye:'Every Tuesday',tueTitle:'Slush Tuesday',tueSub:'Traditional and creamy slushes',tueTrad:'Traditional 16 oz',tueCrem:'Creamy 16 oz',tueNote:'All Medellín locations, except Provenza',tueToday:'Today only',tueDays:n=>n===1?'Tomorrow is Tuesday: don’t miss it!':`${n} days until next Tuesday`,tabPuntos:'Menu',tabDomis:'Delivery',tabInfo:'Locations',ctaMenu:'See the menu',ctaDomis:'Order delivery',ctaSedes:'Our locations',
     searchLabel:'Search the menu',searchPh:'Search a slush, a bomba, a nevecón…',surprise:'Surprise me',footLine:'El Coctelazo — Medellín',
     sedesTitle:'Our locations',address:'Address',hours:'Hours',hoursV:'Monday to Sunday: 2:30 PM – 12:00 AM · Weekends until 2:00 AM',hoursD:'Delivery',hoursDV:'Every day: 4:30 PM – 12:30 AM',
     how:'Get directions',map:'Show map',hideMap:'Hide map',creditL:'© 2026 Sonetix. Websites made to measure.',locTitle:'Find your nearest location',locSub:'We’ll show the closest one to you and how to get there',locAgain:'Update my location',locAgainSub:'Search for the nearest location again',locBusy:'Finding your location…',
@@ -1525,14 +1557,13 @@ function featuredHTML(){
   const sid = SEASONAL[k];
   if (sid) push(BY_ID[sid], t('tagSeason'));
   push(BY_ID[RECO_FIXED[k] || recoOfDay()], t('tagReco'));
-  // se completan hasta 4 con los siguientes productos con foto, que rotan cada día junto con la recomendación
+  // se completan hasta 5 con los siguientes productos con foto, que rotan cada día junto con la recomendación
   const pool = menuItems().filter(i=>!i.promo && imgOf(i) && !noPrice(i));
   const n = Math.floor(Date.parse(todayStr()+'T00:00:00Z')/86400000);
-  for (let j=1; j<=pool.length && out.length<4; j++) push(pool[(n+j) % pool.length], '');
+  for (let j=1; j<=pool.length && out.length<5; j++) push(pool[(n+j) % pool.length], '');
   if (!out.length) return '';
-  return `<section class="hsec"><div class="sec-head"><h2>${t('featTitle')}</h2></div><p class="fsub">${isD()?t('featSubD'):t('featSubP')}</p>
-    <div class="grid">${out.map(([it,tag],i)=>cardHTML(it,i,{tag,in:true})).join('')}</div>
-    <div class="acts"><button class="btn ghost" type="button" data-act="toMenu">${t('featAll')} →</button></div></section>`;
+  return `<section class="hsec"><div class="sec-head"><h2>${t('featTitle')}</h2><button class="seelink" type="button" data-act="toMenu">${t('seeAll')} →</button></div>
+    ${railHTML(out)}</section>`;
 }
 
 /* ---- banner de cada carta ---- */
@@ -1585,24 +1616,22 @@ function promoHTML(){
 function seasonHTML(){
   if (!HALLOWEEN.on) return '';
   const cards = [['hw','img/halloween-radioactivo.webp',`${t('hwT1')} ${t('hwT2')}`,HALLOWEEN.price,'rad',0],['dk','img/malteada-drakula.webp',`${t('dkT1')} ${t('dkT2')}`,HALLOWEEN.dkPrice,'dk',1]];
-  return `<section class="hsec"><div class="sec-head"><h2>${t('seasonTitle')}</h2></div><p class="fsub">${t('seasonSub')}</p>
+  return `<section class="hsec"><div class="sec-head"><h2>${t('seasonTitle')}</h2></div>
     <div class="seas-grid">${cards.map(([,img,name,price,cls,i])=>`<article class="seas ${cls==='dk'?'dk':''}" data-act="hw" data-i="${i}" tabindex="0" role="button" aria-label="${esc(name)}"><img src="${img}" alt="" loading="lazy" decoding="async"><div><span class="tag">${t('seasonTitle')}</span><h3>${esc(name)}</h3>${price!=null?`<div class="price">${money(price)}</div>`:''}<button class="btn primary" type="button">${t('seasonView')}</button></div></article>`).join('')}</div></section>`;
 }
 let recoKey = 'parejas';
 function recoHTML(){
   const labels = {parejas:t('recoP'),amigos:t('recoA'),familia:t('recoF')}, texts = {parejas:t('recoPt'),amigos:t('recoAt'),familia:t('recoFt')};
-  const items = RECOS[recoKey].map(id=>BY_ID[id]).filter(it=>it && inMenu(it));
-  return `<section class="hsec"><div class="sec-head"><h2>${t('recoTitle')}</h2></div><p class="fsub">${t('recoSub')}</p>
+  const items = RECOS[recoKey].map(id=>BY_ID[id]).filter(it=>it && inMenu(it)).map(it=>[it,'']);
+  return `<section class="hsec"><div class="sec-head"><h2>${t('recoTitle')}</h2></div>
     <div class="recochips" role="tablist">${Object.keys(RECOS).map(k=>`<button class="chip${k===recoKey?' on':''}" type="button" role="tab" aria-selected="${k===recoKey}" data-act="reco" data-k="${k}">${labels[k]}</button>`).join('')}</div>
-    <p class="recotxt">${texts[recoKey]}</p>
-    <div class="grid" style="padding-top:44px">${items.map((it,i)=>cardHTML(it,i,{in:true})).join('')}</div></section>`;
+    <p class="recotxt">${texts[recoKey]}</p>${railHTML(items)}</section>`;
 }
 function familyHTML(){
-  const items = menuItems().filter(i=>i.sub==='g-fam');
+  const items = menuItems().filter(i=>i.sub==='g-fam').map(it=>[it,'']);
   if (!items.length) return '';
-  return `<section class="hsec"><div class="sec-head"><h2>${t('famTitle')}<span class="new">${t('newb')}</span></h2></div><p class="fsub">${t('famSub')}</p>
-    <div class="grid" style="padding-top:44px">${items.map((it,i)=>cardHTML(it,i,{in:true})).join('')}</div>
-    <div class="acts"><button class="btn ghost" type="button" data-act="gofam">${t('famAll')} →</button></div></section>`;
+  return `<section class="hsec"><div class="sec-head"><h2>${t('famTitle')}<span class="new">${t('newb')}</span></h2><button class="seelink" type="button" data-act="gofam">${t('seeAll')} →</button></div>
+    ${railHTML(items)}</section>`;
 }
 function eventDays(e){ return Math.round((Date.parse(e.date+'T00:00:00Z')-Date.parse(todayStr()+'T00:00:00Z'))/86400000); }
 const BAT = '<svg viewBox="0 0 40 20" fill="currentColor"><path d="M0 8C6 0 14 3 20 9c6-6 14-9 20-1-4-1-7 2-9 8-3-4-7-4-11 0-4-4-8-4-11 0C7 10 4 7 0 8Z"/></svg>';
@@ -1636,8 +1665,13 @@ function renderEvents(){
   $('#eventosRoot').innerHTML = `<section class="hsec" style="margin-top:28px"><div class="sec-head"><h2>${t('evtTitle')}</h2></div>${list.length ? list.map(eventCard).join('') : `<p class="fsub" style="margin-top:14px">${t('evEmpty')}</p>`}</section>`;
   $('#mtab-eventos').classList.toggle('has', list.length>0);
 }
+/* carrusel horizontal compacto: se desliza con el dedo; en computador caben 5 por fila */
+const railHTML = items => `<div class="rail">${items.map(([it,tag],i)=>cardHTML(it,i,{tag,in:true})).join('')}</div>`;
+function catsHTML(){
+  return `<section class="hsec hcats"><div class="sec-head"><h2>${t('homeCatsTitle')}</h2></div><div class="hcat-row">${catList().map(c=>`<button class="chip${c.id==='temporada'?' hot':''}" type="button" data-act="gocat" data-c="${c.id}">${c.id==='temporada'?'🎃 ':''}${esc(pick(c))}</button>`).join('')}</div></section>`;
+}
 function renderHome(){
-  $('#homeRoot').innerHTML = modeSwHTML() + `<div id="homePromo">${promoHTML()}</div>` + featuredHTML() + recoHTML() + seasonHTML() + familyHTML();
+  $('#homeRoot').innerHTML = modeSwHTML() + catsHTML() + `<div id="homePromo">${promoHTML()}</div>` + featuredHTML() + recoHTML() + seasonHTML() + familyHTML();
 }
 
 /* ---- sedes y ubicación ---- */
@@ -1959,6 +1993,7 @@ document.addEventListener('click', e=>{
   if (act==='hwclose'){ closeHW(); return; }
   if (act==='hwslide'){ hwStop(); hwShow(i); return; }
   if (act==='hwmenu'){ closeHW(); setView(state.menu,{scroll:false}); toContent(); return; }
+  if (act==='gocat'){ state.cat=el.dataset.c; setView(state.menu,{scroll:false}); toContent(); return; }
   if (act==='toMenu'){ setView(state.menu,{scroll:false}); toContent(); return; }
   if (act==='mode'){ setMenu(el.dataset.m); return; }
   if (act==='reco'){ recoKey=el.dataset.k; renderHome(); return; }
