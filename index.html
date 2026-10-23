@@ -565,6 +565,71 @@ body[data-view="domis"] .cartbtn{display:inline-flex}
 .feat .fsub{margin:2px 0 0;font-size:13.5px;color:var(--muted)}
 .feat .grid{padding-top:44px}
 .feat .acts{display:flex;justify-content:center;margin-top:30px}
+/* Ventana de temporada: Halloween Radioactivo */
+.hwpill{margin-top:16px;display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;border:1px solid rgba(124,255,58,.65);background:rgba(124,255,58,.1);color:#c9ff9a;
+  font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;animation:hwpill 2.4s ease-in-out infinite}
+.hwpill:hover{background:rgba(124,255,58,.2)}
+@keyframes hwpill{50%{box-shadow:0 0 22px -2px rgba(124,255,58,.7)}}
+.hw{position:fixed;inset:0;z-index:120;display:grid;place-items:center;padding:14px;visibility:hidden;pointer-events:none}
+.hw.show{visibility:visible;pointer-events:auto}
+.hw-scrim{position:absolute;inset:0;opacity:0;transition:opacity .5s;cursor:pointer;
+  background:radial-gradient(circle at 50% 45%,rgba(40,255,90,.18),rgba(5,9,7,.9) 62%);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.hw.show .hw-scrim{opacity:1}
+.hw-card{position:relative;width:min(100%,900px);max-height:calc(100dvh - 28px);overflow:auto;border-radius:30px;scrollbar-width:none;
+  background:radial-gradient(120% 90% at 28% 38%,#14391f 0%,#0a1710 46%,#06090a 100%);
+  border:1px solid rgba(124,255,58,.6);box-shadow:0 0 0 1px rgba(255,255,255,.05) inset,0 0 60px -8px rgba(124,255,58,.55),0 40px 100px -30px #000;
+  opacity:0;transform:translateY(34px) scale(.9);transition:opacity .5s var(--ease),transform .8s var(--ease)}
+.hw-card::-webkit-scrollbar{display:none}
+.hw.show .hw-card{opacity:1;transform:none;animation:hwglow 3.4s ease-in-out .9s infinite}
+@keyframes hwglow{50%{box-shadow:0 0 0 1px rgba(255,255,255,.05) inset,0 0 95px -4px rgba(124,255,58,.8),0 40px 100px -30px #000}}
+.hw-inner{position:relative;display:grid;grid-template-columns:1fr;align-items:center;overflow:hidden}
+@media(min-width:760px){.hw-inner{grid-template-columns:.95fr 1.05fr}}
+.hw-x{position:absolute;top:14px;right:14px;z-index:6;width:40px;height:40px;border-radius:50%;border:1px solid rgba(124,255,58,.5);background:rgba(0,0,0,.45);color:#fff;font-size:22px;display:grid;place-items:center;transition:background .2s,box-shadow .2s}
+.hw-x:hover{background:rgba(124,255,58,.3);box-shadow:0 0 18px rgba(124,255,58,.7)}
+.hw-stage{position:relative;z-index:2;height:min(42vh,400px);display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr);place-items:center;margin-top:14px;padding:8px 0}
+@media(min-width:760px){.hw-stage{height:min(66vh,540px);margin:0}}
+.hw-cup{position:relative;z-index:3;max-height:100%;width:auto;max-width:92%;min-height:0;object-fit:contain;filter:drop-shadow(0 0 28px rgba(124,255,58,.6)) drop-shadow(0 18px 18px rgba(0,0,0,.65));transform-origin:50% 92%}
+.hw.show .hw-cup{animation:hwin 1.1s var(--ease) both,hwcup 4.6s ease-in-out 1.1s infinite}
+@keyframes hwin{from{opacity:0;transform:translateY(70px) scale(.55) rotate(-16deg)}}
+@keyframes hwcup{0%,100%{transform:translateY(0) rotate(-2.2deg)}50%{transform:translateY(-14px) rotate(2.6deg)}}
+.hw-rays{position:absolute;left:50%;top:50%;width:170%;aspect-ratio:1;z-index:0;pointer-events:none;
+  background:repeating-conic-gradient(from 0deg,rgba(124,255,58,.16) 0 7deg,transparent 7deg 24deg);
+  -webkit-mask-image:radial-gradient(circle,#000 0,transparent 60%);mask-image:radial-gradient(circle,#000 0,transparent 60%);
+  transform:translate(-50%,-50%);animation:hwspin 46s linear infinite}
+.hw-rad{position:absolute;left:50%;top:50%;width:min(88%,420px);aspect-ratio:1;z-index:1;color:rgba(124,255,58,.17);transform:translate(-50%,-50%);animation:hwspin 26s linear infinite reverse}
+@keyframes hwspin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.hw-ring{position:absolute;left:50%;top:54%;width:62%;aspect-ratio:1;z-index:1;border-radius:50%;pointer-events:none;
+  border:2px solid rgba(150,255,80,.85);box-shadow:0 0 26px rgba(124,255,58,.6),inset 0 0 26px rgba(124,255,58,.35);
+  transform:translate(-50%,-50%) scale(.2);opacity:0;animation:hwring 4.8s ease-out infinite}
+.hw-ring:nth-of-type(2){animation-delay:1.2s}.hw-ring:nth-of-type(3){animation-delay:2.4s}.hw-ring:nth-of-type(4){animation-delay:3.6s}
+@keyframes hwring{0%{transform:translate(-50%,-50%) scale(.2);opacity:0}12%{opacity:.95}100%{transform:translate(-50%,-50%) scale(2.7);opacity:0}}
+.hw-bubs{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.hw-bub{position:absolute;bottom:-40px;border-radius:50%;opacity:0;border:1px solid rgba(200,255,160,.55);
+  background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.75),rgba(124,255,58,.5) 40%,rgba(124,255,58,.1));
+  animation:hwbub var(--d) linear var(--dl) infinite}
+@keyframes hwbub{0%{transform:translate(0,0) scale(.6);opacity:0}10%{opacity:.9}100%{transform:translate(var(--dx),-900px) scale(1);opacity:0}}
+.hw-waves{position:absolute;left:0;bottom:0;width:200%;height:96px;z-index:1;pointer-events:none}
+.hw-waves.w1{fill:rgba(124,255,58,.22);animation:hwwave 9s linear infinite}
+.hw-waves.w2{fill:rgba(60,220,120,.16);height:112px;animation:hwwave 14s linear infinite reverse}
+@keyframes hwwave{to{transform:translateX(-50%)}}
+.hw-copy{position:relative;z-index:3;padding:6px 26px 90px;text-align:center}
+@media(min-width:760px){.hw-copy{padding:44px 40px 90px 6px;text-align:left}}
+.hw-eye{display:inline-flex;align-items:center;gap:8px;padding:5px 13px;border-radius:999px;border:1px solid rgba(124,255,58,.65);background:rgba(124,255,58,.1);color:#b9ff80;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.hw-copy h2{margin:14px 0 4px;font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(44px,10vw,70px);line-height:.92;letter-spacing:.03em;color:#f0ffe0;
+  text-shadow:0 0 10px #7cff3a,0 0 34px rgba(124,255,58,.65);animation:hwflick 5.5s linear infinite}
+.hw-copy h2 b{display:block;font-weight:400;color:#7cff3a;text-shadow:0 0 12px #7cff3a,0 0 42px rgba(124,255,58,.8)}
+@keyframes hwflick{0%,17%,19%,60%,62%,100%{opacity:1}18%{opacity:.7}61%{opacity:.8}}
+.hw-lim{display:inline-block;margin:10px 0 12px;padding:6px 14px;border:2px solid #fff;border-radius:6px;color:#fff;font-size:12px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;transform:rotate(-3deg);animation:hwpulse 1.9s ease-in-out infinite}
+@keyframes hwpulse{50%{transform:rotate(-3deg) scale(1.08);box-shadow:0 0 22px rgba(255,255,255,.55)}}
+.hw-price{margin:0 0 6px;font-family:'Bebas Neue',sans-serif;font-size:46px;line-height:1;color:var(--gold);text-shadow:0 0 22px rgba(255,178,56,.55)}
+.hw-copy p{margin:6px 0 18px;font-size:14.5px;line-height:1.55;color:#c8d8c0;max-width:46ch}
+@media(max-width:759px){.hw-copy p{margin-left:auto;margin-right:auto}}
+.hw-cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+@media(min-width:760px){.hw-cta{justify-content:flex-start}}
+.btn.hw-go{position:relative;overflow:hidden;background:linear-gradient(120deg,#8bff3d,#2fe06b);color:#05200f;box-shadow:0 10px 30px -8px #7cff3a}
+.btn.hw-go::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent);transform:skewX(-20deg);animation:hwshine 3s ease-in-out infinite}
+@keyframes hwshine{0%,55%{left:-60%}100%{left:130%}}
+body.hw-open .wafab,body.hw-open .top{display:none}
 /* Acceso directo a WhatsApp */
 .wafab{position:fixed;left:18px;bottom:18px;z-index:45;display:inline-flex;align-items:center;gap:9px;height:54px;min-width:54px;padding:0 15px;border-radius:999px;
   background:#25d366;color:#fff;text-decoration:none;font-weight:800;font-size:13px;box-shadow:0 10px 30px -8px #25d366,0 0 0 1px rgba(255,255,255,.25) inset;
@@ -669,6 +734,7 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
       <a class="btn primary" href="#domicilios" id="ctaDomis" data-i18n="ctaDomis">Pedir domicilio</a>
       <a class="btn ghost" href="#informacion" id="ctaSedes" data-i18n="ctaSedes">Nuestras sedes</a>
     </div>
+    <button class="hwpill" id="hwPill" type="button" data-act="hw"><span aria-hidden="true">☢</span> <span data-i18n="hwPill">Vaso Halloween Radioactivo</span></button>
   </section>
 
   <!-- ====== CARTAS (PUNTOS Y DOMICILIOS) ====== -->
@@ -720,6 +786,36 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
         <div class="credit-row"><a id="creditL" href="https://sonetix.emanuelvillada10.workers.dev/" target="_blank" rel="noopener">© 2026 Sonetix. Páginas web a la medida.</a></div>
       </div>
     </footer>
+  </div>
+</div>
+
+<!-- VENTANA DE TEMPORADA: HALLOWEEN RADIOACTIVO -->
+<div class="hw" id="hw" role="dialog" aria-modal="true" aria-labelledby="hwTitle" aria-hidden="true">
+  <div class="hw-scrim" data-act="hwclose"></div>
+  <div class="hw-card">
+    <div class="hw-inner">
+      <button class="hw-x" type="button" data-act="hwclose" id="hwX" aria-label="Cerrar">×</button>
+      <div class="hw-bubs" id="hwBubs" aria-hidden="true"></div>
+      <svg class="hw-waves w2" viewBox="0 0 2400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60 q150 -52 300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 V120 H0Z"/></svg>
+      <svg class="hw-waves w1" viewBox="0 0 2400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70 q150 -46 300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 V120 H0Z"/></svg>
+      <div class="hw-stage">
+        <div class="hw-rays" aria-hidden="true"></div>
+        <svg class="hw-rad" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><circle cx="50" cy="50" r="7"/><path id="hwWedge" d="M72 11.9 A44 44 0 0 0 28 11.9 L42 36.1 A16 16 0 0 1 58 36.1 Z"/><path d="M72 11.9 A44 44 0 0 0 28 11.9 L42 36.1 A16 16 0 0 1 58 36.1 Z" transform="rotate(120 50 50)"/><path d="M72 11.9 A44 44 0 0 0 28 11.9 L42 36.1 A16 16 0 0 1 58 36.1 Z" transform="rotate(240 50 50)"/></svg>
+        <i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i>
+        <img class="hw-cup" src="img/halloween-radioactivo.webp" width="436" height="900" alt="Vaso Halloween Radioactivo" decoding="async">
+      </div>
+      <div class="hw-copy">
+        <span class="hw-eye"><span aria-hidden="true">☢</span> <span data-i18n="hwEye">De temporada · Halloween</span></span>
+        <h2 id="hwTitle"><span data-i18n="hwT1">Vaso Halloween</span><b data-i18n="hwT2">Radioactivo</b></h2>
+        <span class="hw-lim" data-i18n="hwLim">Edición limitada</span>
+        <div class="hw-price" id="hwPrice" hidden></div>
+        <p data-i18n="hwText">Borde de perlas negras, un ojo de gomita que te vigila y mucho verde tóxico. Atrévete con lo más radiactivo de la temporada.</p>
+        <div class="hw-cta">
+          <a class="btn hw-go" id="hwGo" href="#" target="_blank" rel="noopener"><span data-i18n="hwGo">Lo quiero por WhatsApp</span></a>
+          <button class="btn ghost" type="button" data-act="hwmenu" data-i18n="hwMenu">Ver la carta</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -807,6 +903,10 @@ const RECO_FIXED = {p:null, d:null};  // recomendación fija; null = rota sola c
 // {id:'promo-1', m:'pd', es:'', en:'', dEs:'', dEn:'', price:0, img:null, from:'2026-11-01', until:'2026-11-30'}
 const PROMOS = [];
 
+// Ventana de temporada que se abre al entrar a la página (Vaso Halloween Radioactivo).
+// on:false la apaga (también el botón del inicio). price: valor en COP; null = no muestra precio.
+const HALLOWEEN = {on:true, price:17500};
+
 /* =========================================================
    DATOS
    ========================================================= */
@@ -854,8 +954,8 @@ const V = (es,en,price) => ({es,en,price});
 // Granizados
 X('g-esp','alpinito',['Alpinito Crunch','Alpinito Crunch'],null,25000,null);
 X('g-esp','chamoy',['Granizado chamoy y tajín','Chamoy & Tajín slush'],null,19800,null);
-X('g-tra','gs8',['Granizado sin licor','Alcohol-free slush'],['8 oz','8 oz'],9500,'gran-sin-8');
-X('g-tra','ge8',['Granizado envenenado','“Envenenado” slush'],['8 oz · con licor','8 oz · with liquor'],12500,'gran-env-8');
+X('g-tra','gs8',['Granizado sin licor','Alcohol-free slush'],['10 oz','10 oz'],9500,'gran-sin-8');
+X('g-tra','ge8',['Granizado envenenado','“Envenenado” slush'],['10 oz · con licor','10 oz · with liquor'],12500,'gran-env-8');
 X('g-tra','gs16',['Granizado sin licor','Alcohol-free slush'],['16 oz','16 oz'],12500,'gran-sin-16');
 X('g-tra','ge16',['Granizado envenenado','“Envenenado” slush'],['16 oz · con licor','16 oz · with liquor'],17500,'gran-env-16');
 X('g-tra','glt',['Granizado tradicional litro','Traditional slush liter'],['1 litro','1 liter'],27500,'gran-lt');
@@ -879,9 +979,6 @@ X('mi','mi-mar',['Michelada de maracuyá','Passion fruit michelada'],['Saborizad
 X('bo','b2c',['Bomba 2 Coronas','Bomba 2 Coronas'],null,61000,'bomba-2-coronas',{imgD:null});
 X('bo','bsm',['Bomba Smirnoff','Bomba Smirnoff'],null,61000,'bomba-smirnoff',{imgD:null});
 X('bo','bboom',['Bomba BOOM','Bomba BOOM'],null,38000,'bomba-boom',{imgD:'bomba-boom-d'});
-// Con foto pero sin precio en las cartas: se muestran "por confirmar" (sin botón de pedir) hasta tener el valor.
-X('bo','bloka',['Bomba Loka','Bomba Loka'],null,null,'bomba-loka',{imgD:'bomba-loka-d'});
-X('bo','brose',['Bomba Rose','Bomba Rose'],null,null,'bomba-rose',{imgD:null});
 X('co','ccor',['Cocktail Coronita','Cocktail Coronita'],null,25000,'cocktail-coronita',{imgD:'cocktail-coronita-d'});
 X('co','csmi',['Cocktail Smirnoff','Cocktail Smirnoff'],null,32000,'cocktail-smirnoff',{imgD:'cocktail-smirnoff-d'});
 
@@ -900,7 +997,6 @@ X('ne','nv-rose',['Nevecón Rosé','Nevecón Rosé'],null,135000,'nevecon-rose')
 X('ne','nv-loko',['Nevecón Loko','Nevecón Loko'],null,120000,null);
 X('ne','nv-bai',['Nevecón Baileys','Nevecón Baileys'],null,110000,null);
 X('ne','nv-sin',['Nevecón sin licor','Alcohol-free Nevecón'],['Sin licor','Alcohol-free'],60000,null);
-X('ne','nv-blue',['Nevecón Blue','Nevecón Blue'],null,null,'nevecon-blue');
 X('ne','nv-bbb',['Nevecón BonBonBum','Nevecón BonBonBum'],['Sin licor','Alcohol-free'],62000,null);
 
 // Adiciones
@@ -963,6 +1059,8 @@ const UI = {
     delOpen:c=>`Domicilios abiertos · hasta ${c}`,delClosed:o=>`Domicilios desde las ${o}`,
     coverBtn:'¿Llegamos a mi ubicación?',coverBusy:'Buscando tu ubicación…',coverDist:(km,s)=>`Estás a unos <b>${km}</b> en línea recta de ${s}.`,coverIn:'Estás dentro de nuestra zona de domicilios.',coverOut:'Estás fuera de nuestra zona de domicilios.',coverUnk:'Confirma tu dirección por WhatsApp antes de pedir.',coverErr:'No pudimos obtener tu ubicación. Activa el permiso de ubicación e inténtalo de nuevo.',
     zoneBlocked:'Por ahora no llegamos a esa zona.',
+    hwPill:'Vaso Halloween Radioactivo',hwEye:'De temporada · Halloween',hwT1:'Vaso Halloween',hwT2:'Radioactivo',hwLim:'Edición limitada',
+    hwText:'Borde de perlas negras, un ojo de gomita que te vigila y mucho verde tóxico. Atrévete con lo más radiactivo de la temporada.',hwGo:'Lo quiero por WhatsApp',hwMenu:'Ver la carta',hwWa:'Hola El Coctelazo 👋 Quiero el Vaso Halloween Radioactivo',
     featSubD:'Los favoritos de hoy: toca + y pídelos en un momento.',featSubP:'Los favoritos de hoy. Toca uno para ver el detalle.',featAll:'Ver toda la carta',waFab:'Escríbenos',waHello:'Hola El Coctelazo 👋 Quiero información',
     featTitle:'Destacados',tagReco:'Recomendado hoy',tagSeason:'De temporada',promoUntil:d=>`Válida hasta ${d}`,
     myOrder:'Mi pedido',orderHere:'Pedir a domicilio',total:'Total',sendWa:'Enviar por WhatsApp',copy:'Copiar',clear:'Vaciar',fine:'Envía tu pedido por WhatsApp. El equipo lo confirma contigo.',
@@ -986,6 +1084,8 @@ const UI = {
     delOpen:c=>`Delivery open · until ${c}`,delClosed:o=>`Delivery from ${o}`,
     coverBtn:'Do you deliver to me?',coverBusy:'Finding your location…',coverDist:(km,s)=>`You’re about <b>${km}</b> in a straight line from ${s}.`,coverIn:'You’re inside our delivery area.',coverOut:'You’re outside our delivery area.',coverUnk:'Confirm your address on WhatsApp before ordering.',coverErr:'We couldn’t get your location. Allow location access and try again.',
     zoneBlocked:'We don’t deliver to that area for now.',
+    hwPill:'Halloween Radioactive Cup',hwEye:'Seasonal · Halloween',hwT1:'Halloween',hwT2:'Radioactive Cup',hwLim:'Limited edition',
+    hwText:'A rim of black pearls, a gummy eyeball watching you and plenty of toxic green. Dare to try the most radioactive drink of the season.',hwGo:'I want it on WhatsApp',hwMenu:'See the menu',hwWa:'Hi El Coctelazo 👋 I’d like the Halloween Radioactive Cup',
     featSubD:'Today’s favorites: tap + and order in a moment.',featSubP:'Today’s favorites. Tap one to see the details.',featAll:'See the full menu',waFab:'Chat with us',waHello:'Hi El Coctelazo 👋 I’d like some information',
     featTitle:'Highlights',tagReco:'Today’s pick',tagSeason:'Seasonal',promoUntil:d=>`Valid until ${d}`,
     myOrder:'My order',orderHere:'Order delivery',total:'Total',sendWa:'Send via WhatsApp',copy:'Copy',clear:'Clear',fine:'Send your order via WhatsApp. The team will confirm it with you.',
@@ -1342,6 +1442,11 @@ function applyI18n(){
   $('#cartBtn').setAttribute('aria-label', t('myOrder'));
   $('#waFab').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t('waHello'))}`;
   $('#waFab').setAttribute('aria-label','WhatsApp · '+t('waFab'));
+  $('#hwGo').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t('hwWa'))}`;
+  $('#hwX').setAttribute('aria-label',t('close'));
+  $('.hw-cup').alt = `${t('hwT1')} ${t('hwT2')}`;
+  $('#hwPill').hidden = !HALLOWEEN.on;
+  const hp = $('#hwPrice'); hp.hidden = HALLOWEEN.price==null; hp.textContent = HALLOWEEN.price==null ? '' : money(HALLOWEEN.price);
 }
 
 function renderAll(){
@@ -1533,6 +1638,9 @@ document.addEventListener('click', e=>{
   if (act==='rm'){ state.cart.splice(i,1); saveCart(); renderCart(); return; }
   if (act==='map'){ toggleMap(i,el); return; }
   if (act==='goDomis'){ goDomis(); return; }
+  if (act==='hw'){ openHW(); return; }
+  if (act==='hwclose'){ closeHW(); return; }
+  if (act==='hwmenu'){ closeHW(); setView('puntos',{scroll:false}); toContent(); return; }
   if (act==='toMenu'){ $('.tools').scrollIntoView({behavior:REDUCED?'auto':'smooth',block:'start'}); return; }
   if (act==='cover'){ checkCover(); return; }
   if (act==='gosede'){ goSede(i, !!el.dataset.map); return; }
@@ -1583,13 +1691,14 @@ $('#qClear').addEventListener('click',()=>{ qIn.value=''; state.q=''; $('#search
 document.addEventListener('keydown',e=>{
   if (e.key==='/' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)){ e.preventDefault(); if (state.view==='info') setView(state.menu,{scroll:false}); qIn.focus(); }
   if (e.key==='Escape'){
-    if (state.modal) closeModal(); else if ($('#drawer').classList.contains('show')) closeDrawer();
+    if ($('#hw').classList.contains('show')) closeHW();
+    else if (state.modal) closeModal(); else if ($('#drawer').classList.contains('show')) closeDrawer();
     else if (document.activeElement===qIn && qIn.value){ $('#qClear').click(); }
   }
   if (e.key==='Tab'){ trap(e); }
 });
 function trap(e){
-  const host = state.modal ? $('#mpanel') : $('#drawer').classList.contains('show') ? $('#drawer') : null; if(!host) return;
+  const host = $('#hw').classList.contains('show') ? $('.hw-card') : state.modal ? $('#mpanel') : $('#drawer').classList.contains('show') ? $('#drawer') : null; if(!host) return;
   const f = $$('button:not([disabled]),input,select,a[href],[tabindex="0"]',host).filter(x=>x.offsetParent!==null); if(!f.length) return;
   const first=f[0], last=f[f.length-1];
   if (e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
@@ -1763,8 +1872,30 @@ function refreshStatuses(){
   const chip = $('#menuBanner .banner.dom .status');
   if (chip){ const d=deliveryStatus(); chip.className='status '+(d.open?'open':'closed'); chip.textContent = d.open?t('delOpen')(clock(d.close)):t('delClosed')(clock(DELIVERY_HOURS.open)); }
 }
+/* Ventana de temporada: burbujas al azar, abrir y cerrar */
+(function buildBubbles(){
+  const box = $('#hwBubs'), r = Math.random;
+  box.innerHTML = Array.from({length:18},()=>{ const s=6+r()*20|0; return `<span class="hw-bub" style="left:${(r()*96).toFixed(1)}%;width:${s}px;height:${s}px;--d:${(7+r()*8).toFixed(1)}s;--dl:${(-r()*12).toFixed(1)}s;--dx:${(r()*80-40)|0}px"></span>`; }).join('');
+})();
+function openHW(){
+  if (!HALLOWEEN.on) return;
+  const hw = $('#hw');
+  hw.classList.add('show'); hw.setAttribute('aria-hidden','false');
+  document.body.classList.add('locked','hw-open');
+  lastFocus = document.activeElement;
+  setTimeout(()=>$('#hwGo').focus({preventScroll:true}),700);
+}
+function closeHW(){
+  const hw = $('#hw');
+  hw.classList.remove('show'); hw.setAttribute('aria-hidden','true');
+  document.body.classList.remove('hw-open');
+  if (!state.modal && !$('#drawer').classList.contains('show')) document.body.classList.remove('locked');
+  lastFocus?.focus?.({preventScroll:true});
+}
+
 renderAll();
 route();
+if (HALLOWEEN.on) setTimeout(openHW, 600);   // se ve apenas se abre la página
 setInterval(refreshStatuses,60000);
 })();
 </script>
