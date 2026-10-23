@@ -17,6 +17,7 @@
 <link rel="preload" as="image" href="img/logo-el-coctelazo.webp">
 <script>
 (function(){var q=location.search,c=navigator.hardwareConcurrency||8,m=navigator.deviceMemory||8;
+if(/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1))document.documentElement.classList.add("ios");
 var lite=q.indexOf("lite=1")>-1||(q.indexOf("lite=0")<0&&(matchMedia("(pointer:coarse)").matches||innerWidth<760||c<=4||m<=4));
 if(lite)document.documentElement.classList.add("lite");})();
 </script>
@@ -829,6 +830,18 @@ body.hw-open .wafab,body.hw-open .top{display:none}
 .seas-grid{margin-top:12px;gap:12px}
 .seas{padding:10px 12px 10px 4px}.seas img{max-height:150px}.seas h3{font-size:26px}
 @media(max-width:639px){.seas-grid{grid-template-columns:1fr 1fr}.seas{flex-direction:column;text-align:center;gap:6px;padding:12px 8px 12px}.seas img{width:58%;max-height:120px}.seas h3{font-size:21px}.seas .price{font-size:18px}.seas .btn{padding:8px 14px;margin-top:6px}.seas .tag{font-size:9px}}
+
+/* ---------- iPHONE / iPAD: tarjetas en 2D (Safari dejaba la foto sin pintar en las capas 3D hasta tocar la tarjeta) ---------- */
+.ios .card{transform:none!important;transform-style:flat;transition:box-shadow .3s}
+.ios .card::before,.ios .glare{display:none}
+.ios .stage,.ios .mstage{transform-style:flat}
+.ios .mstage{transform:none!important}
+.ios .pic,.ios .mstage .pic{transform:none;animation:none}
+.ios .glyph,.ios .chiptag,.ios .cbody{transform:none}
+.ios .disc{transform:translate(-50%,-50%)}
+.ios .card:hover .disc{transform:translate(-50%,-50%) scale(1.08)}
+.ios .ring,.ios .floor{transform:translateX(-50%)}
+.ios .card:hover .pic img{transform:none}
 /* Acceso directo a WhatsApp */
 .wafab{position:fixed;left:18px;bottom:18px;z-index:45;display:inline-flex;align-items:center;gap:9px;height:54px;min-width:54px;padding:0 15px;border-radius:999px;
   background:#25d366;color:#fff;text-decoration:none;font-weight:800;font-size:13px;box-shadow:0 10px 30px -8px #25d366,0 0 0 1px rgba(255,255,255,.25) inset;
@@ -1430,7 +1443,7 @@ function cardHTML(it, idx, o={}){
   const img = imgOf(it), hasImg = !!img;
   const delay = ((idx*0.7)%5).toFixed(1);
   const stage = hasImg
-    ? `<div class="stage"><div class="disc"></div><div class="ring"></div><div class="floor"></div><div class="pic" style="--d:-${delay}s"><img src="${img}" alt="${esc(nm(it))}" loading="lazy" decoding="async"></div></div>`
+    ? `<div class="stage"><div class="disc"></div><div class="ring"></div><div class="floor"></div><div class="pic" style="--d:-${delay}s"><img src="${img}" alt="${esc(nm(it))}" decoding="async"></div></div>`
     : `<div class="stage"><div class="disc"></div><div class="ring"></div><div class="floor"></div><div class="glyph">${ICON.glass}</div></div>`;
   const badge = o.tag ? `<span class="chiptag">${esc(o.tag)}</span>` : SUB[it.sub].isNew ? `<span class="chiptag">${t('newb')}</span>` : SUB[it.sub].badge ? `<span class="chiptag seasontag">${t(SUB[it.sub].badge)}</span>` : '';
   const body = `<div class="cbody"><h3>${esc(nm(it))}</h3><p>${esc(ds(it))}</p><div class="cfoot"><span class="price">${priceHTML(it)}</span>${addBtnHTML(it)}</div></div>`;
@@ -1617,7 +1630,7 @@ function seasonHTML(){
   if (!HALLOWEEN.on) return '';
   const cards = [['hw','img/halloween-radioactivo.webp',`${t('hwT1')} ${t('hwT2')}`,HALLOWEEN.price,'rad',0],['dk','img/malteada-drakula.webp',`${t('dkT1')} ${t('dkT2')}`,HALLOWEEN.dkPrice,'dk',1]];
   return `<section class="hsec"><div class="sec-head"><h2>${t('seasonTitle')}</h2></div>
-    <div class="seas-grid">${cards.map(([,img,name,price,cls,i])=>`<article class="seas ${cls==='dk'?'dk':''}" data-act="hw" data-i="${i}" tabindex="0" role="button" aria-label="${esc(name)}"><img src="${img}" alt="" loading="lazy" decoding="async"><div><span class="tag">${t('seasonTitle')}</span><h3>${esc(name)}</h3>${price!=null?`<div class="price">${money(price)}</div>`:''}<button class="btn primary" type="button">${t('seasonView')}</button></div></article>`).join('')}</div></section>`;
+    <div class="seas-grid">${cards.map(([,img,name,price,cls,i])=>`<article class="seas ${cls==='dk'?'dk':''}" data-act="hw" data-i="${i}" tabindex="0" role="button" aria-label="${esc(name)}"><img src="${img}" alt="" decoding="async"><div><span class="tag">${t('seasonTitle')}</span><h3>${esc(name)}</h3>${price!=null?`<div class="price">${money(price)}</div>`:''}<button class="btn primary" type="button">${t('seasonView')}</button></div></article>`).join('')}</div></section>`;
 }
 let recoKey = 'parejas';
 function recoHTML(){
@@ -1650,7 +1663,7 @@ function eventCard(e){
         <div class="evtx-date" aria-label="${esc(t('evDate'))}"><span>${wd}</span><b>${String(d.getUTCDate())}</b><span>${mo}</span></div>
         <ul><li>🎧 ${t('evDj')}</li><li>🏆 ${t('evPrizes')(money(e.prizes))}</li><li>📍 ${esc(e.addr)} · ${esc(e.place)}</li></ul>
       </div>
-      <div class="evtx-combo"><img src="img/halloween-radioactivo.webp" alt="" loading="lazy" decoding="async"><div><span>${t('evCombo')}</span><b>${t('evComboName')}</b><small>${t('evComboNote')}</small><em>${money(e.combo)}</em></div></div>
+      <div class="evtx-combo"><img src="img/halloween-radioactivo.webp" alt="" decoding="async"><div><span>${t('evCombo')}</span><b>${t('evComboName')}</b><small>${t('evComboNote')}</small><em>${money(e.combo)}</em></div></div>
     </div>
     <div class="evtx-cta"><a class="btn primary" href="${maps}" target="_blank" rel="noopener">${t('evGo')} →</a><button class="btn ghost" type="button" data-act="hw" data-i="0">${t('evCup')}</button></div>
   </article>`;
