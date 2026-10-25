@@ -506,7 +506,9 @@ footer .tag{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.1
 .dmin.ok .bar i{background:#1fd68f}
 .dfoot{max-height:72vh;overflow:auto}
 .btn:disabled{opacity:.4;cursor:not-allowed;box-shadow:none;filter:grayscale(.4)}
-.dact{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dclr{text-align:right;margin:-6px 0 10px}
+.dact{display:grid;grid-template-columns:1fr;gap:8px}
+.dact .wa b{font-weight:800;margin-left:2px}
 .dact .btn{padding:12px 10px;font-size:11.5px}
 .dact .full{grid-column:1/-1}
 .dsug{margin:0 0 12px;padding:10px 12px;border-radius:12px;border:1px dashed rgba(255,213,74,.5);background:rgba(255,213,74,.06);font-size:12.5px;color:var(--muted)}
@@ -528,6 +530,20 @@ footer .tag{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.1
 .locinfo b{color:var(--ink)}
 .locinfo a{color:var(--cyan);font-weight:700;text-decoration:none}
 .locinfo button{margin-left:auto;background:none;border:0;color:var(--pink);font:inherit;font-weight:700;cursor:pointer;padding:0}
+/* celular: pantalla completa, todo el pedido se desplaza junto y el botón de enviar queda fijo abajo */
+@media(max-width:640px){
+  .drawer{display:block;width:100vw;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;border-left:0}
+  .dhead{position:sticky;top:0;z-index:6;padding:14px 18px 10px;background:rgba(14,13,20,.98)}
+  .dhead h3{font-size:28px}
+  .dlist{overflow:visible;padding:0 18px}
+  .line{padding:12px 0}
+  .dfoot{max-height:none;overflow:visible;padding:14px 18px 0;border-top:0;background:none}
+  .total b{font-size:34px}
+  .fld input{font-size:16px;height:46px}
+  .dact{position:sticky;bottom:0;z-index:6;margin:12px -18px 0;padding:22px 18px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(9,9,13,0),rgba(9,9,13,.96) 34%)}
+  .dact .btn{padding:15px 12px;font-size:13px}
+  .dfine{padding-bottom:calc(18px + env(safe-area-inset-bottom))}
+}
 .dfine{margin:10px 0 0;font-size:11px;color:var(--muted);text-align:center}
 .btn.wa{background:#1fd68f;color:#04130c;box-shadow:0 8px 26px -10px #1fd68f}
 .btn.wa:hover{box-shadow:0 0 30px -4px #1fd68f}
@@ -1134,6 +1150,7 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
   <div class="dlist" id="dList"></div>
   <div class="dfoot" id="dFoot">
     <div class="total"><span data-i18n="total">Total</span><b id="dTotal">$0</b></div>
+    <div class="dclr"><button class="rm" id="bClear" type="button" data-i18n="clear">Vaciar pedido</button></div>
     <div class="dmin" id="dMin" aria-live="polite"><div class="t" id="dMinT"></div><div class="t" id="dMinS"></div><div class="z" id="dMinZ"></div><div class="bar"><i id="dMinBar"></i></div></div>
     <div class="dsug" id="dSug" hidden></div>
     <div class="fld">
@@ -1149,9 +1166,7 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
       </div>
     </div>
     <div class="dact">
-      <button class="btn wa full" id="bWa" type="button"><span data-i18n="sendWa">Enviar por WhatsApp</span></button>
-      <button class="btn ghost" id="bCopy" type="button" data-i18n="copy">Copiar</button>
-      <button class="btn ghost" id="bClear" type="button" data-i18n="clear">Vaciar</button>
+      <button class="btn wa full" id="bWa" type="button"><span data-i18n="sendWa">Enviar por WhatsApp</span><b id="bWaTot"></b></button>
     </div>
     <p class="dfine" data-i18n="fine">Envía tu pedido por WhatsApp. El equipo lo confirma contigo.</p>
   </div>
@@ -1383,7 +1398,7 @@ const UI = {
     hwText:'Borde de perlas negras, un ojo de gomita que te vigila y mucho verde tóxico. Atrévete con lo más radiactivo de la temporada.',hwGo:'Lo quiero por WhatsApp',hwMenu:'Ver la carta',hwWa:'Hola El Coctelazo 👋 Quiero el Vaso Halloween Radioactivo',
     featSubD:'Los favoritos de hoy: toca + y pídelos en un momento.',featSubP:'Los favoritos de hoy. Toca uno para ver el detalle.',featAll:'Ver toda la carta',waFab:'Escríbenos',waHello:'Hola El Coctelazo 👋 Quiero información',
     featTitle:'Destacados',tagReco:'Recomendado hoy',tagSeason:'De temporada',promoUntil:d=>`Válida hasta ${d}`,
-    myOrder:'Mi pedido',orderHere:'Pedir a domicilio',total:'Total',sendWa:'Enviar por WhatsApp',copy:'Copiar',clear:'Vaciar',fine:'Envía tu pedido por WhatsApp. El equipo lo confirma contigo.',
+    myOrder:'Mi pedido',orderHere:'Pedir a domicilio',total:'Total',sendWa:'Enviar por WhatsApp',copy:'Copiar',clear:'Vaciar pedido',fine:'Envía tu pedido por WhatsApp. El equipo lo confirma contigo.',
     emptyCart:'Tu pedido está vacío',emptyCartSub:'Toca el + de cualquier producto para armarlo aquí.',remove:'Quitar',add:'Agregar',addTo:'Agregar al pedido',added:'añadido',viewOrder:'Ver pedido',copied:'Pedido copiado',
     deliveryM:'Domicilio',addrPh:'Dirección de entrega (barrio, torre, apto)',namePhD:'Tu nombre',
     minNeed:(n,m)=>`Pedido mínimo para domicilio: <b>${m}</b>. Te faltan <b>${n}</b>.`,minOk:m=>`Domicilio disponible · mínimo ${m} ✓`,minToast:m=>`El domicilio requiere un pedido mínimo de ${m}`,needAddr:'Escribe la dirección de entrega',onlyFrom:s=>`Los domicilios salen únicamente de la sede ${s}.`,whoD:'Nombre',type:'Tipo',addr:'Dirección',
@@ -1408,7 +1423,7 @@ const UI = {
     hwText:'A rim of black pearls, a gummy eyeball watching you and plenty of toxic green. Dare to try the most radioactive drink of the season.',hwGo:'I want it on WhatsApp',hwMenu:'See the menu',hwWa:'Hi El Coctelazo 👋 I’d like the Halloween Radioactive Cup',
     featSubD:'Today’s favorites: tap + and order in a moment.',featSubP:'Today’s favorites. Tap one to see the details.',featAll:'See the full menu',waFab:'Chat with us',waHello:'Hi El Coctelazo 👋 I’d like some information',
     featTitle:'Highlights',tagReco:'Today’s pick',tagSeason:'Seasonal',promoUntil:d=>`Valid until ${d}`,
-    myOrder:'My order',orderHere:'Order delivery',total:'Total',sendWa:'Send via WhatsApp',copy:'Copy',clear:'Clear',fine:'Send your order via WhatsApp. The team will confirm it with you.',
+    myOrder:'My order',orderHere:'Order delivery',total:'Total',sendWa:'Send via WhatsApp',copy:'Copy',clear:'Clear order',fine:'Send your order via WhatsApp. The team will confirm it with you.',
     emptyCart:'Your order is empty',emptyCartSub:'Tap the + on any product to build it here.',remove:'Remove',add:'Add',addTo:'Add to order',added:'added',viewOrder:'View order',copied:'Order copied',
     deliveryM:'Delivery',addrPh:'Delivery address (area, building, apt)',namePhD:'Your name',
     minNeed:(n,m)=>`Minimum order for delivery: <b>${m}</b>. You need <b>${n}</b> more.`,minOk:m=>`Delivery available · minimum ${m} ✓`,minToast:m=>`Delivery requires a minimum order of ${m}`,needAddr:'Enter the delivery address',onlyFrom:s=>`Deliveries leave only from the ${s} location.`,whoD:'Name',type:'Type',addr:'Address',
@@ -1963,6 +1978,7 @@ function renderCart(){
       <div class="ctl"><div class="mini"><button type="button" data-act="dec" data-i="${i}" aria-label="−">−</button><output>${l.qty}</output><button type="button" data-act="inc" data-i="${i}" aria-label="+">+</button></div><button class="rm" type="button" data-act="rm" data-i="${i}">${t('remove')}</button></div></div>`).join('');
   }
   $('#dTotal').textContent = money(cartTotal());
+  $('#bWaTot').textContent = ' · ' + money(cartTotal());
   $('#dFoot').style.display = state.cart.length ? '' : 'none';
   renderDelivery();
 }
@@ -1979,7 +1995,6 @@ function renderDelivery(){
   $('#dMinZ').textContent = bz ? t('zoneBlocked') : '';
   $('#dMinBar').style.width = Math.min(100, tot/DELIVERY_MIN*100)+'%';
   $('#bWa').disabled = short>0 || bz;
-  $('#bCopy').disabled = short>0 || bz;
   renderSuggest(short);
 }
 
@@ -2221,12 +2236,6 @@ $('#bClear').addEventListener('click',()=>{ state.cart=[]; saveCart(); renderCar
 $('#bLoc').addEventListener('click',useMyLocation);
 $('#bMapAddr').addEventListener('click',viewAddrOnMap);
 $('#locMap').addEventListener('click',e=>{ if (e.target.closest('#bLocX')){ locPick=null; renderLoc(); } });
-$('#bCopy').addEventListener('click',async()=>{
-  const txt=orderText();
-  try{ await navigator.clipboard.writeText(txt); }
-  catch(e){ const ta=document.createElement('textarea'); ta.value=txt; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy')}catch(_){} ta.remove(); }
-  toast(t('copied'));
-});
 $('#fAddr').value = store.get('coctelazo-addr') || '';
 $('#fAddr').addEventListener('input',e=>{ store.set('coctelazo-addr',e.target.value); renderDelivery(); });
 $('#bWa').addEventListener('click',()=>{
