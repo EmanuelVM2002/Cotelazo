@@ -604,6 +604,10 @@ body[data-menu="domis"] .cartbtn{display:inline-flex}
 }
 .hw-slide.rad{background:radial-gradient(120% 90% at 50% 28%,#14391f 0%,#0a1710 52%,#06090a 100%)}
 .hw-slide.dk{--c:255,40,70;background:radial-gradient(120% 90% at 50% 28%,#3d0b18 0%,#1a0710 54%,#08040a 100%)}
+/* retrato vampírico de fondo, suave */
+.hw-slide.dk::before{content:"";position:absolute;inset:0;z-index:0;background:url(img/drakula-fondo.webp) center 45%/cover no-repeat;opacity:.5;
+  -webkit-mask-image:linear-gradient(180deg,#000 0,#000 58%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 58%,transparent 100%);animation:hwportrait 9s ease-in-out infinite}
+@keyframes hwportrait{50%{opacity:.62}}
 .hw-slide.dk::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(24,4,12,.05),rgba(14,3,9,.5) 55%,rgba(8,3,8,.9) 100%)}
 .hw-stage{position:relative;z-index:2;height:min(24vh,240px);display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr);place-items:center;padding:8px 0}
 .hw-cup{position:relative;z-index:3;max-height:100%;width:auto;max-width:90%;min-height:0;object-fit:contain;filter:drop-shadow(0 0 26px rgba(var(--c),.6)) drop-shadow(0 16px 16px rgba(0,0,0,.65));transform-origin:50% 92%}
@@ -682,7 +686,7 @@ body.hw-open .wafab,body.hw-open .top{display:none}
 .lite .hw-scrim{backdrop-filter:none;-webkit-backdrop-filter:none}
 .lite .hwpill::after{animation:none;opacity:.5}
 .lite .hw-card{box-shadow:0 0 34px -8px rgba(124,255,58,.45),0 0 34px -8px rgba(255,40,70,.45)}
-.lite .hw-rays,.lite .hw-rad,.lite .hw-moon,.lite .hw-copy h2,.lite .hw-lim{animation:none}
+.lite .hw-rays,.lite .hw-rad,.lite .hw-moon,.lite .hw-slide.dk::before,.lite .hw-copy h2,.lite .hw-lim{animation:none}
 .lite .hw-ring{box-shadow:none}
 .lite .hw-ring:nth-of-type(n+3){display:none}
 .lite .hw-fall span:nth-child(n+7){display:none}
