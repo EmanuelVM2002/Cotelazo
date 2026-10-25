@@ -1673,7 +1673,7 @@ function catsHTML(){
   return `<section class="hsec hcats"><div class="sec-head"><h2>${t('homeCatsTitle')}</h2></div><div class="hcat-row">${catList().map(c=>`<button class="chip${c.id==='temporada'?' hot':''}" type="button" data-act="gocat" data-c="${c.id}">${c.id==='temporada'?'🎃 ':''}${esc(pick(c))}</button>`).join('')}</div></section>`;
 }
 function renderHome(){
-  $('#homeRoot').innerHTML = modeSwHTML() + catsHTML() + `<div id="homePromo">${promoHTML()}</div>` + featuredHTML() + recoHTML() + seasonHTML() + familyHTML();
+  $('#homeRoot').innerHTML = modeSwHTML() + catsHTML() + `<div id="homePromo">${promoHTML()}</div>` + seasonHTML() + featuredHTML() + recoHTML() + familyHTML();
 }
 
 /* ---- sedes y ubicación ---- */
