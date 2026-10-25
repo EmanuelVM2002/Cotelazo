@@ -673,18 +673,17 @@ body[data-menu="domis"] .cartbtn{display:inline-flex}
 .btn.hw-go.red{background:linear-gradient(120deg,#ff5573,#d3123a);color:#fff;box-shadow:0 10px 30px -8px #ff2d55}
 .btn.hw-go::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent);transform:skewX(-20deg);animation:hwshine 3s ease-in-out infinite}
 @keyframes hwshine{0%,55%{left:-60%}100%{left:130%}}
-.hw-foot{position:relative;z-index:4;display:flex;flex-direction:column;align-items:center;gap:8px;padding:6px 18px 14px;background:linear-gradient(180deg,rgba(6,8,10,.6),#06080a 40%)}
-.hw-tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-.hw-tabs button{position:relative;overflow:hidden;padding:9px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.05);color:#cfd6cc;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;transition:color .4s,border-color .4s,background .4s}
-.hw-tabs button.rad.on{color:#eaffd4;border-color:rgba(124,255,58,.85);background:rgba(124,255,58,.15)}
-.hw-tabs button.dk.on{color:#ffe9ee;border-color:rgba(255,40,70,.9);background:rgba(255,40,70,.17)}
-.hw-tabs button::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:100%;transform:scaleX(0);transform-origin:left;background:currentColor}
+.hw-foot{position:relative;z-index:4;display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 18px 14px;background:linear-gradient(180deg,rgba(6,8,10,.6),#06080a 40%)}
+.hw-tabs{display:flex;gap:8px;justify-content:center}
+.hw-tabs button{position:relative;overflow:hidden;width:10px;height:10px;padding:0;border:0;border-radius:99px;background:rgba(255,255,255,.35);transition:width .45s var(--ease),background .4s}
+.hw-tabs button.on{width:34px;background:rgba(255,255,255,.22)}
+.hw-tabs button::after{content:"";position:absolute;inset:0;border-radius:inherit;transform:scaleX(0);transform-origin:left;background:#fff}
+.hw-tabs button.rad::after{background:#7cff3a}.hw-tabs button.dk::after{background:#ff3b5c}
+.hw-tabs button.on:not(.timing)::after{transform:scaleX(1)}
 .hw-tabs button.on.timing::after{animation:hwfill 4.5s linear forwards}
 @keyframes hwfill{to{transform:scaleX(1)}}
-.hw-foot .btn{padding:10px 20px;font-size:12px}
-.hw-tabs button{padding:8px 14px}
 @media(min-width:760px){.hw-stage{height:min(50vh,420px)}.hw-copy{padding:8px 40px 84px 6px}.hw-copy p{margin-left:0;margin-right:0}.hw-cta{justify-content:flex-start}}
-@media(max-width:759px){.hw-stage{height:min(22vh,200px)}.hw-copy h2{font-size:42px}.hw-price{font-size:38px}.hw-lim{margin:6px 0 4px}.hw-tabs{flex-wrap:nowrap;width:100%;justify-content:center}.hw-tabs button{flex:1 1 0;min-width:0;max-width:200px;white-space:nowrap;padding:8px 6px;font-size:10.5px;letter-spacing:.02em}}
+@media(max-width:759px){.hw-stage{height:min(22vh,200px)}.hw-copy h2{font-size:42px}.hw-price{font-size:38px}.hw-lim{margin:6px 0 4px}}
 @media(max-width:759px) and (max-height:700px){.hw-stage{height:21vh}.hw-copy p{display:none}.hw-copy{padding-bottom:58px}}
 body.hw-open .wafab,body.hw-open .top{display:none}
 
@@ -1071,8 +1070,7 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
 
       </div>
       <div class="hw-foot">
-        <div class="hw-tabs" id="hwTabs" role="tablist"><button type="button" role="tab" class="rad on" aria-selected="true" data-act="hwslide" data-i="0"><span data-i18n="hwTab1">Vaso Radioactivo</span></button><button type="button" role="tab" class="dk" aria-selected="false" data-act="hwslide" data-i="1"><span data-i18n="hwTab2">Malteada Drakula</span></button></div>
-        <button class="btn ghost" type="button" data-act="hwmenu" data-i18n="hwMenu">Ver la carta</button>
+        <div class="hw-tabs" id="hwTabs" role="tablist"><button type="button" role="tab" class="rad on" aria-selected="true" aria-label="Vaso Halloween Radioactivo" data-act="hwslide" data-i="0"></button><button type="button" role="tab" class="dk" aria-selected="false" aria-label="Malteada Drakula" data-act="hwslide" data-i="1"></button></div>
       </div>
     </div>
   </div>
