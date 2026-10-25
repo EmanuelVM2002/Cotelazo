@@ -509,6 +509,25 @@ footer .tag{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.1
 .dact{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .dact .btn{padding:12px 10px;font-size:11.5px}
 .dact .full{grid-column:1/-1}
+.dsug{margin:0 0 12px;padding:10px 12px;border-radius:12px;border:1px dashed rgba(255,213,74,.5);background:rgba(255,213,74,.06);font-size:12.5px;color:var(--muted)}
+.dsug b{color:var(--gold)}
+.dsug-r{display:flex;align-items:center;gap:10px;margin-top:8px}
+.dsug-r img{flex:none;width:44px;height:52px;object-fit:contain}
+.dsug-r .sn{flex:1;min-width:0;color:var(--ink);font-weight:700;font-size:13.5px;line-height:1.25}
+.dsug-r .sn small{display:block;font-weight:500;font-size:11.5px;color:var(--muted)}
+.dsug-r .sp{flex:none;font-weight:800;color:var(--gold)}
+.dsug-r .add{flex:none;width:34px;height:34px}
+.loc-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.loc-btns .btn{height:40px;padding:0 10px;font-size:12px;gap:6px;justify-content:center}
+.loc-btns .btn svg{width:16px;height:16px;flex:none}
+.loc-btns .btn.busy{opacity:.6;pointer-events:none}
+.loc-hint{margin:8px 2px 0;font-size:11px;color:var(--muted)}
+.locmap{margin-top:10px;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.locmap iframe{display:block;width:100%;height:190px;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.8) brightness(.95)}
+.locinfo{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:9px 12px;font-size:12px;color:var(--muted);background:rgba(255,255,255,.04)}
+.locinfo b{color:var(--ink)}
+.locinfo a{color:var(--cyan);font-weight:700;text-decoration:none}
+.locinfo button{margin-left:auto;background:none;border:0;color:var(--pink);font:inherit;font-weight:700;cursor:pointer;padding:0}
 .dfine{margin:10px 0 0;font-size:11px;color:var(--muted);text-align:center}
 .btn.wa{background:#1fd68f;color:#04130c;box-shadow:0 8px 26px -10px #1fd68f}
 .btn.wa:hover{box-shadow:0 0 30px -4px #1fd68f}
@@ -1115,9 +1134,18 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
   <div class="dfoot" id="dFoot">
     <div class="total"><span data-i18n="total">Total</span><b id="dTotal">$0</b></div>
     <div class="dmin" id="dMin" aria-live="polite"><div class="t" id="dMinT"></div><div class="t" id="dMinS"></div><div class="z" id="dMinZ"></div><div class="bar"><i id="dMinBar"></i></div></div>
+    <div class="dsug" id="dSug" hidden></div>
     <div class="fld">
       <input id="fName" class="wide" type="text" maxlength="40" autocomplete="name" data-i18n-ph="namePhD" placeholder="Tu nombre">
       <input id="fAddr" class="wide" type="text" maxlength="120" autocomplete="street-address" data-i18n-ph="addrPh" placeholder="Dirección de entrega (barrio, torre, apto)">
+      <div class="loc wide">
+        <div class="loc-btns">
+          <button class="btn ghost" id="bLoc" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="8"/></svg><span id="bLocT">Usar mi ubicación</span></button>
+          <button class="btn ghost" id="bMapAddr" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span id="bMapT">Ver en el mapa</span></button>
+        </div>
+        <p class="loc-hint" id="locHint"></p>
+        <div class="locmap" id="locMap" hidden></div>
+      </div>
     </div>
     <div class="dact">
       <button class="btn wa full" id="bWa" type="button"><span data-i18n="sendWa">Enviar por WhatsApp</span></button>
@@ -1333,7 +1361,7 @@ const DELI = SEDES.findIndex(s => s.n===DELIVERY_SEDE);
    TEXTOS DE LA INTERFAZ
    ========================================================= */
 const UI = {
-  es:{mbP:'Carta de punto de venta',mbPs:'precios en sede',mbD:'Carta de domicilios',mbDs:'pedido por WhatsApp',seeAll:'Ver todo',homeCatsTitle:'Explora la carta',tabEventos:'Eventos',evEmpty:'Pronto anunciaremos nuevos eventos.',seasonB:'TEMPORADA',evEye:'Evento',evSmall:'Fiesta de disfraces',evPlace:'Provenza',evDj:'DJ en vivo',evPrizes:p=>`Más de <b>${p}</b> en premios`,evCombo:'Combo',evComboName:'Granizado Radioactivo + Perrito',evComboNote:'por solo',evGo:'Cómo llegar',evCup:'Ver el vaso',evToday:'¡Es hoy!',evTomorrow:'¡Es mañana!',evDays:n=>`Faltan ${n} días`,evDate:'Fecha',tabHome:'Home',modeP:'Punto de venta',modeD:'Domicilios',modeAria:'Elige la carta',newb:'NUEVO',seasonTitle:'De temporada',seasonSub:'Especiales de temporada. Toca uno para verlo.',seasonView:'Verlo',recoTitle:'Recomendados para ti',recoSub:'Elige con quién vas y te decimos qué pedir.',recoP:'Parejas',recoA:'Amigos',recoF:'Familia',recoPt:'Para una noche de dos',recoAt:'Para compartir con los amigos',recoFt:'Para toda la familia, con opciones sin licor',famTitle:'Nueva familia de granizados',famSub:'Vasos nuevos, sabores nuevos.',famAll:'Ver en la carta',evtTitle:'Eventos',evtBtn:'Ver especiales',tueEye:'¡Hoy es martes!',tueInfoEye:'Todos los martes',tueTitle:'Martes de granizado',tueSub:'Granizado tradicional y cremoso',tueTrad:'Tradicional 16 oz',tueCrem:'Cremoso 16 oz',tueNote:'Todas las sedes de Medellín, menos Provenza',tueToday:'Solo hoy',tueDays:n=>n===1?'Mañana es martes: ¡no te lo pierdas!':`Faltan ${n} días para el próximo martes`,tabPuntos:'Carta',tabDomis:'Domicilios',tabInfo:'Sedes',ctaMenu:'Ver la carta',ctaDomis:'Pedir domicilio',ctaSedes:'Nuestras sedes',
+  es:{sugT:n=>`Te faltan <b>${n}</b> para el domicilio. Te recomendamos:`,sugAdd:'Agregar',locUse:'Usar mi ubicación',locBusy:'Buscando…',locView:'Ver en el mapa',locNeedAddr:'Escribe primero tu dirección',locErr:'No pudimos obtener tu ubicación. Revisa el permiso del navegador o escribe tu dirección.',locNo:'Tu navegador no permite compartir la ubicación.',locShared:'Ubicación compartida',locFromAddr:'Dirección en el mapa',locKm:(km,s)=>`≈ ${km} de ${s}`,locOpen:'Abrir en Google Maps',locRemove:'Quitar',locHint:'Puedes escribir la dirección o compartir tu ubicación: se envía junto al pedido por WhatsApp.',locMsg:'Ubicación',locMsgAddr:'Ver dirección en el mapa',mbP:'Carta de punto de venta',mbPs:'precios en sede',mbD:'Carta de domicilios',mbDs:'pedido por WhatsApp',seeAll:'Ver todo',homeCatsTitle:'Explora la carta',tabEventos:'Eventos',evEmpty:'Pronto anunciaremos nuevos eventos.',seasonB:'TEMPORADA',evEye:'Evento',evSmall:'Fiesta de disfraces',evPlace:'Provenza',evDj:'DJ en vivo',evPrizes:p=>`Más de <b>${p}</b> en premios`,evCombo:'Combo',evComboName:'Granizado Radioactivo + Perrito',evComboNote:'por solo',evGo:'Cómo llegar',evCup:'Ver el vaso',evToday:'¡Es hoy!',evTomorrow:'¡Es mañana!',evDays:n=>`Faltan ${n} días`,evDate:'Fecha',tabHome:'Home',modeP:'Punto de venta',modeD:'Domicilios',modeAria:'Elige la carta',newb:'NUEVO',seasonTitle:'De temporada',seasonSub:'Especiales de temporada. Toca uno para verlo.',seasonView:'Verlo',recoTitle:'Recomendados para ti',recoSub:'Elige con quién vas y te decimos qué pedir.',recoP:'Parejas',recoA:'Amigos',recoF:'Familia',recoPt:'Para una noche de dos',recoAt:'Para compartir con los amigos',recoFt:'Para toda la familia, con opciones sin licor',famTitle:'Nueva familia de granizados',famSub:'Vasos nuevos, sabores nuevos.',famAll:'Ver en la carta',evtTitle:'Eventos',evtBtn:'Ver especiales',tueEye:'¡Hoy es martes!',tueInfoEye:'Todos los martes',tueTitle:'Martes de granizado',tueSub:'Granizado tradicional y cremoso',tueTrad:'Tradicional 16 oz',tueCrem:'Cremoso 16 oz',tueNote:'Todas las sedes de Medellín, menos Provenza',tueToday:'Solo hoy',tueDays:n=>n===1?'Mañana es martes: ¡no te lo pierdas!':`Faltan ${n} días para el próximo martes`,tabPuntos:'Carta',tabDomis:'Domicilios',tabInfo:'Sedes',ctaMenu:'Ver la carta',ctaDomis:'Pedir domicilio',ctaSedes:'Nuestras sedes',
     searchLabel:'Buscar en la carta',searchPh:'Busca un granizado, una bomba, un nevecón…',surprise:'Sorpréndeme',footLine:'El Coctelazo — Medellín',
     sedesTitle:'Nuestras sedes',address:'Dirección',hours:'Horario',hoursV:'Lunes a domingo: 2:30 PM – 12:00 AM · Fines de semana hasta las 2:00 AM',hoursD:'Domicilios',hoursDV:'Todos los días: 4:30 PM – 12:30 AM',
     how:'Cómo llegar',map:'Ver mapa',hideMap:'Ocultar mapa',creditL:'© 2026 Sonetix. Páginas web a la medida.',locTitle:'Encuentra tu sede más cercana',locSub:'Te mostramos la más cerca de ti y cómo llegar',locAgain:'Actualizar mi ubicación',locAgainSub:'Volver a buscar la sede más cercana',locBusy:'Buscando tu ubicación…',
@@ -1358,7 +1386,7 @@ const UI = {
     results:(n,q)=>`${n} resultado${n===1?'':'s'} para «${q}»`,noRes:'Nada por aquí',noResSub:'Prueba con otra palabra: granizado, bomba, nevecón…',
     close:'Cerrar',top:'Volver arriba',unit:'c/u',from:'desde',pending:'Precio por confirmar',
     mNoteP:'Precio en nuestras sedes. ',mNoteGo:'Pídelo a domicilio →',liter:'Litro',half:'Media'},
-  en:{mbP:'In-store menu',mbPs:'venue prices',mbD:'Delivery menu',mbDs:'order via WhatsApp',seeAll:'See all',homeCatsTitle:'Explore the menu',tabEventos:'Events',evEmpty:'New events coming soon.',seasonB:'SEASONAL',evEye:'Event',evSmall:'Costume party',evPlace:'Provenza',evDj:'Live DJ',evPrizes:p=>`Over <b>${p}</b> in prizes`,evCombo:'Combo',evComboName:'Radioactive slush + Hot dog',evComboNote:'for only',evGo:'Get directions',evCup:'See the cup',evToday:'It’s today!',evTomorrow:'It’s tomorrow!',evDays:n=>`${n} days to go`,evDate:'Date',tabHome:'Home',modeP:'In-store',modeD:'Delivery',modeAria:'Choose the menu',newb:'NEW',seasonTitle:'Seasonal',seasonSub:'Seasonal specials. Tap one to see it.',seasonView:'See it',recoTitle:'Picked for you',recoSub:'Tell us who you’re with and we’ll tell you what to order.',recoP:'Couples',recoA:'Friends',recoF:'Family',recoPt:'For a night for two',recoAt:'To share with friends',recoFt:'For the whole family, with alcohol-free options',famTitle:'New slush family',famSub:'New cups, new flavors.',famAll:'See in the menu',evtTitle:'Events',evtBtn:'See specials',tueEye:'It’s Tuesday!',tueInfoEye:'Every Tuesday',tueTitle:'Slush Tuesday',tueSub:'Traditional and creamy slushes',tueTrad:'Traditional 16 oz',tueCrem:'Creamy 16 oz',tueNote:'All Medellín locations, except Provenza',tueToday:'Today only',tueDays:n=>n===1?'Tomorrow is Tuesday: don’t miss it!':`${n} days until next Tuesday`,tabPuntos:'Menu',tabDomis:'Delivery',tabInfo:'Locations',ctaMenu:'See the menu',ctaDomis:'Order delivery',ctaSedes:'Our locations',
+  en:{sugT:n=>`You need <b>${n}</b> more for delivery. We suggest:`,sugAdd:'Add',locUse:'Use my location',locBusy:'Locating…',locView:'See on map',locNeedAddr:'Type your address first',locErr:'We could not get your location. Check the browser permission or type your address.',locNo:'Your browser does not allow sharing your location.',locShared:'Location shared',locFromAddr:'Address on the map',locKm:(km,s)=>`≈ ${km} from ${s}`,locOpen:'Open in Google Maps',locRemove:'Remove',locHint:'Type your address or share your location: it is sent with the order on WhatsApp.',locMsg:'Location',locMsgAddr:'See address on the map',mbP:'In-store menu',mbPs:'venue prices',mbD:'Delivery menu',mbDs:'order via WhatsApp',seeAll:'See all',homeCatsTitle:'Explore the menu',tabEventos:'Events',evEmpty:'New events coming soon.',seasonB:'SEASONAL',evEye:'Event',evSmall:'Costume party',evPlace:'Provenza',evDj:'Live DJ',evPrizes:p=>`Over <b>${p}</b> in prizes`,evCombo:'Combo',evComboName:'Radioactive slush + Hot dog',evComboNote:'for only',evGo:'Get directions',evCup:'See the cup',evToday:'It’s today!',evTomorrow:'It’s tomorrow!',evDays:n=>`${n} days to go`,evDate:'Date',tabHome:'Home',modeP:'In-store',modeD:'Delivery',modeAria:'Choose the menu',newb:'NEW',seasonTitle:'Seasonal',seasonSub:'Seasonal specials. Tap one to see it.',seasonView:'See it',recoTitle:'Picked for you',recoSub:'Tell us who you’re with and we’ll tell you what to order.',recoP:'Couples',recoA:'Friends',recoF:'Family',recoPt:'For a night for two',recoAt:'To share with friends',recoFt:'For the whole family, with alcohol-free options',famTitle:'New slush family',famSub:'New cups, new flavors.',famAll:'See in the menu',evtTitle:'Events',evtBtn:'See specials',tueEye:'It’s Tuesday!',tueInfoEye:'Every Tuesday',tueTitle:'Slush Tuesday',tueSub:'Traditional and creamy slushes',tueTrad:'Traditional 16 oz',tueCrem:'Creamy 16 oz',tueNote:'All Medellín locations, except Provenza',tueToday:'Today only',tueDays:n=>n===1?'Tomorrow is Tuesday: don’t miss it!':`${n} days until next Tuesday`,tabPuntos:'Menu',tabDomis:'Delivery',tabInfo:'Locations',ctaMenu:'See the menu',ctaDomis:'Order delivery',ctaSedes:'Our locations',
     searchLabel:'Search the menu',searchPh:'Search a slush, a bomba, a nevecón…',surprise:'Surprise me',footLine:'El Coctelazo — Medellín',
     sedesTitle:'Our locations',address:'Address',hours:'Hours',hoursV:'Monday to Sunday: 2:30 PM – 12:00 AM · Weekends until 2:00 AM',hoursD:'Delivery',hoursDV:'Every day: 4:30 PM – 12:30 AM',
     how:'Get directions',map:'Show map',hideMap:'Hide map',creditL:'© 2026 Sonetix. Websites made to measure.',locTitle:'Find your nearest location',locSub:'We’ll show the closest one to you and how to get there',locAgain:'Update my location',locAgainSub:'Search for the nearest location again',locBusy:'Finding your location…',
@@ -1818,7 +1846,7 @@ function applyI18n(){
 }
 
 function renderAll(){
-  applyI18n(); renderStatus(); renderHome(); renderEvents(); renderModeSw(); renderCatNav(); renderBanner(); renderMenu(); renderSedes(); renderLocate(); renderCart();
+  applyI18n(); renderStatus(); renderHome(); renderEvents(); renderModeSw(); renderCatNav(); renderBanner(); renderMenu(); renderSedes(); renderLocate(); renderCart(); renderLoc();
   if (state.modal) openModal(state.modal.id, {keep:true});
 }
 
@@ -1930,13 +1958,72 @@ function renderDelivery(){
   $('#dMinBar').style.width = Math.min(100, tot/DELIVERY_MIN*100)+'%';
   $('#bWa').disabled = short>0 || bz;
   $('#bCopy').disabled = short>0 || bz;
+  renderSuggest(short);
+}
+
+/* recomendación: el granizado que completa el mínimo con el menor sobrante (si ninguno alcanza, el más caro) */
+function suggestItem(short){
+  const pr = it => it.pd!=null ? it.pd : it.price;
+  const c = ITEMS.filter(it=> it.cat==='granizados' && it.m.includes('d') && !it.vars && pr(it)!=null && (!it.promo || promoOn(it)));
+  if (!c.length) return null;
+  const ok = c.filter(it=>pr(it)>=short).sort((a,b)=>pr(a)-pr(b));
+  return ok[0] || c.sort((a,b)=>pr(b)-pr(a))[0];
+}
+function renderSuggest(short){
+  const box = $('#dSug'), it = short>0 ? suggestItem(short) : null;
+  if (!it){ box.hidden = true; box.innerHTML = ''; return; }
+  const img = 'imgD' in it ? it.imgD : it.img, p = it.pd!=null ? it.pd : it.price;
+  box.hidden = false;
+  box.innerHTML = `<div>${t('sugT')(money(short))}</div><div class="dsug-r">${img?`<img src="${img}" alt="" decoding="async">`:''}<div class="sn">${esc(nm(it))}<small>${esc(ds(it))}</small></div><span class="sp">${money(p)}</span><button class="add" type="button" data-act="add" data-id="${it.id}" aria-label="${esc(t('sugAdd')+' '+nm(it))}">${ICON.plus}</button></div>`;
+}
+
+/* ubicación de entrega: coordenadas por GPS o dirección escrita, con mapa; viaja en el mensaje de WhatsApp */
+let locPick = null, locBusy = false;
+const gmap = q => 'https://maps.google.com/maps?q='+encodeURIComponent(q)+'&z=17&output=embed';
+function renderLoc(){
+  $('#bLocT').textContent = locBusy ? t('locBusy') : t('locUse');
+  $('#bMapT').textContent = t('locView');
+  $('#bLoc').classList.toggle('busy', locBusy);
+  $('#locHint').textContent = t('locHint');
+  const box = $('#locMap');
+  if (!locPick){ box.hidden = true; box.innerHTML = ''; return; }
+  const gps = locPick.kind==='gps';
+  const q = gps ? locPick.lat+','+locPick.lng : locPick.q;
+  const open = gps ? `https://www.google.com/maps?q=${q}` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+  let info = `<b>${gps ? t('locShared') : t('locFromAddr')}</b>`;
+  if (gps){
+    info += `<span>${locPick.lat.toFixed(5)}, ${locPick.lng.toFixed(5)}</span>`;
+    const km = haversine({lat:locPick.lat,lng:locPick.lng}, SEDES[DELI]);
+    info += `<span>${t('locKm')(fmtKm(km), esc(SEDES[DELI].n))}</span>`;
+  }
+  info += `<a href="${open}" target="_blank" rel="noopener">${t('locOpen')}</a><button type="button" id="bLocX">${t('locRemove')}</button>`;
+  box.hidden = false;
+  box.innerHTML = `<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="${esc(t('locMsg'))}" src="${gmap(q)}"></iframe><div class="locinfo">${info}</div>`;
+}
+function useMyLocation(){
+  if (locBusy) return;
+  if (!('geolocation' in navigator)){ toast(t('locNo')); return; }
+  locBusy = true; renderLoc();
+  navigator.geolocation.getCurrentPosition(pos=>{
+    locBusy = false; locPick = {kind:'gps', lat:pos.coords.latitude, lng:pos.coords.longitude}; renderLoc();
+  }, ()=>{ locBusy = false; renderLoc(); toast(t('locErr')); }, {enableHighAccuracy:true, timeout:12000, maximumAge:60000});
+}
+function viewAddrOnMap(){
+  const a = $('#fAddr').value.trim();
+  if (!a){ toast(t('locNeedAddr')); $('#fAddr').focus(); return; }
+  locPick = {kind:'addr', q: a+', Medellín, Antioquia, Colombia'}; renderLoc();
+}
+function locLines(){
+  if (!locPick) return [];
+  if (locPick.kind==='gps') return [`${t('locMsg')}: https://www.google.com/maps?q=${locPick.lat.toFixed(6)},${locPick.lng.toFixed(6)}`];
+  return [`${t('locMsgAddr')}: https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(locPick.q)}`];
 }
 
 function orderText(){
   const lines = state.cart.map(l=>`• ${l.qty}× ${l.name[state.lang]}${l.variant?` (${l.variant[state.lang]})`:''} — ${money(l.price*l.qty)}`);
   const who = $('#fName').value.trim();
   const addr = $('#fAddr').value.trim();
-  return [`${t('greet')}:`, '', ...lines, '', `${t('total')}: ${money(cartTotal())}`, `${t('type')}: ${t('deliveryM')}`, `${t('sede')}: ${DELIVERY_SEDE}`, ...(addr?[`${t('addr')}: ${addr}`]:[]), ...(who?[`${t('whoD')}: ${who}`]:[]), `(${t('noteApprox')})`].filter((x,i,a)=>x!==''||a[i-1]!=='').join('\n');
+  return [`${t('greet')}:`, '', ...lines, '', `${t('total')}: ${money(cartTotal())}`, `${t('type')}: ${t('deliveryM')}`, `${t('sede')}: ${DELIVERY_SEDE}`, ...(addr?[`${t('addr')}: ${addr}`]:[]), ...locLines(), ...(who?[`${t('whoD')}: ${who}`]:[]), `(${t('noteApprox')})`].filter((x,i,a)=>x!==''||a[i-1]!=='').join('\n');
 }
 
 /* =========================================================
@@ -2109,6 +2196,9 @@ $('#cartBtn').addEventListener('click',openDrawer);
 $('#dClose').addEventListener('click',closeDrawer);
 $('#toastBtn').addEventListener('click',()=>{ $('#toast').classList.remove('show'); openDrawer(); });
 $('#bClear').addEventListener('click',()=>{ state.cart=[]; saveCart(); renderCart(); });
+$('#bLoc').addEventListener('click',useMyLocation);
+$('#bMapAddr').addEventListener('click',viewAddrOnMap);
+$('#locMap').addEventListener('click',e=>{ if (e.target.closest('#bLocX')){ locPick=null; renderLoc(); } });
 $('#bCopy').addEventListener('click',async()=>{
   const txt=orderText();
   try{ await navigator.clipboard.writeText(txt); }
@@ -2120,7 +2210,7 @@ $('#fAddr').addEventListener('input',e=>{ store.set('coctelazo-addr',e.target.va
 $('#bWa').addEventListener('click',()=>{
   if (deliveryShort()>0){ toast(t('minToast')(money(DELIVERY_MIN))); return; }
   if (blockedZone()){ toast(t('zoneBlocked')); return; }
-  if (!$('#fAddr').value.trim()){ toast(t('needAddr')); $('#fAddr').focus(); return; }
+  if (!$('#fAddr').value.trim() && !(locPick && locPick.kind==='gps')){ toast(t('needAddr')); $('#fAddr').focus(); return; }
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(orderText())}`;
   window.open(url,'_blank','noopener');
 });
