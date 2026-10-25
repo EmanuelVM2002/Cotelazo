@@ -696,6 +696,21 @@ body.hw-open .wafab,body.hw-open .top{display:none}
 .lite .btn.hw-go::after{display:none}
 
 /* ---------- HOME, SELECTOR DE CARTA Y PROMO DEL MARTES ---------- */
+/* Franja que dice en qué carta está el cliente: cian = punto de venta, rosado = domicilios */
+:root{--modebar-h:28px}
+body[data-menu="puntos"]{--mode:41,216,255}
+body[data-menu="domis"]{--mode:255,47,126}
+.modebar{position:sticky;top:var(--topbar-h);z-index:45;height:var(--modebar-h);display:none;align-items:center;justify-content:center;gap:8px;padding:0 14px;overflow:hidden;white-space:nowrap;
+  font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;
+  background:linear-gradient(90deg,rgba(var(--mode),.08),rgba(var(--mode),.2),rgba(var(--mode),.08)),rgba(8,8,12,.88);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(var(--mode),.38)}
+body[data-view="home"] .modebar,body[data-view="puntos"] .modebar,body[data-view="domis"] .modebar{display:flex}
+.modebar svg{flex:none;width:14px;height:14px;color:rgb(var(--mode));filter:drop-shadow(0 0 6px rgba(var(--mode),.7))}
+.modebar b{font-weight:800;text-shadow:0 0 12px rgba(var(--mode),.55)}
+.modebar .mb-sub{font-weight:600;letter-spacing:.05em;text-transform:none;opacity:.78}
+@media(max-width:374px){.modebar .mb-sub{display:none}}
+body[data-view="puntos"] .catnav,body[data-view="domis"] .catnav{top:calc(var(--topbar-h) + var(--modebar-h))}
+body[data-menu="puntos"] .modesw button.on{color:#032029;background:linear-gradient(120deg,rgba(41,216,255,.95),rgba(41,216,255,.62));box-shadow:0 0 20px -4px var(--cyan)}
 .modesw{display:flex;width:min(100%,460px);margin:22px auto 0;padding:4px;gap:4px;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.35)}
 .modesw button{flex:1;padding:11px 8px;border:0;border-radius:999px;background:none;color:var(--muted);font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;transition:color .2s,background .25s,box-shadow .25s}
 .modesw button:hover{color:#fff}
@@ -928,6 +943,7 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
       </button>
     </div>
   </header>
+  <div class="modebar" id="modeBar" role="status" aria-live="polite"></div>
 
   <section class="hero">
     <div class="hero-slot" id="heroSlot">
@@ -1247,8 +1263,8 @@ X('mi','mi-man',['Michelada de mango','Mango michelada'],['Saborizada','Flavored
 X('mi','mi-mar',['Michelada de maracuyá','Passion fruit michelada'],['Saborizada','Flavored'],17000,'mi-mar',{imgD:'mi-mar-d',vars:MSAB});
 
 // Bombas y cocktails (en domicilios la Bomba 2 Coronas y la Smirnoff no tienen foto en vaso todavía)
-X('bo','b2c',['Bomba 2 Coronas','Bomba 2 Coronas'],null,61000,'bomba-2c',{imgD:null});
-X('bo','bsm',['Bomba Smirnoff','Bomba Smirnoff'],null,61000,'bomba-smirnoff',{imgD:null});
+X('bo','b2c',['Bomba 2 Coronas','Bomba 2 Coronas'],null,61000,'bomba-2c',{imgD:'bomba-2c-d'});
+X('bo','bsm',['Bomba Smirnoff','Bomba Smirnoff'],null,61000,'bomba-smirnoff',{imgD:'bomba-smirnoff-d'});
 X('bo','bboom',['Bomba BOOM','Bomba BOOM'],null,38000,'bomba-boom',{imgD:'bomba-boom-d'});
 X('co','ccor',['Cocktail Coronita','Cocktail Coronita'],null,25000,'cocktail-coronita',{imgD:'cocktail-coronita-d'});
 X('co','csmi',['Cocktail Smirnoff','Cocktail Smirnoff'],null,32000,'cocktail-smirnoff',{imgD:'cocktail-smirnoff-d'});
@@ -1256,7 +1272,7 @@ X('co','csmi',['Cocktail Smirnoff','Cocktail Smirnoff'],null,32000,'cocktail-smi
 // Litrones
 const LV = [V('Con soda','With soda',28000),V('Con Coronita','With Coronita',36000)];
 X('li','li-mar',['Litrón maracuyá','Passion fruit litrón'],null,28000,'li-mar',{vars:LV});
-X('li','li-mmg',['Litrón maracumango','Maracumango litrón'],null,28000,null,{vars:LV});
+X('li','li-mmg',['Litrón maracumango','Maracumango litrón'],null,28000,'li-mmg',{vars:LV});
 X('li','li-che',['Litrón cherry','Cherry litrón'],null,28000,'li-che',{vars:LV});
 X('li','li-man',['Litrón mango','Mango litrón'],null,28000,'li-man',{vars:LV});
 X('li','li-kid',['Litrón Kids','Litrón Kids'],['Sin licor','Alcohol-free'],26000,'li-kid');
@@ -1316,7 +1332,7 @@ const DELI = SEDES.findIndex(s => s.n===DELIVERY_SEDE);
    TEXTOS DE LA INTERFAZ
    ========================================================= */
 const UI = {
-  es:{seeAll:'Ver todo',homeCatsTitle:'Explora la carta',tabEventos:'Eventos',evEmpty:'Pronto anunciaremos nuevos eventos.',seasonB:'TEMPORADA',evEye:'Evento',evSmall:'Fiesta de disfraces',evPlace:'Provenza',evDj:'DJ en vivo',evPrizes:p=>`Más de <b>${p}</b> en premios`,evCombo:'Combo',evComboName:'Granizado Radioactivo + Perrito',evComboNote:'por solo',evGo:'Cómo llegar',evCup:'Ver el vaso',evToday:'¡Es hoy!',evTomorrow:'¡Es mañana!',evDays:n=>`Faltan ${n} días`,evDate:'Fecha',tabHome:'Home',modeP:'Punto de venta',modeD:'Domicilios',modeAria:'Elige la carta',newb:'NUEVO',seasonTitle:'De temporada',seasonSub:'Especiales de temporada. Toca uno para verlo.',seasonView:'Verlo',recoTitle:'Recomendados para ti',recoSub:'Elige con quién vas y te decimos qué pedir.',recoP:'Parejas',recoA:'Amigos',recoF:'Familia',recoPt:'Para una noche de dos',recoAt:'Para compartir con los amigos',recoFt:'Para toda la familia, con opciones sin licor',famTitle:'Nueva familia de granizados',famSub:'Vasos nuevos, sabores nuevos.',famAll:'Ver en la carta',evtTitle:'Eventos',evtBtn:'Ver especiales',tueEye:'¡Hoy es martes!',tueInfoEye:'Todos los martes',tueTitle:'Martes de granizado',tueSub:'Granizado tradicional y cremoso',tueTrad:'Tradicional 16 oz',tueCrem:'Cremoso 16 oz',tueNote:'Todas las sedes de Medellín, menos Provenza',tueToday:'Solo hoy',tueDays:n=>n===1?'Mañana es martes: ¡no te lo pierdas!':`Faltan ${n} días para el próximo martes`,tabPuntos:'Carta',tabDomis:'Domicilios',tabInfo:'Sedes',ctaMenu:'Ver la carta',ctaDomis:'Pedir domicilio',ctaSedes:'Nuestras sedes',
+  es:{mbP:'Carta de punto de venta',mbPs:'precios en sede',mbD:'Carta de domicilios',mbDs:'pedido por WhatsApp',seeAll:'Ver todo',homeCatsTitle:'Explora la carta',tabEventos:'Eventos',evEmpty:'Pronto anunciaremos nuevos eventos.',seasonB:'TEMPORADA',evEye:'Evento',evSmall:'Fiesta de disfraces',evPlace:'Provenza',evDj:'DJ en vivo',evPrizes:p=>`Más de <b>${p}</b> en premios`,evCombo:'Combo',evComboName:'Granizado Radioactivo + Perrito',evComboNote:'por solo',evGo:'Cómo llegar',evCup:'Ver el vaso',evToday:'¡Es hoy!',evTomorrow:'¡Es mañana!',evDays:n=>`Faltan ${n} días`,evDate:'Fecha',tabHome:'Home',modeP:'Punto de venta',modeD:'Domicilios',modeAria:'Elige la carta',newb:'NUEVO',seasonTitle:'De temporada',seasonSub:'Especiales de temporada. Toca uno para verlo.',seasonView:'Verlo',recoTitle:'Recomendados para ti',recoSub:'Elige con quién vas y te decimos qué pedir.',recoP:'Parejas',recoA:'Amigos',recoF:'Familia',recoPt:'Para una noche de dos',recoAt:'Para compartir con los amigos',recoFt:'Para toda la familia, con opciones sin licor',famTitle:'Nueva familia de granizados',famSub:'Vasos nuevos, sabores nuevos.',famAll:'Ver en la carta',evtTitle:'Eventos',evtBtn:'Ver especiales',tueEye:'¡Hoy es martes!',tueInfoEye:'Todos los martes',tueTitle:'Martes de granizado',tueSub:'Granizado tradicional y cremoso',tueTrad:'Tradicional 16 oz',tueCrem:'Cremoso 16 oz',tueNote:'Todas las sedes de Medellín, menos Provenza',tueToday:'Solo hoy',tueDays:n=>n===1?'Mañana es martes: ¡no te lo pierdas!':`Faltan ${n} días para el próximo martes`,tabPuntos:'Carta',tabDomis:'Domicilios',tabInfo:'Sedes',ctaMenu:'Ver la carta',ctaDomis:'Pedir domicilio',ctaSedes:'Nuestras sedes',
     searchLabel:'Buscar en la carta',searchPh:'Busca un granizado, una bomba, un nevecón…',surprise:'Sorpréndeme',footLine:'El Coctelazo — Medellín',
     sedesTitle:'Nuestras sedes',address:'Dirección',hours:'Horario',hoursV:'Lunes a domingo: 2:30 PM – 12:00 AM · Fines de semana hasta las 2:00 AM',hoursD:'Domicilios',hoursDV:'Todos los días: 4:30 PM – 12:30 AM',
     how:'Cómo llegar',map:'Ver mapa',hideMap:'Ocultar mapa',creditL:'© 2026 Sonetix. Páginas web a la medida.',locTitle:'Encuentra tu sede más cercana',locSub:'Te mostramos la más cerca de ti y cómo llegar',locAgain:'Actualizar mi ubicación',locAgainSub:'Volver a buscar la sede más cercana',locBusy:'Buscando tu ubicación…',
@@ -1341,7 +1357,7 @@ const UI = {
     results:(n,q)=>`${n} resultado${n===1?'':'s'} para «${q}»`,noRes:'Nada por aquí',noResSub:'Prueba con otra palabra: granizado, bomba, nevecón…',
     close:'Cerrar',top:'Volver arriba',unit:'c/u',from:'desde',pending:'Precio por confirmar',
     mNoteP:'Precio en nuestras sedes. ',mNoteGo:'Pídelo a domicilio →',liter:'Litro',half:'Media'},
-  en:{seeAll:'See all',homeCatsTitle:'Explore the menu',tabEventos:'Events',evEmpty:'New events coming soon.',seasonB:'SEASONAL',evEye:'Event',evSmall:'Costume party',evPlace:'Provenza',evDj:'Live DJ',evPrizes:p=>`Over <b>${p}</b> in prizes`,evCombo:'Combo',evComboName:'Radioactive slush + Hot dog',evComboNote:'for only',evGo:'Get directions',evCup:'See the cup',evToday:'It’s today!',evTomorrow:'It’s tomorrow!',evDays:n=>`${n} days to go`,evDate:'Date',tabHome:'Home',modeP:'In-store',modeD:'Delivery',modeAria:'Choose the menu',newb:'NEW',seasonTitle:'Seasonal',seasonSub:'Seasonal specials. Tap one to see it.',seasonView:'See it',recoTitle:'Picked for you',recoSub:'Tell us who you’re with and we’ll tell you what to order.',recoP:'Couples',recoA:'Friends',recoF:'Family',recoPt:'For a night for two',recoAt:'To share with friends',recoFt:'For the whole family, with alcohol-free options',famTitle:'New slush family',famSub:'New cups, new flavors.',famAll:'See in the menu',evtTitle:'Events',evtBtn:'See specials',tueEye:'It’s Tuesday!',tueInfoEye:'Every Tuesday',tueTitle:'Slush Tuesday',tueSub:'Traditional and creamy slushes',tueTrad:'Traditional 16 oz',tueCrem:'Creamy 16 oz',tueNote:'All Medellín locations, except Provenza',tueToday:'Today only',tueDays:n=>n===1?'Tomorrow is Tuesday: don’t miss it!':`${n} days until next Tuesday`,tabPuntos:'Menu',tabDomis:'Delivery',tabInfo:'Locations',ctaMenu:'See the menu',ctaDomis:'Order delivery',ctaSedes:'Our locations',
+  en:{mbP:'In-store menu',mbPs:'venue prices',mbD:'Delivery menu',mbDs:'order via WhatsApp',seeAll:'See all',homeCatsTitle:'Explore the menu',tabEventos:'Events',evEmpty:'New events coming soon.',seasonB:'SEASONAL',evEye:'Event',evSmall:'Costume party',evPlace:'Provenza',evDj:'Live DJ',evPrizes:p=>`Over <b>${p}</b> in prizes`,evCombo:'Combo',evComboName:'Radioactive slush + Hot dog',evComboNote:'for only',evGo:'Get directions',evCup:'See the cup',evToday:'It’s today!',evTomorrow:'It’s tomorrow!',evDays:n=>`${n} days to go`,evDate:'Date',tabHome:'Home',modeP:'In-store',modeD:'Delivery',modeAria:'Choose the menu',newb:'NEW',seasonTitle:'Seasonal',seasonSub:'Seasonal specials. Tap one to see it.',seasonView:'See it',recoTitle:'Picked for you',recoSub:'Tell us who you’re with and we’ll tell you what to order.',recoP:'Couples',recoA:'Friends',recoF:'Family',recoPt:'For a night for two',recoAt:'To share with friends',recoFt:'For the whole family, with alcohol-free options',famTitle:'New slush family',famSub:'New cups, new flavors.',famAll:'See in the menu',evtTitle:'Events',evtBtn:'See specials',tueEye:'It’s Tuesday!',tueInfoEye:'Every Tuesday',tueTitle:'Slush Tuesday',tueSub:'Traditional and creamy slushes',tueTrad:'Traditional 16 oz',tueCrem:'Creamy 16 oz',tueNote:'All Medellín locations, except Provenza',tueToday:'Today only',tueDays:n=>n===1?'Tomorrow is Tuesday: don’t miss it!':`${n} days until next Tuesday`,tabPuntos:'Menu',tabDomis:'Delivery',tabInfo:'Locations',ctaMenu:'See the menu',ctaDomis:'Order delivery',ctaSedes:'Our locations',
     searchLabel:'Search the menu',searchPh:'Search a slush, a bomba, a nevecón…',surprise:'Surprise me',footLine:'El Coctelazo — Medellín',
     sedesTitle:'Our locations',address:'Address',hours:'Hours',hoursV:'Monday to Sunday: 2:30 PM – 12:00 AM · Weekends until 2:00 AM',hoursD:'Delivery',hoursDV:'Every day: 4:30 PM – 12:30 AM',
     how:'Get directions',map:'Show map',hideMap:'Hide map',creditL:'© 2026 Sonetix. Websites made to measure.',locTitle:'Find your nearest location',locSub:'We’ll show the closest one to you and how to get there',locAgain:'Update my location',locAgainSub:'Search for the nearest location again',locBusy:'Finding your location…',
@@ -1597,10 +1613,17 @@ function renderBanner(){ $('#menuBanner').innerHTML = bannerHTML(); }
 
 /* ---- selector de carta (punto de venta / domicilios) ---- */
 const modeSwHTML = () => `<div class="modesw" role="tablist" aria-label="${esc(t('modeAria'))}"><button type="button" role="tab" class="${!isD()?'on':''}" aria-selected="${!isD()}" data-act="mode" data-m="puntos">${t('modeP')}</button><button type="button" role="tab" class="${isD()?'on':''}" aria-selected="${isD()}" data-act="mode" data-m="domis">${t('modeD')}</button></div>`;
-function renderModeSw(){ $('#modeSwMenu').innerHTML = modeSwHTML(); }
+const MB_ICON = {
+  puntos:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+  domis:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l1 12H5L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>'};
+function renderModeBar(){
+  const m = isD() ? 'D' : 'P';
+  $('#modeBar').innerHTML = MB_ICON[isD()?'domis':'puntos'] + '<b>' + t('mb'+m) + '</b><span class="mb-sub">· ' + t('mb'+m+'s') + '</span>';
+}
+function renderModeSw(){ $('#modeSwMenu').innerHTML = modeSwHTML(); renderModeBar(); }
 function setMenu(m){
   if (state.menu===m) return;
-  if (state.view==='home'){ state.menu=m; document.body.dataset.menu=m; renderHome(); }
+  if (state.view==='home'){ state.menu=m; document.body.dataset.menu=m; renderHome(); renderModeBar(); }
   else { setView(m,{scroll:false}); }
 }
 
@@ -1814,6 +1837,7 @@ function setView(name, {scroll=true,hash=true}={}){
   const tab = isMenuView ? 'carta' : name;
   $$('.mtab').forEach(b=>{ const on=b.dataset.view===tab; b.setAttribute('aria-selected',String(on)); b.tabIndex=on?0:-1; });
   if (name==='home') renderHome();
+  renderModeBar();
   if (name==='eventos') renderEvents();
   if (isMenuView){
     if (state.menu!==prevMenu && state.q){ state.q=''; $('#q').value=''; $('#searchBox').classList.remove('has'); }
