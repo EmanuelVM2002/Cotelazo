@@ -134,7 +134,7 @@ footer{max-width:820px;margin:0 auto;padding:0 20px 40px;color:var(--muted);font
   var L = window.LEGAL || {};
   var set = function(id, v){
     var el = document.getElementById(id); if (!el) return;
-    if (v) el.textContent = v; else { el.textContent = 'Por completar por el responsable'; el.className = 'todo'; }
+    if (v) el.textContent = v; else { var row = el.previousElementSibling; el.remove(); if (row) row.remove(); }
   };
   set('l-razon', L.razon); set('l-nit', L.nit); set('l-dir', L.dir); set('l-email', L.email); set('l-tel', L.tel);
   document.getElementById('l-marca').textContent = (L.marca || 'El Coctelazo') + (L.ciudad ? ' · ' + L.ciudad : '');
