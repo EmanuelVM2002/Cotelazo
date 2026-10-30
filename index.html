@@ -1358,16 +1358,16 @@ const V = (es,en,price) => ({es,en,price});
 
 // Granizados
 // Solo punto de venta de Manrique y Castilla (no salen por domicilio); precio por confirmar
-X('g-sede','bestia',['Bestia Blanca','Bestia Blanca'],['Granizado líquido en cantarito, más toppings disponibles','Liquid slush in a clay pot, extra toppings available'],null,'bestia-blanca',{m:'p'});
-X('g-sede','gemelas',['Gemelas del Perreo','Gemelas del Perreo'],['Granizado de Margarita y Granizado de Tamarindo Spicy','Margarita slush and Spicy Tamarind slush'],null,'gemelas-perreo',{m:'p'});
-X('g-fam','fam16',['Granizado 16 oz','Granizado 16 oz'],['Vaso Sin Límites · 16 oz','Sin Límites cup · 16 oz'],17500,'fam16');
+X('g-sede','bestia',['Bestia Blanca','Bestia Blanca'],['Granizado líquido en cantarito, más toppings disponibles','Liquid slush in a clay pot, extra toppings available'],null,'bestia-blanca',{m:'p',hidePrice:true});
+X('g-sede','gemelas',['Gemelas del Perreo','Gemelas del Perreo'],['Granizado de Margarita y Granizado de Tamarindo Spicy','Margarita slush and Spicy Tamarind slush'],null,'gemelas-perreo',{m:'p',hidePrice:true});
+X('g-fam','fam16',['Granizado 16 oz','Granizado 16 oz'],['Granizado sin límite · elige el sabor disponible en el punto de venta','Unlimited slush · choose from the flavors available at the venue'],17500,'fam16',{dEsD:'Vaso Sin Límites · 16 oz',dEnD:'Sin Límites cup · 16 oz'});
 X('g-fam','fambai',['Granizado Baileys 16 oz','Baileys slush 16 oz'],['16 oz','16 oz'],19000,'fambai');
 X('g-fam','famtam',['Granizado de Tamarindo Spicy','Spicy Tamarind slush'],['16 oz','16 oz'],17500,'famtam');
 X('g-fam','fammang',['Manguito Spicy','Manguito Spicy'],['16 oz','16 oz'],17500,'fammang');
 X('g-fam','fampina',['Piña Colada','Piña Colada'],['16 oz','16 oz'],19000,'fampina');
 X('g-esp','chamoy',['Granizado chamoy y tajín','Chamoy & Tajín slush'],null,19800,'chamoy');
 X('g-tra','gr10',['Granizado 10 oz','Slush 10 oz'],['Vaso de icopor · sin licor o envenenado (con licor)','Foam cup · alcohol-free or “envenenado” (with liquor)'],9500,'gran10',{vars:[V('Sin licor','Alcohol-free',9500),V('Envenenado · con licor','Envenenado · with liquor',12500)]});
-X('g-tra','gr16',['Granizado 16 oz','Slush 16 oz'],['Vaso de icopor · sin licor o envenenado (con licor)','Foam cup · alcohol-free or “envenenado” (with liquor)'],12500,'gran16',{vars:[V('Sin licor','Alcohol-free',12500),V('Envenenado · con licor','Envenenado · with liquor',17500)]});
+X('g-tra','gr16',['Granizado 16 oz','Slush 16 oz'],['Vaso de icopor · sin licor o envenenado (con licor)','Foam cup · alcohol-free or “envenenado” (with liquor)'],12500,'fam16',{vars:[V('Sin licor','Alcohol-free',12500),V('Envenenado · con licor','Envenenado · with liquor',17500)]});
 X('g-tra','grlt',['Granizado 1 litro','Slush 1 liter'],['Vaso de icopor · tradicional','Foam cup · traditional'],27500,'gran1l');
 X('g-cre','cr10',['Cremoso tradicional','Traditional creamy'],['10 oz · Alpinito o Baileys','10 oz · Alpinito or Baileys'],14500,'cr10');
 X('g-cre','cr16',['Cremoso tradicional','Traditional creamy'],['16 oz · Alpinito o Baileys','16 oz · Alpinito or Baileys'],19000,'cr16');
@@ -1549,7 +1549,7 @@ const pricesOf = it => isD() && it.pricesD ? it.pricesD : it.prices;
 const minPrice = it => it.vars ? Math.min(...it.vars.map(v=>v.price)) : priceOf(it);
 const catList = () => (menuItems().some(i=>i.promo) ? [PROMO_CAT] : []).concat(CATS);
 const ds = i => {
-  let d = state.lang==='en'?i.dEn:i.dEs;
+  let d = state.lang==='en' ? (isD() && i.dEnD!=null ? i.dEnD : i.dEn) : (isD() && i.dEsD!=null ? i.dEsD : i.dEs);
   if (i.promo && i.until){ const [y,m,dd]=i.until.split('-'); d = [d,t('promoUntil')(`${dd}/${m}/${y}`)].filter(Boolean).join(' · '); }
   return d;
 };
@@ -1565,6 +1565,7 @@ const VAR = ['', ' alt1', ' alt2'];
 
 const noPrice = it => !it.vars && priceOf(it)==null;   // producto en la carta sin precio confirmado
 function priceHTML(it){
+  if (it.hidePrice) return '';
   if (noPrice(it)) return `<span class="pend">${t('pending')}</span>`;
   return it.vars
     ? `<span class="fromlbl">${t('from')}</span>${money(minPrice(it))}`
@@ -2207,6 +2208,7 @@ function openModal(id, {keep=false}={}){
   $('#mTitle').textContent = nm(it);
   $('#mPrice').textContent = noPrice(it) ? t('pending') : money(modalPrice(it)) + (it.unit?' '+it.unit:'');
   $('#mPrice').classList.toggle('pend', noPrice(it));
+  $('#mPrice').style.display = it.hidePrice ? 'none' : '';
   $('#mDesc').textContent = ds(it) || '';
   $('#mDesc').style.display = ds(it) ? '' : 'none';
   const pic = $('#mPic'), img = imgOf(it);
