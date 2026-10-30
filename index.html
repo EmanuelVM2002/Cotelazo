@@ -639,6 +639,25 @@ body[data-menu="domis"] .cartbtn{display:inline-flex}
   .hw-copy p{margin-left:0;margin-right:0}
   .hw-cta{justify-content:flex-start}
 }
+.hw-slide.fest{--c:190,110,255;background:radial-gradient(120% 90% at 50% 28%,#3a1668 0%,#180b2e 54%,#07040d 100%)}
+.fest .hw-waves.w1{fill:rgba(190,110,255,.26)}.fest .hw-waves.w2{fill:rgba(124,255,58,.14)}
+.fest .hw-copy h2{color:#f7ecff}
+.hw-conf{position:absolute;top:-16px;width:7px;height:12px;border-radius:2px;opacity:0;animation:hwconf var(--d) linear var(--dl) infinite}
+@keyframes hwconf{0%{transform:translate(0,0) rotate(0);opacity:0}8%{opacity:.95}100%{transform:translate(var(--dx),620px) rotate(560deg);opacity:0}}
+.hw-gift{position:absolute;z-index:5;left:calc(50% + 14px);top:6%;width:70px;height:70px;border-radius:50%;display:grid;place-items:center;transform:rotate(14deg);
+  background:radial-gradient(circle at 32% 28%,#fff3b0,#ffb238 62%,#e08a00);color:#3a1668;font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.06em;line-height:1;
+  box-shadow:0 0 0 3px rgba(255,255,255,.85),0 0 26px rgba(255,178,56,.75);animation:hwgift 2.2s ease-in-out infinite}
+@keyframes hwgift{50%{transform:rotate(14deg) scale(1.1)}}
+.hw-promo{margin:4px 0 2px;display:grid;justify-items:center;gap:0;line-height:1.1}
+.hw-promo small{font-size:10.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#d8b4ff}
+.hw-promo b{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:30px;letter-spacing:.05em;color:#7cff3a;text-shadow:0 0 14px rgba(124,255,58,.7)}
+.hw-promo strong{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:44px;color:var(--gold);text-shadow:0 0 22px rgba(255,178,56,.55)}
+.hw-promo em{font-style:normal;font-weight:800;font-size:13px;color:#fff}
+.hw-addr{margin:6px 0 0!important;font-size:12px!important;color:rgba(255,255,255,.7)!important}
+.hw-more{background:none;border:0;color:rgba(255,255,255,.75);font:inherit;font-size:12.5px;font-weight:600;text-decoration:underline;text-underline-offset:4px;padding:8px 6px}
+.hw-more:hover{color:#fff}
+.hw-cta{flex-wrap:wrap;align-items:center;gap:4px 12px}
+@media(min-width:760px){.hw-promo{justify-items:start}.hw-gift{left:calc(50% + 48px)}}
 .hw-slide.rad{background:radial-gradient(120% 90% at 50% 28%,#14391f 0%,#0a1710 52%,#06090a 100%)}
 .hw-slide.dk{--c:255,40,70;background:radial-gradient(120% 90% at 50% 28%,#3d0b18 0%,#1a0710 54%,#08040a 100%)}
 /* retrato vampírico de fondo, suave */
@@ -710,7 +729,7 @@ body[data-menu="domis"] .cartbtn{display:inline-flex}
 .hw-tabs button{position:relative;overflow:hidden;width:10px;height:10px;padding:0;border:0;border-radius:99px;background:rgba(255,255,255,.35);transition:width .45s var(--ease),background .4s}
 .hw-tabs button.on{width:34px;background:rgba(255,255,255,.22)}
 .hw-tabs button::after{content:"";position:absolute;inset:0;border-radius:inherit;transform:scaleX(0);transform-origin:left;background:#fff}
-.hw-tabs button.rad::after{background:#7cff3a}.hw-tabs button.dk::after{background:#ff3b5c}
+.hw-tabs button.fest::after{background:#c58bff}.hw-tabs button.rad::after{background:#7cff3a}.hw-tabs button.dk::after{background:#ff3b5c}
 .hw-tabs button.on:not(.timing)::after{transform:scaleX(1)}
 .hw-tabs button.on.timing::after{animation:hwfill 4.5s linear forwards}
 @keyframes hwfill{to{transform:scaleX(1)}}
@@ -723,7 +742,7 @@ body.hw-open .wafab,body.hw-open .top{display:none}
 .lite .hw-scrim{backdrop-filter:none;-webkit-backdrop-filter:none}
 .lite .hwpill::after{animation:none;opacity:.5}
 .lite .hw-card{box-shadow:0 0 34px -8px rgba(124,255,58,.45),0 0 34px -8px rgba(255,40,70,.45)}
-.lite .hw-rays,.lite .hw-rad,.lite .hw-moon,.lite .hw-slide.dk::before,.lite .hw-copy h2,.lite .hw-lim{animation:none}
+.lite .hw-conf,.lite .hw-gift,.lite .hw-rays,.lite .hw-rad,.lite .hw-moon,.lite .hw-slide.dk::before,.lite .hw-copy h2,.lite .hw-lim{animation:none}
 .lite .hw-ring{box-shadow:none}
 .lite .hw-ring:nth-of-type(n+3){display:none}
 .lite .hw-fall span:nth-child(n+7){display:none}
@@ -1077,7 +1096,26 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
       <div class="hw-head"><span class="hw-eye"><span aria-hidden="true">☢</span> <span data-i18n="hwHead">Especiales de Halloween</span> <span aria-hidden="true">🦇</span></span></div>
       <div class="hw-slides" id="hwSlides">
 
-        <section class="hw-slide rad on" aria-labelledby="hwTitle">
+        <section class="hw-slide fest on" data-k="fest" aria-labelledby="fsTitle">
+          <div class="hw-fall" id="fsConf" aria-hidden="true"></div>
+          <svg class="hw-waves w2" viewBox="0 0 2400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60 q150 -52 300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 V120 H0Z"/></svg>
+          <svg class="hw-waves w1" viewBox="0 0 2400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70 q150 -46 300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 V120 H0Z"/></svg>
+          <div class="hw-stage">
+            <div class="hw-rays" aria-hidden="true"></div>
+            <i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i>
+            <img class="hw-cup" src="img/halloween-radioactivo.webp" width="436" height="900" alt="" decoding="async">
+            <span class="hw-gift" aria-hidden="true"><span data-i18n="fsGift">Gratis</span></span>
+          </div>
+          <div class="hw-copy">
+            <h2 id="fsTitle"><span data-i18n="fsT1">Fiesta de disfraces</span><b data-i18n="fsT2">Manrique</b></h2>
+            <span class="hw-lim" data-i18n="fsLim">Sáb 31 oct · desde 4:00 PM</span>
+            <div class="hw-promo"><small data-i18n="fsPromo">Promo</small><b data-i18n="fsGuaro">Guaro verde</b><strong>$140.000</strong><em data-i18n="fsFree">+ un granizado Radioactivo GRATIS</em></div>
+            <p class="hw-addr" data-i18n="fsAddr">El Coctelazo Manrique · Cra. 47 #69-5</p>
+            <div class="hw-cta"><a class="btn hw-go" id="fsGo" href="#" target="_blank" rel="noopener"><span data-i18n="fsGo">Quiero la promo</span></a><button class="hw-more" type="button" data-act="hwevents" data-i18n="fsMore">Ver el evento</button></div>
+          </div>
+        </section>
+
+        <section class="hw-slide rad" data-k="rad" aria-labelledby="hwTitle">
           <div class="hw-fall" id="hwBubs" aria-hidden="true"></div>
           <svg class="hw-waves w2" viewBox="0 0 2400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60 q150 -52 300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 V120 H0Z"/></svg>
           <svg class="hw-waves w1" viewBox="0 0 2400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70 q150 -46 300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 V120 H0Z"/></svg>
@@ -1096,7 +1134,7 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
           </div>
         </section>
 
-        <section class="hw-slide dk" aria-labelledby="dkTitle">
+        <section class="hw-slide dk" data-k="dk" aria-labelledby="dkTitle">
           <div class="hw-fall" id="dkDrops" aria-hidden="true"></div>
           <span class="hw-bat" style="--y:9%;--w:46px;--d:9s;--dl:-2s" aria-hidden="true"><svg viewBox="0 0 40 20" fill="currentColor"><path d="M0 8C6 0 14 3 20 9c6-6 14-9 20-1-4-1-7 2-9 8-3-4-7-4-11 0-4-4-8-4-11 0C7 10 4 7 0 8Z"/></svg></span>
           <span class="hw-bat" style="--y:24%;--w:30px;--d:12s;--dl:-7s" aria-hidden="true"><svg viewBox="0 0 40 20" fill="currentColor"><path d="M0 8C6 0 14 3 20 9c6-6 14-9 20-1-4-1-7 2-9 8-3-4-7-4-11 0-4-4-8-4-11 0C7 10 4 7 0 8Z"/></svg></span>
@@ -1120,7 +1158,7 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
 
       </div>
       <div class="hw-foot">
-        <div class="hw-tabs" id="hwTabs" role="tablist"><button type="button" role="tab" class="rad on" aria-selected="true" aria-label="Vaso Halloween Radioactivo" data-act="hwslide" data-i="0"></button><button type="button" role="tab" class="dk" aria-selected="false" aria-label="Malteada Drakula" data-act="hwslide" data-i="1"></button></div>
+        <div class="hw-tabs" id="hwTabs" role="tablist"><button type="button" role="tab" class="fest on" aria-selected="true" aria-label="Fiesta de disfraces Manrique" data-act="hwslide" data-i="0"></button><button type="button" role="tab" class="rad" aria-selected="false" aria-label="Vaso Halloween Radioactivo" data-act="hwslide" data-i="0"></button><button type="button" role="tab" class="dk" aria-selected="false" aria-label="Malteada Drakula" data-act="hwslide" data-i="1"></button></div>
       </div>
     </div>
   </div>
@@ -1194,9 +1232,9 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
    CONFIGURACIÓN — lo que se edita aquí sin tocar el resto
    ========================================================= */
 // WhatsApp de domicilios (solo dígitos, con indicativo del país). Fuente: carta de domicilios, abr 2026.
-// Hoy: número de pruebas. El de la carta de domicilios es 304 660 9548 (573046609548).
-const WHATSAPP_NUMBER = '573002456331';
-const WHATSAPP_SHOW   = '300 245 6331';
+// Número definitivo (304 660 9548), confirmado el 29/10/2026.
+const WHATSAPP_NUMBER = '573046609548';
+const WHATSAPP_SHOW   = '304 660 9548';
 
 const DELIVERY_MIN  = 20000;            // pedido mínimo para domicilio (COP)
 const DELIVERY_SEDE = 'Belén La Nubia'; // los domicilios salen únicamente de esta sede (igual al nombre en SEDES)
@@ -1232,6 +1270,8 @@ const RECOS = {
 };
 // Home: eventos (es/en título y texto; act:'hw' abre la ventana de Halloween). Agrega aquí los eventos con fecha cuando los tengas.
 const EVENTS = [
+  // Fiesta de disfraces en Manrique con promo (sale en la ventana de inicio y en la pestaña Eventos hasta el 31/10)
+  {id:'manrique', date:'2026-10-31', until:'2026-10-31', time:'4:00 PM', price:140000, addr:'Cra. 47 #69-5, Aranjuez', place:'Manrique'},
   // date/until: AAAA-MM-DD; el evento sale en Home hasta el final de "until" y después se oculta solo
   {id:'provenza', date:'2026-10-31', until:'2026-10-31', prizes:1000000, combo:32900, addr:'Cra. 35 #8A-11', place:'Provenza'}
 ];
@@ -1390,7 +1430,7 @@ const DELI = SEDES.findIndex(s => s.n===DELIVERY_SEDE);
    TEXTOS DE LA INTERFAZ
    ========================================================= */
 const UI = {
-  es:{legAlc:'Prohibida la venta de alcohol a menores de 18 años.',legHealth:'El exceso de alcohol es perjudicial para la salud.',legPolicy:'Política de tratamiento de datos personales',legDrawer:'Al enviar tu pedido autorizas el tratamiento de tus datos según nuestra <a href="politica-datos.html" target="_blank" rel="noopener">política de datos personales</a>. Licor solo para mayores de 18 años.',tmr:'mañana',adultsOnly:'No se permite el ingreso de menores de edad',sugT:n=>`Te faltan <b>${n}</b> para el domicilio. Te recomendamos:`,sugAdd:'Agregar',locUse:'Usar mi ubicación',locBusy:'Buscando…',locView:'Ver en el mapa',locNeedAddr:'Escribe primero tu dirección',locErr:'No pudimos obtener tu ubicación. Revisa el permiso del navegador o escribe tu dirección.',locNo:'Tu navegador no permite compartir la ubicación.',locShared:'Ubicación compartida',locFromAddr:'Dirección en el mapa',locKm:(km,s)=>`≈ ${km} de ${s}`,locOpen:'Abrir en Waze',locRemove:'Quitar',locHint:'Puedes escribir la dirección o compartir tu ubicación: se envía junto al pedido por WhatsApp.',locMsg:'Ubicación',mbP:'Carta de punto de venta',mbPs:'precios en sede',mbD:'Carta de domicilios',mbDs:'pedido por WhatsApp',seeAll:'Ver todo',homeCatsTitle:'Explora la carta',tabEventos:'Eventos',evEmpty:'Pronto anunciaremos nuevos eventos.',seasonB:'TEMPORADA',evEye:'Evento',evSmall:'Fiesta de disfraces',evPlace:'Provenza',evDj:'DJ en vivo',evPrizes:p=>`Más de <b>${p}</b> en premios`,evCombo:'Combo',evComboName:'Granizado Radioactivo + Perrito',evComboNote:'por solo',evGo:'Cómo llegar',evCup:'Ver el vaso',evToday:'¡Es hoy!',evTomorrow:'¡Es mañana!',evDays:n=>`Faltan ${n} días`,evDate:'Fecha',tabHome:'Home',modeP:'Punto de venta',modeD:'Domicilios',modeAria:'Elige la carta',newb:'NUEVO',seasonTitle:'De temporada',seasonSub:'Especiales de temporada. Toca uno para verlo.',seasonView:'Verlo',recoTitle:'Recomendados para ti',recoSub:'Elige con quién vas y te decimos qué pedir.',recoP:'Parejas',recoA:'Amigos',recoF:'Familia',recoPt:'Para una noche de dos',recoAt:'Para compartir con los amigos',recoFt:'Para toda la familia, con opciones sin licor',famTitle:'Nueva familia de granizados',famSub:'Vasos nuevos, sabores nuevos.',famAll:'Ver en la carta',evtTitle:'Eventos',evtBtn:'Ver especiales',tueEye:'¡Hoy es martes!',tueInfoEye:'Todos los martes',tueTitle:'Martes de granizado',tueSub:'Granizado tradicional y cremoso',tueTrad:'Tradicional 16 oz',tueCrem:'Cremoso 16 oz',tueNote:'Todas las sedes de Medellín, menos Provenza',tueToday:'Solo hoy',tueDays:n=>n===1?'Mañana es martes: ¡no te lo pierdas!':`Faltan ${n} días para el próximo martes`,tabPuntos:'Carta',tabDomis:'Domicilios',tabInfo:'Sedes',ctaMenu:'Ver la carta',ctaDomis:'Pedir domicilio',ctaSedes:'Nuestras sedes',
+  es:{fsT1:'Fiesta de disfraces',fsT2:'Manrique',fsLim:'Sáb 31 oct · desde 4:00 PM',fsPromo:'Promo',fsGuaro:'Guaro verde',fsFree:'+ un granizado Radioactivo GRATIS',fsAddr:'El Coctelazo Manrique · Cra. 47 #69-5',fsGo:'Quiero la promo',fsMore:'Ver el evento',fsGift:'Gratis',fsWa:'Hola El Coctelazo 👋 Quiero la promo de la fiesta de disfraces en Manrique (sábado 31 de octubre): Guaro verde por $140.000 + un granizado Radioactivo gratis.',evFestSmall:'Fiesta de disfraces',evFrom:h=>`Desde las ${h}`,evDress:'Ven disfrazado',evPromo:'Promo',evPromoName:'Guaro verde',evPromoNote:'+ un granizado Radioactivo GRATIS',legAlc:'Prohibida la venta de alcohol a menores de 18 años.',legHealth:'El exceso de alcohol es perjudicial para la salud.',legPolicy:'Política de tratamiento de datos personales',legDrawer:'Al enviar tu pedido autorizas el tratamiento de tus datos según nuestra <a href="politica-datos.html" target="_blank" rel="noopener">política de datos personales</a>. Licor solo para mayores de 18 años.',tmr:'mañana',adultsOnly:'No se permite el ingreso de menores de edad',sugT:n=>`Te faltan <b>${n}</b> para el domicilio. Te recomendamos:`,sugAdd:'Agregar',locUse:'Usar mi ubicación',locBusy:'Buscando…',locView:'Ver en el mapa',locNeedAddr:'Escribe primero tu dirección',locErr:'No pudimos obtener tu ubicación. Revisa el permiso del navegador o escribe tu dirección.',locNo:'Tu navegador no permite compartir la ubicación.',locShared:'Ubicación compartida',locFromAddr:'Dirección en el mapa',locKm:(km,s)=>`≈ ${km} de ${s}`,locOpen:'Abrir en Waze',locRemove:'Quitar',locHint:'Puedes escribir la dirección o compartir tu ubicación: se envía junto al pedido por WhatsApp.',locMsg:'Ubicación',mbP:'Carta de punto de venta',mbPs:'precios en sede',mbD:'Carta de domicilios',mbDs:'pedido por WhatsApp',seeAll:'Ver todo',homeCatsTitle:'Explora la carta',tabEventos:'Eventos',evEmpty:'Pronto anunciaremos nuevos eventos.',seasonB:'TEMPORADA',evEye:'Evento',evSmall:'Fiesta de disfraces',evPlace:'Provenza',evDj:'DJ en vivo',evPrizes:p=>`Más de <b>${p}</b> en premios`,evCombo:'Combo',evComboName:'Granizado Radioactivo + Perrito',evComboNote:'por solo',evGo:'Cómo llegar',evCup:'Ver el vaso',evToday:'¡Es hoy!',evTomorrow:'¡Es mañana!',evDays:n=>`Faltan ${n} días`,evDate:'Fecha',tabHome:'Home',modeP:'Punto de venta',modeD:'Domicilios',modeAria:'Elige la carta',newb:'NUEVO',seasonTitle:'De temporada',seasonSub:'Especiales de temporada. Toca uno para verlo.',seasonView:'Verlo',recoTitle:'Recomendados para ti',recoSub:'Elige con quién vas y te decimos qué pedir.',recoP:'Parejas',recoA:'Amigos',recoF:'Familia',recoPt:'Para una noche de dos',recoAt:'Para compartir con los amigos',recoFt:'Para toda la familia, con opciones sin licor',famTitle:'Nueva familia de granizados',famSub:'Vasos nuevos, sabores nuevos.',famAll:'Ver en la carta',evtTitle:'Eventos',evtBtn:'Ver especiales',tueEye:'¡Hoy es martes!',tueInfoEye:'Todos los martes',tueTitle:'Martes de granizado',tueSub:'Granizado tradicional y cremoso',tueTrad:'Tradicional 16 oz',tueCrem:'Cremoso 16 oz',tueNote:'Todas las sedes de Medellín, menos Provenza',tueToday:'Solo hoy',tueDays:n=>n===1?'Mañana es martes: ¡no te lo pierdas!':`Faltan ${n} días para el próximo martes`,tabPuntos:'Carta',tabDomis:'Domicilios',tabInfo:'Sedes',ctaMenu:'Ver la carta',ctaDomis:'Pedir domicilio',ctaSedes:'Nuestras sedes',
     searchLabel:'Buscar en la carta',searchPh:'Busca un granizado, una bomba, un nevecón…',surprise:'Sorpréndeme',footLine:'El Coctelazo — Medellín',
     sedesTitle:'Nuestras sedes',address:'Dirección',hours:'Horario',hoursV:'Lunes a domingo: 2:30 PM – 12:00 AM · Fines de semana hasta las 2:00 AM',hoursD:'Domicilios',hoursDV:'Todos los días: 4:30 PM – 12:30 AM',
     how:'Cómo llegar',map:'Ver mapa',hideMap:'Ocultar mapa',creditL:'© 2026 Sonetix. Páginas web a la medida.',locTitle:'Encuentra tu sede más cercana',locSub:'Te mostramos la más cerca de ti y cómo llegar',locAgain:'Actualizar mi ubicación',locAgainSub:'Volver a buscar la sede más cercana',locBusy:'Buscando tu ubicación…',
@@ -1415,7 +1455,7 @@ const UI = {
     results:(n,q)=>`${n} resultado${n===1?'':'s'} para «${q}»`,noRes:'Nada por aquí',noResSub:'Prueba con otra palabra: granizado, bomba, nevecón…',
     close:'Cerrar',top:'Volver arriba',unit:'c/u',from:'desde',pending:'Precio por confirmar',
     mNoteP:'Precio en nuestras sedes. ',mNoteGo:'Pídelo a domicilio →',liter:'Litro',half:'Media'},
-  en:{legAlc:'Sale of alcohol to anyone under 18 is prohibited.',legHealth:'Excessive alcohol consumption is harmful to health.',legPolicy:'Personal data processing policy (Spanish)',legDrawer:'By sending your order you authorize the processing of your data under our <a href="politica-datos.html" target="_blank" rel="noopener">personal data policy</a> (Spanish). Alcohol is sold only to adults (18+).',tmr:'tomorrow',adultsOnly:'Minors are not allowed',sugT:n=>`You need <b>${n}</b> more for delivery. We suggest:`,sugAdd:'Add',locUse:'Use my location',locBusy:'Locating…',locView:'See on map',locNeedAddr:'Type your address first',locErr:'We could not get your location. Check the browser permission or type your address.',locNo:'Your browser does not allow sharing your location.',locShared:'Location shared',locFromAddr:'Address on the map',locKm:(km,s)=>`≈ ${km} from ${s}`,locOpen:'Open in Waze',locRemove:'Remove',locHint:'Type your address or share your location: it is sent with the order on WhatsApp.',locMsg:'Location',mbP:'In-store menu',mbPs:'venue prices',mbD:'Delivery menu',mbDs:'order via WhatsApp',seeAll:'See all',homeCatsTitle:'Explore the menu',tabEventos:'Events',evEmpty:'New events coming soon.',seasonB:'SEASONAL',evEye:'Event',evSmall:'Costume party',evPlace:'Provenza',evDj:'Live DJ',evPrizes:p=>`Over <b>${p}</b> in prizes`,evCombo:'Combo',evComboName:'Radioactive slush + Hot dog',evComboNote:'for only',evGo:'Get directions',evCup:'See the cup',evToday:'It’s today!',evTomorrow:'It’s tomorrow!',evDays:n=>`${n} days to go`,evDate:'Date',tabHome:'Home',modeP:'In-store',modeD:'Delivery',modeAria:'Choose the menu',newb:'NEW',seasonTitle:'Seasonal',seasonSub:'Seasonal specials. Tap one to see it.',seasonView:'See it',recoTitle:'Picked for you',recoSub:'Tell us who you’re with and we’ll tell you what to order.',recoP:'Couples',recoA:'Friends',recoF:'Family',recoPt:'For a night for two',recoAt:'To share with friends',recoFt:'For the whole family, with alcohol-free options',famTitle:'New slush family',famSub:'New cups, new flavors.',famAll:'See in the menu',evtTitle:'Events',evtBtn:'See specials',tueEye:'It’s Tuesday!',tueInfoEye:'Every Tuesday',tueTitle:'Slush Tuesday',tueSub:'Traditional and creamy slushes',tueTrad:'Traditional 16 oz',tueCrem:'Creamy 16 oz',tueNote:'All Medellín locations, except Provenza',tueToday:'Today only',tueDays:n=>n===1?'Tomorrow is Tuesday: don’t miss it!':`${n} days until next Tuesday`,tabPuntos:'Menu',tabDomis:'Delivery',tabInfo:'Locations',ctaMenu:'See the menu',ctaDomis:'Order delivery',ctaSedes:'Our locations',
+  en:{fsT1:'Costume party',fsT2:'Manrique',fsLim:'Sat Oct 31 · from 4:00 PM',fsPromo:'Promo',fsGuaro:'Green aguardiente',fsFree:'+ a FREE Radioactive slush',fsAddr:'El Coctelazo Manrique · Cra. 47 #69-5',fsGo:'I want the promo',fsMore:'See the event',fsGift:'Free',fsWa:'Hi El Coctelazo 👋 I want the promo for the costume party in Manrique (Saturday Oct 31): green aguardiente for $140,000 + a free Radioactive slush.',evFestSmall:'Costume party',evFrom:h=>`From ${h}`,evDress:'Come in costume',evPromo:'Promo',evPromoName:'Green aguardiente',evPromoNote:'+ a FREE Radioactive slush',legAlc:'Sale of alcohol to anyone under 18 is prohibited.',legHealth:'Excessive alcohol consumption is harmful to health.',legPolicy:'Personal data processing policy (Spanish)',legDrawer:'By sending your order you authorize the processing of your data under our <a href="politica-datos.html" target="_blank" rel="noopener">personal data policy</a> (Spanish). Alcohol is sold only to adults (18+).',tmr:'tomorrow',adultsOnly:'Minors are not allowed',sugT:n=>`You need <b>${n}</b> more for delivery. We suggest:`,sugAdd:'Add',locUse:'Use my location',locBusy:'Locating…',locView:'See on map',locNeedAddr:'Type your address first',locErr:'We could not get your location. Check the browser permission or type your address.',locNo:'Your browser does not allow sharing your location.',locShared:'Location shared',locFromAddr:'Address on the map',locKm:(km,s)=>`≈ ${km} from ${s}`,locOpen:'Open in Waze',locRemove:'Remove',locHint:'Type your address or share your location: it is sent with the order on WhatsApp.',locMsg:'Location',mbP:'In-store menu',mbPs:'venue prices',mbD:'Delivery menu',mbDs:'order via WhatsApp',seeAll:'See all',homeCatsTitle:'Explore the menu',tabEventos:'Events',evEmpty:'New events coming soon.',seasonB:'SEASONAL',evEye:'Event',evSmall:'Costume party',evPlace:'Provenza',evDj:'Live DJ',evPrizes:p=>`Over <b>${p}</b> in prizes`,evCombo:'Combo',evComboName:'Radioactive slush + Hot dog',evComboNote:'for only',evGo:'Get directions',evCup:'See the cup',evToday:'It’s today!',evTomorrow:'It’s tomorrow!',evDays:n=>`${n} days to go`,evDate:'Date',tabHome:'Home',modeP:'In-store',modeD:'Delivery',modeAria:'Choose the menu',newb:'NEW',seasonTitle:'Seasonal',seasonSub:'Seasonal specials. Tap one to see it.',seasonView:'See it',recoTitle:'Picked for you',recoSub:'Tell us who you’re with and we’ll tell you what to order.',recoP:'Couples',recoA:'Friends',recoF:'Family',recoPt:'For a night for two',recoAt:'To share with friends',recoFt:'For the whole family, with alcohol-free options',famTitle:'New slush family',famSub:'New cups, new flavors.',famAll:'See in the menu',evtTitle:'Events',evtBtn:'See specials',tueEye:'It’s Tuesday!',tueInfoEye:'Every Tuesday',tueTitle:'Slush Tuesday',tueSub:'Traditional and creamy slushes',tueTrad:'Traditional 16 oz',tueCrem:'Creamy 16 oz',tueNote:'All Medellín locations, except Provenza',tueToday:'Today only',tueDays:n=>n===1?'Tomorrow is Tuesday: don’t miss it!':`${n} days until next Tuesday`,tabPuntos:'Menu',tabDomis:'Delivery',tabInfo:'Locations',ctaMenu:'See the menu',ctaDomis:'Order delivery',ctaSedes:'Our locations',
     searchLabel:'Search the menu',searchPh:'Search a slush, a bomba, a nevecón…',surprise:'Surprise me',footLine:'El Coctelazo — Medellín',
     sedesTitle:'Our locations',address:'Address',hours:'Hours',hoursV:'Monday to Sunday: 2:30 PM – 12:00 AM · Weekends until 2:00 AM',hoursD:'Delivery',hoursDV:'Every day: 4:30 PM – 12:30 AM',
     how:'Get directions',map:'Show map',hideMap:'Hide map',creditL:'© 2026 Sonetix. Websites made to measure.',locTitle:'Find your nearest location',locSub:'We’ll show the closest one to you and how to get there',locAgain:'Update my location',locAgainSub:'Search for the nearest location again',locBusy:'Finding your location…',
@@ -1733,7 +1773,27 @@ function familyHTML(){
 }
 function eventDays(e){ return Math.round((Date.parse(e.date+'T00:00:00Z')-Date.parse(todayStr()+'T00:00:00Z'))/86400000); }
 const BAT = '<svg viewBox="0 0 40 20" fill="currentColor"><path d="M0 8C6 0 14 3 20 9c6-6 14-9 20-1-4-1-7 2-9 8-3-4-7-4-11 0-4-4-8-4-11 0C7 10 4 7 0 8Z"/></svg>';
+function eventCardFest(e){
+  const d = new Date(e.date+'T12:00:00Z'), loc = state.lang==='en'?'en-US':'es-CO';
+  const wd = d.toLocaleDateString(loc,{weekday:'short',timeZone:'UTC'}).replace('.','').toUpperCase(), mo = d.toLocaleDateString(loc,{month:'short',timeZone:'UTC'}).replace('.','').toUpperCase();
+  const n = eventDays(e), when = n<=0 ? t('evToday') : n===1 ? t('evTomorrow') : t('evDays')(n);
+  const maps = 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(e.addr+', Medellín, Antioquia, Colombia');
+  const wa = 'https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent(t('fsWa'));
+  return '<article class="evtx">'
+    + '<i class="evtx-bulbs" aria-hidden="true"></i><i class="evtx-bulbs b2" aria-hidden="true"></i>'
+    + '<span class="evtx-bat" style="--y:14%;--w:40px;--d:12s;--dl:-4s" aria-hidden="true">'+BAT+'</span>'
+    + '<div class="evtx-top"><span class="evtx-chip">'+t('evEye')+'</span><span class="evtx-chip hot">'+when+'</span></div>'
+    + '<h3 class="evtx-title"><small>'+t('evFestSmall')+'</small><b>'+esc(e.place)+'</b></h3>'
+    + '<div class="evtx-row"><div class="evtx-info">'
+    +   '<div class="evtx-date" aria-label="'+esc(t('evDate'))+'"><span>'+wd+'</span><b>'+String(d.getUTCDate())+'</b><span>'+mo+'</span></div>'
+    +   '<ul><li>⏰ '+t('evFrom')(e.time)+'</li><li>🎭 '+t('evDress')+'</li><li>📍 '+esc(e.addr)+'</li></ul></div>'
+    +   '<div class="evtx-combo"><img src="img/halloween-radioactivo.webp" alt="" decoding="async"><div><span>'+t('evPromo')+'</span><b>'+t('evPromoName')+'</b><small>'+t('evPromoNote')+'</small><em>'+money(e.price)+'</em></div></div>'
+    + '</div>'
+    + '<div class="evtx-cta"><a class="btn primary" href="'+wa+'" target="_blank" rel="noopener">'+t('fsGo')+'</a><a class="btn ghost" href="'+maps+'" target="_blank" rel="noopener">'+t('evGo')+' →</a></div>'
+    + '</article>';
+}
 function eventCard(e){
+  if (e.id==='manrique') return eventCardFest(e);
   const d = new Date(e.date+'T12:00:00Z'), loc = state.lang==='en'?'en-US':'es-CO';
   const wd = d.toLocaleDateString(loc,{weekday:'short',timeZone:'UTC'}).replace('.','').toUpperCase(), mo = d.toLocaleDateString(loc,{month:'short',timeZone:'UTC'}).replace('.','').toUpperCase();
   const n = eventDays(e), when = n<=0 ? t('evToday') : n===1 ? t('evTomorrow') : t('evDays')(n);
@@ -1892,6 +1952,7 @@ function applyI18n(){
   $('#waFab').setAttribute('aria-label','WhatsApp · '+t('waFab'));
   $('#hwGo').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t('hwWa'))}`;
   $('#hwX').setAttribute('aria-label',t('close'));
+  $('#fsGo').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t('fsWa'))}`;
   $('#dkGo').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t('dkWa'))}`;
   $('#hwCup').alt = `${t('hwT1')} ${t('hwT2')}`; $('#dkCup').alt = `${t('dkT1')} ${t('dkT2')}`;
   [['#hwPrice',HALLOWEEN.price],['#dkPrice',HALLOWEEN.dkPrice]].forEach(([id,v])=>{ const el=$(id); el.hidden = v==null; el.textContent = v==null ? '' : money(v); });
@@ -2155,7 +2216,8 @@ document.addEventListener('click', e=>{
   if (act==='rm'){ state.cart.splice(i,1); saveCart(); renderCart(); return; }
   if (act==='map'){ toggleMap(i,el); return; }
   if (act==='goDomis'){ goDomis(); return; }
-  if (act==='hw'){ openHW(+el.dataset.i||0); return; }
+  if (act==='hw'){ openHW(hwIdxOf(['rad','dk'][+el.dataset.i||0])); return; }
+  if (act==='hwevents'){ closeHW(); setView('eventos',{scroll:false}); toContent(); return; }
   if (act==='hwclose'){ closeHW(); return; }
   if (act==='hwslide'){ hwStop(); hwShow(i); return; }
   if (act==='hwmenu'){ closeHW(); setView(state.menu,{scroll:false}); toContent(); return; }
@@ -2396,9 +2458,14 @@ function refreshStatuses(){
 (function buildFx(){
   const r = Math.random;
   $('#hwBubs').innerHTML = Array.from({length:18},()=>{ const s=6+r()*20|0; return `<span class="hw-bub" style="left:${(r()*96).toFixed(1)}%;width:${s}px;height:${s}px;--d:${(7+r()*8).toFixed(1)}s;--dl:${(-r()*12).toFixed(1)}s;--dx:${(r()*80-40)|0}px"></span>`; }).join('');
+  $('#fsConf').innerHTML = Array.from({length:16},(_,k)=>`<span class="hw-conf" style="left:${(r()*96).toFixed(1)}%;background:${['#c58bff','#7cff3a','#ffb238','#ff5fa2'][k%4]};--d:${(4+r()*4).toFixed(1)}s;--dl:${(-r()*8).toFixed(1)}s;--dx:${(r()*60-30)|0}px"></span>`).join('');
   $('#dkDrops').innerHTML = Array.from({length:14},()=>`<span class="hw-drop" style="left:${(r()*96).toFixed(1)}%;--d:${(3.5+r()*4).toFixed(1)}s;--dl:${(-r()*8).toFixed(1)}s"></span>`).join('');
 })();
+/* la lámina del evento solo existe mientras el evento esté vigente */
+(function(){ const f = EVENTS.find(e=>e.id==='manrique'); if (f && (!f.until || f.until>=todayStr())) return; $('.hw-slide.fest')?.remove(); $('#hwTabs .fest')?.remove(); })();
 const hwSlideEls = $$('.hw-slide'), hwTabs = $$('#hwTabs button'), HW_MS = 4500;
+hwTabs.forEach((b,k)=>{ b.dataset.i = k; });
+const hwIdxOf = key => Math.max(0, hwSlideEls.findIndex(el=>el.dataset.k===key));
 let hwIdx = 0, hwTimer = null;
 function hwShow(i){
   hwIdx = i;
