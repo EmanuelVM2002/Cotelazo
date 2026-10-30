@@ -2193,7 +2193,7 @@ function orderText(){
   const lines = state.cart.map(l=>`• ${l.qty}× ${l.name[state.lang]}${l.variant?` (${l.variant[state.lang]})`:''} — ${money(l.price*l.qty)}`);
   const who = $('#fName').value.trim();
   const addr = $('#fAddr').value.trim();
-  return [`${t('greet')}:`, '', ...lines, '', `${t('total')}: ${money(cartTotal())}`, `${t('type')}: ${t('deliveryM')}`, `${t('sede')}: ${DELIVERY_SEDE}`, ...(addr?[`${t('addr')}: ${addr}`]:[]), ...locLines(), ...(who?[`${t('whoD')}: ${who}`]:[]), `(${t('noteApprox')})`].filter((x,i,a)=>x!==''||a[i-1]!=='').join('\n');
+  return [`${t('greet')}:`, '', ...lines, '', `${t('total')}: ${money(cartTotal())}`, `${t('type')}: ${t('deliveryM')}`, ...(addr?[`${t('addr')}: ${addr}`]:[]), ...locLines(), ...(who?[`${t('whoD')}: ${who}`]:[])].filter((x,i,a)=>x!==''||a[i-1]!=='').join('\n');
 }
 
 /* =========================================================
