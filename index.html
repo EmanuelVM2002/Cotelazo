@@ -11,6 +11,7 @@
 <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png?v=2">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="e7fd6bf0-9536-460b-9ead-b0c474d387c5" data-domains="elcoctelazo.com,www.elcoctelazo.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -2086,6 +2087,7 @@ function addLine({id,name,variant=null,price,qty=1}){
   const ex = state.cart.find(l=>l.key===key);
   if (ex) ex.qty += qty; else state.cart.push({key,id,name,variant,price,qty});
   saveCart(); renderCart();
+  track('agregar-carrito', {producto:id});
   const b = $('#cartBtn'); b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump');
   toast(`${name[state.lang]}${variant?' · '+variant[state.lang]:''} — ${t('added')}`);
 }
@@ -2236,7 +2238,10 @@ function closeModal(){
   document.body.classList.remove('modal-open');
   lastFocus?.focus?.({preventScroll:true});
 }
+/* medición anónima (Umami): solo nombres de eventos, sin datos personales */
+const track = (name, data) => { try{ if (window.umami && window.umami.track) window.umami.track(name, data); }catch(e){} };
 function openDrawer(){
+  track('abrir-pedido');
   closeModal();
   $('#drawer').classList.add('show'); $('#drawer').setAttribute('aria-hidden','false'); $('#scrim').classList.add('show');
   document.body.classList.add('locked','cart-open'); lastFocus=$('#cartBtn');
@@ -2378,8 +2383,12 @@ $('#bWa').addEventListener('click',()=>{
   if (blockedZone()){ toast(t('zoneBlocked')); return; }
   if (!$('#fAddr').value.trim() && !(locPick && locPick.kind==='gps')){ toast(t('needAddr')); $('#fAddr').focus(); return; }
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(orderText())}`;
+  track('enviar-whatsapp', {total:cartTotal()});
   window.open(url,'_blank','noopener');
 });
+$('#fsGo').addEventListener('click',()=>track('quiero-promo',{evento:'manrique'}));
+$('#fs2Go').addEventListener('click',()=>track('quiero-promo',{evento:'campo-valdes'}));
+$('#waFab').addEventListener('click',()=>track('whatsapp-flotante'));
 
 $('#locateBtn').addEventListener('click',locate);
 
