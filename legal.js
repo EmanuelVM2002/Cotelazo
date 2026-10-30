@@ -8,5 +8,5 @@ window.LEGAL = {
   email:  '',                                   // correo para consultas y reclamos de datos personales
   tel:    '304 497 2789',                                   // teléfono / WhatsApp de contacto
   ciudad: 'Medellín, Antioquia, Colombia',
-  actualizada: '30 de octubre de 2026'          // fecha de la última versión de la política
+  actualizada: '26 de octubre de 2026'          // fecha de la última versión de la política
 };
