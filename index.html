@@ -1328,6 +1328,7 @@ const S = (id,cat,es,en,layout,x={}) => ({id,cat,es,en,layout,...x});
 const SUBS = [
   S('promo','promos','Promociones vigentes','Current promotions','cards'),
   S('g-fam','granizados','Nueva familia','New family','cards',{isNew:true,noteEs:'Granizados en vaso nuevo',noteEn:'Slushies in the new cup'}),
+  S('g-sede','granizados','Exclusivos de Manrique y Castilla','Only at Manrique and Castilla','cards',{noteEs:'Disponibles solo en las sedes Manrique y Castilla',noteEn:'Available only at the Manrique and Castilla locations'}),
   S('g-esp','granizados','Granizados especiales','Special slushies','cards'),
   S('g-tra','granizados','Granizados tradicionales','Traditional slushies','cards',{noteEs:'Vasos de icopor: 10 oz, 16 oz y 1 litro',noteEn:'Foam cups: 10 oz, 16 oz and 1 liter'}),
   S('g-cre','granizados','Cremosos','Creamy slushies','cards',{noteEs:'Alpinito · Baileys',noteEn:'Alpinito · Baileys'}),
@@ -1356,6 +1357,9 @@ const L = (sub,id,name,prices,pricesD) => ITEMS.push({id,sub,cat:'licores',es:na
 const V = (es,en,price) => ({es,en,price});
 
 // Granizados
+// Solo punto de venta de Manrique y Castilla (no salen por domicilio); precio por confirmar
+X('g-sede','bestia',['Bestia Blanca','Bestia Blanca'],['Granizado líquido en cantarito, más toppings disponibles','Liquid slush in a clay pot, extra toppings available'],null,'bestia-blanca',{m:'p'});
+X('g-sede','gemelas',['Gemelas del Perreo','Gemelas del Perreo'],['Granizado de Margarita y Granizado de Tamarindo Spicy','Margarita slush and Spicy Tamarind slush'],null,'gemelas-perreo',{m:'p'});
 X('g-fam','fam16',['Granizado 16 oz','Granizado 16 oz'],['Vaso Sin Límites · 16 oz','Sin Límites cup · 16 oz'],17500,'fam16');
 X('g-fam','fambai',['Granizado Baileys 16 oz','Baileys slush 16 oz'],['16 oz','16 oz'],19000,'fambai');
 X('g-fam','famtam',['Granizado de Tamarindo Spicy','Spicy Tamarind slush'],['16 oz','16 oz'],17500,'famtam');
