@@ -2008,8 +2008,8 @@ function applyI18n(){
   $('#waFab').setAttribute('aria-label','WhatsApp · '+t('waFab'));
   $('#hwGo').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t('hwWa'))}`;
   $('#hwX').setAttribute('aria-label',t('close'));
-  $('#fsGo').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t('fsWa'))}`;
-  $('#fs2Go').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t('fs2Wa'))}`;
+  // las láminas de eventos se quitan solas cuando el evento pasa: sus botones pueden no existir
+  [['#fsGo','fsWa'],['#fs2Go','fs2Wa']].forEach(([sel,key])=>{ const a=$(sel); if (a) a.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t(key))}`; });
   $('#dkGo').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t('dkWa'))}`;
   $('#hwCup').alt = `${t('hwT1')} ${t('hwT2')}`; $('#dkCup').alt = `${t('dkT1')} ${t('dkT2')}`;
   [['#hwPrice',HALLOWEEN.price],['#dkPrice',HALLOWEEN.dkPrice]].forEach(([id,v])=>{ const el=$(id); el.hidden = v==null; el.textContent = v==null ? '' : money(v); });
@@ -2520,8 +2520,8 @@ function refreshStatuses(){
   $('#fs2Conf').innerHTML = Array.from({length:16},(_,k)=>`<span class="hw-conf" style="left:${(r()*96).toFixed(1)}%;background:${['#ffa23a','#ffd45a','#ff6a2a','#fff1e0'][k%4]};--d:${(4+r()*4).toFixed(1)}s;--dl:${(-r()*8).toFixed(1)}s;--dx:${(r()*60-30)|0}px"></span>`).join('');
   $('#dkDrops').innerHTML = Array.from({length:14},()=>`<span class="hw-drop" style="left:${(r()*96).toFixed(1)}%;--d:${(3.5+r()*4).toFixed(1)}s;--dl:${(-r()*8).toFixed(1)}s"></span>`).join('');
 })();
-/* la lámina del evento solo existe mientras el evento esté vigente */
-(function(){ $$('.hw-slide[data-ev]').forEach(el=>{ const f = EVENTS.find(e=>e.id===el.dataset.ev); if (f && (!f.until || f.until>=todayStr())) return; $('#hwTabs [data-ev="'+el.dataset.ev+'"]')?.remove(); el.remove(); }); })();
+/* la lámina del evento solo promociona eventos que aún no empiezan: el mismo día del evento sale del banner (en Eventos sigue hasta que termine) */
+(function(){ $$('.hw-slide[data-ev]').forEach(el=>{ const f = EVENTS.find(e=>e.id===el.dataset.ev); if (f && (!f.until || f.until>=todayStr()) && f.date>todayStr()) return; $('#hwTabs [data-ev="'+el.dataset.ev+'"]')?.remove(); el.remove(); }); })();
 const hwSlideEls = $$('.hw-slide'), hwTabs = $$('#hwTabs button'), HW_MS = 4500;
 hwTabs.forEach((b,k)=>{ b.dataset.i = k; });
 const hwIdxOf = key => Math.max(0, hwSlideEls.findIndex(el=>el.dataset.k===key));
