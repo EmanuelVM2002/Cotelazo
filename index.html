@@ -651,19 +651,21 @@ body[data-menu="domis"] .cartbtn{display:inline-flex}
 @media(min-width:760px){.hw-gift{left:calc(50% + 48px)}}
 .hw-gift.alt{left:calc(50% + 6px);top:10%;width:84px;height:84px;font-size:21px;line-height:1;text-align:center;align-content:center}
 .hw-gift.alt small{display:block;font-family:'Inter',sans-serif;font-size:9px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1px}
-.hw-slide.sf{--c:53,224,255;background:radial-gradient(120% 90% at 50% 28%,#4a1a8f 0%,#1a0b38 54%,#07030f 100%)}
-.sf .hw-waves.w1{fill:rgba(255,46,147,.26)}.sf .hw-waves.w2{fill:rgba(53,224,255,.16)}
-.sf .hw-copy h2{color:#fff}
-.sf5{font-style:normal;font-size:1.28em;color:#ff2e93;text-shadow:0 0 14px #ff2e93,0 0 40px rgba(255,46,147,.85)}
-.hw-cup.hw-photo{max-width:88%;height:auto;border-radius:16px;border:2px solid #fff;filter:none;box-shadow:0 0 0 3px rgba(255,46,147,.9),0 0 34px 2px rgba(255,46,147,.55),0 0 56px 6px rgba(53,224,255,.35)}
-.hw-slide.sf .hw-gift{left:3%;right:auto;top:auto;bottom:-6px}
-@media(max-width:759px){.hw-slide.sf .hw-stage{height:min(27vh,250px)}.hw-cup.hw-photo{max-width:94%}}
-.sf-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;margin:6px 0 12px}
-.sf-pills span{padding:3px 10px;border-radius:99px;border:1px solid rgba(53,224,255,.55);background:rgba(0,0,0,.35);color:#e2f6ff;font-size:11px;font-weight:700}
-@media(min-width:760px){.sf-pills{justify-content:flex-start}}
-.btn.hw-go.vio{background:linear-gradient(120deg,#35e0ff,#8b5cff);color:#06102a;box-shadow:0 10px 30px -8px #35e0ff}
-.hw-eye.sf{display:none}
-.hw.sf-on .hw-eye{display:none}.hw.sf-on .hw-eye.sf{display:inline-flex}
+.hw-slide.pt{--c:48,220,110;background:radial-gradient(120% 90% at 50% 28%,#12452a 0%,#08150d 54%,#030504 100%)}
+.pt .hw-waves.w1{fill:rgba(230,30,50,.28)}.pt .hw-waves.w2{fill:rgba(48,220,110,.16)}
+.pt .hw-copy h2{color:#fff}
+.pt-stage{display:flex;align-items:center;justify-content:center;gap:clamp(6px,3vw,24px);height:100%;max-width:96%}
+.pt-stage img{width:42%;height:auto;max-height:90%;border-radius:20px;border:2px solid rgba(255,255,255,.3)}
+.pt-stage img:first-child{box-shadow:0 0 30px rgba(48,220,110,.55)}
+.pt-stage img:last-child{box-shadow:0 0 30px rgba(230,30,50,.55)}
+.pt-stage b{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(34px,8vw,60px);line-height:1;transform:skewX(-8deg);color:#fff;text-shadow:0 0 14px #e11d2e,0 0 32px rgba(48,220,110,.85)}
+.pt-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;margin:6px 0 12px}
+.pt-pills span{padding:3px 9px;border-radius:99px;border:1px solid rgba(110,240,160,.55);background:rgba(0,0,0,.38);color:#e6fff0;font-size:10.5px;font-weight:700}
+@media(min-width:760px){.pt-pills{justify-content:flex-start}}
+@media(max-width:759px){.hw-slide.pt .hw-stage{height:min(25vh,230px)}}
+.btn.hw-go.grn{background:linear-gradient(120deg,#46e682,#16b856);color:#04210f;box-shadow:0 10px 30px -8px #30dc6e}
+.hw-eye.pt{display:none}
+.hw.pt-on .hw-eye{display:none}.hw.pt-on .hw-eye.pt{display:inline-flex}
 .hw-slide.rad{background:radial-gradient(120% 90% at 50% 28%,#14391f 0%,#0a1710 52%,#06090a 100%)}
 .hw-slide.dk{--c:255,40,70;background:radial-gradient(120% 90% at 50% 28%,#3d0b18 0%,#1a0710 54%,#08040a 100%)}
 /* retrato vampírico de fondo, suave */
@@ -735,7 +737,7 @@ body[data-menu="domis"] .cartbtn{display:inline-flex}
 .hw-tabs button{position:relative;overflow:hidden;width:10px;height:10px;padding:0;border:0;border-radius:99px;background:rgba(255,255,255,.35);transition:width .45s var(--ease),background .4s}
 .hw-tabs button.on{width:34px;background:rgba(255,255,255,.22)}
 .hw-tabs button::after{content:"";position:absolute;inset:0;border-radius:inherit;transform:scaleX(0);transform-origin:left;background:#fff}
-.hw-tabs button.sf::after{background:#35e0ff}.hw-tabs button.rad::after{background:#7cff3a}.hw-tabs button.dk::after{background:#ff3b5c}
+.hw-tabs button.pt::after{background:#30dc6e}.hw-tabs button.rad::after{background:#7cff3a}.hw-tabs button.dk::after{background:#ff3b5c}
 .hw-tabs button.on:not(.timing)::after{transform:scaleX(1)}
 .hw-tabs button.on.timing::after{animation:hwfill 4.5s linear forwards}
 @keyframes hwfill{to{transform:scaleX(1)}}
@@ -838,43 +840,37 @@ body[data-menu="puntos"] .modesw button.on{color:#032029;background:linear-gradi
 .chip.hot{border-color:rgba(124,255,58,.7);color:#d8ffb8;box-shadow:0 0 14px -4px rgba(124,255,58,.7)}
 .chip.hot.on,.chip.hot[aria-selected="true"]{color:#fff}
 .chiptag.seasontag{background:linear-gradient(120deg,#6dff3a,#ff3b5c);color:#06210f;box-shadow:0 0 14px rgba(124,255,58,.6)}
-/* ---------- EVENTO EN LA PESTAÑA «EVENTOS»: STREAM FIGHTERS 5 ---------- */
-.evtx{position:relative;margin-top:18px;padding:30px 22px 26px;border-radius:30px;overflow:hidden;text-align:center;isolation:isolate;border:2px solid rgba(120,220,255,.7);
-  background:radial-gradient(120% 80% at 50% 0%,#4a1a8f 0%,#1d0b3d 52%,#0a0418 100%);box-shadow:0 0 60px -14px rgba(150,80,255,.9),0 0 90px -34px rgba(40,220,255,.65)}
-.evtx::before{content:"";position:absolute;inset:0;z-index:-1;background:conic-gradient(from 200deg at 50% -12%,transparent 0 7%,rgba(53,224,255,.24) 11%,transparent 17% 29%,rgba(255,46,147,.24) 35%,transparent 41% 57%,rgba(53,224,255,.22) 63%,transparent 69% 100%),repeating-linear-gradient(115deg,rgba(255,255,255,.03) 0 2px,transparent 2px 14px)}
-.sf-gem{position:absolute;z-index:0;left:var(--x);top:var(--y);width:var(--w);aspect-ratio:.62;clip-path:polygon(50% 0,100% 38%,70% 100%,30% 100%,0 38%);background:linear-gradient(135deg,#e6f9ff,#6fc9ff 36%,#8b4dff 66%,#ff4fb1);opacity:.85;transform:rotate(var(--r));animation:sfgem var(--d) ease-in-out var(--dl) infinite alternate;pointer-events:none}
-@keyframes sfgem{to{transform:translateY(14px) rotate(calc(var(--r) + 14deg))}}
+/* ---------- EVENTO EN LA PESTAÑA «EVENTOS»: PARTIDO ---------- */
+.evtx{position:relative;margin-top:18px;padding:30px 22px 26px;border-radius:30px;overflow:hidden;text-align:center;isolation:isolate;border:2px solid rgba(70,230,130,.65);
+  background:radial-gradient(120% 70% at 50% 0%,#0f3d22 0%,#07130c 52%,#030504 100%);box-shadow:-26px 0 64px -26px rgba(48,220,110,.85),26px 0 64px -26px rgba(230,30,50,.85)}
+.evtx::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 46% at 0% 6%,rgba(30,200,100,.38),transparent 70%),radial-gradient(60% 46% at 100% 6%,rgba(230,30,50,.32),transparent 70%),conic-gradient(from 160deg at 12% -14%,transparent 0 6%,rgba(255,255,255,.16) 9%,transparent 13% 100%),conic-gradient(from 200deg at 88% -14%,transparent 0 6%,rgba(255,255,255,.16) 9%,transparent 13% 100%),repeating-linear-gradient(0deg,rgba(255,255,255,.028) 0 26px,transparent 26px 52px)}
 .evtx-top{position:relative;z-index:2;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.evtx-chip{padding:5px 13px;border-radius:999px;border:1px solid rgba(120,220,255,.7);background:rgba(0,0,0,.4);color:#d6f3ff;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
-.evtx-chip.hot{background:linear-gradient(120deg,#ff2e93,#8b2bff);border-color:transparent;color:#fff;box-shadow:0 0 18px rgba(255,46,147,.7)}
-.evtx-title{position:relative;z-index:2;margin:14px 0 4px;font-weight:400}
-.evtx-title small{display:block;margin-bottom:2px;font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,5vw,30px);letter-spacing:.34em;color:#cfeaff;text-shadow:0 0 12px rgba(53,224,255,.85)}
-.evtx-title b{display:block;font-family:'Bebas Neue',sans-serif;font-weight:400;line-height:.88;transform:skewX(-7deg)}
-.sf-l1{display:block;font-size:clamp(26px,6.5vw,44px);letter-spacing:.22em;color:#fff;text-shadow:0 0 14px rgba(53,224,255,.9)}
-.sf-l2{display:block;font-size:clamp(58px,17vw,128px);letter-spacing:.02em;background:linear-gradient(180deg,#fff 0%,#e6f6ff 40%,#8fd0ff 50%,#fff 53%,#c6a2ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 18px rgba(150,90,255,.9))}
-.sf-l2 i{display:inline-block;margin-left:.05em;font-style:normal;font-size:1.22em;background:linear-gradient(180deg,#fff,#7ee8ff 45%,#ff4fb1);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 12px rgba(53,224,255,.9))}
-.sf-sub{position:relative;z-index:2;display:inline-block;margin:8px 0 0;padding:6px 16px;border:1px solid rgba(255,255,255,.55);border-radius:999px;background:rgba(0,0,0,.32);color:#fff;font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
-@media(max-width:480px){.sf-sub{padding:6px 12px;font-size:11px;letter-spacing:.05em}}
-.evtx-row{position:relative;z-index:2;display:grid;gap:16px;margin-top:18px;text-align:left}
-@media(min-width:760px){.evtx-row{grid-template-columns:1.15fr .85fr;align-items:center}}
-.sf-photo{position:relative;margin:0;border-radius:20px;overflow:hidden;border:2px solid #fff;box-shadow:0 0 0 3px rgba(255,46,147,.9),0 0 36px 4px rgba(255,46,147,.55),0 0 60px 8px rgba(53,224,255,.35)}
-.sf-photo img{display:block;width:100%;height:auto}
-.sf-live{position:absolute;left:12px;top:12px;display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:rgba(0,0,0,.65);border:1px solid rgba(255,255,255,.4);color:#fff;font-size:11px;font-weight:900;letter-spacing:.18em}
-.sf-live::before{content:"";width:8px;height:8px;border-radius:50%;background:#ff2d55;box-shadow:0 0 10px #ff2d55;animation:sfblink 1.1s steps(1) infinite}
-@keyframes sfblink{50%{opacity:.2}}
-.evtx-info{display:flex;align-items:center;gap:16px;padding:14px 16px;border-radius:20px;background:rgba(0,0,0,.4);border:1px solid rgba(120,220,255,.35)}
-.evtx-date{flex:none;display:grid;place-items:center;width:86px;aspect-ratio:1;border-radius:20px;background:linear-gradient(160deg,#ff2e93,#7b2bff);color:#fff;transform:rotate(-4deg);box-shadow:0 8px 24px -6px #ff2e93;line-height:1}
-.evtx-date span{font-size:12px;font-weight:800;letter-spacing:.14em}
-.evtx-date b{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:46px}
-.evtx-info ul{list-style:none;margin:0;padding:0;display:grid;gap:7px;font-size:14px;font-weight:600;color:#eef6ff}
-.sf-sedes{position:relative;z-index:2;margin-top:22px}
-.sf-sedes h4{margin:0 0 10px;font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(28px,6vw,38px);letter-spacing:.1em;color:#fff;text-shadow:0 0 14px rgba(53,224,255,.8)}
-.sf-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
-.sf-sede{flex:0 1 calc(50% - 4px);display:block;padding:10px 8px;border-radius:14px;border:1px solid rgba(120,220,255,.45);background:rgba(10,4,30,.58);text-align:center;color:#fff;text-decoration:none;transition:transform .2s,border-color .2s,box-shadow .2s}
-.sf-sede:hover{transform:translateY(-2px);border-color:#35e0ff;box-shadow:0 0 18px -4px #35e0ff}
-.sf-sede b{display:block;font-size:14px;font-weight:800}
-.sf-sede span{display:block;margin-top:2px;font-size:11.5px;color:#bcd6f0}
-@media(min-width:760px){.sf-sede{flex-basis:calc(25% - 6px)}}
+.evtx-chip{padding:5px 13px;border-radius:999px;border:1px solid rgba(110,240,160,.7);background:rgba(0,0,0,.45);color:#dcffe9;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.evtx-chip.hot{background:linear-gradient(120deg,#e11d2e,#ff6a2a);border-color:transparent;color:#fff;box-shadow:0 0 18px rgba(230,30,50,.7)}
+.evtx-title{position:relative;z-index:2;margin:14px 0 2px;font-weight:400}
+.evtx-title small{display:block;font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,8vw,56px);letter-spacing:.06em;line-height:.95;color:#fff}
+.evtx-title b{display:block;font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(78px,25vw,176px);line-height:.88;letter-spacing:.05em;color:#fff;text-shadow:0 0 34px rgba(48,220,110,.45),0 6px 0 rgba(0,0,0,.35)}
+.evtx-title b::after{content:"";display:block;width:min(70%,420px);height:6px;margin:8px auto 0;border-radius:99px;background:linear-gradient(90deg,#1fd35e 0 34%,#fff 34% 66%,#e11d2e 66%);box-shadow:0 0 18px rgba(48,220,110,.6)}
+.pt-when{position:relative;z-index:2;margin:14px 0 0;font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,8.6vw,58px);line-height:1;letter-spacing:.04em;color:#fff}
+.pt-when b{font-weight:400;color:#ffd21f;text-shadow:0 0 18px rgba(255,210,31,.55)}
+.pt-league{position:relative;z-index:2;display:inline-block;margin:8px 0 0;padding:6px 16px;border:1px solid rgba(255,255,255,.55);border-radius:999px;background:rgba(0,0,0,.35);color:#fff;font-size:12.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.pt-league em{font-style:normal;color:#ffd21f}
+.pt-vsrow{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;gap:clamp(8px,4vw,40px);margin-top:20px}
+.pt-team{margin:0;display:grid;justify-items:center;gap:6px}
+.pt-team img{display:block;height:clamp(130px,36vw,210px);width:auto;border-radius:20px;border:2px solid rgba(255,255,255,.3);box-shadow:0 0 30px rgba(48,220,110,.5)}
+.pt-team:last-child img{box-shadow:0 0 30px rgba(230,30,50,.5)}
+.pt-team figcaption{font-family:'Bebas Neue',sans-serif;font-size:clamp(20px,4.6vw,28px);letter-spacing:.08em;color:#fff;text-transform:uppercase}
+.pt-vs{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(46px,12vw,84px);line-height:1;transform:skewX(-8deg);color:#fff;text-shadow:0 0 16px #e11d2e,0 0 38px rgba(48,220,110,.85)}
+.pt-facts{position:relative;z-index:2;list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.pt-facts li{padding:8px 14px;border-radius:999px;background:rgba(0,0,0,.42);border:1px solid rgba(110,240,160,.35);font-size:13.5px;font-weight:700;color:#eefff4}
+.evx-sedes{position:relative;z-index:2;margin-top:24px}
+.evx-sedes h4{margin:0 0 10px;font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(26px,5.6vw,36px);letter-spacing:.08em;color:#fff;text-shadow:0 0 14px rgba(48,220,110,.7)}
+.evx-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.evx-sede{flex:0 1 calc(50% - 4px);display:block;padding:10px 8px;border-radius:14px;border:1px solid rgba(110,240,160,.4);background:rgba(3,10,6,.62);text-align:center;color:#fff;text-decoration:none;transition:transform .2s,border-color .2s,box-shadow .2s}
+.evx-sede:hover{transform:translateY(-2px);border-color:#46e682;box-shadow:0 0 18px -4px #46e682}
+.evx-sede b{display:block;font-size:14px;font-weight:800}
+.evx-sede span{display:block;margin-top:2px;font-size:11.5px;color:#bfe3cc}
+@media(min-width:760px){.evx-sede{flex-basis:calc(20% - 7px)}}
 .evtx-cta{position:relative;z-index:2;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
 
 /* ---------- HOME COMPACTO: carruseles y promo delgada ---------- */
@@ -1106,24 +1102,24 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
   <div class="hw-card">
     <div class="hw-inner">
       <button class="hw-x" type="button" data-act="hwclose" id="hwX" aria-label="Cerrar">×</button>
-      <div class="hw-head"><span class="hw-eye"><span aria-hidden="true">☢</span> <span data-i18n="hwHead">Especiales de Halloween</span> <span aria-hidden="true">🦇</span></span><span class="hw-eye sf"><span aria-hidden="true">⚡</span> <span data-i18n="sfHead">Evento en vivo</span> <span aria-hidden="true">🥊</span></span></div>
+      <div class="hw-head"><span class="hw-eye"><span aria-hidden="true">☢</span> <span data-i18n="hwHead">Especiales de Halloween</span> <span aria-hidden="true">🦇</span></span><span class="hw-eye pt"><span aria-hidden="true">⚽</span> <span data-i18n="ptHead">Partido de hoy</span> <span aria-hidden="true">⚽</span></span></div>
       <div class="hw-slides" id="hwSlides">
 
-        <section class="hw-slide sf on" data-k="sf" data-ev="stream" aria-labelledby="sfTitle">
-          <div class="hw-fall" id="sfConf" aria-hidden="true"></div>
+        <section class="hw-slide pt on" data-k="pt" data-ev="partido" aria-labelledby="ptTitle">
+          <div class="hw-fall" id="ptConf" aria-hidden="true"></div>
           <svg class="hw-waves w2" viewBox="0 0 2400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60 q150 -52 300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 V120 H0Z"/></svg>
           <svg class="hw-waves w1" viewBox="0 0 2400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70 q150 -46 300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 V120 H0Z"/></svg>
           <div class="hw-stage">
             <div class="hw-rays" aria-hidden="true"></div>
             <i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i>
-            <img class="hw-cup hw-photo" src="img/stream-fighters.webp" width="738" height="496" alt="" decoding="async">
-            <span class="hw-gift alt" aria-hidden="true"><small data-i18n="sfFromS">Desde</small>6 PM</span>
+            <div class="hw-cup pt-stage"><img src="img/atletico-nacional.webp" width="236" height="316" alt="Atlético Nacional" decoding="async"><b aria-hidden="true">VS</b><img src="img/once-caldas.webp" width="216" height="292" alt="Once Caldas" decoding="async"></div>
           </div>
           <div class="hw-copy">
-            <h2 id="sfTitle"><span data-i18n="sfT1">Vive el</span><b>Stream Fighters <em class="sf5">5</em></b></h2>
-            <span class="hw-lim" data-i18n="sfLim">Sáb 14 nov · desde 6:00 PM</span>
-            <div class="sf-pills"><span>Provenza</span><span>San Javier</span><span>Manrique</span><span>Castilla</span><span>Campo Valdés</span><span>Belén La Nubia</span><span>Caucasia</span></div>
-            <div class="hw-cta"><button class="btn hw-go vio" type="button" data-act="gosedes"><span data-i18n="sfGoS">Ver las sedes</span></button><button class="hw-more" type="button" data-act="hwevents" data-i18n="fsMore">Ver el evento</button></div>
+            <h2 id="ptTitle"><span data-i18n="ptT1">Vive el</span><b data-i18n="ptT2">Partido</b></h2>
+            <span class="hw-lim" data-i18n="ptLim">Mar 17 nov · 6:30 PM</span>
+            <p data-i18n="ptLeague">Liga BetPlay · Semifinal</p>
+            <div class="pt-pills"><span>Provenza</span><span>San Javier</span><span>Manrique</span><span>Castilla</span><span>Campo Valdés</span><span>Belén La Nubia</span><span>Belén Rincón</span><span>Montelíbano</span><span>Caucasia</span></div>
+            <div class="hw-cta"><button class="btn hw-go grn" type="button" data-act="gosedes"><span data-i18n="ptGoS">Ver las sedes</span></button><button class="hw-more" type="button" data-act="hwevents" data-i18n="fsMore">Ver el evento</button></div>
           </div>
         </section>
 
@@ -1170,7 +1166,7 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
 
       </div>
       <div class="hw-foot">
-        <div class="hw-tabs" id="hwTabs" role="tablist"><button type="button" role="tab" class="sf on" aria-selected="true" aria-label="Stream Fighters 5" data-act="hwslide" data-ev="stream" data-i="0"></button><button type="button" role="tab" class="rad" aria-selected="false" aria-label="Vaso Halloween Radioactivo" data-act="hwslide" data-i="0"></button><button type="button" role="tab" class="dk" aria-selected="false" aria-label="Malteada Drakula" data-act="hwslide" data-i="1"></button></div>
+        <div class="hw-tabs" id="hwTabs" role="tablist"><button type="button" role="tab" class="pt on" aria-selected="true" aria-label="Partido: Atlético Nacional vs Once Caldas" data-act="hwslide" data-ev="partido" data-i="0"></button><button type="button" role="tab" class="rad" aria-selected="false" aria-label="Vaso Halloween Radioactivo" data-act="hwslide" data-i="0"></button><button type="button" role="tab" class="dk" aria-selected="false" aria-label="Malteada Drakula" data-act="hwslide" data-i="1"></button></div>
       </div>
     </div>
   </div>
@@ -1282,14 +1278,16 @@ const RECOS = {
 };
 // Eventos con fecha. date/until: AAAA-MM-DD; el evento sale en la pestaña Eventos hasta el final de "until" y después se oculta solo (bannerHoy: true = la lámina del banner de inicio se queda también el día del evento). Cuando pase, borra su entrada y su plantilla para no dejar código muerto.
 const EVENTS = [
-  // Stream Fighters 5 (sábado 14/11, desde las 6:00 PM) en 7 sedes
-  {id:'stream', date:'2026-11-14', until:'2026-11-14', bannerHoy:true, time:'6:00 PM', sedes:[
+  // Semifinal Liga BetPlay: Atlético Nacional vs Once Caldas (martes 17/11, 6:30 PM) en 9 sedes
+  {id:'partido', date:'2026-11-17', until:'2026-11-17', bannerHoy:true, time:'6:30 PM', sedes:[
     {n:'Provenza',a:'Cra 35 #8A-11',q:'Cra 35 #8A-11, El Poblado, Medellín, Antioquia, Colombia'},
     {n:'San Javier',a:'Calle 39b #108-76',q:'Calle 39b #108-76, San Javier, Medellín, Antioquia, Colombia'},
     {n:'Manrique',a:'Cra 47 #69-5',q:'Cra. 47 #69-5, Aranjuez, Medellín, Antioquia, Colombia'},
     {n:'Castilla',a:'Cra 68 #93-83',q:'Carrera 68 #93-83, Castilla, Medellín, Antioquia, Colombia'},
     {n:'Campo Valdés',a:'Cra 48a #76-59',q:'Carrera 48a #76-59, Campo Valdés, Medellín, Antioquia, Colombia'},
     {n:'Belén La Nubia',a:'Cra 83 #15a-21',q:'Carrera 83 #15a-21, Belén, Medellín, Antioquia, Colombia'},
+    {n:'Belén Rincón',a:'Cra 79 #1a-44 · Punto de venta',q:'Carrera 79 #1a-44, Belén, Medellín, Antioquia, Colombia'},
+    {n:'Montelíbano',a:'Manguito Biche',q:'Manguito Biche, Montelíbano, Córdoba, Colombia'},
     {n:'Caucasia',a:'Manguito Biche',q:'Manguito Biche, Caucasia, Antioquia, Colombia'}
   ]}
 ];
@@ -1452,7 +1450,7 @@ const DELI = SEDES.findIndex(s => s.n===DELIVERY_SEDE);
    TEXTOS DE LA INTERFAZ
    ========================================================= */
 const UI = {
-  es:{sfHead:'Evento en vivo',sfT1:'Vive el',sfLim:'Sáb 14 nov · desde 6:00 PM',sfFromS:'Desde',sfGoS:'Ver las sedes',sfSub:'En nuestras sedes · desde las 6:00 PM',sfLive:'EN VIVO',sfAlt:'Clientes viendo el Stream Fighters 5 en una sede de El Coctelazo',sfScreen:'En pantalla grande en nuestras sedes',sfWhere:'Desde el Coliseo Medplus, Bogotá',sfFrom:'Desde las 6:00 PM',sfWait:'Los esperamos en',sfAllS:'Ver sedes y horarios',sfWaBtn:'Escríbenos',sfWa:'Hola El Coctelazo 👋 Quiero ver el Stream Fighters 5 en una de sus sedes (sábado 14 de noviembre).',fsMore:'Ver el evento',legAlc:'Prohibida la venta de alcohol a menores de 18 años.',legHealth:'El exceso de alcohol es perjudicial para la salud.',legPolicy:'Política de tratamiento de datos personales',legDrawer:'Al enviar tu pedido autorizas el tratamiento de tus datos según nuestra <a href="politica-datos.html" target="_blank" rel="noopener">política de datos personales</a>. Licor solo para mayores de 18 años.',tmr:'mañana',adultsOnly:'No se permite el ingreso de menores de edad',sugT:n=>`Te faltan <b>${n}</b> para el domicilio. Te recomendamos:`,sugAdd:'Agregar',locUse:'Usar mi ubicación',locBusy:'Buscando…',locView:'Ver en el mapa',locNeedAddr:'Escribe primero tu dirección',locErr:'No pudimos obtener tu ubicación. Revisa el permiso del navegador o escribe tu dirección.',locNo:'Tu navegador no permite compartir la ubicación.',locShared:'Ubicación compartida',locFromAddr:'Dirección en el mapa',locKm:(km,s)=>`≈ ${km} de ${s}`,locOpen:'Abrir en Waze',locRemove:'Quitar',locHint:'Puedes escribir la dirección o compartir tu ubicación: se envía junto al pedido por WhatsApp.',locMsg:'Ubicación',mbP:'Carta de punto de venta',mbPs:'precios en sede',mbD:'Carta de domicilios',mbDs:'pedido por WhatsApp',seeAll:'Ver todo',homeCatsTitle:'Explora la carta',tabEventos:'Eventos',evEmpty:'Pronto anunciaremos nuevos eventos.',seasonB:'TEMPORADA',evEye:'Evento',evGo:'Cómo llegar',evToday:'¡Es hoy!',evTomorrow:'¡Es mañana!',evDays:n=>`Faltan ${n} días`,evDate:'Fecha',tabHome:'Home',modeP:'Punto de venta',modeD:'Domicilios',modeAria:'Elige la carta',newb:'NUEVO',seasonTitle:'De temporada',seasonSub:'Especiales de temporada. Toca uno para verlo.',seasonView:'Verlo',recoTitle:'Recomendados para ti',recoSub:'Elige con quién vas y te decimos qué pedir.',recoP:'Parejas',recoA:'Amigos',recoF:'Familia',recoPt:'Para una noche de dos',recoAt:'Para compartir con los amigos',recoFt:'Para toda la familia, con opciones sin licor',famTitle:'Nueva familia de granizados',famSub:'Vasos nuevos, sabores nuevos.',famAll:'Ver en la carta',evtTitle:'Eventos',evtBtn:'Ver especiales',tueEye:'¡Hoy es martes!',tueInfoEye:'Todos los martes',tueTitle:'Martes de granizado',tueSub:'Granizado tradicional y cremoso',tueTrad:'Tradicional 16 oz',tueCrem:'Cremoso 16 oz',tueNote:'Todas las sedes de Medellín, menos Provenza',tueToday:'Solo hoy',tueDays:n=>n===1?'Mañana es martes: ¡no te lo pierdas!':`Faltan ${n} días para el próximo martes`,tabPuntos:'Carta',tabDomis:'Domicilios',tabInfo:'Sedes',ctaMenu:'Ver la carta',ctaDomis:'Pedir domicilio',ctaSedes:'Nuestras sedes',
+  es:{ptHead:'Partido de hoy',ptT1:'Vive el',ptT2:'Partido',ptToday:'HOY',ptLim:'Mar 17 nov · 6:30 PM',ptLeague:'Liga BetPlay · Semifinal',ptGoS:'Ver las sedes',ptScreen:'En pantalla grande en nuestras sedes',ptWait:'Los esperamos en nuestras sedes',ptAllS:'Ver sedes y horarios',ptWaBtn:'Escríbenos',ptWa:'Hola El Coctelazo 👋 Quiero ver el partido Atlético Nacional vs Once Caldas (semifinal de la Liga BetPlay) en una de sus sedes.',fsMore:'Ver el evento',legAlc:'Prohibida la venta de alcohol a menores de 18 años.',legHealth:'El exceso de alcohol es perjudicial para la salud.',legPolicy:'Política de tratamiento de datos personales',legDrawer:'Al enviar tu pedido autorizas el tratamiento de tus datos según nuestra <a href="politica-datos.html" target="_blank" rel="noopener">política de datos personales</a>. Licor solo para mayores de 18 años.',tmr:'mañana',adultsOnly:'No se permite el ingreso de menores de edad',sugT:n=>`Te faltan <b>${n}</b> para el domicilio. Te recomendamos:`,sugAdd:'Agregar',locUse:'Usar mi ubicación',locBusy:'Buscando…',locView:'Ver en el mapa',locNeedAddr:'Escribe primero tu dirección',locErr:'No pudimos obtener tu ubicación. Revisa el permiso del navegador o escribe tu dirección.',locNo:'Tu navegador no permite compartir la ubicación.',locShared:'Ubicación compartida',locFromAddr:'Dirección en el mapa',locKm:(km,s)=>`≈ ${km} de ${s}`,locOpen:'Abrir en Waze',locRemove:'Quitar',locHint:'Puedes escribir la dirección o compartir tu ubicación: se envía junto al pedido por WhatsApp.',locMsg:'Ubicación',mbP:'Carta de punto de venta',mbPs:'precios en sede',mbD:'Carta de domicilios',mbDs:'pedido por WhatsApp',seeAll:'Ver todo',homeCatsTitle:'Explora la carta',tabEventos:'Eventos',evEmpty:'Pronto anunciaremos nuevos eventos.',seasonB:'TEMPORADA',evEye:'Evento',evGo:'Cómo llegar',evToday:'¡Es hoy!',evTomorrow:'¡Es mañana!',evDays:n=>`Faltan ${n} días`,evDate:'Fecha',tabHome:'Home',modeP:'Punto de venta',modeD:'Domicilios',modeAria:'Elige la carta',newb:'NUEVO',seasonTitle:'De temporada',seasonSub:'Especiales de temporada. Toca uno para verlo.',seasonView:'Verlo',recoTitle:'Recomendados para ti',recoSub:'Elige con quién vas y te decimos qué pedir.',recoP:'Parejas',recoA:'Amigos',recoF:'Familia',recoPt:'Para una noche de dos',recoAt:'Para compartir con los amigos',recoFt:'Para toda la familia, con opciones sin licor',famTitle:'Nueva familia de granizados',famSub:'Vasos nuevos, sabores nuevos.',famAll:'Ver en la carta',evtTitle:'Eventos',evtBtn:'Ver especiales',tueEye:'¡Hoy es martes!',tueInfoEye:'Todos los martes',tueTitle:'Martes de granizado',tueSub:'Granizado tradicional y cremoso',tueTrad:'Tradicional 16 oz',tueCrem:'Cremoso 16 oz',tueNote:'Todas las sedes de Medellín, menos Provenza',tueToday:'Solo hoy',tueDays:n=>n===1?'Mañana es martes: ¡no te lo pierdas!':`Faltan ${n} días para el próximo martes`,tabPuntos:'Carta',tabDomis:'Domicilios',tabInfo:'Sedes',ctaMenu:'Ver la carta',ctaDomis:'Pedir domicilio',ctaSedes:'Nuestras sedes',
     searchLabel:'Buscar en la carta',searchPh:'Busca un granizado, una bomba, un nevecón…',surprise:'Sorpréndeme',footLine:'El Coctelazo — Medellín',
     sedesTitle:'Nuestras sedes',address:'Dirección',hours:'Horario',hoursV:'Lunes a domingo: 2:30 PM – 12:00 AM · Fines de semana hasta las 2:00 AM',hoursD:'Domicilios',hoursDV:'Todos los días: 4:30 PM – 12:30 AM',
     how:'Cómo llegar',map:'Ver mapa',hideMap:'Ocultar mapa',creditL:'© 2026 Sonetix. Páginas web a la medida.',locTitle:'Encuentra tu sede más cercana',locSub:'Te mostramos la más cerca de ti y cómo llegar',locAgain:'Actualizar mi ubicación',locAgainSub:'Volver a buscar la sede más cercana',locBusy:'Buscando tu ubicación…',
@@ -1477,7 +1475,7 @@ const UI = {
     results:(n,q)=>`${n} resultado${n===1?'':'s'} para «${q}»`,noRes:'Nada por aquí',noResSub:'Prueba con otra palabra: granizado, bomba, nevecón…',
     close:'Cerrar',top:'Volver arriba',unit:'c/u',from:'desde',pending:'Precio por confirmar',
     mNoteP:'Precio en nuestras sedes. ',mNoteGo:'Pídelo a domicilio →',liter:'Litro',half:'Media'},
-  en:{sfHead:'Live event',sfT1:'Watch the',sfLim:'Sat Nov 14 · from 6:00 PM',sfFromS:'From',sfGoS:'See locations',sfSub:'At our locations · from 6:00 PM',sfLive:'LIVE',sfAlt:'Guests watching Stream Fighters 5 at an El Coctelazo location',sfScreen:'On the big screen at our locations',sfWhere:'From Coliseo Medplus, Bogotá',sfFrom:'From 6:00 PM',sfWait:'See you at',sfAllS:'Locations & hours',sfWaBtn:'Message us',sfWa:'Hi El Coctelazo 👋 I want to watch Stream Fighters 5 at one of your locations (Saturday, November 14).',fsMore:'See the event',legAlc:'Sale of alcohol to anyone under 18 is prohibited.',legHealth:'Excessive alcohol consumption is harmful to health.',legPolicy:'Personal data processing policy (Spanish)',legDrawer:'By sending your order you authorize the processing of your data under our <a href="politica-datos.html" target="_blank" rel="noopener">personal data policy</a> (Spanish). Alcohol is sold only to adults (18+).',tmr:'tomorrow',adultsOnly:'Minors are not allowed',sugT:n=>`You need <b>${n}</b> more for delivery. We suggest:`,sugAdd:'Add',locUse:'Use my location',locBusy:'Locating…',locView:'See on map',locNeedAddr:'Type your address first',locErr:'We could not get your location. Check the browser permission or type your address.',locNo:'Your browser does not allow sharing your location.',locShared:'Location shared',locFromAddr:'Address on the map',locKm:(km,s)=>`≈ ${km} from ${s}`,locOpen:'Open in Waze',locRemove:'Remove',locHint:'Type your address or share your location: it is sent with the order on WhatsApp.',locMsg:'Location',mbP:'In-store menu',mbPs:'venue prices',mbD:'Delivery menu',mbDs:'order via WhatsApp',seeAll:'See all',homeCatsTitle:'Explore the menu',tabEventos:'Events',evEmpty:'New events coming soon.',seasonB:'SEASONAL',evEye:'Event',evGo:'Get directions',evToday:'It’s today!',evTomorrow:'It’s tomorrow!',evDays:n=>`${n} days to go`,evDate:'Date',tabHome:'Home',modeP:'In-store',modeD:'Delivery',modeAria:'Choose the menu',newb:'NEW',seasonTitle:'Seasonal',seasonSub:'Seasonal specials. Tap one to see it.',seasonView:'See it',recoTitle:'Picked for you',recoSub:'Tell us who you’re with and we’ll tell you what to order.',recoP:'Couples',recoA:'Friends',recoF:'Family',recoPt:'For a night for two',recoAt:'To share with friends',recoFt:'For the whole family, with alcohol-free options',famTitle:'New slush family',famSub:'New cups, new flavors.',famAll:'See in the menu',evtTitle:'Events',evtBtn:'See specials',tueEye:'It’s Tuesday!',tueInfoEye:'Every Tuesday',tueTitle:'Slush Tuesday',tueSub:'Traditional and creamy slushes',tueTrad:'Traditional 16 oz',tueCrem:'Creamy 16 oz',tueNote:'All Medellín locations, except Provenza',tueToday:'Today only',tueDays:n=>n===1?'Tomorrow is Tuesday: don’t miss it!':`${n} days until next Tuesday`,tabPuntos:'Menu',tabDomis:'Delivery',tabInfo:'Locations',ctaMenu:'See the menu',ctaDomis:'Order delivery',ctaSedes:'Our locations',
+  en:{ptHead:'Match day',ptT1:'Watch the',ptT2:'Match',ptToday:'TODAY',ptLim:'Tue Nov 17 · 6:30 PM',ptLeague:'Liga BetPlay · Semi-final',ptGoS:'See locations',ptScreen:'On the big screen at our locations',ptWait:'See you at our locations',ptAllS:'Locations & hours',ptWaBtn:'Message us',ptWa:'Hi El Coctelazo 👋 I want to watch Atlético Nacional vs Once Caldas (Liga BetPlay semi-final) at one of your locations.',fsMore:'See the event',legAlc:'Sale of alcohol to anyone under 18 is prohibited.',legHealth:'Excessive alcohol consumption is harmful to health.',legPolicy:'Personal data processing policy (Spanish)',legDrawer:'By sending your order you authorize the processing of your data under our <a href="politica-datos.html" target="_blank" rel="noopener">personal data policy</a> (Spanish). Alcohol is sold only to adults (18+).',tmr:'tomorrow',adultsOnly:'Minors are not allowed',sugT:n=>`You need <b>${n}</b> more for delivery. We suggest:`,sugAdd:'Add',locUse:'Use my location',locBusy:'Locating…',locView:'See on map',locNeedAddr:'Type your address first',locErr:'We could not get your location. Check the browser permission or type your address.',locNo:'Your browser does not allow sharing your location.',locShared:'Location shared',locFromAddr:'Address on the map',locKm:(km,s)=>`≈ ${km} from ${s}`,locOpen:'Open in Waze',locRemove:'Remove',locHint:'Type your address or share your location: it is sent with the order on WhatsApp.',locMsg:'Location',mbP:'In-store menu',mbPs:'venue prices',mbD:'Delivery menu',mbDs:'order via WhatsApp',seeAll:'See all',homeCatsTitle:'Explore the menu',tabEventos:'Events',evEmpty:'New events coming soon.',seasonB:'SEASONAL',evEye:'Event',evGo:'Get directions',evToday:'It’s today!',evTomorrow:'It’s tomorrow!',evDays:n=>`${n} days to go`,evDate:'Date',tabHome:'Home',modeP:'In-store',modeD:'Delivery',modeAria:'Choose the menu',newb:'NEW',seasonTitle:'Seasonal',seasonSub:'Seasonal specials. Tap one to see it.',seasonView:'See it',recoTitle:'Picked for you',recoSub:'Tell us who you’re with and we’ll tell you what to order.',recoP:'Couples',recoA:'Friends',recoF:'Family',recoPt:'For a night for two',recoAt:'To share with friends',recoFt:'For the whole family, with alcohol-free options',famTitle:'New slush family',famSub:'New cups, new flavors.',famAll:'See in the menu',evtTitle:'Events',evtBtn:'See specials',tueEye:'It’s Tuesday!',tueInfoEye:'Every Tuesday',tueTitle:'Slush Tuesday',tueSub:'Traditional and creamy slushes',tueTrad:'Traditional 16 oz',tueCrem:'Creamy 16 oz',tueNote:'All Medellín locations, except Provenza',tueToday:'Today only',tueDays:n=>n===1?'Tomorrow is Tuesday: don’t miss it!':`${n} days until next Tuesday`,tabPuntos:'Menu',tabDomis:'Delivery',tabInfo:'Locations',ctaMenu:'See the menu',ctaDomis:'Order delivery',ctaSedes:'Our locations',
     searchLabel:'Search the menu',searchPh:'Search a slush, a bomba, a nevecón…',surprise:'Surprise me',footLine:'El Coctelazo — Medellín',
     sedesTitle:'Our locations',address:'Address',hours:'Hours',hoursV:'Monday to Sunday: 2:30 PM – 12:00 AM · Weekends until 2:00 AM',hoursD:'Delivery',hoursDV:'Every day: 4:30 PM – 12:30 AM',
     how:'Get directions',map:'Show map',hideMap:'Hide map',creditL:'© 2026 Sonetix. Websites made to measure.',locTitle:'Find your nearest location',locSub:'We’ll show the closest one to you and how to get there',locAgain:'Update my location',locAgainSub:'Search for the nearest location again',locBusy:'Finding your location…',
@@ -1795,28 +1793,27 @@ function familyHTML(){
     ${railHTML(items)}</section>`;
 }
 function eventDays(e){ return Math.round((Date.parse(e.date+'T00:00:00Z')-Date.parse(todayStr()+'T00:00:00Z'))/86400000); }
-function eventCardStream(e){
+function eventCardPartido(e){
   const d = new Date(e.date+'T12:00:00Z'), loc = state.lang==='en'?'en-US':'es-CO';
   const wd = d.toLocaleDateString(loc,{weekday:'short',timeZone:'UTC'}).replace('.','').toUpperCase(), mo = d.toLocaleDateString(loc,{month:'short',timeZone:'UTC'}).replace('.','').toUpperCase();
   const n = eventDays(e), when = n<=0 ? t('evToday') : n===1 ? t('evTomorrow') : t('evDays')(n);
-  const wa = 'https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent(t('sfWa'));
-  const gems = [['-1%','5%','34px','-14deg','7s','-1s'],['93%','9%','26px','18deg','9s','-4s'],['3%','44%','22px','10deg','8s','-2s'],['95%','60%','30px','-12deg','10s','-6s']]
-    .map(([x,y,w,r,dd,dl])=>'<i class="sf-gem" style="--x:'+x+';--y:'+y+';--w:'+w+';--r:'+r+';--d:'+dd+';--dl:'+dl+'" aria-hidden="true"></i>').join('');
-  const sedes = e.sedes.map(s=>'<a class="sf-sede" href="https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(s.q)+'" target="_blank" rel="noopener"><b>'+esc(s.n)+'</b><span>'+esc(s.a)+'</span></a>').join('');
+  const day = n<=0 ? t('ptToday') : wd+' '+d.getUTCDate()+' '+mo;
+  const wa = 'https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent(t('ptWa'));
+  const sedes = e.sedes.map(s=>'<a class="evx-sede" href="https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(s.q)+'" target="_blank" rel="noopener"><b>'+esc(s.n)+'</b><span>'+esc(s.a)+'</span></a>').join('');
+  const team = (img,name) => '<figure class="pt-team"><img src="'+img+'" alt="" loading="lazy" decoding="async"><figcaption>'+name+'</figcaption></figure>';
   return '<article class="evtx">'
-    + gems
     + '<div class="evtx-top"><span class="evtx-chip">'+t('evEye')+'</span><span class="evtx-chip hot">'+when+'</span></div>'
-    + '<h3 class="evtx-title"><small>'+t('sfT1')+'</small><b><span class="sf-l1">★ Stream ★</span><span class="sf-l2">Fighters <i>5</i></span></b></h3>'
-    + '<p class="sf-sub">'+t('sfSub')+'</p>'
-    + '<div class="evtx-row"><figure class="sf-photo"><img src="img/stream-fighters.webp" width="738" height="496" alt="'+esc(t('sfAlt'))+'" loading="lazy" decoding="async"><figcaption class="sf-live">'+t('sfLive')+'</figcaption></figure>'
-    +   '<div class="evtx-info"><div class="evtx-date" aria-label="'+esc(t('evDate'))+'"><span>'+wd+'</span><b>'+String(d.getUTCDate())+'</b><span>'+mo+'</span></div>'
-    +   '<ul><li>⏰ '+t('sfFrom')+'</li><li>📺 '+t('sfScreen')+'</li><li>🥊 '+t('sfWhere')+'</li><li>🔥 #SomosCultura</li></ul></div></div>'
-    + '<div class="sf-sedes"><h4>'+t('sfWait')+'</h4><div class="sf-grid">'+sedes+'</div></div>'
-    + '<div class="evtx-cta"><button class="btn primary" type="button" data-act="gosedes">'+t('sfAllS')+'</button><a class="btn ghost" href="'+wa+'" target="_blank" rel="noopener">'+t('sfWaBtn')+'</a></div>'
+    + '<h3 class="evtx-title"><small>'+t('ptT1')+'</small><b>'+t('ptT2')+'</b></h3>'
+    + '<p class="pt-when"><b>'+day+'</b>, '+e.time+'</p>'
+    + '<p class="pt-league">'+t('ptLeague')+'</p>'
+    + '<div class="pt-vsrow">'+team('img/atletico-nacional.webp','Atlético Nacional')+'<span class="pt-vs" aria-hidden="true">VS</span>'+team('img/once-caldas.webp','Once Caldas')+'</div>'
+    + '<ul class="pt-facts"><li>📺 '+t('ptScreen')+'</li><li>⏰ '+e.time+'</li><li>🔥 #SomosCultura</li></ul>'
+    + '<div class="evx-sedes"><h4>'+t('ptWait')+'</h4><div class="evx-grid">'+sedes+'</div></div>'
+    + '<div class="evtx-cta"><button class="btn primary" type="button" data-act="gosedes">'+t('ptAllS')+'</button><a class="btn ghost" href="'+wa+'" target="_blank" rel="noopener">'+t('ptWaBtn')+'</a></div>'
     + '</article>';
 }
 function eventCard(e){
-  if (e.id==='stream') return eventCardStream(e);
+  if (e.id==='partido') return eventCardPartido(e);
   return '';
 }
 function renderEvents(){
@@ -2461,7 +2458,7 @@ function refreshStatuses(){
 (function buildFx(){
   const r = Math.random;
   $('#hwBubs').innerHTML = Array.from({length:18},()=>{ const s=6+r()*20|0; return `<span class="hw-bub" style="left:${(r()*96).toFixed(1)}%;width:${s}px;height:${s}px;--d:${(7+r()*8).toFixed(1)}s;--dl:${(-r()*12).toFixed(1)}s;--dx:${(r()*80-40)|0}px"></span>`; }).join('');
-  $('#sfConf').innerHTML = Array.from({length:16},(_,k)=>`<span class="hw-conf" style="left:${(r()*96).toFixed(1)}%;background:${['#35e0ff','#ff2e93','#ffffff','#b88cff'][k%4]};--d:${(4+r()*4).toFixed(1)}s;--dl:${(-r()*8).toFixed(1)}s;--dx:${(r()*60-30)|0}px"></span>`).join('');
+  $('#ptConf').innerHTML = Array.from({length:16},(_,k)=>`<span class="hw-conf" style="left:${(r()*96).toFixed(1)}%;background:${['#30dc6e','#ffffff','#e11d2e','#ffd21f'][k%4]};--d:${(4+r()*4).toFixed(1)}s;--dl:${(-r()*8).toFixed(1)}s;--dx:${(r()*60-30)|0}px"></span>`).join('');
   $('#dkDrops').innerHTML = Array.from({length:14},()=>`<span class="hw-drop" style="left:${(r()*96).toFixed(1)}%;--d:${(3.5+r()*4).toFixed(1)}s;--dl:${(-r()*8).toFixed(1)}s"></span>`).join('');
 })();
 /* la lámina de un evento sale del banner el mismo día en que empieza (salvo bannerHoy) y, en todo caso, cuando termina; en Eventos sigue hasta que termina */
@@ -2473,7 +2470,7 @@ let hwIdx = 0, hwTimer = null;
 function hwShow(i){
   hwIdx = i;
   hwSlideEls.forEach((el,k)=>el.classList.toggle('on',k===i));
-  $('#hw').classList.toggle('sf-on', hwSlideEls[i]?.dataset.k==='sf');
+  $('#hw').classList.toggle('pt-on', hwSlideEls[i]?.dataset.k==='pt');
   hwTabs.forEach((b,k)=>{ b.classList.toggle('on',k===i); b.setAttribute('aria-selected',String(k===i)); b.classList.remove('timing'); });
   if (hwTimer){ void hwTabs[i].offsetWidth; hwTabs[i].classList.add('timing'); }   // barrita que avisa cuándo cambia
 }
