@@ -261,6 +261,7 @@ body.has-mouse .spot{opacity:1}
   filter:saturate(1.3) contrast(1.08) brightness(1.06) drop-shadow(0 16px 12px rgba(0,0,0,.55)) drop-shadow(0 0 18px var(--g));
   transition:transform .55s var(--ease),filter .4s;
 }
+.pic img[src*="granizado-fest"]{border-radius:14px}
 .card:hover .pic img{transform:scale(1.12) rotate(-2.5deg);filter:saturate(1.45) contrast(1.1) brightness(1.1) drop-shadow(0 20px 14px rgba(0,0,0,.6)) drop-shadow(0 0 28px var(--g))}
 .glyph{position:absolute;inset:0 0 14px;display:grid;place-items:center;transform:translateZ(40px)}
 .glyph svg{width:46%;max-height:100%;color:var(--c1);filter:drop-shadow(0 0 10px var(--g));opacity:.9;animation:bob 6s ease-in-out infinite}
@@ -759,6 +760,33 @@ body[data-menu="puntos"] .modesw button.on{color:#032029;background:linear-gradi
 .promo-prices em{display:block;margin-top:2px;font-style:normal;font-weight:800;font-size:18px;color:#fff}
 .promo small{display:block;font-size:12px;color:#e8dcd6}
 .promo-days{margin-top:10px;font-weight:700;font-size:13px;color:var(--cyan)}
+/* Home: Granizado Fest (CocoBlue vs Manguito Spicy) */
+.fest{position:relative;margin-top:18px;display:grid;gap:14px;align-items:center;padding:16px;border-radius:26px;overflow:hidden;isolation:isolate;text-align:center;
+  background:radial-gradient(120% 90% at 20% 0%,#10287a 0%,#1a0a3d 50%,#2b0c1a 100%);border:1px solid rgba(41,216,255,.4);box-shadow:0 0 34px -14px var(--cyan),0 0 40px -22px #ff7a1a}
+.fest-photo{margin:0 auto;width:100%;max-width:400px;border-radius:18px;overflow:hidden;border:2px solid #fff;box-shadow:0 0 0 3px rgba(41,216,255,.7),0 0 30px 2px rgba(255,138,30,.45)}
+.fest-photo img{display:block;width:100%;height:auto}
+.fest-eye{display:inline-block;padding:5px 13px;border-radius:999px;background:var(--pink);color:#fff;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;box-shadow:0 0 18px var(--pink)}
+.fest h2{margin:10px 0 0;font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(42px,10vw,64px);line-height:.92;letter-spacing:.04em;color:#fff;text-shadow:0 0 12px rgba(41,216,255,.8),0 0 34px rgba(41,216,255,.4)}
+.fest h2 b{font-weight:400;font-style:italic;color:#ff5b9a;text-shadow:0 0 12px rgba(255,47,126,.8)}
+.fest p{margin:4px 0 0;font-size:13.5px;color:#e6e0f2}
+.fest-price{display:flex;align-items:baseline;justify-content:center;gap:8px;margin:10px 0 2px}
+.fest-price em{font-style:normal;font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,12vw,76px);line-height:1;color:var(--gold);text-shadow:0 0 18px rgba(255,178,56,.7)}
+.fest-price span{font-size:15px;font-weight:800;color:#ff8fb3}
+.fest-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:10px}
+@media(min-width:760px){.fest{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:26px;padding:20px 26px 20px 20px;text-align:left}.fest-photo{max-width:none}.fest-price{justify-content:flex-start}.fest-cta{justify-content:flex-start}}
+/* ventana de inicio: Granizado Fest */
+.hw-eye{display:none}
+.hw[data-k="ee"] .hw-eye.ee,.hw[data-k="gf"] .hw-eye.gf{display:inline-flex}
+.hw-slide.gf{--c:41,216,255;background:radial-gradient(120% 90% at 50% 28%,#12308f 0%,#1a0a3d 54%,#07040f 100%)}
+.gf .hw-waves.w1{fill:rgba(255,122,26,.28)}.gf .hw-waves.w2{fill:rgba(41,216,255,.14)}
+.gf .hw-copy h2{color:#fff}
+.gf .hw-copy h2 b{color:#ff5b9a;font-style:italic;text-shadow:0 0 12px #ff2f7e,0 0 40px rgba(255,47,126,.8)}
+.hw-cup.gf-img{max-width:84%;max-height:100%;width:auto;height:auto;border-radius:18px;border:2px solid #fff;filter:none;box-shadow:0 0 0 3px #29d8ff,0 0 34px 2px rgba(255,138,30,.55)}
+.hw-slide.gf .hw-gift{left:3%;right:auto;top:auto;bottom:-6px}
+.gf .ee-pills span{border-color:rgba(41,216,255,.8);color:#7fe9ff}
+@media(max-width:759px){.hw-slide.gf .hw-stage{height:min(30vh,270px)}}
+.btn.hw-go.cyan{background:linear-gradient(120deg,#29d8ff,#2f7bff);color:#04132e;box-shadow:0 10px 30px -8px #29d8ff}
+.hw-tabs button.gf::after{background:#29d8ff}
 .recochips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .recochips .chip{padding:9px 18px;font-size:13px}
 .recotxt{margin:12px 0 0;font-size:14px;color:var(--gold);font-style:italic}
@@ -1036,7 +1064,7 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
   <div class="hw-card">
     <div class="hw-inner">
       <button class="hw-x" type="button" data-act="hwclose" id="hwX" aria-label="Cerrar">×</button>
-      <div class="hw-head"><span class="hw-eye ee"><span aria-hidden="true">🎓</span> <span data-i18n="eeHead">Evento en Manrique</span> <span aria-hidden="true">🎓</span></span></div>
+      <div class="hw-head"><span class="hw-eye gf"><span aria-hidden="true">🥤</span> <span data-i18n="gfHead">Granizado Fest</span> <span aria-hidden="true">🥤</span></span><span class="hw-eye ee"><span aria-hidden="true">🎓</span> <span data-i18n="eeHead">Evento en Manrique</span> <span aria-hidden="true">🎓</span></span></div>
       <div class="hw-slides" id="hwSlides">
 
         <section class="hw-slide ee on" data-k="ee" data-ev="escuela" aria-labelledby="eeTitle">
@@ -1057,10 +1085,28 @@ body.cart-open .wafab,body.modal-open .wafab{display:none}
             <div class="hw-cta"><a class="btn hw-go red" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cra.%2047%20%2369-5%2C%20Aranjuez%2C%20Medell%C3%ADn%2C%20Antioquia%2C%20Colombia" target="_blank" rel="noopener"><span data-i18n="evGo">Cómo llegar</span></a><button class="hw-more" type="button" data-act="hwevents" data-i18n="fsMore">Ver el evento</button></div>
           </div>
         </section>
+        <section class="hw-slide gf" data-k="gf" data-promo="fest" aria-labelledby="gfTitle">
+          <div class="hw-fall" id="gfConf" aria-hidden="true"></div>
+          <svg class="hw-waves w2" viewBox="0 0 2400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60 q150 -52 300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 V120 H0Z"/></svg>
+          <svg class="hw-waves w1" viewBox="0 0 2400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70 q150 -46 300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 V120 H0Z"/></svg>
+          <div class="hw-stage">
+            <div class="hw-rays" aria-hidden="true"></div>
+            <i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i><i class="hw-ring" aria-hidden="true"></i>
+            <img class="hw-cup gf-img" src="img/granizado-fest.webp" width="640" height="627" alt="" decoding="async">
+            <span class="hw-gift alt" aria-hidden="true"><small data-i18n="gfUnit">c/u</small>$15.000</span>
+          </div>
+          <div class="hw-copy">
+            <h2 id="gfTitle"><span data-i18n="gfT1">Granizado</span><b data-i18n="gfT2">Fest</b></h2>
+            <span class="hw-lim" data-i18n="gfLim">Por tiempo limitado</span>
+            <div class="ee-pills"><span data-i18n="gfPill1">CocoBlue vs Manguito Spicy</span><span data-i18n="gfPill2">$15.000 c/u</span></div>
+            <p class="ee-meta" data-i18n="gfMeta">Granizados de 16 oz · en todas las sedes y por domicilio</p>
+            <div class="hw-cta"><button class="btn hw-go cyan" type="button" data-act="hwpromo"><span data-i18n="gfGo">Ver la promo</span></button><button class="hw-more" type="button" data-act="hwdomi" data-i18n="gfDomi">Pedir por domicilio</button></div>
+          </div>
+        </section>
 
       </div>
       <div class="hw-foot">
-        <div class="hw-tabs" id="hwTabs" role="tablist"><button type="button" role="tab" class="ee on" aria-selected="true" aria-label="La Escuela del Perreo" data-act="hwslide" data-ev="escuela" data-i="0"></button></div>
+        <div class="hw-tabs" id="hwTabs" role="tablist"><button type="button" role="tab" class="ee on" aria-selected="true" aria-label="La Escuela del Perreo" data-act="hwslide" data-ev="escuela" data-i="0"></button><button type="button" role="tab" class="gf" aria-selected="false" aria-label="Granizado Fest" data-act="hwslide" data-promo="fest" data-i="1"></button></div>
       </div>
     </div>
   </div>
@@ -1158,7 +1204,11 @@ const RECO_FIXED = {p:null, d:null};  // recomendación fija; null = rota sola c
 
 // Promociones: se muestran solo entre "from" y "until" (AAAA-MM-DD, ambas opcionales) y salen solas al vencer.
 // {id:'promo-1', m:'pd', es:'', en:'', dEs:'', dEn:'', price:0, img:null, from:'2026-11-01', until:'2026-11-30'}
-const PROMOS = [];
+const PROMOS = [
+  // Granizado Fest: CocoBlue o Manguito Spicy, 16 oz, $15.000 c/u, sin fecha de fin (quitar esta entrada cuando termine; flat = el precio no lleva "Desde")
+  {id:'fest', m:'pd', es:'Granizado Fest', en:'Granizado Fest', dEs:'CocoBlue vs Manguito Spicy · 16 oz · por tiempo limitado', dEn:'CocoBlue vs Manguito Spicy · 16 oz · limited time', price:15000, flat:true, unit:'c/u', img:'granizado-fest',
+    vars:[{es:'CocoBlue 16 oz',en:'CocoBlue 16 oz',price:15000},{es:'Manguito Spicy 16 oz',en:'Manguito Spicy 16 oz',price:15000}]}
+];
 
 // Home: recomendados por tipo de persona (ids de productos; se muestran los que haya en la carta elegida)
 const RECOS = {
@@ -1324,7 +1374,7 @@ const DELI = SEDES.findIndex(s => s.n===DELIVERY_SEDE);
    TEXTOS DE LA INTERFAZ
    ========================================================= */
 const UI = {
-  es:{eeHead:'Evento en Manrique',eeSat:'Sáb',eeT1:'La Escuela',eeT2:'del Perreo',eeLim:'Sáb 28 nov · desde las 9:00 PM',eePill1:'2 litros por $180.000',eePill2:'Gemelas del Perreo 2x1 · $39.000',eeMeta:'Manrique · Clásicos, dancehall y reggaetón · DJ Xander en vivo',eeAlt:'Chica con uniforme escolar sosteniendo un granizado sin límites',eeOf:'de',eePromo:'Promo Escuela',ee2L:'2 litros por solo',eeGem:'Promo Gemelas del Perreo 2x1',eeStyles:'Clásicos · Dancehall · Reggaetón',eeSince:h=>`Desde las ${h}`,eeWaBtn:'Escríbenos',eeWa:'Hola El Coctelazo 👋 Quiero la Promo Escuela en Manrique (sábado 28 de noviembre): 2 litros por $180.000 o Gemelas del Perreo 2x1 por $39.000.',fsMore:'Ver el evento',legAlc:'Prohibida la venta de alcohol a menores de 18 años.',legHealth:'El exceso de alcohol es perjudicial para la salud.',legPolicy:'Política de tratamiento de datos personales',legDrawer:'Al enviar tu pedido autorizas el tratamiento de tus datos según nuestra <a href="politica-datos.html" target="_blank" rel="noopener">política de datos personales</a>. Licor solo para mayores de 18 años.',tmr:'mañana',adultsOnly:'No se permite el ingreso de menores de edad',sugT:n=>`Te faltan <b>${n}</b> para el domicilio. Te recomendamos:`,sugAdd:'Agregar',locUse:'Usar mi ubicación',locBusy:'Buscando…',locView:'Ver en el mapa',locNeedAddr:'Escribe primero tu dirección',locErr:'No pudimos obtener tu ubicación. Revisa el permiso del navegador o escribe tu dirección.',locNo:'Tu navegador no permite compartir la ubicación.',locShared:'Ubicación compartida',locFromAddr:'Dirección en el mapa',locKm:(km,s)=>`≈ ${km} de ${s}`,locOpen:'Abrir en Waze',locRemove:'Quitar',locHint:'Puedes escribir la dirección o compartir tu ubicación: se envía junto al pedido por WhatsApp.',locMsg:'Ubicación',mbP:'Carta de punto de venta',mbPs:'precios en sede',mbD:'Carta de domicilios',mbDs:'pedido por WhatsApp',seeAll:'Ver todo',homeCatsTitle:'Explora la carta',tabEventos:'Eventos',evEmpty:'Pronto anunciaremos nuevos eventos.',evEye:'Evento',evGo:'Cómo llegar',evToday:'¡Es hoy!',evTomorrow:'¡Es mañana!',evDays:n=>`Faltan ${n} días`,evDate:'Fecha',tabHome:'Home',modeP:'Punto de venta',modeD:'Domicilios',modeAria:'Elige la carta',newb:'NUEVO',recoTitle:'Recomendados para ti',recoSub:'Elige con quién vas y te decimos qué pedir.',recoP:'Parejas',recoA:'Amigos',recoF:'Familia',recoPt:'Para una noche de dos',recoAt:'Para compartir con los amigos',recoFt:'Para toda la familia, con opciones sin licor',famTitle:'Nueva familia de granizados',famSub:'Vasos nuevos, sabores nuevos.',famAll:'Ver en la carta',evtTitle:'Eventos',evtBtn:'Ver especiales',tueEye:'¡Hoy es martes!',tueInfoEye:'Todos los martes',tueTitle:'Martes de granizado',tueSub:'Granizado tradicional y cremoso',tueTrad:'Tradicional 16 oz',tueCrem:'Cremoso 16 oz',tueNote:'Todas las sedes de Medellín, menos Provenza',tueToday:'Solo hoy',tueDays:n=>n===1?'Mañana es martes: ¡no te lo pierdas!':`Faltan ${n} días para el próximo martes`,tabPuntos:'Carta',tabDomis:'Domicilios',tabInfo:'Sedes',ctaMenu:'Ver la carta',ctaDomis:'Pedir domicilio',ctaSedes:'Nuestras sedes',
+  es:{gfHead:'Granizado Fest',gfT1:'Granizado',gfT2:'Fest',gfLim:'Por tiempo limitado',gfPill1:'CocoBlue vs Manguito Spicy',gfPill2:'$15.000 c/u',gfUnit:'c/u',gfMeta:'Granizados de 16 oz · en todas las sedes y por domicilio',gfSub:'CocoBlue vs Manguito Spicy · vaso de 16 oz',gfAlt:'Granizado CocoBlue y granizado Manguito Spicy en vaso de 16 onzas',gfGo:'Ver la promo',gfOrder:'Pedir ahora',gfDomi:'Pedir por domicilio',eeHead:'Evento en Manrique',eeSat:'Sáb',eeT1:'La Escuela',eeT2:'del Perreo',eeLim:'Sáb 28 nov · desde las 9:00 PM',eePill1:'2 litros por $180.000',eePill2:'Gemelas del Perreo 2x1 · $39.000',eeMeta:'Manrique · Clásicos, dancehall y reggaetón · DJ Xander en vivo',eeAlt:'Chica con uniforme escolar sosteniendo un granizado sin límites',eeOf:'de',eePromo:'Promo Escuela',ee2L:'2 litros por solo',eeGem:'Promo Gemelas del Perreo 2x1',eeStyles:'Clásicos · Dancehall · Reggaetón',eeSince:h=>`Desde las ${h}`,eeWaBtn:'Escríbenos',eeWa:'Hola El Coctelazo 👋 Quiero la Promo Escuela en Manrique (sábado 28 de noviembre): 2 litros por $180.000 o Gemelas del Perreo 2x1 por $39.000.',fsMore:'Ver el evento',legAlc:'Prohibida la venta de alcohol a menores de 18 años.',legHealth:'El exceso de alcohol es perjudicial para la salud.',legPolicy:'Política de tratamiento de datos personales',legDrawer:'Al enviar tu pedido autorizas el tratamiento de tus datos según nuestra <a href="politica-datos.html" target="_blank" rel="noopener">política de datos personales</a>. Licor solo para mayores de 18 años.',tmr:'mañana',adultsOnly:'No se permite el ingreso de menores de edad',sugT:n=>`Te faltan <b>${n}</b> para el domicilio. Te recomendamos:`,sugAdd:'Agregar',locUse:'Usar mi ubicación',locBusy:'Buscando…',locView:'Ver en el mapa',locNeedAddr:'Escribe primero tu dirección',locErr:'No pudimos obtener tu ubicación. Revisa el permiso del navegador o escribe tu dirección.',locNo:'Tu navegador no permite compartir la ubicación.',locShared:'Ubicación compartida',locFromAddr:'Dirección en el mapa',locKm:(km,s)=>`≈ ${km} de ${s}`,locOpen:'Abrir en Waze',locRemove:'Quitar',locHint:'Puedes escribir la dirección o compartir tu ubicación: se envía junto al pedido por WhatsApp.',locMsg:'Ubicación',mbP:'Carta de punto de venta',mbPs:'precios en sede',mbD:'Carta de domicilios',mbDs:'pedido por WhatsApp',seeAll:'Ver todo',homeCatsTitle:'Explora la carta',tabEventos:'Eventos',evEmpty:'Pronto anunciaremos nuevos eventos.',evEye:'Evento',evGo:'Cómo llegar',evToday:'¡Es hoy!',evTomorrow:'¡Es mañana!',evDays:n=>`Faltan ${n} días`,evDate:'Fecha',tabHome:'Home',modeP:'Punto de venta',modeD:'Domicilios',modeAria:'Elige la carta',newb:'NUEVO',recoTitle:'Recomendados para ti',recoSub:'Elige con quién vas y te decimos qué pedir.',recoP:'Parejas',recoA:'Amigos',recoF:'Familia',recoPt:'Para una noche de dos',recoAt:'Para compartir con los amigos',recoFt:'Para toda la familia, con opciones sin licor',famTitle:'Nueva familia de granizados',famSub:'Vasos nuevos, sabores nuevos.',famAll:'Ver en la carta',evtTitle:'Eventos',evtBtn:'Ver especiales',tueEye:'¡Hoy es martes!',tueInfoEye:'Todos los martes',tueTitle:'Martes de granizado',tueSub:'Granizado tradicional y cremoso',tueTrad:'Tradicional 16 oz',tueCrem:'Cremoso 16 oz',tueNote:'Todas las sedes de Medellín, menos Provenza',tueToday:'Solo hoy',tueDays:n=>n===1?'Mañana es martes: ¡no te lo pierdas!':`Faltan ${n} días para el próximo martes`,tabPuntos:'Carta',tabDomis:'Domicilios',tabInfo:'Sedes',ctaMenu:'Ver la carta',ctaDomis:'Pedir domicilio',ctaSedes:'Nuestras sedes',
     searchLabel:'Buscar en la carta',searchPh:'Busca un granizado, una bomba, un nevecón…',surprise:'Sorpréndeme',footLine:'El Coctelazo — Medellín',
     sedesTitle:'Nuestras sedes',address:'Dirección',hours:'Horario',hoursV:'Lunes a domingo: 2:30 PM – 12:00 AM · Fines de semana hasta las 2:00 AM',hoursD:'Domicilios',hoursDV:'Todos los días: 4:30 PM – 12:30 AM',
     how:'Cómo llegar',map:'Ver mapa',hideMap:'Ocultar mapa',creditL:'© 2026 Sonetix. Páginas web a la medida.',locTitle:'Encuentra tu sede más cercana',locSub:'Te mostramos la más cerca de ti y cómo llegar',locAgain:'Actualizar mi ubicación',locAgainSub:'Volver a buscar la sede más cercana',locBusy:'Buscando tu ubicación…',
@@ -1349,7 +1399,7 @@ const UI = {
     results:(n,q)=>`${n} resultado${n===1?'':'s'} para «${q}»`,noRes:'Nada por aquí',noResSub:'Prueba con otra palabra: granizado, bomba, nevecón…',
     close:'Cerrar',top:'Volver arriba',unit:'c/u',from:'desde',pending:'Precio por confirmar',
     mNoteP:'Precio en nuestras sedes. ',mNoteGo:'Pídelo a domicilio →',liter:'Litro',half:'Media'},
-  en:{eeHead:'Event at Manrique',eeSat:'Sat',eeT1:'The School',eeT2:'of Perreo',eeLim:'Sat Nov 28 · from 9:00 PM',eePill1:'2 liters for $180,000',eePill2:'Gemelas del Perreo 2x1 · $39,000',eeMeta:'Manrique · Classics, dancehall and reggaeton · Live DJ Xander',eeAlt:'Girl in a school uniform holding a limitless slush',eeOf:'of',eePromo:'School Promo',ee2L:'2 liters for only',eeGem:'Gemelas del Perreo promo 2x1',eeStyles:'Classics · Dancehall · Reggaeton',eeSince:h=>`From ${h}`,eeWaBtn:'Message us',eeWa:'Hi El Coctelazo 👋 I want the School Promo at Manrique (Saturday, November 28): 2 liters for $180,000 or Gemelas del Perreo 2x1 for $39,000.',fsMore:'See the event',legAlc:'Sale of alcohol to anyone under 18 is prohibited.',legHealth:'Excessive alcohol consumption is harmful to health.',legPolicy:'Personal data processing policy (Spanish)',legDrawer:'By sending your order you authorize the processing of your data under our <a href="politica-datos.html" target="_blank" rel="noopener">personal data policy</a> (Spanish). Alcohol is sold only to adults (18+).',tmr:'tomorrow',adultsOnly:'Minors are not allowed',sugT:n=>`You need <b>${n}</b> more for delivery. We suggest:`,sugAdd:'Add',locUse:'Use my location',locBusy:'Locating…',locView:'See on map',locNeedAddr:'Type your address first',locErr:'We could not get your location. Check the browser permission or type your address.',locNo:'Your browser does not allow sharing your location.',locShared:'Location shared',locFromAddr:'Address on the map',locKm:(km,s)=>`≈ ${km} from ${s}`,locOpen:'Open in Waze',locRemove:'Remove',locHint:'Type your address or share your location: it is sent with the order on WhatsApp.',locMsg:'Location',mbP:'In-store menu',mbPs:'venue prices',mbD:'Delivery menu',mbDs:'order via WhatsApp',seeAll:'See all',homeCatsTitle:'Explore the menu',tabEventos:'Events',evEmpty:'New events coming soon.',evEye:'Event',evGo:'Get directions',evToday:'It’s today!',evTomorrow:'It’s tomorrow!',evDays:n=>`${n} days to go`,evDate:'Date',tabHome:'Home',modeP:'In-store',modeD:'Delivery',modeAria:'Choose the menu',newb:'NEW',recoTitle:'Picked for you',recoSub:'Tell us who you’re with and we’ll tell you what to order.',recoP:'Couples',recoA:'Friends',recoF:'Family',recoPt:'For a night for two',recoAt:'To share with friends',recoFt:'For the whole family, with alcohol-free options',famTitle:'New slush family',famSub:'New cups, new flavors.',famAll:'See in the menu',evtTitle:'Events',evtBtn:'See specials',tueEye:'It’s Tuesday!',tueInfoEye:'Every Tuesday',tueTitle:'Slush Tuesday',tueSub:'Traditional and creamy slushes',tueTrad:'Traditional 16 oz',tueCrem:'Creamy 16 oz',tueNote:'All Medellín locations, except Provenza',tueToday:'Today only',tueDays:n=>n===1?'Tomorrow is Tuesday: don’t miss it!':`${n} days until next Tuesday`,tabPuntos:'Menu',tabDomis:'Delivery',tabInfo:'Locations',ctaMenu:'See the menu',ctaDomis:'Order delivery',ctaSedes:'Our locations',
+  en:{gfHead:'Granizado Fest',gfT1:'Granizado',gfT2:'Fest',gfLim:'Limited time',gfPill1:'CocoBlue vs Manguito Spicy',gfPill2:'$15,000 each',gfUnit:'each',gfMeta:'16 oz slushies · at every location and by delivery',gfSub:'CocoBlue vs Manguito Spicy · 16 oz cup',gfAlt:'CocoBlue slush and Manguito Spicy slush in 16 oz cups',gfGo:'See the deal',gfOrder:'Order now',gfDomi:'Order for delivery',eeHead:'Event at Manrique',eeSat:'Sat',eeT1:'The School',eeT2:'of Perreo',eeLim:'Sat Nov 28 · from 9:00 PM',eePill1:'2 liters for $180,000',eePill2:'Gemelas del Perreo 2x1 · $39,000',eeMeta:'Manrique · Classics, dancehall and reggaeton · Live DJ Xander',eeAlt:'Girl in a school uniform holding a limitless slush',eeOf:'of',eePromo:'School Promo',ee2L:'2 liters for only',eeGem:'Gemelas del Perreo promo 2x1',eeStyles:'Classics · Dancehall · Reggaeton',eeSince:h=>`From ${h}`,eeWaBtn:'Message us',eeWa:'Hi El Coctelazo 👋 I want the School Promo at Manrique (Saturday, November 28): 2 liters for $180,000 or Gemelas del Perreo 2x1 for $39,000.',fsMore:'See the event',legAlc:'Sale of alcohol to anyone under 18 is prohibited.',legHealth:'Excessive alcohol consumption is harmful to health.',legPolicy:'Personal data processing policy (Spanish)',legDrawer:'By sending your order you authorize the processing of your data under our <a href="politica-datos.html" target="_blank" rel="noopener">personal data policy</a> (Spanish). Alcohol is sold only to adults (18+).',tmr:'tomorrow',adultsOnly:'Minors are not allowed',sugT:n=>`You need <b>${n}</b> more for delivery. We suggest:`,sugAdd:'Add',locUse:'Use my location',locBusy:'Locating…',locView:'See on map',locNeedAddr:'Type your address first',locErr:'We could not get your location. Check the browser permission or type your address.',locNo:'Your browser does not allow sharing your location.',locShared:'Location shared',locFromAddr:'Address on the map',locKm:(km,s)=>`≈ ${km} from ${s}`,locOpen:'Open in Waze',locRemove:'Remove',locHint:'Type your address or share your location: it is sent with the order on WhatsApp.',locMsg:'Location',mbP:'In-store menu',mbPs:'venue prices',mbD:'Delivery menu',mbDs:'order via WhatsApp',seeAll:'See all',homeCatsTitle:'Explore the menu',tabEventos:'Events',evEmpty:'New events coming soon.',evEye:'Event',evGo:'Get directions',evToday:'It’s today!',evTomorrow:'It’s tomorrow!',evDays:n=>`${n} days to go`,evDate:'Date',tabHome:'Home',modeP:'In-store',modeD:'Delivery',modeAria:'Choose the menu',newb:'NEW',recoTitle:'Picked for you',recoSub:'Tell us who you’re with and we’ll tell you what to order.',recoP:'Couples',recoA:'Friends',recoF:'Family',recoPt:'For a night for two',recoAt:'To share with friends',recoFt:'For the whole family, with alcohol-free options',famTitle:'New slush family',famSub:'New cups, new flavors.',famAll:'See in the menu',evtTitle:'Events',evtBtn:'See specials',tueEye:'It’s Tuesday!',tueInfoEye:'Every Tuesday',tueTitle:'Slush Tuesday',tueSub:'Traditional and creamy slushes',tueTrad:'Traditional 16 oz',tueCrem:'Creamy 16 oz',tueNote:'All Medellín locations, except Provenza',tueToday:'Today only',tueDays:n=>n===1?'Tomorrow is Tuesday: don’t miss it!':`${n} days until next Tuesday`,tabPuntos:'Menu',tabDomis:'Delivery',tabInfo:'Locations',ctaMenu:'See the menu',ctaDomis:'Order delivery',ctaSedes:'Our locations',
     searchLabel:'Search the menu',searchPh:'Search a slush, a bomba, a nevecón…',surprise:'Surprise me',footLine:'El Coctelazo — Medellín',
     sedesTitle:'Our locations',address:'Address',hours:'Hours',hoursV:'Monday to Sunday: 2:30 PM – 12:00 AM · Weekends until 2:00 AM',hoursD:'Delivery',hoursDV:'Every day: 4:30 PM – 12:30 AM',
     how:'Get directions',map:'Show map',hideMap:'Hide map',creditL:'© 2026 Sonetix. Websites made to measure.',locTitle:'Find your nearest location',locSub:'We’ll show the closest one to you and how to get there',locAgain:'Update my location',locAgainSub:'Search for the nearest location again',locBusy:'Finding your location…',
@@ -1428,7 +1478,7 @@ function priceHTML(it){
   if (it.hidePrice) return '';
   if (noPrice(it)) return `<span class="pend">${t('pending')}</span>`;
   return it.vars
-    ? `<span class="fromlbl">${t('from')}</span>${money(minPrice(it))}`
+    ? (it.flat?'':`<span class="fromlbl">${t('from')}</span>`) + money(minPrice(it)) + (it.unit?` <small>${it.unit}</small>`:'')
     : money(priceOf(it)) + (it.unit?` <small>${it.unit}</small>`:'');
 }
 function addBtnHTML(it){
@@ -1646,6 +1696,17 @@ function promoHTML(){
     <div class="promo-prices"><div><b>2x1</b><span>${t('tueTrad')}</span><em>${money(MARTES.trad)}</em></div><div><b>2x1</b><span>${t('tueCrem')}</span><em>${money(MARTES.crem)}</em></div></div>
     <small>${t('tueNote')}</small>${tue?'':`<div class="promo-days">${t('tueDays')(daysToTuesday())}</div>`}</section>`;
 }
+const festOn = () => { const p = BY_ID.fest; return !!p && promoOn(p); };
+function festHTML(){
+  if (!festOn()) return '';
+  return `<section class="fest" aria-label="${esc(t('gfT1')+' '+t('gfT2'))}">
+    <figure class="fest-photo"><img src="img/granizado-fest.webp" width="640" height="627" alt="${esc(t('gfAlt'))}" loading="lazy" decoding="async"></figure>
+    <div><span class="fest-eye">${t('gfLim')}</span>
+    <h2>${t('gfT1')} <b>${t('gfT2')}</b></h2><p>${t('gfSub')}</p>
+    <div class="fest-price"><em>${money(BY_ID.fest.price)}</em><span>${t('gfUnit')}</span></div>
+    <p>${t('gfMeta')}</p>
+    <div class="fest-cta"><button class="btn primary" type="button" data-act="gocat" data-c="promos">${isD()?t('gfOrder'):t('gfGo')} →</button>${isD()?'':`<button class="btn ghost" type="button" data-act="hwdomi">${t('gfDomi')}</button>`}</div></div></section>`;
+}
 let recoKey = 'parejas';
 function recoHTML(){
   const labels = {parejas:t('recoP'),amigos:t('recoA'),familia:t('recoF')}, texts = {parejas:t('recoPt'),amigos:t('recoAt'),familia:t('recoFt')};
@@ -1696,7 +1757,7 @@ function catsHTML(){
   return `<section class="hsec hcats"><div class="sec-head"><h2>${t('homeCatsTitle')}</h2></div><div class="hcat-row">${catList().map(c=>`<button class="chip" type="button" data-act="gocat" data-c="${c.id}">${esc(pick(c))}</button>`).join('')}</div></section>`;
 }
 function renderHome(){
-  $('#homeRoot').innerHTML = modeSwHTML() + catsHTML() + `<div id="homePromo">${promoHTML()}</div>` + featuredHTML() + recoHTML() + familyHTML();
+  $('#homeRoot').innerHTML = modeSwHTML() + catsHTML() + `<div id="homePromo">${promoHTML()}</div>` + festHTML() + featuredHTML() + recoHTML() + familyHTML();
 }
 
 /* ---- sedes y ubicación ---- */
@@ -2079,6 +2140,8 @@ document.addEventListener('click', e=>{
   if (act==='rm'){ state.cart.splice(i,1); saveCart(); renderCart(); return; }
   if (act==='map'){ toggleMap(i,el); return; }
   if (act==='goDomis'){ goDomis(); return; }
+  if (act==='hwpromo'){ closeHW(); state.cat='promos'; setView(state.menu,{scroll:false}); toContent(); return; }
+  if (act==='hwdomi'){ if (el.closest('#hw')) closeHW(); state.cat='promos'; setView('domis',{scroll:false}); toContent(); return; }
   if (act==='hwevents'){ closeHW(); setView('eventos',{scroll:false}); toContent(); return; }
   if (act==='gosedes'){ closeHW(); setView('info',{scroll:false}); toContent(); return; }
   if (act==='hwclose'){ closeHW(); return; }
@@ -2319,16 +2382,19 @@ function refreshStatuses(){
 /* Ventana de eventos del inicio: confeti al azar, carrusel, abrir y cerrar */
 (function buildFx(){
   const r = Math.random;
+  $('#gfConf').innerHTML = Array.from({length:16},(_,k)=>`<span class="hw-conf" style="left:${(r()*96).toFixed(1)}%;background:${['#29d8ff','#ffffff','#ff5b9a','#ffb238'][k%4]};--d:${(4+r()*4).toFixed(1)}s;--dl:${(-r()*8).toFixed(1)}s;--dx:${(r()*60-30)|0}px"></span>`).join('');
   $('#eeConf').innerHTML = Array.from({length:16},(_,k)=>`<span class="hw-conf" style="left:${(r()*96).toFixed(1)}%;background:${['#ff2a2f','#ffffff','#ff8fb3','#ffd21f'][k%4]};--d:${(4+r()*4).toFixed(1)}s;--dl:${(-r()*8).toFixed(1)}s;--dx:${(r()*60-30)|0}px"></span>`).join('');
 })();
 /* la lámina de un evento sale del banner el mismo día en que empieza (salvo bannerHoy) y, en todo caso, cuando termina; en Eventos sigue hasta que termina */
-(function(){ $$('.hw-slide[data-ev]').forEach(el=>{ const f = EVENTS.find(e=>e.id===el.dataset.ev); if (f && (!f.until || f.until>=todayStr()) && (f.date>todayStr() || f.bannerHoy)) return; $('#hwTabs [data-ev="'+el.dataset.ev+'"]')?.remove(); el.remove(); }); })();
+(function(){ $$('.hw-slide[data-promo]').forEach(el=>{ const p = BY_ID[el.dataset.promo]; if (p && promoOn(p)) return; $('#hwTabs [data-promo="'+el.dataset.promo+'"]')?.remove(); el.remove(); });
+  $$('.hw-slide[data-ev]').forEach(el=>{ const f = EVENTS.find(e=>e.id===el.dataset.ev); if (f && (!f.until || f.until>=todayStr()) && (f.date>todayStr() || f.bannerHoy)) return; $('#hwTabs [data-ev="'+el.dataset.ev+'"]')?.remove(); el.remove(); }); })();
 const hwSlideEls = $$('.hw-slide'), hwTabs = $$('#hwTabs button'), HW_MS = 4500;
 hwTabs.forEach((b,k)=>{ b.dataset.i = k; });
 let hwIdx = 0, hwTimer = null;
 function hwShow(i){
   hwIdx = i;
   hwSlideEls.forEach((el,k)=>el.classList.toggle('on',k===i));
+  $('#hw').dataset.k = hwSlideEls[i]?.dataset.k || '';
   hwTabs.forEach((b,k)=>{ b.classList.toggle('on',k===i); b.setAttribute('aria-selected',String(k===i)); b.classList.remove('timing'); });
   if (hwTimer){ void hwTabs[i].offsetWidth; hwTabs[i].classList.add('timing'); }   // barrita que avisa cuándo cambia
 }
